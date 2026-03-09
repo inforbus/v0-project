@@ -80,20 +80,6 @@ export function HonorsSection() {
           </div>
         </ScrollReveal>
       </div>
-
-      <ScrollReveal delay={400}>
-        <div className="relative z-10 mx-auto mt-12 flex max-w-3xl items-center justify-center gap-8 px-4 md:gap-16 lg:mt-16 3xl:mt-20 3xl:max-w-4xl">
-          {[{ num: "30+", label: "年行业深耕" }, { num: "xxx+", label: "项荣誉奖项" }, { num: "xxx", label: "项核心认证" }].map((stat, i) => (
-            <React.Fragment key={i}>
-              {i > 0 && <div className="h-8 w-px bg-border" />}
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary md:text-3xl 3xl:text-4xl">{stat.num}</div>
-                <div className="mt-1 text-xs text-muted-foreground md:text-sm 3xl:text-base">{stat.label}</div>
-              </div>
-            </React.Fragment>
-          ))}
-        </div>
-      </ScrollReveal>
     </section>
   )
 }
