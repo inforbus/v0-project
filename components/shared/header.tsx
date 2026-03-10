@@ -4,11 +4,10 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
-import { getProductCategories, type NavItem } from "./nav-data"
+import { type NavItem, type ProductCategory } from "./nav-data"
 
-function ProductMegaMenu() {
+function ProductMegaMenu({ productCategories }: { productCategories: ProductCategory[] }) {
   const [activeCategory, setActiveCategory] = useState(0)
-  const productCategories = getProductCategories()
 
   return (
     <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
@@ -53,7 +52,7 @@ function ProductMegaMenu() {
   )
 }
 
-function MobileNavItem({ item }: { item: NavItem }) {
+function MobileNavItem({ item, productCategories }: { item: NavItem; productCategories: ProductCategory[] }) {
   const [expanded, setExpanded] = useState(false)
   const hasChildren = item.children.length > 0 || item.isMega
 
@@ -92,7 +91,7 @@ function MobileNavItem({ item }: { item: NavItem }) {
       )}
       {item.isMega && expanded && (
         <div className="pb-2 pl-4">
-          {getProductCategories().map((category, catIdx) => (
+          {productCategories.map((category, catIdx) => (
             <div key={catIdx} className="mb-2">
               <Link
                 href={category.href}
@@ -119,7 +118,7 @@ function MobileNavItem({ item }: { item: NavItem }) {
   )
 }
 
-export function Header({ navItems, variant = "default" }: { navItems: NavItem[]; variant?: "default" | "overlay" }) {
+export function Header({ navItems, productCategories, variant = "default" }: { navItems: NavItem[]; productCategories: ProductCategory[]; variant?: "default" | "overlay" }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isOverlay = variant === "overlay"
 
@@ -155,7 +154,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
 
                 {item.isMega && (
                   <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
-                    <ProductMegaMenu />
+                    <ProductMegaMenu productCategories={productCategories} />
                   </div>
                 )}
 
@@ -192,7 +191,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
           <div className="max-h-[70vh] overflow-y-auto border-t border-border bg-background lg:hidden">
             <div className="px-4 py-4">
               {navItems.map((item, index) => (
-                <MobileNavItem key={index} item={item} />
+                <MobileNavItem key={index} item={item} productCategories={productCategories} />
               ))}
             </div>
           </div>

@@ -5,11 +5,12 @@ import { useState } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { getNavItems } from "@/components/shared/nav-data"
+import { getNavItems, getProductCategories } from "@/components/shared/nav-data"
 
 export default function OnlineServicePage() {
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const navItems = getNavItems("/support/online")
+  const productCategories = getProductCategories()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -25,7 +26,7 @@ export default function OnlineServicePage() {
 
   return (
     <div className="min-h-screen w-full bg-background">
-      <Header navItems={navItems} />
+      <Header navItems={navItems} productCategories={productCategories} />
 
       {/* Banner Section */}
       <section className="relative w-full overflow-hidden bg-gradient-to-r from-primary/10 to-primary/5 py-12 lg:py-20">

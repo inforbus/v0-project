@@ -4,9 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
+import { getNavItems, getProductCategories } from "@/components/shared/nav-data"
 
 const navItems = getNavItems("/products")
+const productCategories = getProductCategories()
 
 const bannerSlides = [
   {
@@ -99,7 +100,7 @@ export function MiddlewareHeroSection() {
         </div>
       ))}
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} productCategories={productCategories} />
 
       {/* Slide text overlay - for slides with text content */}
       {bannerSlides.map((slide, index) =>
