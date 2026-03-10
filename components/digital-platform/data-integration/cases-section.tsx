@@ -6,17 +6,17 @@ const cases = [
   {
     title: "多省海事局信息系统数据集成",
     description: "铜分散在各业务系统的共享事项源进行聚合，通过该数据接口方式，协同表结构、主题库和主题整合管理，充分利用开放活动的数据级别分权管理；数据接续：将各海事信息资源转换为标准格式，以协议表结构结构上的转换和数据、定义上的转换两个方向的内容；数据聚合：将各海事信息在数据层面之间的转换与运行一个一体中存储管理。",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%B8%E5%9E%8B%E6%A1%88%E4%BE%8B-52su8aDHYxwS49kZ4Hlbov4QfeurIM.jpg"
+    bgColor: "from-blue-50 to-blue-100"
   },
   {
     title: "某医药数据仓库建设项目",
     description: "某医药数据仓库项目致力于为医院的信息系统中下层广点不同期间设，与数据系统在下层广点不间服务中，经过长期的业务积累和验证，数据特收点到且，统统一管理和分层出来的数据系统中的，中创元穹数据集成平台，将分散在各个数据源中的数据进行统一的存储管理，提高数据的一一存储和管理，提高数据的一一性和可访问性。",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%B8%E5%9E%8B%E6%A1%88%E4%BE%8B-52su8aDHYxwS49kZ4Hlbov4QfeurIM.jpg"
+    bgColor: "from-green-50 to-green-100"
   },
   {
     title: "某省市场监督管理局",
     description: "某省市场监督管理局正在进行市场化产业升级，目前已建设的概念系统不下层广点的数据处理，业务线服务分，该市网市场服务关键等需要进行基于市场分析、数据分析的业务决策。中创元穹数据集成平台通过支撑市场分析数据的统一化，确保整个中心中的数据用于业务决策和系统应用，其次是面向市场监督管理的个性化应用。",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%85%B8%E5%9E%8B%E6%A1%88%E4%BE%8B-52su8aDHYxwS49kZ4Hlbov4QfeurIM.jpg"
+    bgColor: "from-amber-50 to-amber-100"
   }
 ]
 
@@ -45,21 +45,8 @@ export function DataIntegrationCases() {
                 <div className="group relative overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0px_12px_40px_rgba(191,25,32,0.3)]">
                   {/* Case card container */}
                   <div className="relative h-[380px] w-full overflow-hidden rounded-xl bg-white 3xl:h-[500px]">
-                    {/* Background image */}
-                    <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60 transition-opacity duration-500 group-hover:opacity-100">
-                      <img 
-                        src={caseItem.image} 
-                        alt={caseItem.title} 
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        onError={(e) => {
-                          try {
-                            (e.target as HTMLImageElement).style.display = "none"
-                          } catch (error) {
-                            console.log("[v0] Case image error:", error)
-                          }
-                        }}
-                      />
-                    </div>
+                  {/* Background gradient - no external images */}
+                    <div className={`pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-br ${caseItem.bgColor} opacity-40 transition-opacity duration-500 group-hover:opacity-60`}></div>
                     
                     {/* Overlay */}
                     <div className="absolute inset-0 h-full w-full rounded-xl bg-white/90 transition-all duration-500 group-hover:bg-[rgba(191,25,32,0.82)] group-hover:backdrop-blur-[10px]" />
