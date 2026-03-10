@@ -29,7 +29,7 @@ const features = [
 
 export function DataIntegrationFeatures() {
   return (
-    <section className="relative bg-white px-4 py-12 md:py-16 lg:px-0 lg:py-[80px] 3xl:py-[120px]">
+    <section className="relative overflow-hidden bg-white px-4 py-12 md:py-16 lg:px-0 lg:py-[80px] 3xl:py-[120px]">
       {/* Background decorations */}
       <div className="pointer-events-none absolute left-[3%] top-[15%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 7s ease-in-out infinite" }} />
       <div className="pointer-events-none absolute right-[4%] top-[12%] h-2 w-2 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 9s ease-in-out 1.2s infinite" }} />
@@ -38,37 +38,41 @@ export function DataIntegrationFeatures() {
       <div className="pointer-events-none absolute left-[8%] top-[8%] h-[180px] w-[180px] rounded-full bg-[#BF1920]/[0.06] blur-[50px]" style={{ animation: "orb-drift 13s ease-in-out infinite" }} />
       <div className="pointer-events-none absolute right-[10%] bottom-[5%] h-[200px] w-[200px] rounded-full bg-[#BF1920]/[0.05] blur-[55px]" style={{ animation: "orb-drift 16s ease-in-out 2s infinite" }} />
 
-      <div className="relative z-10 mx-auto px-4 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-[1340px] px-4 lg:px-8">
         <ScrollReveal>
-          <h2 className="mb-8 text-center text-2xl font-bold text-[#242222] md:mb-12 md:text-3xl 3xl:mb-16 3xl:text-[40px]">
+          <h2 className="mb-12 text-center text-2xl font-bold leading-[100%] text-[#242222] md:mb-[60px] md:text-3xl 3xl:mb-[80px] 3xl:text-[40px]">
             产品特性
           </h2>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-[1340px]">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 3xl:gap-8">
-            {features.map((feature, index) => (
-              <ScrollReveal key={feature.title} delay={index * 50}>
-                <div className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-[0px_2px_12px_rgba(84,30,30,0.08)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0px_8px_24px_rgba(191,25,32,0.15)] border border-white hover:border-[#BF1920]/20 3xl:p-8">
-                  <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-[#BF1920]/5 transition-all duration-500 group-hover:bg-[#BF1920]/10" />
-                  
-                  <div className="relative z-10">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#BF1920]/10">
+        <div className="flex flex-col gap-4 md:gap-6 lg:gap-4">
+          {features.map((feature, index) => (
+            <ScrollReveal key={feature.title} delay={index * 40}>
+              <div className="group relative overflow-hidden rounded-xl bg-white p-6 md:p-8 shadow-[0px_2px_12px_rgba(84,30,30,0.08)] transition-all duration-500 hover:shadow-[0px_8px_24px_rgba(191,25,32,0.12)] 3xl:p-8">
+                <div className="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-[#BF1920]/3 transition-all duration-500 group-hover:bg-[#BF1920]/8" />
+                
+                <div className="relative z-10 flex gap-4 md:gap-6">
+                  {/* Icon placeholder */}
+                  <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#BF1920]/10 md:h-14 md:w-14">
                       <div className="h-2 w-2 rounded-full bg-[#BF1920]" />
                     </div>
-                    
-                    <h3 className="mb-3 text-lg font-bold text-[#242222] 3xl:text-xl">
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="mb-2 text-base font-bold leading-tight text-[#242222] md:mb-3 md:text-lg 3xl:text-xl">
                       {feature.title}
                     </h3>
                     
-                    <p className="text-sm leading-relaxed text-[#242222]/70 3xl:text-base">
+                    <p className="text-xs leading-relaxed text-[#242222]/70 md:text-sm 3xl:text-base 3xl:leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>
