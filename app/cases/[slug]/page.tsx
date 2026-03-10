@@ -4,7 +4,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { getNavItems } from "@/components/shared/nav-data"
+import { getNavItems, getProductCategories } from "@/components/shared/nav-data"
 import { cases } from "@/lib/cases-data"
 
 /* ── Extended case detail data ─────────────────────────────── */
@@ -241,13 +241,14 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
   }
 
   const navItems = getNavItems("")
+  const productCategories = getProductCategories()
 
   return (
     <div className="min-h-screen w-full bg-background">
       {/* Hero Banner with Header overlay */}
       <section className="relative h-[320px] overflow-hidden md:h-[400px] lg:h-[440px] 3xl:h-[520px]">
         <div className="absolute inset-x-0 top-0 z-30">
-          <Header navItems={navItems} variant="overlay" />
+          <Header navItems={navItems} productCategories={productCategories} variant="overlay" />
         </div>
         <Image
           src={caseItem.photo.replace("w=800", "w=1920")}

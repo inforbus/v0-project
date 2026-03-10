@@ -160,7 +160,7 @@ function MobileNavItem({ item, productCategories }: { item: NavItem; productCate
   )
 }
 
-export function Header({ navItems, productCategories, variant = "default" }: { navItems: NavItem[]; productCategories: ProductCategory[]; variant?: "default" | "overlay" }) {
+export function Header({ navItems, productCategories = [], variant = "default" }: { navItems: NavItem[]; productCategories?: ProductCategory[]; variant?: "default" | "overlay" }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isOverlay = variant === "overlay"
 

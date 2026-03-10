@@ -4,7 +4,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { getNavItems } from "@/components/shared/nav-data"
+import { getNavItems, getProductCategories } from "@/components/shared/nav-data"
 import { solutions } from "@/lib/solutions-data"
 
 export default async function SolutionDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -16,6 +16,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
   }
 
   const navItems = getNavItems("/solutions")
+  const productCategories = getProductCategories()
 
   const iconMap: Record<string, React.ReactNode> = {
     deploy: (
@@ -52,7 +53,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
       {/* Hero Banner */}
       <section className="relative h-[320px] overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[500px]">
         <div className="absolute inset-x-0 top-0 z-30">
-          <Header navItems={navItems} variant="overlay" />
+          <Header navItems={navItems} productCategories={productCategories} variant="overlay" />
         </div>
         <Image src={solution.heroImage} alt={solution.title} fill className="object-cover" priority />
         <div className="absolute inset-x-0 top-0 z-20 h-[120px] bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
