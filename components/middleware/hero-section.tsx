@@ -64,7 +64,7 @@ export function MiddlewareHeroSection() {
         </Link>
         <Link
           href="/video"
-          className="group inline-flex items-center justify-center rounded border-2 border-white bg-transparent px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-white hover:text-[#BF1920] hover:shadow-xl hover:shadow-white/30 active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
+          className="group inline-flex items-center justify-center rounded border-2 border-[#8C8C8C] bg-transparent px-6 py-2.5 text-sm font-medium text-[#8C8C8C] shadow-lg transition-all duration-300 hover:border-[#5a5a5a] hover:text-[#5a5a5a] active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2 transition-colors duration-300">
             <path d="M3 2H13C13.5304 2 14.0391 2.21071 14.4142 2.58579C14.7893 2.96086 15 3.46957 15 4V12C15 12.5304 14.7893 13.0391 14.4142 13.4142C14.0391 13.7893 13.5304 14 13 14H3C2.46957 14 1.96086 13.7893 1.58579 13.4142C1.21071 13.0391 1 12.5304 1 12V4C1 3.46957 1.21071 2.96086 1.58579 2.58579C1.96086 2.21071 2.46957 2 3 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
