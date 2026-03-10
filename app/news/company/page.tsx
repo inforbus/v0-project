@@ -1,6 +1,5 @@
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Image from "next/image"
-import Link from "next/link"
 
 export const metadata = {
   title: "公司要闻 - 中创股份",
@@ -22,24 +21,38 @@ const newsItems = [
 export default function CompanyNewsPage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-background py-12 md:py-16 lg:py-20">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 text-center lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-          <ScrollReveal>
-            <div className="mb-4 flex items-center justify-center gap-2">
-              <Link href="/news" className="text-primary hover:underline">
-                新闻资讯
-              </Link>
-              <span className="text-muted-foreground">/</span>
-              <span className="text-foreground font-medium">公司要闻</span>
-            </div>
-            <h1 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl 3xl:text-6xl">
-              公司要闻
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg 3xl:text-xl">
-              了解中创股份的最新发展动态和企业新闻
-            </p>
-          </ScrollReveal>
+      {/* Hero Section with Banner */}
+      <section className="relative overflow-hidden">
+        {/* Banner Image */}
+        <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
+          <Image
+            src="/images/inforsuite-as-banner.jpg"
+            alt="中创应用服务器软件 InforSuite AS"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Text Overlay */}
+        <div className="absolute inset-0 flex items-center px-4 md:px-8 lg:px-16">
+          <div className="max-w-2xl">
+            <ScrollReveal>
+              <div className="mb-6">
+                <div className="w-24 h-1.5 bg-red-600" style={{ backgroundColor: "#BF1920" }}></div>
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6" style={{ color: "#332C2B", fontFamily: "'Source Han Sans CN', sans-serif" }}>
+                中创应用服务器软件 InforSuite AS
+              </h1>
+              <p className="text-lg md:text-xl text-gray-700 mb-3" style={{ color: "#332C2B", opacity: 0.8, fontFamily: "'Source Han Sans CN', sans-serif" }}>
+                全面通过JaveEE、JakartaEE系列规范认证
+              </p>
+              <p className="text-lg md:text-xl text-gray-700" style={{ color: "#332C2B", opacity: 0.8, fontFamily: "'Source Han Sans CN', sans-serif" }}>
+                国民经济重点行业规模化应用
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
