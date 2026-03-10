@@ -14,10 +14,10 @@ export function OnlineServiceHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} variant="overlay" />
 
       {/* Buttons only */}
-      <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 left-4 md:left-8 md:bottom-14 lg:left-12 3xl:bottom-20 3xl:left-16 3xl:gap-4">
+      <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 right-4 md:right-8 md:bottom-14 lg:right-12 3xl:bottom-20 3xl:right-16 3xl:gap-4">
         <Link
           href="/support/online#contact"
           className="group inline-flex items-center justify-center rounded bg-[#BF1920] px-4 py-2 text-xs font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#a8151b] hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 sm:px-6 sm:py-2.5 sm:text-sm md:text-base 3xl:px-8 3xl:py-3"
