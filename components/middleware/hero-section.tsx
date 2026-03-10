@@ -17,6 +17,27 @@ export function MiddlewareHeroSection() {
 
       <Header navItems={navItems} />
 
+      {/* Main title and subtitle text content */}
+      <div className="absolute inset-0 flex flex-col justify-center px-4 md:px-8 lg:px-12 3xl:px-16">
+        {/* Red accent line */}
+        <div className="h-1 w-24 bg-[#BF1920] md:h-1.5 lg:w-28 3xl:w-32" />
+        
+        {/* Title */}
+        <h1 className="font-sans mt-4 max-w-2xl text-4xl font-bold text-[#332C2B] md:text-5xl lg:text-6xl 3xl:mt-6 3xl:text-7xl" style={{ lineHeight: '1' }}>
+          中创应用服务器软件 InforSuite AS
+        </h1>
+
+        {/* Subtitle 1 */}
+        <p className="font-sans mt-8 max-w-lg text-lg font-normal text-[#332C2B] md:text-xl lg:text-2xl 3xl:mt-10 3xl:text-2xl" style={{ lineHeight: '1', opacity: 0.8 }}>
+          全面通过JaveEE、JakartaEE系列规范认证
+        </p>
+
+        {/* Subtitle 2 */}
+        <p className="font-sans mt-4 max-w-lg text-lg font-normal text-[#332C2B] md:text-xl lg:text-2xl 3xl:mt-5 3xl:text-2xl" style={{ lineHeight: '1', opacity: 0.8 }}>
+          国民经济重点行业规模化应用
+        </p>
+      </div>
+
       {/* Free trial and video buttons */}
       <div className="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col gap-3 lg:bottom-14 lg:flex-row lg:items-center 3xl:bottom-20 3xl:gap-4">
         <Link
