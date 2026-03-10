@@ -42,27 +42,37 @@ export function CompanyTabs() {
         {activeTab === 'profile' && (
           <div className="animate-fadeIn">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {/* Left side - Image with sophisticated styling */}
-              <div className="relative h-96 w-full flex items-center justify-center">
-                {/* Background accent box */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl" />
-                
-                {/* Image container with shadow and border */}
-                <div className="relative h-80 w-80 rounded-2xl overflow-hidden shadow-2xl border border-primary/20 hover:shadow-[0_20px_40px_rgba(191,25,32,0.15)] transition-all duration-300">
-                  <Image
-                    src="/images/company-building.jpg"
-                    alt="中创软件总部"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+              {/* Left side */}
+              <div className="space-y-6">
+                {/* Title section */}
+                <div>
+                  <p className="font-sans text-sm font-semibold text-primary mb-2">COMPANY PROFILE</p>
+                  <h2 className="font-sans text-3xl font-bold text-foreground mb-2">中创软件</h2>
+                  <p className="font-sans text-base text-foreground/60">中国创造 软件中坚</p>
+                </div>
+
+                {/* Image with arc clip-path */}
+                <div className="relative pt-8">
+                  <div 
+                    className="relative h-64 w-full overflow-hidden shadow-lg"
+                    style={{
+                      clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)',
+                    }}
+                  >
+                    <Image
+                      src="/images/company-building.jpg"
+                      alt="中创软件总部"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Right side - Content */}
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-sans text-2xl font-bold text-foreground mb-3">公司介绍</h3>
                   <p className="font-sans text-base text-foreground/80 leading-relaxed">
                     中创软件商用中间件股份有限公司（以下简称"中创中间件"）成立于2002年，是国内领先的基础软件产品与服务提供商，是国家"核高基"科技重大专项支持单位，拥有CMMI DEV 5级资质和ISO9001质量体系认证书，为国际Jakarta EE工作组企业级会员单位。
                   </p>
