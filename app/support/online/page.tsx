@@ -2,11 +2,9 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
-import { Header } from "@/components/shared/header"
-import { Footer } from "@/components/shared/footer"
 import { OnlineServiceHeroSection } from "@/components/online-service/hero-section"
 import { getNavItems } from "@/components/shared/nav-data"
+import { Footer } from "@/components/shared/footer"
 
 export default function OnlineServicePage() {
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
@@ -167,6 +165,48 @@ export default function OnlineServicePage() {
               </button>
             </div>
           </form>
+        </div>
+      </section>
+
+      {/* Quick Contact Info */}
+      <section className="bg-muted py-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <h3 className="mb-8 text-2xl font-bold text-foreground text-center">
+            快速联系方式
+          </h3>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <Phone className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">咨询热线</p>
+              <p className="font-medium text-foreground">400-618-6180</p>
+            </div>
+
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <Mail className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">网址</p>
+              <p className="font-medium text-foreground">www.inforbus.com</p>
+            </div>
+
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <MapPin className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">公司地址</p>
+              <p className="font-medium text-foreground text-sm">山东省济南市历下区千佛山东路41-1号</p>
+            </div>
+
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <Clock className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">在线客服时间</p>
+              <p className="font-medium text-foreground">周一至周五 9:00-17:30</p>
+            </div>
+          </div>
         </div>
       </section>
 
