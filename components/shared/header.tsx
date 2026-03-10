@@ -2,15 +2,21 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getProductCategories, type NavItem } from "./nav-data"
 
 function ProductMegaMenu() {
   const [activeCategory, setActiveCategory] = useState(0)
-  const [productCategories] = useState(() => getProductCategories())
+  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
+  const [isClient, setIsClient] = useState(false)
 
-  if (!productCategories || productCategories.length === 0) {
+  useEffect(() => {
+    setIsClient(true)
+    setProductCategories(getProductCategories())
+  }, [])
+
+  if (!isClient || !productCategories || productCategories.length === 0) {
     return null
   }
 
@@ -59,8 +65,16 @@ function ProductMegaMenu() {
 
 function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
-  const [productCategories] = useState(() => getProductCategories())
+  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
+  const [isClient, setIsClient] = useState(false)
   const hasChildren = item.children.length > 0 || item.isMega
+
+  useEffect(() => {
+    setIsClient(true)
+    if (item.isMega) {
+      setProductCategories(getProductCategories())
+    }
+  }, [item.isMega])
 
   return (
     <div className="border-b border-border/40 last:border-b-0">
@@ -95,7 +109,7 @@ function MobileNavItem({ item }: { item: NavItem }) {
           ))}
         </div>
       )}
-      {item.isMega && expanded && productCategories && productCategories.length > 0 && (
+      {item.isMega && expanded && isClient && productCategories && productCategories.length > 0 && (
         <div className="pb-2 pl-4">
           {productCategories.map((category, catIdx) => (
             <div key={catIdx} className="mb-2">
