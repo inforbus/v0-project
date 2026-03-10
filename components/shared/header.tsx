@@ -2,30 +2,72 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { type NavItem, type ProductCategory } from "./nav-data"
 
 function ProductMegaMenu({ productCategories }: { productCategories: ProductCategory[] }) {
-  const [activeCategory, setActiveCategory] = useState(0)
+  const [activeIdx, setActiveIdx] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isHoveringRef = useRef(false)
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    const buttons = container.querySelectorAll<HTMLButtonElement>(".category-btn")
+    const hoverContainer = container.closest("[data-mega-menu-wrapper]")
+
+    const handleMouseEnter = (idx: number) => {
+      isHoveringRef.current = true
+      setActiveIdx(idx)
+    }
+
+    const handleMouseLeave = () => {
+      isHoveringRef.current = false
+      // Reset to 0 when mouse leaves the entire menu
+      const timer = setTimeout(() => {
+        if (!isHoveringRef.current) {
+          setActiveIdx(0)
+        }
+      }, 200)
+      return () => clearTimeout(timer)
+    }
+
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener("mouseenter", () => handleMouseEnter(idx))
+    })
+
+    hoverContainer?.addEventListener("mouseleave", handleMouseLeave)
+
+    return () => {
+      buttons.forEach((btn) => {
+        btn.removeEventListener("mouseenter", () => handleMouseEnter)
+      })
+      hoverContainer?.removeEventListener("mouseleave", handleMouseLeave)
+    }
+  }, [])
 
   return (
-    <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
+    <div 
+      ref={containerRef}
+      className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" 
+      style={{ minWidth: "680px" }}
+    >
       <div className="flex w-[180px] flex-shrink-0 flex-col bg-muted py-2">
         {productCategories.map((category, idx) => (
           <button
             key={idx}
             type="button"
-            onMouseEnter={() => setActiveCategory(idx)}
-            onClick={() => setActiveCategory(idx)}
-            className={`relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${activeCategory === idx
-              ? "bg-background font-semibold text-primary"
-              : "font-medium text-foreground/80 hover:bg-background/80 hover:text-primary"
-              }`}
+            className={`category-btn relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${
+              activeIdx === idx
+                ? "bg-background font-semibold text-primary"
+                : "font-medium text-foreground/80 hover:bg-background/80 hover:text-primary"
+            }`}
           >
             {category.name}
-            <ChevronRight className={`h-3.5 w-3.5 transition-colors ${activeCategory === idx ? "text-primary" : "text-muted-foreground"}`} />
-            {activeCategory === idx && (
+            <ChevronRight className={`h-3.5 w-3.5 transition-colors ${activeIdx === idx ? "text-primary" : "text-muted-foreground"}`} />
+            {activeIdx === idx && (
               <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r bg-primary" />
             )}
           </button>
@@ -33,11 +75,11 @@ function ProductMegaMenu({ productCategories }: { productCategories: ProductCate
       </div>
       <div className="flex flex-1 flex-col border-l border-border px-6 py-4">
         <h4 className="mb-3 text-sm font-semibold text-foreground">
-          {productCategories[activeCategory]?.name}
+          {productCategories[activeIdx]?.name}
         </h4>
         <div className="mb-3 h-px w-full bg-border" />
         <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-          {productCategories[activeCategory]?.children.map((child, cIdx) => (
+          {productCategories[activeIdx]?.children.map((child, cIdx) => (
             <Link
               key={cIdx}
               href={child.href}
