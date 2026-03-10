@@ -1,21 +1,10 @@
 "use client"
 
-import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 export function DataIntegrationArchitecture() {
   return (
     <section className="relative overflow-hidden bg-white px-4 py-12 md:py-16 lg:px-0 lg:py-[80px] lg:pt-[80px] 3xl:py-[120px] 3xl:pt-[121px]">
-      {/* Background Wave */}
-      <div className="pointer-events-none absolute inset-0 h-full w-full opacity-50">
-        <Image
-          src="/images/section-bg-wave.png"
-          alt=""
-          fill
-          className="object-cover"
-          style={{ mixBlendMode: "soft-light" }}
-        />
-      </div>
       {/* Dynamic background decorations */}
       <div className="pointer-events-none absolute left-[3%] top-[12%] h-3 w-3 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 7s ease-in-out infinite" }} />
       <div className="pointer-events-none absolute right-[5%] top-[22%] h-2 w-2 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 9s ease-in-out 1.5s infinite" }} />
@@ -65,13 +54,39 @@ export function DataIntegrationArchitecture() {
                     backdropFilter: "blur(3.9px)",
                   }}
                 >
-                  <Image
-                    src="/images/inforsuite-architecture.png"
-                    alt="InforSuite DIP 架构图"
-                    width={489}
-                    height={339}
-                    className="h-auto w-[79%] object-contain"
-                  />
+                  {/* Placeholder architecture diagram */}
+                  <div className="flex items-center justify-center w-full h-full">
+                    <svg viewBox="0 0 489 339" className="w-[79%] h-auto" fill="none">
+                      <text x="245" y="30" textAnchor="middle" className="text-sm font-bold" fill="#333">数据源接入层</text>
+                      <rect x="80" y="50" width="100" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
+                      <text x="130" y="85" textAnchor="middle" className="text-xs" fill="#666">MySQL</text>
+                      
+                      <rect x="210" y="50" width="100" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
+                      <text x="260" y="85" textAnchor="middle" className="text-xs" fill="#666">Oracle</text>
+                      
+                      <rect x="340" y="50" width="100" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
+                      <text x="390" y="85" textAnchor="middle" className="text-xs" fill="#666">API</text>
+                      
+                      <text x="245" y="155" textAnchor="middle" className="text-sm font-bold" fill="#333">数据处理层（ETL）</text>
+                      <rect x="80" y="175" width="310" height="60" rx="6" fill="#FFE5E5" stroke="#BF1920" strokeWidth="2"/>
+                      <text x="235" y="210" textAnchor="middle" className="text-xs" fill="#666">数据采集 → 清洗 → 转换 → 加载</text>
+                      
+                      <text x="245" y="285" textAnchor="middle" className="text-sm font-bold" fill="#333">数据存储层</text>
+                      <rect x="80" y="305" width="310" height="25" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
+                      <text x="235" y="322" textAnchor="middle" className="text-xs" fill="#666">数据仓库 / 数据湖 / 实时数据库</text>
+                      
+                      <path d="M130 110 L130 175" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
+                      <path d="M260 110 L260 175" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
+                      <path d="M390 110 L390 175" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
+                      <path d="M235 235 L235 305" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
+                      
+                      <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                          <polygon points="0 0, 10 5, 0 10" fill="#BF1920" />
+                        </marker>
+                      </defs>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
