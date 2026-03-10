@@ -46,27 +46,20 @@ export function CompanyTabs() {
               <div className="space-y-6">
                 {/* Title section */}
                 <div>
-                  <p className="font-sans text-sm font-semibold text-primary mb-2">COMPANY PROFILE</p>
-                  <h2 className="font-sans text-3xl font-bold text-foreground mb-2">中创软件</h2>
-                  <p className="font-sans text-base text-foreground/60">中国创造 软件中坚</p>
+                  <p className="font-sans text-sm font-semibold text-primary tracking-wider mb-1">COMPANY PROFILE</p>
+                  <h2 className="font-sans text-4xl font-bold text-foreground mb-2">中创软件商用中间件股份有限公司</h2>
+                  <p className="font-sans text-sm text-foreground/60">中国创造 软件中坚</p>
                 </div>
 
-                {/* Image with arc clip-path */}
-                <div className="relative pt-8">
-                  <div 
-                    className="relative h-64 w-full overflow-hidden shadow-lg"
-                    style={{
-                      clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)',
-                    }}
-                  >
-                    <Image
-                      src="/images/company-building.jpg"
-                      alt="中创软件总部"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
+                {/* Image */}
+                <div className="relative h-80 w-full">
+                  <Image
+                    src="/images/company-building.jpg"
+                    alt="中创软件总部"
+                    fill
+                    className="object-cover rounded-lg shadow-lg"
+                    priority
+                  />
                 </div>
               </div>
 
