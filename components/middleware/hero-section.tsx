@@ -52,7 +52,7 @@ export function MiddlewareHeroSection() {
       </div>
 
       {/* Free trial and video buttons */}
-      <div className="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 flex-col gap-3 lg:bottom-14 lg:flex-row lg:items-center 3xl:bottom-20 3xl:gap-4">
+      <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
         <Link
           href="/trial"
           className="group inline-flex items-center justify-center rounded bg-[#BF1920] px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#a8151b] hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
