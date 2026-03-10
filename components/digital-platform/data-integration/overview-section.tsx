@@ -51,13 +51,6 @@ export function DataIntegrationOverview() {
                     width={489} 
                     height={339} 
                     className="h-auto w-[79%] object-contain"
-                    onError={(e) => {
-                      try {
-                        e.currentTarget.style.display = "none"
-                      } catch (error) {
-                        console.log("[v0] Image error:", error)
-                      }
-                    }}
                   />
                 </div>
               </div>
