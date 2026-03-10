@@ -138,11 +138,14 @@ export function HeroSection() {
 
         {/* Slide 1 text: 中创API网关软件 */}
         <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          className="absolute inset-0 z-10 transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 0 ? 1 : 0,
             transform: currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 0 ? "auto" : "none",
+            paddingTop: "120px",
+            display: "flex",
+            alignItems: "flex-start",
           }}
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
@@ -165,11 +168,14 @@ export function HeroSection() {
 
         {/* Slide 2 text: 中创智能体中间件 */}
         <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          className="absolute inset-0 z-10 transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 1 ? 1 : 0,
             transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 1 ? "auto" : "none",
+            paddingTop: "120px",
+            display: "flex",
+            alignItems: "flex-start",
           }}
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
@@ -207,11 +213,14 @@ export function HeroSection() {
 
         {/* Slide 3 text: 中创股份 */}
         <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          className="absolute inset-0 z-10 transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 2 ? 1 : 0,
             transform: currentSlide === 2 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 2 ? "auto" : "none",
+            paddingTop: "120px",
+            display: "flex",
+            alignItems: "flex-start",
           }}
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
@@ -245,11 +254,14 @@ export function HeroSection() {
 
         {/* Slide 4 text: 中间件产品 */}
         <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          className="absolute inset-0 z-10 transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 3 ? 1 : 0,
             transform: currentSlide === 3 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 3 ? "auto" : "none",
+            paddingTop: "120px",
+            display: "flex",
+            alignItems: "flex-start",
           }}
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
