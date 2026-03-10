@@ -24,24 +24,21 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.addEventListener('unhandledrejection', event => {
-                try {
-                  console.warn('[v0] Unhandled rejection:', event.reason);
+              (function() {
+                // Handle unhandled rejections
+                window.addEventListener('unhandledrejection', event => {
+                  console.log('[v0] Caught unhandledrejection:', event.reason);
                   event.preventDefault();
-                } catch (e) {
-                  console.error('[v0] Error in rejection handler:', e);
-                }
-              });
-              window.addEventListener('error', event => {
-                try {
-                  if (event.error && event.error.message && event.error.message.includes('[object Event]')) {
-                    console.warn('[v0] Caught object event error:', event);
+                });
+                
+                // Handle errors
+                window.addEventListener('error', event => {
+                  console.log('[v0] Caught error event:', event.error);
+                  if (event.error instanceof Event) {
                     event.preventDefault();
                   }
-                } catch (e) {
-                  console.error('[v0] Error in error handler:', e);
-                }
-              });
+                });
+              })();
             `,
           }}
         />
@@ -71,6 +68,18 @@ export default function RootLayout({
         `}} />
       </head>
       <body className="font-sans antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                window.addEventListener('unhandledrejection', event => {
+                  console.log('[v0] Caught unhandledrejection:', event.reason);
+                  event.preventDefault();
+                });
+              })();
+            `,
+          }}
+        />
         {children}
         <OnlineServiceWidget />
       </body>

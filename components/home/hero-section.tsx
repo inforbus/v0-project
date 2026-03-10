@@ -150,7 +150,14 @@ export function HeroSection() {
                   try {
                     e.currentTarget.style.display = "none"
                   } catch (error) {
-                    console.warn("Image error handler failed:", error)
+                    console.log("[v0] Image error handler:", error)
+                  }
+                }}
+                onLoadError={(e) => {
+                  try {
+                    console.log("[v0] Image load error")
+                  } catch (error) {
+                    // Silent catch
                   }
                 }}
               />
