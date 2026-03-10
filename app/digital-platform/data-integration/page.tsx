@@ -9,6 +9,9 @@ export default function DataIntegrationPage() {
   return (
     <div className="min-h-screen w-full bg-white">
       <DataIntegrationHeroSection />
+      <DataIntegrationOverview />
+      <DataIntegrationFeatures />
+      <DataIntegrationCases />
       <Footer />
       <OnlineServiceWidget />
     </div>
