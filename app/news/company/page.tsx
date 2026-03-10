@@ -16,7 +16,7 @@ const newsItems = [
     title: "AI重塑软件 赋能产业未来 中创股份出席2025软件技术大会",
     date: "2025-03-10",
     category: "公司新闻",
-    image: "/images/news-main.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AS%E7%9A%84banner%E5%9B%BE-BSECyM15Z10y2OyngqvfzXGcFJPx5x.png",
     description: "近日，由中科软科技股份有限公司主办的\"2025软件技术大会\"在北京国家会议中心隆重举行。本次大会以\"AI重塑软件，赋能产业未来\"为主题，邀请了来自业界的专家学者和企业代表参加。",
     content: "大会现场，与会嘉宾深入探讨了AI技术在软件开发中的应用前景。中创股份以其在中间件和数字化平台领域的领先技术，为与会者展示了如何通过AI赋能企业数字化转型。中创股份的创新解决方案得到了与会者的高度关注和好评。\n\n本次大会是业界了解最新技术趋势的重要平台，中创股份将继续投入研发，为客户提供更加先进的产品和服务。",
   },
@@ -34,7 +34,7 @@ export default function CompanyNewsPage() {
         {/* Banner Image */}
         <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
           <Image
-            src="/images/inforsuite-as-banner.jpg"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AS%E7%9A%84banner%E5%9B%BE-BSECyM15Z10y2OyngqvfzXGcFJPx5x.png"
             alt="中创应用服务器软件 InforSuite AS"
             fill
             sizes="100vw"
