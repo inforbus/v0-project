@@ -2,64 +2,28 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { type NavItem, type ProductCategory } from "./nav-data"
 
 function ProductMegaMenu({ productCategories }: { productCategories: ProductCategory[] }) {
   const [activeIdx, setActiveIdx] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const isHoveringRef = useRef(false)
 
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    const buttons = container.querySelectorAll<HTMLButtonElement>(".category-btn")
-    const hoverContainer = container.closest("[data-mega-menu-wrapper]")
-
-    const handleMouseEnter = (idx: number) => {
-      isHoveringRef.current = true
-      setActiveIdx(idx)
-    }
-
-    const handleMouseLeave = () => {
-      isHoveringRef.current = false
-      // Reset to 0 when mouse leaves the entire menu
-      const timer = setTimeout(() => {
-        if (!isHoveringRef.current) {
-          setActiveIdx(0)
-        }
-      }, 200)
-      return () => clearTimeout(timer)
-    }
-
-    buttons.forEach((btn, idx) => {
-      btn.addEventListener("mouseenter", () => handleMouseEnter(idx))
-    })
-
-    hoverContainer?.addEventListener("mouseleave", handleMouseLeave)
-
-    return () => {
-      buttons.forEach((btn) => {
-        btn.removeEventListener("mouseenter", () => handleMouseEnter)
-      })
-      hoverContainer?.removeEventListener("mouseleave", handleMouseLeave)
-    }
-  }, [])
+  if (!productCategories?.length) return null
 
   return (
-    <div 
-      ref={containerRef}
-      className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" 
+    <div
+      className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl"
       style={{ minWidth: "680px" }}
+      onMouseLeave={() => setActiveIdx(0)}
     >
       <div className="flex w-[180px] flex-shrink-0 flex-col bg-muted py-2">
         {productCategories.map((category, idx) => (
           <button
             key={idx}
             type="button"
-            className={`category-btn relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${
+            onMouseEnter={() => setActiveIdx(idx)}
+            className={`relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${
               activeIdx === idx
                 ? "bg-background font-semibold text-primary"
                 : "font-medium text-foreground/80 hover:bg-background/80 hover:text-primary"
