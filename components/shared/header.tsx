@@ -7,53 +7,34 @@ import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { type NavItem, type ProductCategory } from "./nav-data"
 
 function ProductMegaMenu({ productCategories }: { productCategories: ProductCategory[] }) {
-  const [activeIdx, setActiveIdx] = useState(0)
-
   if (!productCategories?.length) return null
 
   return (
     <div
-      className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl"
-      style={{ minWidth: "680px" }}
-      onMouseLeave={() => setActiveIdx(0)}
+      className="grid grid-cols-5 overflow-hidden rounded-lg border border-border bg-background shadow-xl"
+      style={{ minWidth: "850px" }}
     >
-      <div className="flex w-[180px] flex-shrink-0 flex-col bg-muted py-2">
-        {productCategories.map((category, idx) => (
-          <button
-            key={idx}
-            type="button"
-            onMouseEnter={() => setActiveIdx(idx)}
-            className={`relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${
-              activeIdx === idx
-                ? "bg-background font-semibold text-primary"
-                : "font-medium text-foreground/80 hover:bg-background/80 hover:text-primary"
-            }`}
+      {productCategories.map((category, idx) => (
+        <div key={idx} className="border-r border-border/40 p-4 last:border-r-0">
+          <Link
+            href={category.href}
+            className="mb-3 block text-sm font-semibold text-foreground transition-colors hover:text-primary"
           >
             {category.name}
-            <ChevronRight className={`h-3.5 w-3.5 transition-colors ${activeIdx === idx ? "text-primary" : "text-muted-foreground"}`} />
-            {activeIdx === idx && (
-              <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r bg-primary" />
-            )}
-          </button>
-        ))}
-      </div>
-      <div className="flex flex-1 flex-col border-l border-border px-6 py-4">
-        <h4 className="mb-3 text-sm font-semibold text-foreground">
-          {productCategories[activeIdx]?.name}
-        </h4>
-        <div className="mb-3 h-px w-full bg-border" />
-        <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-          {productCategories[activeIdx]?.children.map((child, cIdx) => (
-            <Link
-              key={cIdx}
-              href={child.href}
-              className="rounded px-3 py-2.5 text-sm text-muted-foreground transition-all duration-150 hover:bg-primary/5 hover:text-primary"
-            >
-              {child.name}
-            </Link>
-          ))}
+          </Link>
+          <div className="space-y-1">
+            {category.children.map((child, cIdx) => (
+              <Link
+                key={cIdx}
+                href={child.href}
+                className="block text-sm text-foreground/70 transition-colors hover:text-primary"
+              >
+                {child.name}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   )
 }

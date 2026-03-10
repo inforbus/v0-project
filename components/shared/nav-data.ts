@@ -23,7 +23,7 @@ export function getProductCategories(): ProductCategory[] {
         { name: "分布式数据缓存中间件", href: "/middleware/data-cache" },
         { name: "消息中间件", href: "/middleware/messaging" },
         { name: "工作流中间件", href: "/middleware/workflow" },
-        { name: "\u4f01\u4e1a\u670d\u52a1\u603b\u7ebf", href: "/middleware/service-hotline" },
+        { name: "企业服务总线", href: "/middleware/service-hotline" },
         { name: "中间件统一管理平台", href: "/middleware/management" },
       ],
     },
