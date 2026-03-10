@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { ProductsHeroSection } from "@/components/products/hero-section"
-import { CompanyTabs } from "@/components/about/tabs"
+import { CompanyTabs } from "@/components/about/company-tabs"
 import { Footer } from "@/components/shared/footer"
 
 export const metadata: Metadata = {
