@@ -23,17 +23,17 @@ export function MiddlewareHeroSection() {
         <div className="h-1 w-24 bg-[#BF1920] md:h-1.5 lg:w-28 3xl:w-32" />
         
         {/* Title */}
-        <h1 className="font-sans mt-4 max-w-2xl text-4xl font-bold text-[#332C2B] md:text-5xl lg:text-6xl 3xl:mt-6 3xl:text-7xl" style={{ lineHeight: '1' }}>
+        <h1 className="font-sans mt-4 max-w-2xl text-2xl font-bold text-[#332C2B] md:text-3xl lg:text-4xl 3xl:mt-6 3xl:text-5xl" style={{ lineHeight: '1.2' }}>
           中创应用服务器软件 InforSuite AS
         </h1>
 
         {/* Subtitle 1 */}
-        <p className="font-sans mt-8 max-w-lg text-lg font-normal text-[#332C2B] md:text-xl lg:text-2xl 3xl:mt-10 3xl:text-2xl" style={{ lineHeight: '1', opacity: 0.8 }}>
+        <p className="font-sans mt-4 max-w-lg text-sm font-normal text-[#332C2B] md:text-base lg:text-lg 3xl:mt-5 3xl:text-xl" style={{ lineHeight: '1.4', opacity: 0.85 }}>
           全面通过JaveEE、JakartaEE系列规范认证
         </p>
 
         {/* Subtitle 2 */}
-        <p className="font-sans mt-4 max-w-lg text-lg font-normal text-[#332C2B] md:text-xl lg:text-2xl 3xl:mt-5 3xl:text-2xl" style={{ lineHeight: '1', opacity: 0.8 }}>
+        <p className="font-sans mt-2 max-w-lg text-sm font-normal text-[#332C2B] md:text-base lg:text-lg 3xl:mt-3 3xl:text-xl" style={{ lineHeight: '1.4', opacity: 0.85 }}>
           国民经济重点行业规模化应用
         </p>
       </div>
