@@ -17,31 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Handle unhandled rejections
-                window.addEventListener('unhandledrejection', event => {
-                  console.log('[v0] Caught unhandledrejection:', event.reason);
-                  event.preventDefault();
-                });
-                
-                // Handle errors
-                window.addEventListener('error', event => {
-                  console.log('[v0] Caught error event:', event.error);
-                  if (event.error instanceof Event) {
-                    event.preventDefault();
-                  }
-                });
-              })();
-            `,
-          }}
-        />
         <style dangerouslySetInnerHTML={{ __html: `
           @font-face {
             font-family: 'YouSheBiaoTiHei';
@@ -66,8 +41,6 @@ export default function RootLayout({
             font-display: swap;
           }
         `}} />
-      </head>
-      <body className="font-sans antialiased">
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -76,10 +49,18 @@ export default function RootLayout({
                   console.log('[v0] Caught unhandledrejection:', event.reason);
                   event.preventDefault();
                 });
+                window.addEventListener('error', event => {
+                  console.log('[v0] Caught error event:', event.message);
+                  if (event.error instanceof Event || event.type === 'error') {
+                    event.preventDefault();
+                  }
+                });
               })();
             `,
           }}
         />
+      </head>
+      <body className="font-sans antialiased">
         {children}
         <OnlineServiceWidget />
       </body>
