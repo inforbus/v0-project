@@ -92,7 +92,7 @@ export function HeroSection() {
   return (
     <>
       <ScrollProgress />
-      <div className="relative flex h-screen w-full flex-col overflow-hidden">
+      <div className="relative flex h-[700px] w-full flex-col overflow-hidden">
         {bannerSlides.map((slide, index) => (
           <div
             key={index}
