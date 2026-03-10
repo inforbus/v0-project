@@ -17,7 +17,7 @@ export function OnlineServiceHeroSection() {
       <Header navItems={navItems} variant="overlay" />
 
       {/* Buttons only */}
-      <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 right-4 md:right-8 md:bottom-14 lg:right-12 3xl:bottom-20 3xl:right-16 3xl:gap-4">
+      <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
         <Link
           href="/support/online#contact"
           className="group inline-flex items-center justify-center rounded bg-[#BF1920] px-4 py-2 text-xs font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#a8151b] hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 sm:px-6 sm:py-2.5 sm:text-sm md:text-base 3xl:px-8 3xl:py-3"
