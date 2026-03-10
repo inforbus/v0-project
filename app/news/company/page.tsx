@@ -1,5 +1,4 @@
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
-import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
@@ -33,13 +32,10 @@ export default function CompanyNewsPage() {
       <section className="relative overflow-hidden">
         {/* Banner Image */}
         <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
-          <Image
+          <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AS%E7%9A%84banner%E5%9B%BE-BSECyM15Z10y2OyngqvfzXGcFJPx5x.png"
             alt="中创应用服务器软件 InforSuite AS"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
+            className="h-full w-full object-cover"
           />
         </div>
 
@@ -73,12 +69,10 @@ export default function CompanyNewsPage() {
                 <article className="overflow-hidden rounded-lg border border-border">
                   {/* Image */}
                   <div className="relative overflow-hidden bg-muted" style={{ aspectRatio: "16 / 9" }}>
-                    <Image
+                    <img
                       src={item.image}
                       alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
 
