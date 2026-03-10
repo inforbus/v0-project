@@ -1,7 +1,7 @@
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-const navItems = getNavItems("/products")
+const navItems = getNavItems("/about/introduction")
 
 export function ProductsHeroSection() {
   return (
