@@ -43,14 +43,16 @@ export function CompanyTabs() {
           <div className="animate-fadeIn">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               {/* Left side - Image */}
-              <div className="relative h-80 w-full rounded-lg border-4 border-border overflow-hidden">
-                <Image
-                  src="/images/company-building.jpg"
-                  alt="中创软件总部"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+              <div className="relative h-80 w-full overflow-hidden" style={{ borderRadius: '16px', border: '2px dashed #BF1920', padding: '12px' }}>
+                <div className="relative h-full w-full rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/company-building.jpg"
+                    alt="中创软件总部"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </div>
 
               {/* Right side - Content */}
