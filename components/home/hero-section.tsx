@@ -148,7 +148,7 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[708px]">
               <h1
-                className="text-[19px] text-black sm:text-[27px] md:text-[35px] lg:text-[43px] xl:text-[51px] 2xl:text-[61px] 3xl:text-[71px]"
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创API网关软件
@@ -175,7 +175,7 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
               <h1
-                className="text-[19px] text-black sm:text-[27px] md:text-[35px] lg:text-[43px] xl:text-[51px] 2xl:text-[61px] 3xl:text-[71px]"
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创智能体中间件
