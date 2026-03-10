@@ -46,9 +46,8 @@ export function CompanyTabs() {
               <div className="space-y-6">
                 {/* Title section */}
                 <div>
-                  <p className="font-sans text-sm font-semibold text-primary tracking-wider mb-1">COMPANY PROFILE</p>
                   <h2 className="font-sans text-4xl font-bold text-foreground mb-2">中创软件商用中间件股份有限公司</h2>
-                  <p className="font-sans text-sm text-foreground/60">中国创造 软件中坚</p>
+                  <p className="font-sans text-sm text-foreground/60">公司介绍</p>
                 </div>
 
                 {/* Image */}
