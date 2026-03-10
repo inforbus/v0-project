@@ -51,6 +51,13 @@ export function DataIntegrationCases() {
                         src={caseItem.image} 
                         alt={caseItem.title} 
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        onError={(e) => {
+                          try {
+                            (e.target as HTMLImageElement).style.display = "none"
+                          } catch (error) {
+                            console.log("[v0] Case image error:", error)
+                          }
+                        }}
                       />
                     </div>
                     

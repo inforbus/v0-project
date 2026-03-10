@@ -66,6 +66,13 @@ export function DataIntegrationFeatures() {
                         alt={feature.title}
                         className="h-full w-full object-contain p-2"
                         loading="lazy"
+                        onError={(e) => {
+                          try {
+                            (e.target as HTMLImageElement).style.display = "none"
+                          } catch (error) {
+                            console.log("[v0] Feature icon error:", error)
+                          }
+                        }}
                       />
                     </div>
                   </div>

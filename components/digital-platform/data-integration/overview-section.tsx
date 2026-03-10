@@ -45,6 +45,13 @@ export function DataIntegrationOverview() {
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/etl_img1-W6xhSHJZxhlO5L3cPld2QA9jk1G0Wx.png"
                     alt="InforSuite DI 架构图" 
                     className="h-auto w-[79%] object-contain"
+                    onError={(e) => {
+                      try {
+                        (e.target as HTMLImageElement).style.display = "none"
+                      } catch (error) {
+                        console.log("[v0] Architecture image error:", error)
+                      }
+                    }}
                   />
                 </div>
               </div>
