@@ -87,8 +87,20 @@ export function DataIntegrationFeatures() {
   // Preload all icons on mount
   useEffect(() => {
     valueItems.forEach((item) => {
-      const img = new window.Image()
-      img.src = item.icon
+      try {
+        const img = new window.Image()
+        img.onload = () => {
+          // Icon loaded successfully
+        }
+        img.onerror = () => {
+          // Icon failed to load, silently ignore
+          console.log("[v0] Icon failed to load:", item.icon)
+        }
+        img.src = item.icon
+      } catch (error) {
+        // Silent catch for any image loading errors
+        console.log("[v0] Error preloading icon:", error)
+      }
     })
   }, [])
 
