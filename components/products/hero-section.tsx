@@ -13,13 +13,13 @@ export function ProductsHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} variant="overlay" />
 
       {/* Main title and subtitle text content */}
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         {/* Main title */}
         <h1
-          className="font-sans font-bold text-[#332C2B] text-center"
+          className="font-sans font-bold text-white text-center"
           style={{ fontSize: 'clamp(28px, 5vw, 56px)', lineHeight: '1.2', maxWidth: '90%' }}
         >
           中国创造 &nbsp; 软件中坚
