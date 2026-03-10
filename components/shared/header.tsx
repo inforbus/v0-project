@@ -8,7 +8,11 @@ import { getProductCategories, type NavItem } from "./nav-data"
 
 function ProductMegaMenu() {
   const [activeCategory, setActiveCategory] = useState(0)
-  const productCategories = getProductCategories()
+  const [productCategories] = useState(() => getProductCategories())
+
+  if (!productCategories || productCategories.length === 0) {
+    return null
+  }
 
   return (
     <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
@@ -55,6 +59,7 @@ function ProductMegaMenu() {
 
 function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
+  const [productCategories] = useState(() => getProductCategories())
   const hasChildren = item.children.length > 0 || item.isMega
 
   return (
@@ -90,9 +95,9 @@ function MobileNavItem({ item }: { item: NavItem }) {
           ))}
         </div>
       )}
-      {item.isMega && expanded && (
+      {item.isMega && expanded && productCategories && productCategories.length > 0 && (
         <div className="pb-2 pl-4">
-          {getProductCategories().map((category, catIdx) => (
+          {productCategories.map((category, catIdx) => (
             <div key={catIdx} className="mb-2">
               <Link
                 href={category.href}
