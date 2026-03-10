@@ -153,10 +153,8 @@ export function DataIntegrationFeatures() {
 
   return (
     <section className="relative bg-[#F6F5F6]">
-      {/* Background pattern */}
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full opacity-40">
-        <img src="/images/value-section-bg.png" alt="" className="block w-full" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] BG error:", err) } }} />
-      </div>
+      {/* Background pattern - CSS gradient instead of image */}
+      <div className="pointer-events-none absolute bottom-0 left-0 h-32 w-full bg-gradient-to-t from-[#BF1920]/5 to-transparent opacity-40" />
       {/* Floating particles */}
       <div className="pointer-events-none absolute right-[4%] top-[10%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 8s ease-in-out infinite" }} />
       <div className="pointer-events-none absolute right-[16%] top-[6%] h-[7px] w-[7px] rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 6s ease-in-out 1s infinite" }} />
@@ -175,9 +173,18 @@ export function DataIntegrationFeatures() {
           产品特性
         </h2>
 
-        {/* Left side: fixed-group.png with circle labels */}
+        {/* Left side: circle layout with CSS */}
         <div className="absolute" style={{ left: "-2%", top: "9.5%", width: "42%", maxWidth: "810px" }}>
-          <img src="/images/fixed-group.png" alt="" className="h-auto w-full object-contain" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] Image error:", err) } }} />
+          {/* Circle background - SVG instead of image */}
+          <svg viewBox="0 0 979 861" className="h-auto w-full" fill="none">
+            <circle cx="400" cy="430" r="350" stroke="#BF1920" strokeWidth="1" strokeOpacity="0.1" fill="none" />
+            <circle cx="400" cy="430" r="280" stroke="#BF1920" strokeWidth="1" strokeOpacity="0.15" fill="none" />
+            <circle cx="400" cy="430" r="200" stroke="#BF1920" strokeWidth="2" strokeOpacity="0.2" fill="none" />
+            <circle cx="400" cy="430" r="120" fill="#BF1920" fillOpacity="0.05" />
+            <circle cx="550" cy="130" r="50" fill="#F6F5F6" stroke="#BF1920" strokeWidth="1" strokeOpacity="0.3" />
+            <circle cx="750" cy="430" r="70" fill="#BF1920" fillOpacity="0.1" stroke="#BF1920" strokeWidth="2" strokeOpacity="0.3" />
+            <circle cx="550" cy="730" r="50" fill="#F6F5F6" stroke="#BF1920" strokeWidth="1" strokeOpacity="0.3" />
+          </svg>
 
           {/* Top circle label (previous item) */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "6.5%", width: "10.21%", height: "12%" }}>
