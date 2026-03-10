@@ -12,7 +12,7 @@ export function MiddlewareHeroSection() {
       
       {/* Banner image */}
       <img
-        src="/images/middleware-banner.jpg"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cc5215def76a49093c8ff4dcce6d0bea-MA6kqv8lVj1mhqS3IzGnDnMRmNoBdE.jpg"
         alt="中创应用服务器软件 InforSuite AS"
         className="h-full w-full object-cover object-center"
       />
