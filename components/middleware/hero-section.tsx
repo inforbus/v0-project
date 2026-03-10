@@ -18,22 +18,35 @@ export function MiddlewareHeroSection() {
       <Header navItems={navItems} />
 
       {/* Main title and subtitle text content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-4 md:px-8 lg:px-12 3xl:px-16">
-        {/* Red accent line */}
-        <div className="h-1 w-24 bg-[#BF1920] md:h-1.5 lg:w-28 3xl:w-32" />
-        
-        {/* Title */}
-        <h1 className="font-sans mt-4 max-w-2xl text-2xl font-bold text-[#332C2B] md:text-3xl lg:text-4xl 3xl:mt-6 3xl:text-5xl" style={{ lineHeight: '1.2' }}>
+      {/* 原稿画布宽1440px，left:313px ≈ 21.7%；各元素用百分比定位 */}
+      <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+        {/* Title: top:233px / 554px ≈ 42% */}
+        <h1
+          className="font-sans font-bold text-[#332C2B]"
+          style={{ fontSize: 'clamp(18px, 3.125vw, 45px)', lineHeight: '1' }}
+        >
           中创应用服务器软件 InforSuite AS
         </h1>
 
-        {/* Subtitle 1 */}
-        <p className="font-sans mt-4 max-w-lg text-sm font-normal text-[#332C2B] md:text-base lg:text-lg 3xl:mt-5 3xl:text-xl" style={{ lineHeight: '1.4', opacity: 0.85 }}>
+        {/* Red accent line: top:314px，距标题底部约 36px / 554px */}
+        <div
+          className="bg-[#BF1920]"
+          style={{ width: 'clamp(60px, 6.94vw, 100px)', height: 'clamp(3px, 0.35vw, 5px)', marginTop: 'clamp(14px, 2.5vw, 36px)' }}
+        />
+
+        {/* Subtitle 1: top:360px，距红线底部约 41px */}
+        <p
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(12px, 1.53vw, 22px)', lineHeight: '1', opacity: 0.8, marginTop: 'clamp(10px, 1.88vw, 27px)' }}
+        >
           全面通过JaveEE、JakartaEE系列规范认证
         </p>
 
-        {/* Subtitle 2 */}
-        <p className="font-sans mt-2 max-w-lg text-sm font-normal text-[#332C2B] md:text-base lg:text-lg 3xl:mt-3 3xl:text-xl" style={{ lineHeight: '1.4', opacity: 0.85 }}>
+        {/* Subtitle 2: top:402px，距副标题1约 42px */}
+        <p
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(12px, 1.53vw, 22px)', lineHeight: '1', opacity: 0.8, marginTop: 'clamp(10px, 1.88vw, 27px)' }}
+        >
           国民经济重点行业规模化应用
         </p>
       </div>
