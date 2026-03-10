@@ -42,9 +42,13 @@ export function CompanyTabs() {
         {activeTab === 'profile' && (
           <div className="animate-fadeIn">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {/* Left side - Image */}
-              <div className="relative h-80 w-full overflow-hidden" style={{ borderRadius: '16px', border: '2px dashed #BF1920', padding: '12px' }}>
-                <div className="relative h-full w-full rounded-lg overflow-hidden">
+              {/* Left side - Image with sophisticated styling */}
+              <div className="relative h-96 w-full flex items-center justify-center">
+                {/* Background accent box */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl" />
+                
+                {/* Image container with shadow and border */}
+                <div className="relative h-80 w-80 rounded-2xl overflow-hidden shadow-2xl border border-primary/20 hover:shadow-[0_20px_40px_rgba(191,25,32,0.15)] transition-all duration-300">
                   <Image
                     src="/images/company-building.jpg"
                     alt="中创软件总部"
