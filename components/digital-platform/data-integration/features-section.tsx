@@ -12,7 +12,7 @@ const featureItems = [
     nextLine1: "轻量可视",
     nextLine2: "模型定制",
     description: "支持多种数据源的配置管理，实现数据指向性的聚合管理，快速搭建数据中台。提供主题库、主题集和主题整合管理，充分满足不同业务对数据级别的访问分权管理。",
-    icon: "/images/di_icon1.png",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-e1dt2I6ZAmC7Q66LzsZtjyK11HnBUf.png",
   },
   {
     title: "轻量可视、模型轻松定制",
@@ -23,7 +23,7 @@ const featureItems = [
     nextLine1: "组件丰富",
     nextLine2: "场景覆盖",
     description: "无需编码，通过拖拽操作轻松搭建模型管理，组件关系一览无遗。有效提升开发效率和维护成本。",
-    icon: "/images/di_icon2.png",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-N8Gtt00oapo9Fwd6aqYxMiVq6WvzIZ.png",
   },
   {
     title: "组件丰富、场景全面覆盖",
@@ -34,7 +34,7 @@ const featureItems = [
     nextLine1: "灵活调度",
     nextLine2: "监控告警",
     description: "预置多类型输入输出组件，上百转换组件，支持跨行数据输出、上下转换、组件及场景转换等。实时处理、整体处理、流水处理于一体，兼顾离线处理。",
-    icon: "/images/di_icon3.png",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-y5iS7EaY0QzzIL6vUu2qQhBeLU4J6u.png",
   },
   {
     title: "灵活调度、实时监控告警",
@@ -45,7 +45,7 @@ const featureItems = [
     nextLine1: "动态扩展",
     nextLine2: "自动容错",
     description: "内置全生命周期数据处理过程中的任务调度过程，在DAG（有向无环图）方式进行任务。支持工作流定时调度、优先级、多维度集群支持，实时的任务告警。",
-    icon: "/images/di_icon4.png",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-cY8qxX8WrtPHKgS53RZok21huwdtDV.png",
   },
   {
     title: "动态扩展、自动容错、数据高效可靠",
@@ -56,7 +56,7 @@ const featureItems = [
     nextLine1: "国产支持",
     nextLine2: "生态适配",
     description: "高可靠、分布式、可扩展架构，支持行业业界和布式计算，具备高容错量、精确性、时时设特性、同时具弹性扩展能力，能够根据業務背景，动态扩展计算点。",
-    icon: "/images/di_icon5.png",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-FykpK18DYMCZJk76W07FExD12Oonk4.png",
   },
   {
     title: "国产支持、深度生态适配",
@@ -67,7 +67,7 @@ const featureItems = [
     nextLine1: "多源数据",
     nextLine2: "集中管理",
     description: "兼容多类国产及国际主流服务器、cpu、操作系统、数据库等软件生态。",
-    icon: "/images/di_icon6.png",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-x1Yi7CNNM7hP16hw8kOEfbEsWI8Wt6.png",
   },
 ]
 

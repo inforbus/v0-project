@@ -13,7 +13,7 @@ const valueItems = [
     nextLine1: "应用平滑",
     nextLine2: "迁移",
     description: "通过Jakarta EE10/9.1/9/8及Java EE8/7/6完整兼容认证，支持应用场景最丰富。公司作为Jakarta EE企业级会员，参与Jakarta EE最新几十项规范制定，引领中间件技术发展。",
-    icon: "/images/as_icon1.png",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23BF1920' opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23BF1920'/%3E%3C/svg%3E",
   },
   {
     title: "应用平滑迁移",
@@ -24,7 +24,7 @@ const valueItems = [
     nextLine1: "支撑云原生",
     nextLine2: "",
     description: "兼容主流国外和开源同类中间件的私有协议及配置，保障应用平滑迁移，降低信创改造成本。",
-    icon: "/images/as_icon2.png",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M 30 50 L 70 50' stroke='%23BF1920' stroke-width='3' stroke-linecap='round'/%3E%3Cpolygon points='65,45 70,50 65,55' fill='%23BF1920'/%3E%3C/svg%3E",
   },
   {
     title: "支撑云原生",
@@ -35,7 +35,7 @@ const valueItems = [
     nextLine1: "高性能",
     nextLine2: "",
     description: "支持容器镜像、Helm chart、Operator等部署模式，支持系统弹性伸缩、滚动升级及配置热更新，灵活接入状态、链路追踪、日志等第三方监控运维平台，可实现多云环境的统一纳管。",
-    icon: "/images/as_icon3.png",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Crect x='25' y='30' width='50' height='40' rx='5' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23BF1920'/%3E%3C/svg%3E",
   },
   {
     title: "高性能",
@@ -46,7 +46,7 @@ const valueItems = [
     nextLine1: "高安全",
     nextLine2: "",
     description: "采用高性能线程池、连接池及网络处理等核心技术，支持用户高并发、大吞吐访问，可规模化同等替代国外产品，性能优于Tomcat等开源中间件产品。",
-    icon: "/images/as_icon4.png",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cline x1='20' y1='70' x2='80' y2='70' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='20' y1='50' x2='30' y2='50' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='35' y1='35' x2='45' y2='35' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='50' y1='20' x2='80' y2='20' stroke='%23BF1920' stroke-width='2'/%3E%3C/svg%3E",
   },
   {
     title: "高安全",
@@ -57,7 +57,7 @@ const valueItems = [
     nextLine1: "高可靠",
     nextLine2: "",
     description: "通过第三方权威机构源代码安全检测和系统漏洞扫描，支持SM2/SM3/SM4等国密算法，支持TLCP安全传输协议，满足等保2.0三级、四级要求。集成应用安全防护模块，加固应用安全。",
-    icon: "/images/as_icon5.png",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M 50 20 L 75 30 L 75 50 Q 50 75 50 75 Q 25 50 25 50 L 25 30 Z' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='50' cy='45' r='5' fill='%23BF1920'/%3E%3C/svg%3E",
   },
   {
     title: "高可靠",
@@ -68,7 +68,7 @@ const valueItems = [
     nextLine1: "遵循国际",
     nextLine2: "标准",
     description: "支持大规模集群部署，提供故障转移和弹性伸缩能力。提供线程分组、流量控制及过载保护等功能，实现系统故障有效隔离，保障应用系统运行稳定可靠。",
-    icon: "/images/as_icon6.png",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Cpath d='M 45 50 L 50 55 L 60 45' fill='none' stroke='%23BF1920' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
   },
 ]
 
@@ -84,12 +84,9 @@ export function ValueSection() {
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
 
-  // Preload all icons on mount
+  // Icons will be loaded lazily by img tags
   useEffect(() => {
-    valueItems.forEach((item) => {
-      const img = new window.Image()
-      img.src = item.icon
-    })
+    // No preloading needed - img tags handle loading safely
   }, [])
 
   const goToIndex = useCallback((index: number) => {

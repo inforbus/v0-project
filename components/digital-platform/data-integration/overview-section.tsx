@@ -1,3 +1,5 @@
+"use client"
+
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 export function DataIntegrationOverview() {
@@ -41,38 +43,19 @@ export function DataIntegrationOverview() {
                   className="flex items-center justify-center rounded-2xl border-2 border-white bg-white"
                   style={{ width: "92%", height: "87.5%", boxShadow: "inset 0px 2px 3px rgba(87, 13, 13, 0.31)", backdropFilter: "blur(3.9px)" }}
                 >
-                  {/* SVG Architecture Diagram */}
-                  <svg viewBox="0 0 489 339" className="h-auto w-[79%]" fill="none">
-                    {/* Data sources */}
-                    <rect x="50" y="30" width="100" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                    <text x="100" y="65" textAnchor="middle" className="text-xs font-semibold" fill="#333">MySQL</text>
-                    
-                    <rect x="180" y="30" width="100" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                    <text x="230" y="65" textAnchor="middle" className="text-xs font-semibold" fill="#333">Oracle</text>
-                    
-                    <rect x="310" y="30" width="100" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                    <text x="360" y="65" textAnchor="middle" className="text-xs font-semibold" fill="#333">HDFS</text>
-                    
-                    {/* ETL Processing */}
-                    <rect x="50" y="140" width="360" height="60" rx="6" fill="#FFE5E5" stroke="#BF1920" strokeWidth="2"/>
-                    <text x="230" y="175" textAnchor="middle" className="text-xs font-semibold" fill="#333">ETL 处理 - 数据清洗 / 转换 / 加载</text>
-                    
-                    {/* Target storage */}
-                    <rect x="50" y="250" width="360" height="60" rx="6" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                    <text x="230" y="285" textAnchor="middle" className="text-xs font-semibold" fill="#333">数据仓库 / 数据湖 / 实时数据库</text>
-                    
-                    {/* Arrows */}
-                    <line x1="100" y1="90" x2="100" y2="140" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                    <line x1="230" y1="90" x2="230" y2="140" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                    <line x1="360" y1="90" x2="360" y2="140" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                    <line x1="230" y1="200" x2="230" y2="250" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                    
-                    <defs>
-                      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-                        <polygon points="0 0, 10 5, 0 10" fill="#BF1920" />
-                      </marker>
-                    </defs>
-                  </svg>
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/etl_img1-Vxg21WQaiT6pjNm3a5zSQqZSOGDYgu.png"
+                  alt="数据集成平台架构图"
+                  className="h-auto w-[92%] object-contain rounded-xl"
+                  style={{ maxHeight: "87.5%" }}
+                  onError={(e) => {
+                    try {
+                      (e.target as HTMLImageElement).style.display = "none"
+                    } catch (error) {
+                      console.log("[v0] Overview image error:", error)
+                    }
+                  }}
+                />
                 </div>
               </div>
             </div>
