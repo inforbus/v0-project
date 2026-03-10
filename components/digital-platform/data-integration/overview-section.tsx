@@ -19,7 +19,7 @@ export function DataIntegrationOverview() {
           <ScrollReveal delay={100}>
             <div className="w-full lg:w-[440px] lg:flex-shrink-0 lg:pt-[40px] 3xl:w-[592px] 3xl:pt-[61px]">
               <p className="text-sm leading-[200%] text-[#242222] md:text-base lg:text-[16px] lg:leading-[200%] 3xl:text-[22px]">
-                中创数据集成平台（简称：InforSuite DIP）是一款统一的数据集成管理平台，支持从多个异构数据源实时或批量采集数据，提供数据清洗、转换、加载等全流程数据处理能力。产品广泛应用于企业数据中台建设、大数据分析、数据治理等场景，帮助用户快速实现数据融合与价值挖掘，加速数字化转型进程。
+                中创元穹数据集成平台（简称：InforSuite DI）是一体化、一站式的数据集成管理平台，提供数据集成过程中的可视化管理、建模、调度、运行、监控和告警等模块。平台支持实时海量数据同步，无差别表结构同步，数据格式内容和语义的映射、转换，多源数据处理，面向主题集成，数据聚合等功能，为数仓搭建、数据实时同步、数据迁移、数据备份等场景提供工具支撑。
               </p>
             </div>
           </ScrollReveal>
@@ -41,34 +41,11 @@ export function DataIntegrationOverview() {
                   className="flex items-center justify-center rounded-2xl border-2 border-white bg-white"
                   style={{ width: "92%", height: "87.5%", boxShadow: "inset 0px 2px 3px rgba(87, 13, 13, 0.31)", backdropFilter: "blur(3.9px)" }}
                 >
-                  {/* Placeholder architecture diagram */}
-                  <div className="flex items-center justify-center w-full h-full">
-                    <svg viewBox="0 0 489 339" className="w-[79%] h-auto" fill="none">
-                      <rect x="50" y="30" width="140" height="80" rx="8" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                      <text x="120" y="75" textAnchor="middle" className="text-xs font-semibold" fill="#333">数据源</text>
-                      
-                      <rect x="240" y="30" width="140" height="80" rx="8" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                      <text x="310" y="75" textAnchor="middle" className="text-xs font-semibold" fill="#333">数据采集</text>
-                      
-                      <path d="M190 70 L240 70" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                      
-                      <rect x="50" y="150" width="140" height="80" rx="8" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                      <text x="120" y="195" textAnchor="middle" className="text-xs font-semibold" fill="#333">数据处理</text>
-                      
-                      <rect x="240" y="150" width="140" height="80" rx="8" fill="#E8E8E8" stroke="#BF1920" strokeWidth="2"/>
-                      <text x="310" y="195" textAnchor="middle" className="text-xs font-semibold" fill="#333">数据存储</text>
-                      
-                      <path d="M310 110 L310 150" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                      <path d="M120 110 L120 150" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                      <path d="M190 190 L240 190" stroke="#BF1920" strokeWidth="2" markerEnd="url(#arrowhead)"/>
-                      
-                      <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-                          <polygon points="0 0, 10 5, 0 10" fill="#BF1920" />
-                        </marker>
-                      </defs>
-                    </svg>
-                  </div>
+                  <img 
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/etl_img1-W6xhSHJZxhlO5L3cPld2QA9jk1G0Wx.png"
+                    alt="InforSuite DI 架构图" 
+                    className="h-auto w-[79%] object-contain"
+                  />
                 </div>
               </div>
             </div>

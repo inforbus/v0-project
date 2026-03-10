@@ -2,34 +2,28 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const features = [
   {
-    title: "多源异构数据接入",
-    description: "支持数据库、消息队列、文件、API等百种数据源，支持实时流式和批量采集两种模式",
-    icon: "🔌"
+    title: "多源数据、集中整合管理",
+    description: "支持多种数据源的配置管理，实现数据指向性的聚合管理，快速搭建数据中台。提供主题库、主题集和主题整合管理，充分满足不同业务对数据级别的访问分权管理。",
   },
   {
-    title: "ETL数据处理",
-    description: "提供可视化数据流设计器，支持行级、列级数据过滤和转换，支持自定义函数和脚本",
-    icon: "⚙️"
+    title: "轻量可视、模型轻松定制",
+    description: "无需编码，通过拖拽操作轻松搭建模型管理，组件关系一览无遗。有效提升开发效率和维护成本。",
   },
   {
-    title: "实时数据流处理",
-    description: "支持秒级数据同步延迟，完全支持数据质量监控和异常告警",
-    icon: "⚡"
+    title: "组件丰富、场景全面覆盖",
+    description: "预置多类型输入输出组件，上百转换组件，支持跨行数据输出、上下转换、组件及场景转换等。实时处理、整体处理、流水处理于一体，兼顾离线处理。",
   },
   {
-    title: "数据质量管理",
-    description: "内置数据质量检查规则，支持自定义质量指标，提供数据血缘追踪功能",
-    icon: "✓"
+    title: "灵活调度、实时监控告警",
+    description: "内置全生命周期数据处理过程中的任务调度过程，在DAG（有向无环图）方式进行任务。支持工作流定时调度、优先级、多维度集群支持，实时的任务告警。",
   },
   {
-    title: "高性能数据同步",
-    description: "支持分布式并行处理，日均处理数据量达到PB级别，支持增量和全量两种同步策略",
-    icon: "⚡"
+    title: "动态扩展、自动容错、数据高效可靠",
+    description: "高可靠、分布式、可扩展架构，支持行业业界和布式计算，具备高容错量、精确性、时时设特性、同时具弹性扩展能力，能够根据業務背景，动态扩展计算点。",
   },
   {
-    title: "云原生部署",
-    description: "支持容器化部署和Kubernetes编排，支持一键式集群扩展，灵活应对数据量增长",
-    icon: "☁️"
+    title: "国产支持、深度生态适配",
+    description: "兼容多类国产及国际主流服务器、cpu、操作系统、数据库等软件生态。",
   }
 ]
 
@@ -55,12 +49,12 @@ export function DataIntegrationFeatures() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 3xl:gap-8">
             {features.map((feature, index) => (
               <ScrollReveal key={feature.title} delay={index * 50}>
-                <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-white to-[#F9F7F9] p-6 shadow-[0px_2px_12px_rgba(84,30,30,0.08)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0px_8px_24px_rgba(191,25,32,0.15)] 3xl:p-8">
-                  <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-gradient-to-br from-[#BF1920]/10 to-transparent blur-2xl transition-transform duration-500 group-hover:scale-150" />
+                <div className="group relative overflow-hidden rounded-xl bg-white p-6 shadow-[0px_2px_12px_rgba(84,30,30,0.08)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0px_8px_24px_rgba(191,25,32,0.15)] border border-white hover:border-[#BF1920]/20 3xl:p-8">
+                  <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-[#BF1920]/5 transition-all duration-500 group-hover:bg-[#BF1920]/10" />
                   
                   <div className="relative z-10">
-                    <div className="mb-4 text-4xl">
-                      {feature.icon}
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#BF1920]/10">
+                      <div className="h-2 w-2 rounded-full bg-[#BF1920]" />
                     </div>
                     
                     <h3 className="mb-3 text-lg font-bold text-[#242222] 3xl:text-xl">
@@ -70,63 +64,12 @@ export function DataIntegrationFeatures() {
                     <p className="text-sm leading-relaxed text-[#242222]/70 3xl:text-base">
                       {feature.description}
                     </p>
-                    
-                    <div className="mt-4 flex items-center text-[#BF1920] opacity-0 transition-all duration-300 group-hover:opacity-100">
-                      <span className="text-sm font-medium">了解更多</span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
-                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
                   </div>
                 </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
-
-        {/* Benefits section */}
-        <ScrollReveal>
-          <div className="mt-16 rounded-2xl bg-gradient-to-br from-[#BF1920]/5 to-[#BF1920]/[0.02] p-8 md:p-12 3xl:p-16">
-            <h3 className="mb-8 text-center text-2xl font-bold text-[#242222] md:text-3xl 3xl:text-[40px]">
-              核心优势
-            </h3>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              <div className="text-center">
-                <div className="mb-3 text-4xl font-bold text-[#BF1920] 3xl:text-5xl">
-                  100+
-                </div>
-                <p className="text-sm text-[#242222]/70 3xl:text-base">
-                  支持数据源类型
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="mb-3 text-4xl font-bold text-[#BF1920] 3xl:text-5xl">
-                  秒级
-                </div>
-                <p className="text-sm text-[#242222]/70 3xl:text-base">
-                  实时数据同步
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="mb-3 text-4xl font-bold text-[#BF1920] 3xl:text-5xl">
-                  PB
-                </div>
-                <p className="text-sm text-[#242222]/70 3xl:text-base">
-                  单日处理数据量
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="mb-3 text-4xl font-bold text-[#BF1920] 3xl:text-5xl">
-                  99.9%
-                </div>
-                <p className="text-sm text-[#242222]/70 3xl:text-base">
-                  系统可用性
-                </p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   )
