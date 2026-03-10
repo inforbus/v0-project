@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
