@@ -17,10 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
         <style dangerouslySetInnerHTML={{ __html: `
           @font-face {
             font-family: 'YouSheBiaoTiHei';
@@ -45,6 +41,24 @@ export default function RootLayout({
             font-display: swap;
           }
         `}} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                window.addEventListener('unhandledrejection', event => {
+                  console.log('[v0] Caught unhandledrejection:', event.reason);
+                  event.preventDefault();
+                });
+                window.addEventListener('error', event => {
+                  console.log('[v0] Caught error event:', event.message);
+                  if (event.error instanceof Event || event.type === 'error') {
+                    event.preventDefault();
+                  }
+                });
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
         {children}
