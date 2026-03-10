@@ -33,8 +33,12 @@ function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
     const handleScroll = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight
-      if (total > 0) setProgress((window.scrollY / total) * 100)
+      try {
+        const total = document.documentElement.scrollHeight - window.innerHeight
+        if (total > 0) setProgress((window.scrollY / total) * 100)
+      } catch (error) {
+        console.warn("Scroll progress calculation error:", error)
+      }
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
@@ -112,9 +116,13 @@ export function HeroSection() {
                     playsInline
                     className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""}`}
                     onError={(e) => {
-                      e.currentTarget.style.display = "none"
-                      const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
-                      if (fallbackEl) fallbackEl.style.display = "block"
+                      try {
+                        e.currentTarget.style.display = "none"
+                        const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
+                        if (fallbackEl) fallbackEl.style.display = "block"
+                      } catch (error) {
+                        console.warn("Video error handler failed:", error)
+                      }
                     }}
                   />
                 )}
@@ -123,11 +131,29 @@ export function HeroSection() {
                     src={slide.fallback}
                     alt={slide.alt}
                     className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} ${slide.hideVideo ? "block" : "hidden"}`}
+                    onError={(e) => {
+                      try {
+                        e.currentTarget.style.display = "none"
+                      } catch (error) {
+                        console.warn("Fallback image error handler failed:", error)
+                      }
+                    }}
                   />
                 )}
               </>
             ) : (
-              <img src={slide.src} alt={slide.alt} className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`} />
+              <img 
+                src={slide.src} 
+                alt={slide.alt} 
+                className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                onError={(e) => {
+                  try {
+                    e.currentTarget.style.display = "none"
+                  } catch (error) {
+                    console.warn("Image error handler failed:", error)
+                  }
+                }}
+              />
             )}
           </div>
         ))}
