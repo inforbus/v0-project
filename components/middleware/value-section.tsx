@@ -84,12 +84,9 @@ export function ValueSection() {
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
 
-  // Preload all icons on mount
+  // Icons will be loaded lazily by img tags
   useEffect(() => {
-    valueItems.forEach((item) => {
-      const img = new window.Image()
-      img.src = item.icon
-    })
+    // No preloading needed - img tags handle loading safely
   }, [])
 
   const goToIndex = useCallback((index: number) => {
