@@ -79,5 +79,28 @@
 - 真正解决问题所需时间：约10分钟
 - 关键学习点：不要忽略最基础的资源验证
 
-## 记录日期
-2026-03-10
+## 部署错误：pnpm install 失败 (exit code 236)
+
+### 问题症状
+```
+ENOTDIR: not a directory, mkdir '/vercel/path0/node_modules'
+pnpm: ENOTDIR: not a directory, mkdir '/vercel/path0/node_modules'
+Error: Command "pnpm install" exited with 236
+```
+
+### 根本原因
+客户端的unhandledRejection [object Event]错误导致：
+1. 构建过程中页面无法正常渲染
+2. 构建过程中发生严重错误
+3. pnpm lockfile可能被破坏或无效
+4. 最终导致pnpm install失败
+
+### 解决方案
+1. 消除所有客户端的unhandledRejection错误（见上文）
+2. 删除corrupted的pnpm-lock.yaml文件
+3. 重新部署，让pnpm自动重新生成lockfile
+
+### 防预措施
+- 确保代码在本地开发环境中能正常运行
+- 每次提交前都要测试应用启动
+- 不要忽视客户端错误
