@@ -21,6 +21,30 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('unhandledrejection', event => {
+                try {
+                  console.warn('[v0] Unhandled rejection:', event.reason);
+                  event.preventDefault();
+                } catch (e) {
+                  console.error('[v0] Error in rejection handler:', e);
+                }
+              });
+              window.addEventListener('error', event => {
+                try {
+                  if (event.error && event.error.message && event.error.message.includes('[object Event]')) {
+                    console.warn('[v0] Caught object event error:', event);
+                    event.preventDefault();
+                  }
+                } catch (e) {
+                  console.error('[v0] Error in error handler:', e);
+                }
+              });
+            `,
+          }}
+        />
         <style dangerouslySetInnerHTML={{ __html: `
           @font-face {
             font-family: 'YouSheBiaoTiHei';

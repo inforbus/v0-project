@@ -171,6 +171,13 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
               height={30}
               className={`h-6 w-auto md:h-7 3xl:h-8 ${isOverlay ? "brightness-0 invert" : ""}`}
               priority
+              onError={(e) => {
+                try {
+                  e.currentTarget.style.display = "none"
+                } catch (error) {
+                  console.warn("Logo error:", error)
+                }
+              }}
             />
           </Link>
 
