@@ -6,8 +6,9 @@ import { CustomersSection } from "@/components/home/customers-section"
 import { CasesSection } from "@/components/home/cases-section"
 import { HonorsSection } from "@/components/home/honors-section"
 import { NewsSection } from "@/components/home/news-section"
-import { CTASection } from "@/components/home/cta-section"
+import { ContactForm } from "@/components/shared/contact-form"
 import { Footer } from "@/components/shared/footer"
+
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-background">
@@ -19,7 +20,7 @@ export default function HomePage() {
       <NewsSection />
       <CustomersSection />
       <HonorsSection />
-      <CTASection />
+      <ContactForm />
       <Footer />
     </div>
   )
