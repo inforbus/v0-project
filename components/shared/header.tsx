@@ -13,10 +13,21 @@ function ProductMegaMenu() {
 
   useEffect(() => {
     setIsClient(true)
-    setProductCategories(getProductCategories())
+    try {
+      const categories = getProductCategories()
+      setProductCategories(categories)
+    } catch (e) {
+      console.error("Failed to load product categories:", e)
+      setProductCategories([])
+    }
   }, [])
 
-  if (!isClient || !productCategories || productCategories.length === 0) {
+  // During SSR, return placeholder to avoid hydration mismatch
+  if (!isClient) {
+    return <div />
+  }
+
+  if (!productCategories || productCategories.length === 0) {
     return null
   }
 
@@ -72,7 +83,13 @@ function MobileNavItem({ item }: { item: NavItem }) {
   useEffect(() => {
     setIsClient(true)
     if (item.isMega) {
-      setProductCategories(getProductCategories())
+      try {
+        const categories = getProductCategories()
+        setProductCategories(categories)
+      } catch (e) {
+        console.error("Failed to load product categories:", e)
+        setProductCategories([])
+      }
     }
   }, [item.isMega])
 
