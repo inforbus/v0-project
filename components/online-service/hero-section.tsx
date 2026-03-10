@@ -6,7 +6,7 @@ const navItems = getNavItems("/support/online")
 
 export function OnlineServiceHeroSection() {
   return (
-    <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
+    <div className="relative h-[200px] w-full overflow-hidden md:h-[250px] lg:h-[300px] 3xl:h-[380px]">
       {/* Background image */}
       <img
         src="https://inforbus.com/common/cvicse/image/contact_banner.jpg"
