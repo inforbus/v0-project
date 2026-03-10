@@ -60,157 +60,184 @@ export default function OnlineServicePage() {
 
 
       {/* Contact Section */}
-      <section className="bg-muted py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-3">
-            {/* Form */}
-            <div className="lg:col-span-2">
-              <h2 className="mb-8 text-2xl font-bold text-foreground">
-                联系我们
-              </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
-                      您的姓名 <span className="text-primary">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      placeholder="请输入您的姓名"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="mb-2 block text-sm font-medium text-foreground">
-                      所属公司/单位 <span className="text-primary">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      placeholder="请输入公司/单位名称"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                      required
-                    />
-                  </div>
-                </div>
+      <section className="py-12 lg:py-16">
+        <div className="mx-auto max-w-4xl px-4 lg:px-8">
+          <form onSubmit={handleSubmit} className="rounded-lg bg-background p-8 shadow-sm">
+            {/* Product/Issue Name */}
+            <div className="mb-8">
+              <label className="mb-2 block text-sm font-medium text-foreground">
+                产品名称/问题名称 <span className="text-primary">*</span>
+              </label>
+              <input
+                type="text"
+                placeholder="请输入产品名称/问题名称"
+                className="w-full rounded-md border border-border bg-muted px-4 py-3 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                required
+              />
+            </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-foreground">
-                      联系电话 <span className="text-primary">*</span>
-                    </label>
+            {/* Service Type Radio Options */}
+            <div className="mb-8">
+              <label className="mb-3 block text-sm font-medium text-foreground">
+                请选择服务类型 <span className="text-primary">*</span>
+              </label>
+              <div className="flex flex-wrap gap-6">
+                {[
+                  { value: "consultation", label: "产品咨询" },
+                  { value: "maintenance", label: "售后维护" },
+                  { value: "feedback", label: "投诉建议" },
+                  { value: "trial", label: "申请试用版" },
+                  { value: "certification", label: "兼容认证" },
+                ].map((option) => (
+                  <label key={option.value} className="flex items-center gap-2 cursor-pointer">
                     <input
-                      type="tel"
-                      id="phone"
-                      placeholder="请输入联系电话"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      type="radio"
+                      name="serviceType"
+                      value={option.value}
+                      className="h-4 w-4 text-primary"
                       required
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
-                      电子邮箱
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="请输入电子邮箱"
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="mb-2 block text-sm font-medium text-foreground">
-                    服务类型 <span className="text-primary">*</span>
+                    <span className="text-sm text-foreground">{option.label}</span>
                   </label>
-                  <select
-                    id="service"
-                    className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    required
-                  >
-                    <option value="">请选择服务类型</option>
-                    <option value="consultation">产品咨询</option>
-                    <option value="maintenance">售后维护</option>
-                    <option value="feedback">投诉建议</option>
-                    <option value="trial">申请试用版</option>
-                    <option value="certification">兼容认证</option>
-                  </select>
-                </div>
+                ))}
+              </div>
+            </div>
 
-                <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
-                    留言内容 <span className="text-primary">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    placeholder="请详细描述您的需求或问题"
-                    className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+            {/* Issue Content */}
+            <div className="mb-8">
+              <label className="mb-2 block text-sm font-medium text-foreground">
+                请详细填写问题内容 <span className="text-primary">*</span>
+              </label>
+              <textarea
+                rows={6}
+                placeholder="请详细填写问题内容"
+                className="w-full rounded-md border border-border bg-muted px-4 py-3 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                required
+              />
+            </div>
+
+            {/* User Information */}
+            <div className="mb-8 space-y-6">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-foreground">
+                  您的姓名 <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="请输入您的姓名"
+                  className="w-full rounded-md border border-border bg-muted px-4 py-3 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-foreground">
+                  您的公司/单位 <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="请输入您的公司/单位名称"
+                  className="w-full rounded-md border border-border bg-muted px-4 py-3 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-foreground">
+                  您的电话 <span className="text-primary">*</span>
+                </label>
+                <input
+                  type="tel"
+                  placeholder="请输入您的电话"
+                  className="w-full rounded-md border border-border bg-muted px-4 py-3 text-foreground placeholder:text-foreground/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Captcha */}
+            <div className="mb-8">
+              <label className="mb-2 block text-sm font-medium text-foreground">
+                验证码 <span className="text-primary">*</span>
+              </label>
+              <div className="flex gap-3 items-center">
+                <div className="flex-1 rounded-md border border-border bg-muted px-4 py-3">
+                  <input
+                    type="text"
+                    placeholder="验证码"
+                    className="w-full bg-transparent text-foreground placeholder:text-foreground/50 focus:outline-none"
                     required
                   />
                 </div>
-
+                <div className="h-12 w-24 rounded-md border border-border bg-muted flex items-center justify-center">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HpRN1ck3SjU81tEMFe9TTmXF2u0ZU5.png"
+                    alt="验证码"
+                    width={80}
+                    height={40}
+                    className="h-full w-full object-cover rounded"
+                  />
+                </div>
                 <button
-                  type="submit"
-                  disabled={formStatus === "loading"}
-                  className="w-full rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-lg active:scale-95 active:bg-primary/80 disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  className="text-xs text-primary hover:underline whitespace-nowrap"
                 >
-                  {formStatus === "loading" ? "提交中..." : formStatus === "success" ? "提交成功！" : "提交"}
+                  看不清，换一张
                 </button>
-              </form>
+              </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="mb-6 text-lg font-semibold text-foreground">
-                  快速联系方式
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex gap-3">
-                    <Phone className="h-5 w-5 flex-shrink-0 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm text-foreground/60">咨询热线</p>
-                      <p className="text-base font-medium text-foreground">
-                        400-618-6180
-                      </p>
-                    </div>
-                  </div>
+            {/* Submit Button */}
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                disabled={formStatus === "loading"}
+                className="rounded-md bg-primary px-12 py-3 font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formStatus === "loading" ? "提交中..." : formStatus === "success" ? "提交成功！" : "确认提交"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
 
-                  <div className="flex gap-3">
-                    <Mail className="h-5 w-5 flex-shrink-0 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm text-foreground/60">网址</p>
-                      <p className="text-base font-medium text-foreground">
-                        www.inforbus.com
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <MapPin className="h-5 w-5 flex-shrink-0 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm text-foreground/60">公司地址</p>
-                      <p className="text-base font-medium text-foreground">
-                        山东省济南市历下区千佛山东路41-1号
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Clock className="h-5 w-5 flex-shrink-0 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm text-foreground/60">在线客服时间</p>
-                      <p className="text-base font-medium text-foreground">
-                        周一至周五 9:00-17:30
-                      </p>
-                    </div>
-                  </div>
-                </div>
+      {/* Quick Contact Info */}
+      <section className="bg-muted py-12 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <h3 className="mb-8 text-2xl font-bold text-foreground text-center">
+            快速联系方式
+          </h3>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <Phone className="h-5 w-5 text-primary" />
               </div>
+              <p className="mb-1 text-sm text-foreground/60">咨询热线</p>
+              <p className="font-medium text-foreground">400-618-6180</p>
+            </div>
+
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <Mail className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">网址</p>
+              <p className="font-medium text-foreground">www.inforbus.com</p>
+            </div>
+
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <MapPin className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">公司地址</p>
+              <p className="font-medium text-foreground text-sm">山东省济南市历下区千佛山东路41-1号</p>
+            </div>
+
+            <div className="rounded-lg bg-background p-6">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                <Clock className="h-5 w-5 text-primary" />
+              </div>
+              <p className="mb-1 text-sm text-foreground/60">在线客服时间</p>
+              <p className="font-medium text-foreground">周一至周五 9:00-17:30</p>
             </div>
           </div>
         </div>
