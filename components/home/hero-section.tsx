@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Header } from "@/components/shared/header"
-import { getNavItems, getProductCategories } from "@/components/shared/nav-data"
+import { getNavItems } from "@/components/shared/nav-data"
 
 function ParticleField() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -76,7 +76,6 @@ const bannerSlides = [
 const SLIDE_INTERVAL = 10000 // 10 seconds
 
 const navItems = getNavItems("/")
-const productCategories = getProductCategories()
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -134,7 +133,7 @@ export function HeroSection() {
         ))}
         <ParticleField />
 
-        <Header navItems={navItems} productCategories={productCategories} />
+        <Header navItems={navItems} />
 
         {/* Slide 1 text: 中创API网关软件 */}
         <div

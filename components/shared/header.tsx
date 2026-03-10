@@ -4,42 +4,56 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
-import { type NavItem, type ProductCategory } from "./nav-data"
+import { getProductCategories, type NavItem } from "./nav-data"
 
-function ProductMegaMenu({ productCategories }: { productCategories: ProductCategory[] }) {
-  if (!productCategories?.length) return null
+function ProductMegaMenu() {
+  const [activeCategory, setActiveCategory] = useState(0)
+  const productCategories = getProductCategories()
 
   return (
-    <div
-      className="grid grid-cols-5 overflow-hidden rounded-lg border border-border bg-background shadow-xl"
-      style={{ minWidth: "850px" }}
-    >
-      {productCategories.map((category, idx) => (
-        <div key={idx} className="border-r border-border/40 p-4 last:border-r-0">
-          <Link
-            href={category.href}
-            className="mb-3 block text-sm font-semibold text-foreground transition-colors hover:text-primary"
+    <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
+      <div className="flex w-[180px] flex-shrink-0 flex-col bg-muted py-2">
+        {productCategories.map((category, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onMouseEnter={() => setActiveCategory(idx)}
+            onClick={() => setActiveCategory(idx)}
+            className={`relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${activeCategory === idx
+              ? "bg-background font-semibold text-primary"
+              : "font-medium text-foreground/80 hover:bg-background/80 hover:text-primary"
+              }`}
           >
             {category.name}
-          </Link>
-          <div className="space-y-1">
-            {category.children.map((child, cIdx) => (
-              <Link
-                key={cIdx}
-                href={child.href}
-                className="block text-sm text-foreground/70 transition-colors hover:text-primary"
-              >
-                {child.name}
-              </Link>
-            ))}
-          </div>
+            <ChevronRight className={`h-3.5 w-3.5 transition-colors ${activeCategory === idx ? "text-primary" : "text-muted-foreground"}`} />
+            {activeCategory === idx && (
+              <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r bg-primary" />
+            )}
+          </button>
+        ))}
+      </div>
+      <div className="flex flex-1 flex-col border-l border-border px-6 py-4">
+        <h4 className="mb-3 text-sm font-semibold text-foreground">
+          {productCategories[activeCategory]?.name}
+        </h4>
+        <div className="mb-3 h-px w-full bg-border" />
+        <div className="grid grid-cols-2 gap-x-8 gap-y-1">
+          {productCategories[activeCategory]?.children.map((child, cIdx) => (
+            <Link
+              key={cIdx}
+              href={child.href}
+              className="rounded px-3 py-2.5 text-sm text-muted-foreground transition-all duration-150 hover:bg-primary/5 hover:text-primary"
+            >
+              {child.name}
+            </Link>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   )
 }
 
-function MobileNavItem({ item, productCategories }: { item: NavItem; productCategories: ProductCategory[] }) {
+function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
   const hasChildren = item.children.length > 0 || item.isMega
 
@@ -78,7 +92,7 @@ function MobileNavItem({ item, productCategories }: { item: NavItem; productCate
       )}
       {item.isMega && expanded && (
         <div className="pb-2 pl-4">
-          {productCategories.map((category, catIdx) => (
+          {getProductCategories().map((category, catIdx) => (
             <div key={catIdx} className="mb-2">
               <Link
                 href={category.href}
@@ -105,7 +119,7 @@ function MobileNavItem({ item, productCategories }: { item: NavItem; productCate
   )
 }
 
-export function Header({ navItems, productCategories = [], variant = "default" }: { navItems: NavItem[]; productCategories?: ProductCategory[]; variant?: "default" | "overlay" }) {
+export function Header({ navItems, variant = "default" }: { navItems: NavItem[]; variant?: "default" | "overlay" }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isOverlay = variant === "overlay"
 
@@ -141,7 +155,7 @@ export function Header({ navItems, productCategories = [], variant = "default" }
 
                 {item.isMega && (
                   <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
-                    <ProductMegaMenu productCategories={productCategories} />
+                    <ProductMegaMenu />
                   </div>
                 )}
 
@@ -178,7 +192,7 @@ export function Header({ navItems, productCategories = [], variant = "default" }
           <div className="max-h-[70vh] overflow-y-auto border-t border-border bg-background lg:hidden">
             <div className="px-4 py-4">
               {navItems.map((item, index) => (
-                <MobileNavItem key={index} item={item} productCategories={productCategories} />
+                <MobileNavItem key={index} item={item} />
               ))}
             </div>
           </div>

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
-import { getNavItems, getProductCategories } from "@/components/shared/nav-data"
+import { getNavItems } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
@@ -139,7 +139,7 @@ const jobs: Job[] = [
         heading: "任职资格",
         items: [
           "2年以上前端开发经验，本科以上学历，计算机或相关专业；",
-          "扎实的前端基础，熟练掌握JavaScript��HTML5、CSS3核心技术；",
+          "扎实的前端基础，熟练掌握JavaScript、HTML5、CSS3核心技术；",
           "有Vue.js或React框架实践经验，并了解其中原理；",
           "对前端工程化有深刻理解，熟练掌握webpack、rollup等工具；",
           "熟悉前端性能优化，能够独立完成开发和优化迭代；",
@@ -267,7 +267,7 @@ const jobs: Job[] = [
           "本科及以上学历，5年以上软件/互联网产品经理经验，有政法相关项目产品设计优先；",
           "熟练掌握产品需求分析、设计的技巧，对交互设计过程有深入的了解；",
           "具备计算机软件相关知识，有B端PC、APP软件产品设计经验；",
-          "熟练使用原型工具（如蓝湖/Axure）、思维导图��Word/Excel/PPT/Visio等；",
+          "熟练使用原型工具（如蓝湖/Axure）、思维导图、Word/Excel/PPT/Visio等；",
           "擅长数据分析与需求调研；文档编写能力强；",
           "较强的逻辑思维能力与沟通表达能力；工作积极有责任心。",
         ],
@@ -469,7 +469,6 @@ function JobCard({ job }: { job: Job }) {
 export function CareersContent() {
   const [activeCategory, setActiveCategory] = useState("全部")
   const navItems = getNavItems("/about/careers")
-  const productCategories = getProductCategories()
 
   const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
 
@@ -478,7 +477,7 @@ export function CareersContent() {
       {/* Hero with Header */}
       <section className="relative overflow-hidden bg-[#1a1a1a]">
         {/* Header overlay */}
-        <Header navItems={navItems} productCategories={productCategories} variant="overlay" />
+        <Header navItems={navItems} variant="overlay" />
         
         {/* Hero content */}
         <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
