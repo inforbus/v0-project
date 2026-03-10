@@ -6,7 +6,7 @@ const navItems = getNavItems("/support/online")
 
 export function OnlineServiceHeroSection() {
   return (
-    <div className="relative h-[200px] w-full overflow-hidden md:h-[250px] lg:h-[300px] 3xl:h-[380px]">
+    <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}
       <img
         src="https://inforbus.com/common/cvicse/image/contact_banner.jpg"
@@ -17,7 +17,7 @@ export function OnlineServiceHeroSection() {
       <Header navItems={navItems} variant="overlay" />
 
       {/* Buttons only */}
-      <div className="absolute bottom-8 z-20 flex flex-row items-center gap-3 md:bottom-10 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
+      <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
         <Link
           href="/support/online#contact"
           className="group inline-flex items-center justify-center rounded bg-[#BF1920] px-4 py-2 text-xs font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#a8151b] hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 sm:px-6 sm:py-2.5 sm:text-sm md:text-base 3xl:px-8 3xl:py-3"
