@@ -1,5 +1,9 @@
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Image from "next/image"
+import Link from "next/link"
+import { Header } from "@/components/shared/header"
+import { Footer } from "@/components/shared/footer"
+import { getNavItems } from "@/components/shared/nav-data"
 
 export const metadata = {
   title: "公司要闻 - 中创股份",
@@ -19,8 +23,12 @@ const newsItems = [
 ]
 
 export default function CompanyNewsPage() {
+  const navItems = getNavItems("/news/company")
+  
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header navItems={navItems} />
+      <main className="flex-1">
       {/* Hero Section with Banner */}
       <section className="relative overflow-hidden">
         {/* Banner Image */}
@@ -113,6 +121,8 @@ export default function CompanyNewsPage() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+      <Footer />
+    </div>
   )
 }

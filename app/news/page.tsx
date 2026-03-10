@@ -1,6 +1,9 @@
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Image from "next/image"
 import Link from "next/link"
+import { Header } from "@/components/shared/header"
+import { Footer } from "@/components/shared/footer"
+import { getNavItems } from "@/components/shared/nav-data"
 
 export const metadata = {
   title: "新闻资讯 - 中创股份",
@@ -38,73 +41,79 @@ const newsItems = [
 ]
 
 export default function NewsPage() {
+  const navItems = getNavItems("/news")
+  
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-background py-12 md:py-16 lg:py-20">
-        <div className="relative z-10 mx-auto max-w-6xl px-4 text-center lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-          <ScrollReveal>
-            <h1 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl 3xl:text-6xl">
-              新闻资讯
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg 3xl:text-xl">
-              洞察产业前沿，把握行业发展动向和创新趋势
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header navItems={navItems} />
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-background py-12 md:py-16 lg:py-20">
+          <div className="relative z-10 mx-auto max-w-6xl px-4 text-center lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
+            <ScrollReveal>
+              <h1 className="text-3xl font-bold text-foreground md:text-4xl lg:text-5xl 3xl:text-6xl">
+                新闻资讯
+              </h1>
+              <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg 3xl:text-xl">
+                洞察产业前沿，把握行业发展动向和创新趋势
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
 
-      {/* News Content */}
-      <section className="py-12 md:py-16 lg:py-20 3xl:py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-          <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
-            {newsItems.map((item, index) => (
-              <ScrollReveal key={item.id} delay={index * 100}>
-                <article className="group overflow-hidden rounded-lg border border-border transition-all duration-300 hover:shadow-lg">
-                  {/* Image */}
-                  <div className="relative overflow-hidden bg-muted" style={{ aspectRatio: "16 / 9" }}>
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-5 md:p-6 3xl:p-8">
-                    <div className="flex items-center gap-3 text-xs md:text-sm 3xl:text-base">
-                      <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-primary">
-                        {item.category}
-                      </span>
-                      <time className="text-muted-foreground">{item.date}</time>
+        {/* News Content */}
+        <section className="py-12 md:py-16 lg:py-20 3xl:py-24">
+          <div className="mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
+            <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
+              {newsItems.map((item, index) => (
+                <ScrollReveal key={item.id} delay={index * 100}>
+                  <article className="group overflow-hidden rounded-lg border border-border transition-all duration-300 hover:shadow-lg">
+                    {/* Image */}
+                    <div className="relative overflow-hidden bg-muted" style={{ aspectRatio: "16 / 9" }}>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
                     </div>
 
-                    <h3 className="mt-3 line-clamp-2 text-lg font-semibold text-foreground transition-colors duration-300 group-hover:text-primary md:mt-4 md:text-xl 3xl:text-2xl">
-                      {item.title}
-                    </h3>
+                    {/* Content */}
+                    <div className="p-5 md:p-6 3xl:p-8">
+                      <div className="flex items-center gap-3 text-xs md:text-sm 3xl:text-base">
+                        <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-primary">
+                          {item.category}
+                        </span>
+                        <time className="text-muted-foreground">{item.date}</time>
+                      </div>
 
-                    <p className="mt-3 line-clamp-2 text-sm text-muted-foreground md:mt-4 md:text-base 3xl:text-lg">
-                      {item.description}
-                    </p>
+                      <h3 className="mt-3 line-clamp-2 text-lg font-semibold text-foreground transition-colors duration-300 group-hover:text-primary md:mt-4 md:text-xl 3xl:text-2xl">
+                        {item.title}
+                      </h3>
 
-                    <Link
-                      href={`/news/company`}
-                      className="mt-4 inline-flex items-center text-sm font-medium text-primary transition-all duration-300 hover:gap-2 md:text-base 3xl:text-lg"
-                    >
-                      了解更多
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
-                        <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </Link>
-                  </div>
-                </article>
-              </ScrollReveal>
-            ))}
+                      <p className="mt-3 line-clamp-2 text-sm text-muted-foreground md:mt-4 md:text-base 3xl:text-lg">
+                        {item.description}
+                      </p>
+
+                      <Link
+                        href={`/news/company`}
+                        className="mt-4 inline-flex items-center text-sm font-medium text-primary transition-all duration-300 hover:gap-2 md:text-base 3xl:text-lg"
+                      >
+                        了解更多
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
+                          <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+      <Footer />
+    </div>
   )
 }
