@@ -2,13 +2,34 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getProductCategories, type NavItem } from "./nav-data"
 
 function ProductMegaMenu() {
   const [activeCategory, setActiveCategory] = useState(0)
-  const productCategories = getProductCategories()
+  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+    try {
+      const categories = getProductCategories()
+      setProductCategories(categories)
+    } catch (e) {
+      console.error("Failed to load product categories:", e)
+      setProductCategories([])
+    }
+  }, [])
+
+  // During SSR, return placeholder to avoid hydration mismatch
+  if (!isClient) {
+    return <div />
+  }
+
+  if (!productCategories || productCategories.length === 0) {
+    return null
+  }
 
   return (
     <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
@@ -55,7 +76,22 @@ function ProductMegaMenu() {
 
 function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
+  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
+  const [isClient, setIsClient] = useState(false)
   const hasChildren = item.children.length > 0 || item.isMega
+
+  useEffect(() => {
+    setIsClient(true)
+    if (item.isMega) {
+      try {
+        const categories = getProductCategories()
+        setProductCategories(categories)
+      } catch (e) {
+        console.error("Failed to load product categories:", e)
+        setProductCategories([])
+      }
+    }
+  }, [item.isMega])
 
   return (
     <div className="border-b border-border/40 last:border-b-0">
@@ -90,9 +126,9 @@ function MobileNavItem({ item }: { item: NavItem }) {
           ))}
         </div>
       )}
-      {item.isMega && expanded && (
+      {item.isMega && expanded && isClient && productCategories && productCategories.length > 0 && (
         <div className="pb-2 pl-4">
-          {getProductCategories().map((category, catIdx) => (
+          {productCategories.map((category, catIdx) => (
             <div key={catIdx} className="mb-2">
               <Link
                 href={category.href}

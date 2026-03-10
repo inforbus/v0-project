@@ -109,7 +109,7 @@ export function getNavItems(activePath: string): NavItem[] {
     {
       name: "服务支持",
       href: "/support",
-      active: activePath === "/support",
+      active: activePath === "/support" || activePath.startsWith("/support"),
       isMega: false,
       children: [
         { name: "在线服务", href: "/support/online" },

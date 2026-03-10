@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
@@ -50,28 +49,27 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20112-5HbxeOF3Ph0r9IqIfxlmamTD0K1jaF.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20112-SC1qR1vAL0OwGnVH2yeeOMf8RDUmOf.png",
     fallback: "",
     alt: "中创API网关软件",
   },
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20161-vC5Hm4iLWhs8yOI8AJeyVdICP0biMP.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20161-2VLUlMRLz8orxkx43ijVBm4XLxa4jb.png",
     fallback: "",
     alt: "中创智能体中间件",
   },
   {
     type: "image" as const,
-    src: "/images/banner/banner3-new.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20164-Nnh9FiEWdDzrH9KRjWVjsSNjKd0Kvm.png",
     fallback: "",
     alt: "全球AI布局",
   },
   {
-    type: "video" as const,
-    src: "/videos/banner-2.mov",
-    fallback: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-UexuKUpyh0nXJUjwqlUoFl54VOFoWU.png",
-    alt: "安全云服务",
-    hideVideo: true,
+    type: "image" as const,
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-cmhCV96BtK4rU3j6jmokxHxyokstHP.png",
+    fallback: "",
+    alt: "数据安全云服务",
   },
 ]
 
@@ -93,11 +91,11 @@ export function HeroSection() {
   return (
     <>
       <ScrollProgress />
-        <div className="relative flex h-[650px] w-full flex-col overflow-hidden">
+      <div className="relative flex h-[700px] w-full flex-col overflow-hidden">
         {bannerSlides.map((slide, index) => (
           <div
             key={index}
-            className="pointer-events-none absolute left-0 top-0 h-full w-full transition-all duration-[1500ms] ease-in-out"
+            className="pointer-events-none absolute inset-0 transition-all duration-[1500ms] ease-in-out"
             style={{
               opacity: currentSlide === index ? 1 : 0,
               transform: currentSlide === index ? "scale(1)" : "scale(1.03)",
@@ -129,7 +127,7 @@ export function HeroSection() {
                 )}
               </>
             ) : (
-              <img src={slide.src} alt={slide.alt} className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""}`} />
+              <img src={slide.src} alt={slide.alt} className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`} />
             )}
           </div>
         ))}
@@ -149,14 +147,14 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[708px]">
               <h1
-                className="text-[13px] text-black sm:text-[21px] md:text-[29px] lg:text-[37px] xl:text-[45px] 2xl:text-[55px] 3xl:text-[65px]"
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创API网关软件
               </h1>
               <p
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
                 一站式流量管控与AI赋能，让智能更简单
               </p>
@@ -176,14 +174,14 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
               <h1
-                className="text-[13px] text-black sm:text-[21px] md:text-[29px] lg:text-[37px] xl:text-[45px] 2xl:text-[55px] 3xl:text-[65px]"
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创智能体中间件
               </h1>
               <p
-                className="mt-[14px] text-[12px] text-black sm:mt-[18px] sm:text-[14px] md:mt-[22px] md:text-[16px] lg:mt-[28px] lg:text-[18px] xl:mt-[32px] xl:text-[20px] 2xl:mt-[36px] 2xl:text-[24px] 3xl:mt-[40px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                className="mt-[20px] text-[12px] text-black sm:mt-[28px] sm:text-[14px] md:mt-[32px] md:text-[16px] lg:mt-[40px] lg:text-[18px] xl:mt-[48px] xl:text-[20px] 2xl:mt-[54px] 2xl:text-[24px] 3xl:mt-[60px] 3xl:text-[28px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
                 面向企业流程智能体管理平台
               </p>
@@ -223,8 +221,7 @@ export function HeroSection() {
                   fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
                   fontWeight: 400,
                   lineHeight: 1,
-                  color: "#BF1920",
-                  textShadow: "0px 3px 5px rgba(31, 3, 8, 0.28)",
+                  color: "#000000",
                 }}
               >
                 中创股份
@@ -284,8 +281,7 @@ export function HeroSection() {
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
                   fontWeight: 700,
                   lineHeight: "100%",
-                  color: "#BF1920",
-                  textShadow: "0px 3px 5px rgba(31, 3, 8, 0.28)",
+                  color: "#000000",
                 }}
               >
                 打造新一代信息技术的关键基础设施
@@ -306,8 +302,6 @@ export function HeroSection() {
             ))}
           </div>
         )}
-
-
       </div>
     </>
   )
