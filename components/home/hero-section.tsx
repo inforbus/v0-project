@@ -50,28 +50,27 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20112-5HbxeOF3Ph0r9IqIfxlmamTD0K1jaF.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20112-SC1qR1vAL0OwGnVH2yeeOMf8RDUmOf.png",
     fallback: "",
     alt: "中创API网关软件",
   },
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20161-vC5Hm4iLWhs8yOI8AJeyVdICP0biMP.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20161-2VLUlMRLz8orxkx43ijVBm4XLxa4jb.png",
     fallback: "",
     alt: "中创智能体中间件",
   },
   {
     type: "image" as const,
-    src: "/images/banner/banner3-new.png",
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-cmhCV96BtK4rU3j6jmokxHxyokstHP.png",
     fallback: "",
-    alt: "全球AI布局",
+    alt: "数据安全云服务",
   },
   {
-    type: "video" as const,
-    src: "/videos/banner-2.mov",
-    fallback: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-UexuKUpyh0nXJUjwqlUoFl54VOFoWU.png",
-    alt: "安全云服务",
-    hideVideo: true,
+    type: "image" as const,
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20164-Nnh9FiEWdDzrH9KRjWVjsSNjKd0Kvm.png",
+    fallback: "",
+    alt: "全球AI布局",
   },
 ]
 
@@ -93,11 +92,11 @@ export function HeroSection() {
   return (
     <>
       <ScrollProgress />
-        <div className="relative flex h-[650px] w-full flex-col overflow-hidden">
+      <div className="relative flex h-screen w-full flex-col overflow-hidden">
         {bannerSlides.map((slide, index) => (
           <div
             key={index}
-            className="pointer-events-none absolute left-0 top-0 h-full w-full transition-all duration-[1500ms] ease-in-out"
+            className="pointer-events-none absolute inset-0 transition-all duration-[1500ms] ease-in-out"
             style={{
               opacity: currentSlide === index ? 1 : 0,
               transform: currentSlide === index ? "scale(1)" : "scale(1.03)",
@@ -129,7 +128,7 @@ export function HeroSection() {
                 )}
               </>
             ) : (
-              <img src={slide.src} alt={slide.alt} className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""}`} />
+              <img src={slide.src} alt={slide.alt} className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`} />
             )}
           </div>
         ))}
