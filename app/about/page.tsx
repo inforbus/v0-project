@@ -1,14 +1,19 @@
-import { AboutHeroSection } from "@/components/about/hero-section"
-import { CompanyIntroSection } from "@/components/about/company-intro-section"
-import { ContactForm } from "@/components/shared/contact-form"
 import { Footer } from "@/components/shared/footer"
+
+export const metadata = {
+  title: "关于我们 - 中创软件",
+  description: "了解中创软件的发展历程、公司荣誉和产品应用",
+}
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen w-full bg-background">
-      <AboutHeroSection />
-      <CompanyIntroSection />
-      <ContactForm />
+      <div className="py-12 lg:py-20">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <h1 className="text-4xl font-bold text-foreground">关于我们</h1>
+          <p className="mt-4 text-lg text-foreground/70">测试页面</p>
+        </div>
+      </div>
       <Footer />
     </div>
   )
