@@ -62,15 +62,15 @@ const bannerSlides = [
   },
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-cmhCV96BtK4rU3j6jmokxHxyokstHP.png",
-    fallback: "",
-    alt: "数据安全云服务",
-  },
-  {
-    type: "image" as const,
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20164-Nnh9FiEWdDzrH9KRjWVjsSNjKd0Kvm.png",
     fallback: "",
     alt: "全球AI布局",
+  },
+  {
+    type: "image" as const,
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-cmhCV96BtK4rU3j6jmokxHxyokstHP.png",
+    fallback: "",
+    alt: "数据安全云服务",
   },
 ]
 
@@ -155,7 +155,7 @@ export function HeroSection() {
               </h1>
               <p
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
                 一站式流量管控与AI赋能，让智能更简单
               </p>
@@ -181,8 +181,8 @@ export function HeroSection() {
                 中创智能体中间件
               </h1>
               <p
-                className="mt-[14px] text-[12px] text-black sm:mt-[18px] sm:text-[14px] md:mt-[22px] md:text-[16px] lg:mt-[28px] lg:text-[18px] xl:mt-[32px] xl:text-[20px] 2xl:mt-[36px] 2xl:text-[24px] 3xl:mt-[40px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                className="mt-[20px] text-[12px] text-black sm:mt-[28px] sm:text-[14px] md:mt-[32px] md:text-[16px] lg:mt-[40px] lg:text-[18px] xl:mt-[48px] xl:text-[20px] 2xl:mt-[54px] 2xl:text-[24px] 3xl:mt-[60px] 3xl:text-[28px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
                 面向企业流程智能体管理平台
               </p>
