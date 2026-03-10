@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
+import { OnlineServiceHeroSection } from "@/components/online-service/hero-section"
 import { getNavItems } from "@/components/shared/nav-data"
 
 export default function OnlineServicePage() {
@@ -25,42 +26,10 @@ export default function OnlineServicePage() {
 
   return (
     <div className="min-h-screen w-full bg-background">
-      <Header navItems={navItems} />
-
-      {/* Banner Section */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-r from-primary/10 to-primary/5 py-12 lg:py-20">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <h1 className="text-4xl font-bold text-foreground lg:text-5xl">
-                  在线服务
-                </h1>
-                <p className="text-lg text-foreground/70">
-                  24小时在线支持，为您的业务保驾护航
-                </p>
-              </div>
-              <p className="text-base leading-relaxed text-foreground/60">
-                我们提供专业的产品咨询、技术支持、售后维护等一站式服务，帮助您快速解决问题，提升业务效率。
-              </p>
-            </div>
-            <div className="relative h-64 w-full lg:h-80">
-              <Image
-                src="/images/support-banner.jpg"
-                alt="在线服务"
-                fill
-                className="object-cover rounded-lg"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-
+      <OnlineServiceHeroSection />
 
       {/* Contact Section */}
-      <section className="py-12 lg:py-16">
+      <section id="contact" className="py-12 lg:py-16">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           <form onSubmit={handleSubmit} className="rounded-lg bg-background p-8 shadow-sm">
             {/* Product/Issue Name */}
