@@ -83,26 +83,7 @@ export function DataIntegrationFeatures() {
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
 
-  // Preload all icons on mount with proper error handling
-  useEffect(() => {
-    valueItems.forEach((item) => {
-      if (!item.icon) return
-      try {
-        const img = new window.Image()
-        img.onload = () => {
-          // Image loaded successfully, silently continue
-        }
-        img.onerror = () => {
-          // Image failed to load, but don't throw error
-          console.log("[v0] Icon preload warning:", item.icon)
-        }
-        img.src = item.icon
-      } catch (error) {
-        // Silently catch any errors during image creation
-        console.log("[v0] Icon preload error:", error)
-      }
-    })
-  }, [])
+  // Icon images will load naturally with the HTML img tags, no preloading needed
 
   const goToIndex = useCallback((index: number) => {
     if (fadePhase !== "visible" || index === valueIndex) return
