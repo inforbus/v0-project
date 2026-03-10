@@ -1,3 +1,5 @@
+"use client"
+
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 export function DataIntegrationOverview() {
