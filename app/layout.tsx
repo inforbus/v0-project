@@ -17,30 +17,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <style dangerouslySetInnerHTML={{ __html: `
-          @font-face {
-            font-family: 'YouSheBiaoTiHei';
-            src: url('https://cdn.jsdelivr.net/npm/@zf-web-font/youshebiaotihei@0.2.0/YouSheBiaoTiHei-Regular.woff2') format('woff2'),
-                 url('https://cdn.jsdelivr.net/npm/@zf-web-font/youshebiaotihei@0.2.0/YouSheBiaoTiHei-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-          @font-face {
-            font-family: 'Alibaba PuHuiTi Regular';
-            src: url('https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-3/AlibabaPuHuiTi-3-55-Regular/AlibabaPuHuiTi-3-55-Regular.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-          @font-face {
-            font-family: 'Alibaba PuHuiTi Bold';
-            src: url('https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-3/AlibabaPuHuiTi-3-85-Bold/AlibabaPuHuiTi-3-85-Bold.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-        `}} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
