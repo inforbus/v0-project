@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useState, useEffect, useCallback, useRef } from "react"
 
 const featureItems = [
@@ -84,20 +83,10 @@ export function DataIntegrationFeatures() {
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
 
-  // Preload all icons with error handling
+  // Icons will be loaded lazily by img tags, no preloading needed
   useEffect(() => {
-    featureItems.forEach((item) => {
-      try {
-        const img = new window.Image()
-        img.onload = () => {}
-        img.onerror = () => {
-          console.log("[v0] Icon preload warning:", item.icon)
-        }
-        img.src = item.icon
-      } catch (error) {
-        console.log("[v0] Icon preload error:", error)
-      }
-    })
+    // Just ensure component is mounted
+    return () => {}
   }, [])
 
   const goToIndex = useCallback((index: number) => {
@@ -166,7 +155,7 @@ export function DataIntegrationFeatures() {
     <section className="relative bg-[#F6F5F6]">
       {/* Background pattern */}
       <div className="pointer-events-none absolute bottom-0 left-0 w-full opacity-40">
-        <img src="/images/value-section-bg.png" alt="" className="block w-full" onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
+        <img src="/images/value-section-bg.png" alt="" className="block w-full" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] BG error:", err) } }} />
       </div>
       {/* Floating particles */}
       <div className="pointer-events-none absolute right-[4%] top-[10%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 8s ease-in-out infinite" }} />
@@ -188,7 +177,7 @@ export function DataIntegrationFeatures() {
 
         {/* Left side: fixed-group.png with circle labels */}
         <div className="absolute" style={{ left: "-2%", top: "9.5%", width: "42%", maxWidth: "810px" }}>
-          <Image src="/images/fixed-group.png" alt="" width={979} height={861} className="h-auto w-full object-contain" onError={(e) => { (e.currentTarget).style.display = "none" }} />
+          <img src="/images/fixed-group.png" alt="" className="h-auto w-full object-contain" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] Image error:", err) } }} />
 
           {/* Top circle label (previous item) */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "6.5%", width: "10.21%", height: "12%" }}>
