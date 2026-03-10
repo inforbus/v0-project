@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { ProductsHeroSection } from "@/components/products/hero-section"
-import { ContactForm } from "@/components/shared/contact-form"
+import { CompanyTabs } from "@/components/about/tabs"
 import { Footer } from "@/components/shared/footer"
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export default function CompanyIntroductionPage() {
   return (
     <div className="min-h-screen w-full bg-background">
       <ProductsHeroSection />
-      <ContactForm />
+      <CompanyTabs />
       <Footer />
     </div>
   )
