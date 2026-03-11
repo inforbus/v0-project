@@ -48,7 +48,6 @@ export function TimelineComponent() {
 
   const handleYearClick = (index: number) => {
     setSelectedYear(index)
-    // Keep selected year visible: shift window if needed
     if (index < windowStart) setWindowStart(index)
     else if (index >= windowStart + VISIBLE) setWindowStart(index - VISIBLE + 1)
   }
@@ -83,83 +82,85 @@ export function TimelineComponent() {
         {/* Timeline Track */}
         <div className="px-4 pb-8">
           <div className="flex items-center gap-6">
-          {/* Prev Button */}
-          <button
-            onClick={handlePrev}
-            disabled={windowStart === 0}
-            className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
-            aria-label="Previous year"
-          >
-            <svg className="w-5 h-5 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+            {/* Prev Button */}
+            <button
+              onClick={handlePrev}
+              disabled={windowStart === 0}
+              className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
+              aria-label="Previous year"
+            >
+              <svg className="w-5 h-5 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-          {/* Timeline */}
-          <div className="flex-1 relative">
-            {/* Horizontal line */}
-            <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
+            {/* Timeline */}
+            <div className="flex-1 relative">
+              {/* Horizontal line */}
+              <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
 
-            {/* Year nodes - only show visible window */}
-            <div className="flex justify-between">
-              {visibleYears.map((year, i) => {
-                const index = windowStart + i
-                return (
-                <button
-                  key={year}
-                  onClick={() => handleYearClick(index)}
-                  className="flex flex-col items-center group"
-                >
-                  {/* Vertical stem down from line */}
-                  <div
-                    className={`w-px transition-all duration-200 ${
-                      index === selectedYear
-                        ? 'h-6 bg-[#BF1920]'
-                        : 'h-4 bg-gray-300 group-hover:bg-[#BF1920]/50 group-hover:h-5'
-                    }`}
-                  />
-                  {/* Halo + dot */}
-                  <div
-                    className={`relative flex items-center justify-center rounded-full transition-all duration-200 ${
-                      index === selectedYear
-                        ? 'w-9 h-9 bg-[#BF1920]/15'
-                        : 'w-6 h-6 bg-gray-100 group-hover:bg-[#BF1920]/10'
-                    }`}
-                  >
-                    <div
-                      className={`rounded-full transition-all duration-200 ${
-                        index === selectedYear
-                          ? 'w-3.5 h-3.5 bg-[#BF1920]'
-                          : 'w-2 h-2 bg-gray-400 group-hover:bg-[#BF1920]'
-                      }`}
-                    />
-                  </div>
-                  {/* Year label */}
-                  <span
-                    className={`font-sans whitespace-nowrap transition-all duration-200 mt-2 ${
-                      index === selectedYear
-                        ? 'text-[#BF1920] font-bold text-sm'
-                        : 'text-gray-400 text-xs group-hover:text-[#BF1920]'
-                    }`}
-                  >
-                    {year}年
-                  </span>
-                </button>
-              )})}
+              {/* Year nodes */}
+              <div className="flex justify-between">
+                {visibleYears.map((year, i) => {
+                  const index = windowStart + i
+                  return (
+                    <button
+                      key={year}
+                      onClick={() => handleYearClick(index)}
+                      className="flex flex-col items-center group"
+                    >
+                      {/* Vertical stem */}
+                      <div
+                        className={`w-px transition-all duration-200 ${
+                          index === selectedYear
+                            ? 'h-6 bg-[#BF1920]'
+                            : 'h-4 bg-gray-300 group-hover:bg-[#BF1920]/50 group-hover:h-5'
+                        }`}
+                      />
+                      {/* Halo + dot */}
+                      <div
+                        className={`relative flex items-center justify-center rounded-full transition-all duration-200 ${
+                          index === selectedYear
+                            ? 'w-9 h-9 bg-[#BF1920]/15'
+                            : 'w-6 h-6 bg-gray-100 group-hover:bg-[#BF1920]/10'
+                        }`}
+                      >
+                        <div
+                          className={`rounded-full transition-all duration-200 ${
+                            index === selectedYear
+                              ? 'w-3.5 h-3.5 bg-[#BF1920]'
+                              : 'w-2 h-2 bg-gray-400 group-hover:bg-[#BF1920]'
+                          }`}
+                        />
+                      </div>
+                      {/* Year label */}
+                      <span
+                        className={`font-sans whitespace-nowrap transition-all duration-200 mt-2 ${
+                          index === selectedYear
+                            ? 'text-[#BF1920] font-bold text-sm'
+                            : 'text-gray-400 text-xs group-hover:text-[#BF1920]'
+                        }`}
+                      >
+                        {year}年
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* Next Button */}
-          <button
-            onClick={handleNext}
-            disabled={windowStart + VISIBLE >= allYears.length}
-            className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
-            aria-label="Next year"
-          >
-            <svg className="w-5 h-5 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+            {/* Next Button */}
+            <button
+              onClick={handleNext}
+              disabled={windowStart + VISIBLE >= allYears.length}
+              className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
+              aria-label="Next year"
+            >
+              <svg className="w-5 h-5 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
