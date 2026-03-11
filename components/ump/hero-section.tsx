@@ -36,18 +36,10 @@ export function UMPHeroSection() {
           style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
         />
 
-        {/* Subtitle 1 */}
+        {/* Subtitle */}
         <p
           className="font-sans font-normal text-[#332C2B]"
           style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
-        >
-          全面通过JaveEE、JakartaEE系列规范认证
-        </p>
-
-        {/* Subtitle 2 */}
-        <p
-          className="font-sans font-normal text-[#332C2B]"
-          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
         >
           智慧化运维监管     一体化可视可控
         </p>
