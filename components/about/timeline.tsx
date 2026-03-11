@@ -131,7 +131,7 @@ export function TimelineComponent() {
       </div>
 
       {/* Timeline Track */}
-      <div className="mt-32 px-4">
+      <div className="mt-16 px-4">
         {/* Years Container with Navigation */}
         <div className="flex items-center gap-8 justify-center relative">
           <button
@@ -147,44 +147,59 @@ export function TimelineComponent() {
 
           {/* Timeline Container */}
           <div className="flex-1 max-w-5xl">
-            <div className="relative py-16 px-6">
-              {/* Timeline Line - Simple Gray */}
-              <div className="absolute left-0 right-0 top-6 h-1 bg-gray-300"></div>
+            <div className="relative px-6">
+              {/* Timeline Line - thin light gray */}
+              <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
 
-              {/* Years Container */}
-              <div className="flex items-flex-start justify-between relative z-20">
+              {/* Years Container — items sit ON the line */}
+              <div className="flex items-start justify-between relative z-20">
                 {allYears.map((year, index) => (
                   <button
                     key={year}
                     onClick={() => handleYearClick(index)}
-                    className="flex flex-col items-center transition-all group -mt-3"
+                    className="flex flex-col items-center transition-all group"
                   >
-                    {/* Pin/Needle Stick */}
+                    {/* Vertical stem going DOWN from the line */}
                     <div
-                      className={`w-1 transition-all ${
+                      className={`w-px transition-all ${
                         index === selectedYear
-                          ? 'h-8 bg-[#BF1920]'
-                          : 'h-6 bg-gray-400 group-hover:bg-[#BF1920]'
+                          ? 'h-5 bg-[#BF1920]'
+                          : 'h-4 bg-gray-400 group-hover:bg-[#BF1920]/60'
                       }`}
                     ></div>
-                    {/* Circle Point */}
+
+                    {/* Outer halo circle + inner solid dot */}
                     <div
-                      className={`rounded-full transition-all shadow-md -mt-0.5 ${
+                      className={`relative flex items-center justify-center rounded-full transition-all ${
                         index === selectedYear
-                          ? 'bg-[#BF1920] w-5 h-5 ring-4 ring-[#BF1920]/20'
-                          : 'bg-white w-4 h-4 border-2 border-gray-400 group-hover:border-[#BF1920]'
+                          ? 'w-8 h-8 bg-[#BF1920]/15'
+                          : 'w-6 h-6 bg-gray-200/80 group-hover:bg-[#BF1920]/10'
                       }`}
-                    ></div>
+                    >
+                      <div
+                        className={`rounded-full transition-all ${
+                          index === selectedYear
+                            ? 'w-3 h-3 bg-[#BF1920]'
+                            : 'w-2.5 h-2.5 bg-gray-500 group-hover:bg-[#BF1920]'
+                        }`}
+                      ></div>
+                    </div>
+
                     {/* Year Label */}
                     <span
-                      className={`font-sans font-semibold whitespace-nowrap transition-all text-center mt-4 ${
+                      className={`font-sans font-semibold whitespace-nowrap transition-all text-center mt-3 ${
                         index === selectedYear
                           ? 'text-[#BF1920] text-sm'
-                          : 'text-gray-600 text-xs group-hover:text-[#BF1920]'
+                          : 'text-gray-500 text-xs group-hover:text-[#BF1920]'
                       }`}
                     >
                       {year}年
                     </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
                   </button>
                 ))}
               </div>
