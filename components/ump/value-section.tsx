@@ -5,100 +5,70 @@ import { useState, useEffect, useCallback, useRef } from "react"
 
 const valueItems = [
   {
-    title: "遵循国际标准",
-    circleLine1: "遵循国际",
-    circleLine2: "标准",
-    prevLine1: "高可靠",
-    prevLine2: "",
-    nextLine1: "应用平滑",
-    nextLine2: "迁移",
-    description: "通过Jakarta EE10/9.1/9/8及Java EE8/7/6完整兼容认证，支持应用场景最丰富。公司作为Jakarta EE企业级会员，参与Jakarta EE最新几十项规范制定，引领中间件技术发展。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23BF1920' opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "深度适配国产化支撑",
+    circleLine1: "深度适配",
+    circleLine2: "国产化支撑",
+    prevLine1: "全景大屏",
+    prevLine2: "可视化赋能",
+    nextLine1: "多级部署",
+    nextLine2: "集中监管",
+    description: "注重信创生态建设，与上下游厂商持续兼容适配，实现信创软件品牌的全面兼容与权威认证，引领行业发展。",
+    icon: "/images/ump-icon-1.png",
   },
   {
-    title: "应用平滑迁移",
-    circleLine1: "应用平滑",
-    circleLine2: "迁移",
-    prevLine1: "遵循国际",
-    prevLine2: "标准",
-    nextLine1: "支撑云原生",
-    nextLine2: "",
-    description: "兼容主流国外和开源同类中间件的私有协议及配置，保障应用平滑迁移，降低信创改造成本。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M 30 50 L 70 50' stroke='%23BF1920' stroke-width='3' stroke-linecap='round'/%3E%3Cpolygon points='65,45 70,50 65,55' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "多级部署 集中监管",
+    circleLine1: "多级部署",
+    circleLine2: "集中监管",
+    prevLine1: "深度适配",
+    prevLine2: "国产化支撑",
+    nextLine1: "聚焦应用",
+    nextLine2: "智慧化运维",
+    description: "满足跨域、分级、高可用的管理要求，实现中央、省、市、区县多级统管。",
+    icon: "/images/ump-icon-2.png",
   },
   {
-    title: "支撑云原生",
-    circleLine1: "支撑",
-    circleLine2: "云原生",
-    prevLine1: "应用平滑",
-    prevLine2: "迁移",
-    nextLine1: "高性能",
-    nextLine2: "",
-    description: "支持容器镜像、Helm chart、Operator等部署模式，支持系统弹性伸缩、滚动升级及配置热更新，灵活接入状态、链路追踪、日志等第三方监控运维平台，可实现多云环境的统一纳管。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Crect x='25' y='30' width='50' height='40' rx='5' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "聚焦应用 智慧化运维",
+    circleLine1: "聚焦应用",
+    circleLine2: "智慧化运维",
+    prevLine1: "多级部署",
+    prevLine2: "集中监管",
+    nextLine1: "全景大屏",
+    nextLine2: "可视化赋能",
+    description: "综合应用系统的服务状态、资源分配情况以及网络连接状况等多视角信息，进行全方位的分析与精准识别，从而快速定位故障源头，确保系统稳定运行，提升运维效率与质量。",
+    icon: "/images/ump-icon-3.png",
   },
   {
-    title: "高性能",
-    circleLine1: "高性能",
-    circleLine2: "",
-    prevLine1: "支撑",
-    prevLine2: "云原生",
-    nextLine1: "高安全",
-    nextLine2: "",
-    description: "采用高性能线程池、连接池及网络处理等核心技术，支持用户高并发、大吞吐访问，可规模化同等替代国外产品，性能优于Tomcat等开源中间件产品。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cline x1='20' y1='70' x2='80' y2='70' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='20' y1='50' x2='30' y2='50' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='35' y1='35' x2='45' y2='35' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='50' y1='20' x2='80' y2='20' stroke='%23BF1920' stroke-width='2'/%3E%3C/svg%3E",
-  },
-  {
-    title: "高安全",
-    circleLine1: "高安全",
-    circleLine2: "",
-    prevLine1: "高性能",
-    prevLine2: "",
-    nextLine1: "高可靠",
-    nextLine2: "",
-    description: "通过第三方权威机构源代码安全检测和系统漏洞扫描，支持SM2/SM3/SM4等国密算法，支持TLCP安全传输协议，满足等保2.0三级、四级要求。集成应用安全防护模块，加固应用安全。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M 50 20 L 75 30 L 75 50 Q 50 75 50 75 Q 25 50 25 50 L 25 30 Z' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='50' cy='45' r='5' fill='%23BF1920'/%3E%3C/svg%3E",
-  },
-  {
-    title: "高可靠",
-    circleLine1: "高可靠",
-    circleLine2: "",
-    prevLine1: "高安全",
-    prevLine2: "",
-    nextLine1: "遵循国际",
-    nextLine2: "标准",
-    description: "支持大规模集群部署，提供故障转移和弹性伸缩能力。提供线程分组、流量控制及过载保护等功能，实现系统故障有效隔离，保障应用系统运行稳定可靠。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Cpath d='M 45 50 L 50 55 L 60 45' fill='none' stroke='%23BF1920' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+    title: "全景大屏 可视化赋能",
+    circleLine1: "全景大屏",
+    circleLine2: "可视化赋能",
+    prevLine1: "聚焦应用",
+    prevLine2: "智慧化运维",
+    nextLine1: "深度适配",
+    nextLine2: "国产化支撑",
+    description: "始终聚焦客户的关键点，通过多种全景的方式，全面、直观地展现可视化成果及运维效效。这不仅能够帮助客户更好地了解项目进展，还能有效提升客户满意度和信任度。",
+    icon: "/images/ump-icon-4.png",
   },
 ]
 
 const AUTO_PLAY_DURATION = 5000
 
-export function ValueSection() {
+export function UMPValueSection() {
   const [valueIndex, setValueIndex] = useState(0)
   const [displayIndex, setDisplayIndex] = useState(0)
   const [fadePhase, setFadePhase] = useState<"visible" | "fadeOut" | "fadeIn">("visible")
   const [progress, setProgress] = useState(0)
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const progressRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(null)
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
-
-  // Icons will be loaded lazily by img tags
-  useEffect(() => {
-    // No preloading needed - img tags handle loading safely
-  }, [])
 
   const goToIndex = useCallback((index: number) => {
     if (fadePhase !== "visible" || index === valueIndex) return
     setFadePhase("fadeOut")
     setProgress(0)
-    // Wait for fade out, then switch content
     setTimeout(() => {
       setValueIndex(index)
       setDisplayIndex(index)
       setFadePhase("fadeIn")
-      // Wait for fade in to complete
       setTimeout(() => {
         setFadePhase("visible")
       }, 250)
@@ -124,7 +94,6 @@ export function ValueSection() {
   const isAnimating = fadePhase !== "visible"
   const showContent = fadePhase === "visible" || fadePhase === "fadeIn"
 
-  // Animate progress bar
   useEffect(() => {
     if (isAnimating) return
 
@@ -140,7 +109,6 @@ export function ValueSection() {
       if (pct < 1) {
         progressRef.current = requestAnimationFrame(animate)
       } else {
-        // Auto advance
         goToNext()
       }
     }
@@ -175,7 +143,7 @@ export function ValueSection() {
           className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-bold leading-[100%] text-[#242222]"
           style={{ top: "7.83%", fontSize: "clamp(26px,2.08vw,40px)" }}
         >
-          产品价值
+          产品特点
         </h2>
 
         {/* Left side: fixed-group.png with circle labels */}
@@ -438,13 +406,6 @@ export function ValueSection() {
               </button>
             ))}
           </div>
-          {/* Current label */}
-          <p className="mt-3 text-sm font-medium text-[#BF1920]">
-            {currentValue.title}
-          </p>
-          <p className="mt-1 text-xs text-[#242222]/40">
-            {String(valueIndex + 1).padStart(2, "0")} / {String(valueItems.length).padStart(2, "0")}
-          </p>
         </div>
       </div>
     </section>

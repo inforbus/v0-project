@@ -4,12 +4,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
-import { dataIntegrationCases } from "@/lib/data-integration-cases"
+import { wsCases } from "@/lib/ws-cases-data"
 
-export function DataIntegrationCases() {
+export function WSCasesSection() {
   const [caseOffset, setCaseOffset] = useState(0)
   const visibleCases = 3
-  const maxCaseOffset = dataIntegrationCases.length - visibleCases
+  const maxCaseOffset = wsCases.length - visibleCases
   const scrollCasePrev = () => setCaseOffset((prev) => Math.max(prev - 1, 0))
   const scrollCaseNext = () => setCaseOffset((prev) => Math.min(prev + 1, maxCaseOffset))
 
@@ -62,7 +62,7 @@ export function DataIntegrationCases() {
 
           {/* Cards track */}
           <div className="flex gap-[45px] py-4" style={{ transition: "transform 0.5s cubic-bezier(0.4,0,0.2,1)", transform: `translateX(calc(-${caseOffset} * (calc((100% - 90px) / 3 + 45px))))` }}>
-            {dataIntegrationCases.map((card, idx) => {
+            {wsCases.map((card, idx) => {
               const isVisible = idx >= caseOffset && idx < caseOffset + visibleCases
               return (
                 <div key={card.slug} className="flex-shrink-0 transition-opacity duration-500" style={{ width: "calc((100% - 90px) / 3)", opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? "auto" : "none" }}>
@@ -103,7 +103,7 @@ export function DataIntegrationCases() {
         {/* Mobile: horizontal scroll */}
         <div className="lg:hidden">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-            {dataIntegrationCases.map((card) => (
+            {wsCases.map((card) => (
               <div key={card.slug} className="w-[280px] flex-shrink-0 snap-start">
                 <Link href={`/cases/${card.slug}`} className="group relative block h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)]">
                   <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
@@ -143,3 +143,4 @@ export function DataIntegrationCases() {
     </section>
   )
 }
+
