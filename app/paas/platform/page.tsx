@@ -5,6 +5,7 @@ import { CasesSection } from "@/components/middleware/cases-section"
 import { Footer } from "@/components/shared/footer"
 import { OnlineServiceWidget } from "@/components/online-service-widget"
 
+// PaaS Platform Page
 export default function PaaSPlatformPage() {
   return (
     <div className="min-h-screen w-full bg-white">
