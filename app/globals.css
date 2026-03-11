@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* Tailwind CSS v4 Theme Configuration */
 @theme inline {
   --font-sans: 'Noto Sans SC', 'Source Han Sans CN', Arial, Helvetica, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
