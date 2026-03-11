@@ -3,15 +3,15 @@
 import { useState, useEffect } from 'react'
 
 const honors = [
-  { id: 1, image: '/images/cert-1.jpg', title: '中国电子信息行业卓越企业' },
-  { id: 2, image: '/images/cert-2.jpg', title: 'CMMI DEV 5级认证' },
-  { id: 3, image: '/images/cert-3.jpg', title: '信创工委会卓越贡献成员单位' },
-  { id: 4, image: '/images/cert-4.jpg', title: '中国十大创新软件企业' },
-  { id: 5, image: '/images/cert-5.jpg', title: '推动中间件软件杰出贡献奖' },
-  { id: 6, image: '/images/cert-6.jpg', title: '山东省科学技术进步二等奖' },
-  { id: 7, image: '/images/cert-7.jpg', title: 'ISO9001质量体系认证' },
-  { id: 8, image: '/images/cert-8.jpg', title: '信创可靠企业核心软件品牌' },
-  { id: 9, image: '/images/cert-9.jpg', title: '国际Jakarta EE工作组企业级会员单位' },
+  { id: 1, image: '/images/honor-excellence.jpg', title: '中国电子信息行业卓越企业' },
+  { id: 2, image: '/images/honor-cmmi.jpg', title: 'CMMI DEV 5级认证' },
+  { id: 3, image: '/images/honor-xinchuang.jpg', title: '信创工委会卓越贡献成员单位' },
+  { id: 4, image: '/images/honor-innovation.jpg', title: '中国十大创新软件企业' },
+  { id: 5, image: '/images/honor-middleware.jpg', title: '推动中间件软件杰出贡献奖' },
+  { id: 6, image: '/images/honor-science.jpg', title: '山东省科学技术进步二等奖' },
+  { id: 7, image: '/images/honor-iso.jpg', title: 'ISO9001质量体系认证' },
+  { id: 8, image: '/images/honor-brand.jpg', title: '信创可靠企业核心软件品牌' },
+  { id: 9, image: '/images/honor-jakarta.jpg', title: '国际Jakarta EE工作组企业级会员单位' },
 ]
 
 export function HonorsCarousel() {
