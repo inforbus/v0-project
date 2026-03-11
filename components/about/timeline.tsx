@@ -28,18 +28,29 @@ const timelineData = [
   { year: 2026, events: ['敬请期待！！'] },
 ]
 
+const VISIBLE = 7
+
 export function TimelineComponent() {
   const [selectedYear, setSelectedYear] = useState(22) // 2025 is index 22
+  const [windowStart, setWindowStart] = useState(Math.max(0, 22 - Math.floor(VISIBLE / 2)))
 
   const currentData = timelineData[selectedYear]
   const allYears = timelineData.map(item => item.year)
+  const visibleYears = allYears.slice(windowStart, windowStart + VISIBLE)
 
   const handlePrev = () => {
-    if (selectedYear > 0) setSelectedYear(selectedYear - 1)
+    if (windowStart > 0) setWindowStart(windowStart - 1)
   }
 
   const handleNext = () => {
-    if (selectedYear < timelineData.length - 1) setSelectedYear(selectedYear + 1)
+    if (windowStart + VISIBLE < allYears.length) setWindowStart(windowStart + 1)
+  }
+
+  const handleYearClick = (index: number) => {
+    setSelectedYear(index)
+    // Keep selected year visible: shift window if needed
+    if (index < windowStart) setWindowStart(index)
+    else if (index >= windowStart + VISIBLE) setWindowStart(index - VISIBLE + 1)
   }
 
   return (
@@ -74,7 +85,7 @@ export function TimelineComponent() {
           {/* Prev Button */}
           <button
             onClick={handlePrev}
-            disabled={selectedYear === 0}
+            disabled={windowStart === 0}
             className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
             aria-label="Previous year"
           >
@@ -88,12 +99,14 @@ export function TimelineComponent() {
             {/* Horizontal line */}
             <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
 
-            {/* Year nodes */}
+            {/* Year nodes - only show visible window */}
             <div className="flex justify-between">
-              {allYears.map((year, index) => (
+              {visibleYears.map((year, i) => {
+                const index = windowStart + i
+                return (
                 <button
                   key={year}
-                  onClick={() => setSelectedYear(index)}
+                  onClick={() => handleYearClick(index)}
                   className="flex flex-col items-center group"
                 >
                   {/* Vertical stem down from line */}
@@ -124,21 +137,21 @@ export function TimelineComponent() {
                   <span
                     className={`font-sans whitespace-nowrap transition-all duration-200 mt-2 ${
                       index === selectedYear
-                        ? 'text-[#BF1920] font-bold text-xs'
+                        ? 'text-[#BF1920] font-bold text-sm'
                         : 'text-gray-400 text-xs group-hover:text-[#BF1920]'
                     }`}
                   >
-                    {year}
+                    {year}年
                   </span>
                 </button>
-              ))}
+              )})}
             </div>
           </div>
 
           {/* Next Button */}
           <button
             onClick={handleNext}
-            disabled={selectedYear === timelineData.length - 1}
+            disabled={windowStart + VISIBLE >= allYears.length}
             className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
             aria-label="Next year"
           >
