@@ -9,8 +9,8 @@ const tabs = [
   { id: 'profile', label: '公司介绍' },
   { id: 'honors', label: '公司荣誉' },
   { id: 'timeline', label: '发展历程' },
-  { id: 'investors', label: '投资者关系' },
   { id: 'contact', label: '联系我们' },
+  { id: 'investors', label: '投资者关系' },
 ]
 
 export function CompanyTabs() {
@@ -98,6 +98,12 @@ export function CompanyTabs() {
             <TimelineComponent />
           )}
 
+          {activeTab === 'contact' && (
+            <div className="animate-fadeIn">
+              <p className="font-sans text-lg text-foreground/70">联系我们内容待添加</p>
+            </div>
+          )}
+
           {activeTab === 'investors' && (
             <div className="animate-fadeIn">
               <div className="space-y-12">
@@ -183,12 +189,6 @@ export function CompanyTabs() {
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-
-          {activeTab === 'contact' && (
-            <div className="animate-fadeIn">
-              <p className="font-sans text-lg text-foreground/70">联系我们内容待添加</p>
             </div>
           )}
         </div>
