@@ -1,4 +1,4 @@
-import { MiddlewareHeroSection } from "@/components/middleware/hero-section"
+import { UMPHeroSection } from "@/components/ump/hero-section"
 import { UMPOverviewSection } from "@/components/ump/overview-section"
 import { UMPValueSection } from "@/components/ump/value-section"
 import { UMPCasesSection } from "@/components/ump/cases-section"
@@ -8,7 +8,7 @@ import { OnlineServiceWidget } from "@/components/online-service-widget"
 export default function UMPSuperVisionPage() {
   return (
     <div className="min-h-screen w-full bg-white">
-      <MiddlewareHeroSection />
+      <UMPHeroSection />
       <UMPOverviewSection />
       <UMPValueSection />
       <UMPCasesSection />
