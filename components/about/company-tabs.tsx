@@ -90,51 +90,59 @@ export function CompanyTabs() {
           {activeTab === 'honors' && (
             <div className="animate-fadeIn space-y-12">
               {/* Certificates Display Image */}
-              <div className="relative w-full h-96">
-                <Image
+              <div className="w-full">
+                <img
                   src="/images/honors-certificates.png"
                   alt="公司荣誉证书展示"
-                  fill
-                  className="object-cover object-center rounded-lg shadow-lg"
-                  priority
+                  className="w-full h-auto rounded-lg shadow-lg"
                 />
               </div>
 
-              {/* Honors Content - Two Columns */}
-              <div className="grid gap-12 md:grid-cols-2">
-                {/* Left Column */}
-                <div className="space-y-4 border-l-4 border-[#BF1920] pl-6">
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">中国电子信息行业卓越企业</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">CMMI DEV 5级认证</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">信创工委会卓越贡献成员单位</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">中国十大创新软件企业</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">推动中间件软件杰出贡献奖</h4>
-                  </div>
+              {/* Honors Content - Three Columns Grid */}
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {/* Honor Item 1 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">中国电子信息行业卓越企业</h4>
                 </div>
 
-                {/* Right Column */}
-                <div className="space-y-4 border-l-4 border-[#BF1920] pl-6">
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">山东省科学技术进步二等奖</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">ISO9001质量体系认证</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">信创可靠企业核心软件品牌</h4>
-                  </div>
-                  <div>
-                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">国际Jakarta EE工作组企业级会员单位</h4>
-                  </div>
+                {/* Honor Item 2 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">山东省科学技术进步二等奖</h4>
+                </div>
+
+                {/* Honor Item 3 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">CMMI DEV 5级认证</h4>
+                </div>
+
+                {/* Honor Item 4 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">ISO9001质量体系认证</h4>
+                </div>
+
+                {/* Honor Item 5 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">信创工委会卓越贡献成员单位</h4>
+                </div>
+
+                {/* Honor Item 6 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">信创可靠企业核心软件品牌</h4>
+                </div>
+
+                {/* Honor Item 7 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">中国十大创新软件企业</h4>
+                </div>
+
+                {/* Honor Item 8 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">推动中间件软件杰出贡献奖</h4>
+                </div>
+
+                {/* Honor Item 9 */}
+                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
+                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">国际Jakarta EE工作组企业级会员单位</h4>
                 </div>
               </div>
             </div>
