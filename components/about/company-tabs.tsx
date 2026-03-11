@@ -20,21 +20,20 @@ export function CompanyTabs() {
     <div className="w-full">
       {/* Tabs Navigation */}
       <div className="mx-auto max-w-7xl px-4 lg:px-8 bg-background">
-        <div className="flex border-b border-border">
-          {tabs.map((tab) => (
+        <div className="flex items-center py-8 px-6 bg-slate-50 rounded-lg border border-border shadow-sm overflow-x-auto">
+          {tabs.map((tab, index) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-4 px-8 font-sans font-medium text-lg transition-all duration-300 relative mr-4 ${
+              className={`py-3 px-6 font-sans font-medium text-base transition-all duration-300 relative rounded-md whitespace-nowrap ${
+                index !== tabs.length - 1 ? 'mr-3' : ''
+              } ${
                 activeTab === tab.id
-                  ? 'text-[#BF1920]'
-                  : 'text-foreground/60 hover:text-foreground'
+                  ? 'text-white bg-[#BF1920]'
+                  : 'text-foreground/70 hover:text-foreground hover:bg-slate-200'
               }`}
             >
               {tab.label}
-              {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#BF1920] animate-fadeIn" />
-              )}
             </button>
           ))}
         </div>
@@ -42,7 +41,7 @@ export function CompanyTabs() {
 
       {/* Tab Content */}
       <div className="bg-background">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-20 lg:px-8 lg:py-24">
           {activeTab === 'profile' && (
             <div className="animate-fadeIn">
               <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
