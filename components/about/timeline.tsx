@@ -3,105 +3,43 @@
 import { useState } from 'react'
 
 const timelineData = [
-  {
-    year: 2002,
-    events: ['2002年成立中创软件商用中间件有限公司'],
-  },
-  {
-    year: 2003,
-    events: ['J2EE应用服务器InforWeb获国家火炬计划项目'],
-  },
-  {
-    year: 2004,
-    events: ['与北京大学在构件化领域展开合作'],
-  },
-  {
-    year: 2007,
-    events: ['作为中国发起人中唯一的企业单位，参与发起成立八方(OW2)开源软件国际联盟'],
-  },
-  {
-    year: 2012,
-    events: ['中创Loong智慧平台入选年度创新软件产品'],
-  },
-  {
-    year: 2013,
-    events: ['中创中间件InforGuard产品通过2012年度3C工厂监督检查'],
-  },
-  {
-    year: 2014,
-    events: ['中创中间件通过CMMI ML5级评审'],
-  },
-  {
-    year: 2015,
-    events: ['助力金税三期工程，中创中间件将在全国部署'],
-  },
-  {
-    year: 2016,
-    events: ['中创中间件荣获"十二五"科技创新成就展'],
-  },
-  {
-    year: 2017,
-    events: ['中创中间件InforGuard UMP荣获"2017中国十大创新软件产品"'],
-  },
-  {
-    year: 2018,
-    events: ['中创中间件成功入国中直产业协议供采购项目'],
-  },
-  {
-    year: 2019,
-    events: ['中创中间件荣获2019年度电子信息行业卓越企业'],
-  },
-  {
-    year: 2020,
-    events: ['中创PaaS平台软件获得"2020十佳创新软件产品"称号'],
-  },
-  {
-    year: 2021,
-    events: ['中创中间件正式成为Jakarta EE工作组企业级成员'],
-  },
-  {
-    year: 2022,
-    events: ['中创中间件入围山东省软件行业协会和软件行业产教融合竞争力方向强"名单'],
-  },
-  {
-    year: 2023,
-    events: ['人民日报点赞全链路关键技术应用研究成果——中创中间件助力建成首个央企安全栈式自主可控超大型数字化系统'],
-  },
-  {
-    year: 2024,
-    events: ['中创股份荣获国家级专精特新"小巨人"企业称号，中创股份（688695.SH）在上交所科创板成功上市'],
-  },
-  {
-    year: 2025,
-    events: ['中创股份荣获国家级专精特新"小巨人"企业称号'],
-  },
-  {
-    year: 2026,
-    events: ['敬请期待！！'],
-  },
+  { year: 2002, events: ['2002年成立中创软件商用中间件有限公司'] },
+  { year: 2003, events: ['J2EE应用服务器InforWeb获国家火炬计划项目'] },
+  { year: 2004, events: ['与北京大学在构件化领域展开合作'] },
+  { year: 2007, events: ['作为中国发起人中唯一的企业单位，参与发起成立八方(OW2)开源软件国际联盟'] },
+  { year: 2008, events: ['中创中间件公司入围中央政府采购项目，成为入选产品最多的国产中间件厂商'] },
+  { year: 2009, events: ['荣获"献礼新中国成立60周年"评选之"最具影响力企业奖"、"最佳技术创新奖"、"最佳外包服务奖"和"中间件信赖产品奖"四项大奖'] },
+  { year: 2010, events: ['中创中间件公司作为牵头单位，承担了国家"核高基"科技重大专项核心技术研究与产品研发课题'] },
+  { year: 2011, events: ['核高基国产中间件参考实现及产品发布会在京召开'] },
+  { year: 2012, events: ['中创Loong智慧平台入选年度创新软件产品'] },
+  { year: 2013, events: ['中创中间件InforGuard产品通过2012年度3C工厂监督检查'] },
+  { year: 2014, events: ['中创中间件通过CMMI ML5级评审'] },
+  { year: 2015, events: ['助力金税三期工程，中创中间件将在全国部署'] },
+  { year: 2016, events: ['中创中间件亮相"十二五"科技创新成就展'] },
+  { year: 2017, events: ['中创中间件InforGuard UMP荣获"2017中国十大创新软件产品"'] },
+  { year: 2018, events: ['中创中间件成功入围中直产品协议供货采购项目'] },
+  { year: 2019, events: ['中创中间件荣获2019年度电子信息行业卓越企业'] },
+  { year: 2020, events: ['中创PaaS平台软件获得"2020十佳创新软件产品"称号'] },
+  { year: 2021, events: ['中创中间件正式成为Jakarta EE工作组企业级成员'] },
+  { year: 2022, events: ['中创中间件入围山东省软件行业协会和软件行业产教联盟联合发布的"2022年度山东省软件和信息技术服务业综合竞争力百强"名单'] },
+  { year: 2023, events: ['人民日报点赞全链路关键技术应用研究成果——中创中间件助力建成首个央企全栈式自主可控超大型数字化系统'] },
+  { year: 2024, events: ['中流击水 创领未来！中创股份（688695.SH）在上交所科创板成功上市'] },
+  { year: 2025, events: ['中创股份荣获国家级专精特新"小巨人"企业称号'] },
+  { year: 2026, events: ['敬请期待！！'] },
 ]
 
 export function TimelineComponent() {
-  const [selectedYear, setSelectedYear] = useState(17) // Start with 2025 (index 17)
-  const [scrollPosition, setScrollPosition] = useState(0)
+  const [selectedYear, setSelectedYear] = useState(22) // 2025 is index 22
 
   const currentData = timelineData[selectedYear]
   const allYears = timelineData.map(item => item.year)
 
   const handlePrev = () => {
-    if (selectedYear > 0) {
-      setSelectedYear(selectedYear - 1)
-    }
+    if (selectedYear > 0) setSelectedYear(selectedYear - 1)
   }
 
   const handleNext = () => {
-    if (selectedYear < timelineData.length - 1) {
-      setSelectedYear(selectedYear + 1)
-    }
-  }
-
-  const handleYearClick = (index: number) => {
-    setSelectedYear(index)
+    if (selectedYear < timelineData.length - 1) setSelectedYear(selectedYear + 1)
   }
 
   return (
@@ -109,110 +47,102 @@ export function TimelineComponent() {
       {/* Title */}
       <div className="text-center">
         <h2 className="font-sans text-4xl font-bold text-foreground mb-4">发展历程</h2>
-        <div className="w-16 h-1 bg-blue-600 mx-auto"></div>
+        <div className="w-16 h-1 bg-[#BF1920] mx-auto"></div>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex items-center justify-center gap-16 min-h-72 px-8">
-        {/* Left Side - Large Year - Centered */}
+      <div className="flex items-center justify-center gap-16 min-h-64 px-8">
+        {/* Left Side - Large Year */}
         <div className="text-center flex-1">
-          <div className="text-8xl font-bold text-black/80">{currentData.year}年</div>
+          <div className="text-8xl font-bold text-foreground/80">{currentData.year}年</div>
         </div>
 
         {/* Right Side - Events List */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-5">
           {currentData.events.map((event, index) => (
-            <div key={index} className="flex gap-3">
-              <div className="w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></div>
-              <p className="font-sans text-sm text-foreground/80 leading-relaxed">{event}</p>
+            <div key={index} className="flex gap-3 items-start">
+              <div className="w-2 h-2 rounded-full bg-[#BF1920] mt-1.5 flex-shrink-0"></div>
+              <p className="font-sans text-base text-foreground/80 leading-relaxed">{event}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Timeline Track */}
-      <div className="mt-16 px-4">
-        {/* Years Container with Navigation */}
-        <div className="flex items-center gap-8 justify-center relative">
+      <div className="px-4 pb-8">
+        <div className="flex items-center gap-6">
+          {/* Prev Button */}
           <button
             onClick={handlePrev}
             disabled={selectedYear === 0}
-            className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-50 disabled:border-gray-300 transition-colors shadow-md"
+            className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
             aria-label="Previous year"
           >
-            <svg className="w-6 h-6 text-[#BF1920] disabled:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* Timeline Container */}
-          <div className="flex-1 max-w-5xl">
-            <div className="relative px-6">
-              {/* Timeline Line - thin light gray */}
-              <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
+          {/* Timeline */}
+          <div className="flex-1 relative">
+            {/* Horizontal line */}
+            <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
 
-              {/* Years Container — items sit ON the line */}
-              <div className="flex items-start justify-between relative z-20">
-                {allYears.map((year, index) => (
-                  <button
-                    key={year}
-                    onClick={() => handleYearClick(index)}
-                    className="flex flex-col items-center transition-all group"
+            {/* Year nodes */}
+            <div className="flex justify-between">
+              {allYears.map((year, index) => (
+                <button
+                  key={year}
+                  onClick={() => setSelectedYear(index)}
+                  className="flex flex-col items-center group"
+                >
+                  {/* Vertical stem down from line */}
+                  <div
+                    className={`w-px transition-all duration-200 ${
+                      index === selectedYear
+                        ? 'h-6 bg-[#BF1920]'
+                        : 'h-4 bg-gray-300 group-hover:bg-[#BF1920]/50 group-hover:h-5'
+                    }`}
+                  />
+                  {/* Halo + dot */}
+                  <div
+                    className={`relative flex items-center justify-center rounded-full transition-all duration-200 ${
+                      index === selectedYear
+                        ? 'w-9 h-9 bg-[#BF1920]/15'
+                        : 'w-6 h-6 bg-gray-100 group-hover:bg-[#BF1920]/10'
+                    }`}
                   >
-                    {/* Vertical stem going DOWN from the line */}
                     <div
-                      className={`w-px transition-all ${
+                      className={`rounded-full transition-all duration-200 ${
                         index === selectedYear
-                          ? 'h-5 bg-[#BF1920]'
-                          : 'h-4 bg-gray-400 group-hover:bg-[#BF1920]/60'
+                          ? 'w-3.5 h-3.5 bg-[#BF1920]'
+                          : 'w-2 h-2 bg-gray-400 group-hover:bg-[#BF1920]'
                       }`}
-                    ></div>
-
-                    {/* Outer halo circle + inner solid dot */}
-                    <div
-                      className={`relative flex items-center justify-center rounded-full transition-all ${
-                        index === selectedYear
-                          ? 'w-8 h-8 bg-[#BF1920]/15'
-                          : 'w-6 h-6 bg-gray-200/80 group-hover:bg-[#BF1920]/10'
-                      }`}
-                    >
-                      <div
-                        className={`rounded-full transition-all ${
-                          index === selectedYear
-                            ? 'w-3 h-3 bg-[#BF1920]'
-                            : 'w-2.5 h-2.5 bg-gray-500 group-hover:bg-[#BF1920]'
-                        }`}
-                      ></div>
-                    </div>
-
-                    {/* Year Label */}
-                    <span
-                      className={`font-sans font-semibold whitespace-nowrap transition-all text-center mt-3 ${
-                        index === selectedYear
-                          ? 'text-[#BF1920] text-sm'
-                          : 'text-gray-500 text-xs group-hover:text-[#BF1920]'
-                      }`}
-                    >
-                      {year}年
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-                  </button>
-                ))}
-              </div>
+                    />
+                  </div>
+                  {/* Year label */}
+                  <span
+                    className={`font-sans whitespace-nowrap transition-all duration-200 mt-2 ${
+                      index === selectedYear
+                        ? 'text-[#BF1920] font-bold text-xs'
+                        : 'text-gray-400 text-xs group-hover:text-[#BF1920]'
+                    }`}
+                  >
+                    {year}
+                  </span>
+                </button>
+              ))}
             </div>
           </div>
 
+          {/* Next Button */}
           <button
             onClick={handleNext}
             disabled={selectedYear === timelineData.length - 1}
-            className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-50 disabled:border-gray-300 transition-colors shadow-md"
+            className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
             aria-label="Next year"
           >
-            <svg className="w-6 h-6 text-[#BF1920] disabled:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
