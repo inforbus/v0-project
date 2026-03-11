@@ -34,7 +34,7 @@ const valueItems = [
     prevLine2: "权验与审计",
     nextLine1: "助力网络安全",
     nextLine2: "等级保护测评",
-    description: "提供特有的"双引擎"篡改恢复技术，让防篡改7*24小时全时覆盖，全时防御。",
+    description: '提供特有的"双引擎"篡改恢复技术，让防篡改7*24小时全时覆盖，全时防御。',
     icon: "/images/ws-icon-3.png",
   },
   {
