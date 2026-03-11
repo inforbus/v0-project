@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { HonorsCarousel } from './honors-carousel'
+import { TimelineComponent } from './timeline'
 
 const tabs = [
   { id: 'profile', label: '公司介绍' },
@@ -93,9 +94,7 @@ export function CompanyTabs() {
           )}
 
           {activeTab === 'timeline' && (
-            <div className="animate-fadeIn">
-              <p className="font-sans text-lg text-foreground/70">发展历程内容待添加</p>
-            </div>
+            <TimelineComponent />
           )}
 
           {activeTab === 'contact' && (
