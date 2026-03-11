@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 export function Footer() {
@@ -39,8 +38,19 @@ export function Footer() {
           <div className="relative border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="text-sm text-foreground 3xl:text-base">扫描关注中创中间件微信公众号或视频号</p>
             <div className="mt-3 flex gap-3 3xl:mt-4 3xl:gap-4">
-              <Image src="/images/qrcode-1.png" alt="微信公众号" width={92} height={92} className="h-[72px] w-[72px] 3xl:h-[92px] 3xl:w-[92px]" style={{ width: 'auto', height: 'auto' }} />
-              <Image src="/images/qrcode-2.png" alt="视频号" width={92} height={92} className="h-[72px] w-[72px] 3xl:h-[92px] 3xl:w-[92px]" style={{ width: 'auto', height: 'auto' }} />
+              {/* QR Code placeholders - SVG */}
+              <div className="flex h-[72px] w-[72px] items-center justify-center rounded bg-muted-foreground/10 3xl:h-[92px] 3xl:w-[92px]">
+                <svg viewBox="0 0 92 92" className="h-full w-full">
+                  <rect width="92" height="92" fill="none" stroke="#ccc" strokeWidth="1"/>
+                  <text x="46" y="46" textAnchor="middle" dominantBaseline="middle" fontSize="12" fill="#999">微信</text>
+                </svg>
+              </div>
+              <div className="flex h-[72px] w-[72px] items-center justify-center rounded bg-muted-foreground/10 3xl:h-[92px] 3xl:w-[92px]">
+                <svg viewBox="0 0 92 92" className="h-full w-full">
+                  <rect width="92" height="92" fill="none" stroke="#ccc" strokeWidth="1"/>
+                  <text x="46" y="46" textAnchor="middle" dominantBaseline="middle" fontSize="12" fill="#999">视频号</text>
+                </svg>
+              </div>
             </div>
             <div className="mt-4 space-y-2 text-sm text-foreground 3xl:mt-6 3xl:space-y-3 3xl:text-base">
               <p>产品咨询：400-618-6180</p>

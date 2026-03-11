@@ -1,80 +1,79 @@
 "use client"
 
-import Image from "next/image"
 import { useState, useEffect, useCallback, useRef } from "react"
 
-const valueItems = [
+const featureItems = [
   {
-    title: "遵循国际标准",
-    circleLine1: "遵循国际",
-    circleLine2: "标准",
-    prevLine1: "高可靠",
-    prevLine2: "",
-    nextLine1: "应用平滑",
-    nextLine2: "迁移",
-    description: "通过Jakarta EE10/9.1/9/8及Java EE8/7/6完整兼容认证，支持应用场景最丰富。公司作为Jakarta EE企业级会员，参与Jakarta EE最新几十项规范制定，引领中间件技术发展。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23BF1920' opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "多源数据、集中整合管理",
+    circleLine1: "多源数据",
+    circleLine2: "集中管理",
+    prevLine1: "国产支持",
+    prevLine2: "生态适配",
+    nextLine1: "轻量可视",
+    nextLine2: "模型定制",
+    description: "支持多种数据源的配置管理，实现数据指向性的聚合管理，快速搭建数据中台。提供主题库、主题集和主题整合管理，充分满足不同业务对数据级别的访问分权管理。",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-e1dt2I6ZAmC7Q66LzsZtjyK11HnBUf.png",
   },
   {
-    title: "应用平滑迁移",
-    circleLine1: "应用平滑",
-    circleLine2: "迁移",
-    prevLine1: "遵循国际",
-    prevLine2: "标准",
-    nextLine1: "支撑云原生",
-    nextLine2: "",
-    description: "兼容主流国外和开源同类中间件的私有协议及配置，保障应用平滑迁移，降低信创改造成本。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M 30 50 L 70 50' stroke='%23BF1920' stroke-width='3' stroke-linecap='round'/%3E%3Cpolygon points='65,45 70,50 65,55' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "轻量可视、模型轻松定制",
+    circleLine1: "轻量可视",
+    circleLine2: "模型定制",
+    prevLine1: "多源数据",
+    prevLine2: "集中管理",
+    nextLine1: "组件丰富",
+    nextLine2: "场景覆盖",
+    description: "无需编码，通过拖拽操作轻松搭建模型管理，组件关系一览无遗。有效提升开发效率和维护成本。",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-N8Gtt00oapo9Fwd6aqYxMiVq6WvzIZ.png",
   },
   {
-    title: "支撑云原生",
-    circleLine1: "支撑",
-    circleLine2: "云原生",
-    prevLine1: "应用平滑",
-    prevLine2: "迁移",
-    nextLine1: "高性能",
-    nextLine2: "",
-    description: "支持容器镜像、Helm chart、Operator等部署模式，支持系统弹性伸缩、滚动升级及配置热更新，灵活接入状态、链路追踪、日志等第三方监控运维平台，可实现多云环境的统一纳管。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Crect x='25' y='30' width='50' height='40' rx='5' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "组件丰富、场景全面覆盖",
+    circleLine1: "组件丰富",
+    circleLine2: "场景覆盖",
+    prevLine1: "轻量可视",
+    prevLine2: "模型定制",
+    nextLine1: "灵活调度",
+    nextLine2: "监控告警",
+    description: "预置多类型输入输出组件，上百转换组件，支持跨行数据输出、上下转换、组件及场景转换等。实时处理、整体处理、流水处理于一体，兼顾离线处理。",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-y5iS7EaY0QzzIL6vUu2qQhBeLU4J6u.png",
   },
   {
-    title: "高性能",
-    circleLine1: "高性能",
-    circleLine2: "",
-    prevLine1: "支撑",
-    prevLine2: "云原生",
-    nextLine1: "高安全",
-    nextLine2: "",
-    description: "采用高性能线程池、连接池及网络处理等核心技术，支持用户高并发、大吞吐访问，可规模化同等替代国外产品，性能优于Tomcat等开源中间件产品。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cline x1='20' y1='70' x2='80' y2='70' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='20' y1='50' x2='30' y2='50' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='35' y1='35' x2='45' y2='35' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='50' y1='20' x2='80' y2='20' stroke='%23BF1920' stroke-width='2'/%3E%3C/svg%3E",
+    title: "灵活调度、实时监控告警",
+    circleLine1: "灵活调度",
+    circleLine2: "监控告警",
+    prevLine1: "组件丰富",
+    prevLine2: "场景覆盖",
+    nextLine1: "动态扩展",
+    nextLine2: "自动容错",
+    description: "内置全生命周期数据处理过程中的任务调度过程，在DAG（有向无环图）方式进行任务。支持工作流定时调度、优先级、多维度集群支持，实时的任务告警。",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-cY8qxX8WrtPHKgS53RZok21huwdtDV.png",
   },
   {
-    title: "高安全",
-    circleLine1: "高安全",
-    circleLine2: "",
-    prevLine1: "高性能",
-    prevLine2: "",
-    nextLine1: "高可靠",
-    nextLine2: "",
-    description: "通过第三方权威机构源代码安全检测和系统漏洞扫描，支持SM2/SM3/SM4等国密算法，支持TLCP安全传输协议，满足等保2.0三级、四级要求。集成应用安全防护模块，加固应用安全。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Cpath d='M 50 20 L 75 30 L 75 50 Q 50 75 50 75 Q 25 50 25 50 L 25 30 Z' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='50' cy='45' r='5' fill='%23BF1920'/%3E%3C/svg%3E",
+    title: "动态扩展、自动容错、数据高效可靠",
+    circleLine1: "动态扩展",
+    circleLine2: "自动容错",
+    prevLine1: "灵活调度",
+    prevLine2: "监控告警",
+    nextLine1: "国产支持",
+    nextLine2: "生态适配",
+    description: "高可靠、分布式、可扩展架构，支持行业业界和布式计算，具备高容错量、精确性、时时设特性、同时具弹性扩展能力，能够根据業務背景，动态扩展计算点。",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-FykpK18DYMCZJk76W07FExD12Oonk4.png",
   },
   {
-    title: "高可靠",
-    circleLine1: "高可靠",
-    circleLine2: "",
-    prevLine1: "高安全",
-    prevLine2: "",
-    nextLine1: "遵循国际",
-    nextLine2: "标准",
-    description: "支持大规模集群部署，提供故障转移和弹性伸缩能力。提供线程分组、流量控制及过载保护等功能，实现系统故障有效隔离，保障应用系统运行稳定可靠。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f0f0f0'/%3E%3Ccircle cx='50' cy='50' r='25' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Cpath d='M 45 50 L 50 55 L 60 45' fill='none' stroke='%23BF1920' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E",
+    title: "国产支持、深度生态适配",
+    circleLine1: "国产支持",
+    circleLine2: "生态适配",
+    prevLine1: "动态扩展",
+    prevLine2: "自动容错",
+    nextLine1: "多源数据",
+    nextLine2: "集中管理",
+    description: "兼容多类国产及国际主流服务器、cpu、操作系统、数据库等软件生态。",
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-x1Yi7CNNM7hP16hw8kOEfbEsWI8Wt6.png",
   },
 ]
 
 const AUTO_PLAY_DURATION = 5000
 
-export function ValueSection() {
+export function DataIntegrationFeatures() {
   const [valueIndex, setValueIndex] = useState(0)
   const [displayIndex, setDisplayIndex] = useState(0)
   const [fadePhase, setFadePhase] = useState<"visible" | "fadeOut" | "fadeIn">("visible")
@@ -84,21 +83,20 @@ export function ValueSection() {
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
 
-  // Icons will be loaded lazily by img tags
+  // Icons will be loaded lazily by img tags, no preloading needed
   useEffect(() => {
-    // No preloading needed - img tags handle loading safely
+    // Just ensure component is mounted
+    return () => {}
   }, [])
 
   const goToIndex = useCallback((index: number) => {
     if (fadePhase !== "visible" || index === valueIndex) return
     setFadePhase("fadeOut")
     setProgress(0)
-    // Wait for fade out, then switch content
     setTimeout(() => {
       setValueIndex(index)
       setDisplayIndex(index)
       setFadePhase("fadeIn")
-      // Wait for fade in to complete
       setTimeout(() => {
         setFadePhase("visible")
       }, 250)
@@ -110,7 +108,7 @@ export function ValueSection() {
     setProgress(0)
     setTimeout(() => {
       setValueIndex((prev) => {
-        const next = (prev + 1) % valueItems.length
+        const next = (prev + 1) % featureItems.length
         setDisplayIndex(next)
         return next
       })
@@ -140,7 +138,6 @@ export function ValueSection() {
       if (pct < 1) {
         progressRef.current = requestAnimationFrame(animate)
       } else {
-        // Auto advance
         goToNext()
       }
     }
@@ -152,13 +149,13 @@ export function ValueSection() {
     }
   }, [valueIndex, isAnimating, goToNext])
 
-  const currentValue = valueItems[displayIndex]
+  const currentValue = featureItems[displayIndex]
 
   return (
     <section className="relative bg-[#F6F5F6]">
       {/* Background pattern */}
       <div className="pointer-events-none absolute bottom-0 left-0 w-full opacity-40">
-        <img src="/images/value-section-bg.png" alt="" className="block w-full" />
+        <img src="/images/value-section-bg.png" alt="" className="block w-full" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] BG error:", err) } }} />
       </div>
       {/* Floating particles */}
       <div className="pointer-events-none absolute right-[4%] top-[10%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 8s ease-in-out infinite" }} />
@@ -175,12 +172,12 @@ export function ValueSection() {
           className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-bold leading-[100%] text-[#242222]"
           style={{ top: "7.83%", fontSize: "clamp(26px,2.08vw,40px)" }}
         >
-          产品价值
+          产品特性
         </h2>
 
         {/* Left side: fixed-group.png with circle labels */}
         <div className="absolute" style={{ left: "-2%", top: "9.5%", width: "42%", maxWidth: "810px" }}>
-          <Image src="/images/fixed-group.png" alt="" width={979} height={861} className="h-auto w-full object-contain" />
+          <img src="/images/fixed-group.png" alt="" className="h-auto w-full object-contain" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] Image error:", err) } }} />
 
           {/* Top circle label (previous item) */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "6.5%", width: "10.21%", height: "12%" }}>
@@ -207,7 +204,7 @@ export function ValueSection() {
               transform: showContent ? "translateY(0)" : "translateY(20px)",
             }}
           >
-            <Image src={currentValue.icon} alt={currentValue.title} width={115} height={105} className="object-contain" style={{ width: "clamp(45px,4.5vw,90px)", height: "auto" }} />
+            <img src={currentValue.icon} alt={currentValue.title} style={{ width: "clamp(45px,4.5vw,90px)", height: "auto" }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
           </div>
 
           {/* Main circle label (current item) */}
@@ -245,11 +242,11 @@ export function ValueSection() {
 
         {/* Large icon */}
         <div className="absolute" style={{ left: "50.73%", top: "25.93%" }}>
-          <Image src={currentValue.icon} alt={currentValue.title} width={169} height={155} className="object-contain" style={{ width: "clamp(90px,8.8vw,169px)", height: "auto",
+          <img src={currentValue.icon} alt={currentValue.title} style={{ width: "clamp(90px,8.8vw,169px)", height: "auto",
             transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
             opacity: showContent ? 1 : 0,
             transform: showContent ? "translateY(0)" : "translateY(10px)",
-          }} />
+          }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
         </div>
 
         {/* Dynamic Title */}
@@ -291,7 +288,7 @@ export function ValueSection() {
           className="absolute flex items-center"
           style={{ left: "50.73%", top: "81%", width: "37.34%", gap: "clamp(6px, 0.5vw, 10px)" }}
         >
-          {valueItems.map((item, i) => (
+          {featureItems.map((item, i) => (
             <button
               key={i}
               type="button"
@@ -338,7 +335,7 @@ export function ValueSection() {
 
       {/* Mobile layout */}
       <div className="relative z-10 px-4 py-12 lg:hidden">
-        <h2 className="text-center text-3xl font-bold leading-[100%] text-[#242222]">产品价值</h2>
+        <h2 className="text-center text-3xl font-bold leading-[100%] text-[#242222]">产品特性</h2>
 
         {/* Circle indicators */}
         <div className="mt-8 flex items-center justify-center gap-3">
@@ -378,12 +375,10 @@ export function ValueSection() {
         </div>
 
         <div className="mt-8 flex flex-col items-center">
-          <Image src={currentValue.icon} alt={currentValue.title} width={130} height={120} className="h-[100px] w-[110px] object-contain"
-            style={{
-              transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)",
-              opacity: showContent ? 1 : 0,
-            }}
-          />
+          <img src={currentValue.icon} alt={currentValue.title} style={{ width: "110px", height: "100px", objectFit: "contain",
+            transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)",
+            opacity: showContent ? 1 : 0,
+          }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
           <div className="overflow-hidden">
             <h3
               className="mt-4 text-center text-[22px] font-medium leading-[1.8] text-[#242222]"
@@ -413,7 +408,7 @@ export function ValueSection() {
 
           {/* Progress bar indicators - Mobile */}
           <div className="mt-8 flex w-full max-w-[400px] items-center gap-1.5">
-            {valueItems.map((item, i) => (
+            {featureItems.map((item, i) => (
               <button
                 key={i}
                 type="button"
@@ -442,7 +437,7 @@ export function ValueSection() {
             {currentValue.title}
           </p>
           <p className="mt-1 text-xs text-[#242222]/40">
-            {String(valueIndex + 1).padStart(2, "0")} / {String(valueItems.length).padStart(2, "0")}
+            {String(valueIndex + 1).padStart(2, "0")} / {String(featureItems.length).padStart(2, "0")}
           </p>
         </div>
       </div>

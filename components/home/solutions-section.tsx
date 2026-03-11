@@ -137,6 +137,13 @@ export function SolutionsSection() {
                         fill
                         className="object-contain drop-shadow-lg"
                         priority
+                        onError={(e) => {
+                          try {
+                            e.currentTarget.style.display = "none"
+                          } catch (error) {
+                            console.warn("Solution icon error:", error)
+                          }
+                        }}
                       />
                     </div>
                   </div>
