@@ -1,50 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --font-noto-sans-sc: 'Noto Sans SC', 'Source Han Sans CN', sans-serif;
-  --font-alibaba: 'Alibaba PuHuiTi', 'Noto Sans SC', sans-serif;
-
-  --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(0 2% 13.3%);
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(0 2% 13.3%);
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(0 2% 13.3%);
-  --color-primary: hsl(355 80% 42%);
-  --color-primary-foreground: hsl(0 0% 100%);
-  --color-secondary: hsl(330 5% 96%);
-  --color-secondary-foreground: hsl(0 2% 13.3%);
-  --color-muted: hsl(240 5% 96.5%);
-  --color-muted-foreground: hsl(0 0% 46%);
-  --color-accent: hsl(330 5% 96%);
-  --color-accent-foreground: hsl(0 2% 13.3%);
-  --color-destructive: hsl(355 80% 42%);
-  --color-destructive-foreground: hsl(0 0% 100%);
-  --color-border: hsl(0 3% 88%);
-  --color-input: hsl(0 3% 88%);
-  --color-ring: hsl(355 80% 42%);
-  --color-chart-1: hsl(355 80% 42%);
-  --color-chart-2: hsl(0 0% 46%);
-  --color-chart-3: hsl(0 2% 13.3%);
-  --color-chart-4: hsl(330 5% 96%);
-  --color-chart-5: hsl(355 60% 55%);
-  --color-sidebar-background: hsl(0 0% 98%);
-  --color-sidebar-foreground: hsl(0 2% 13.3%);
-  --color-sidebar-primary: hsl(355 80% 42%);
-  --color-sidebar-primary-foreground: hsl(0 0% 100%);
-  --color-sidebar-accent: hsl(330 5% 96%);
-  --color-sidebar-accent-foreground: hsl(0 2% 13.3%);
-  --color-sidebar-border: hsl(0 3% 88%);
-  --color-sidebar-ring: hsl(355 80% 42%);
-
-  --radius: 0.5rem;
-}
-
-@supports (color: hsl(from hsl(0 0% 100%) h s l)) {
-  @theme {
-    color-scheme: light;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: 'Noto Sans SC', 'Source Han Sans CN', Arial, Helvetica, sans-serif;
