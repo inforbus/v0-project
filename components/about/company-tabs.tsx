@@ -168,78 +168,12 @@ export function CompanyTabs() {
                 </div>
               </div>
             </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用，实现基础中间件全栈式规模替代。
-                  </p>
-                </div>
+          </div>
+        )}
 
-                {/* Taxation Domain */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">🏛️</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">税务领域</h4>
-                  </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    中创工作流中间件在IBM和Oracle公司同类产品竞争中胜出，作为国家金税工程基础软件平台的重要组成部分，支撑全国税务四大平台所有业务系统流程业务部署运行。
-                  </p>
-                </div>
-
-                {/* Transportation Domain */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">🚗</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">交通领域</h4>
-                  </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑，助力交通数字化转型升级。
-                  </p>
-                </div>
-
-                {/* Energy Domain */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">⚡</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">能源领域</h4>
-                  </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    深度参与某电��大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越，应用场景从综合办公系统延伸至电力调度等生产核心领域。
-                  </p>
-                </div>
-
-                {/* Smart Manufacturing Domain */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">⚙️</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">智能制造领域</h4>
-                  </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变，是工业互联网的典型应用案例。
-                  </p>
-                </div>
-
-                {/* Self-reliant Innovation Domain */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">💡</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">自主创新领域</h4>
-                  </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    已涵盖30余省及几十个部委级客户，应用规模处于领先地位，成功打造央企国产化替代标杆。
-                  </p>
-                </div>
-
-                {/* Security Products - Full Width */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300 md:col-span-2 lg:col-span-3">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">🔒</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">安全产品</h4>
-                  </div>
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    公司安全产品服务包括全国人大、全国政协30个部委级网站，覆盖全国31个省、市、自治区，保障国家信息安全。
-                  </p>
-                </div>
-              </div>
-            </div>
+        {activeTab === 'honors' && (
+          <div className="animate-fadeIn">
+            <p className="font-sans text-lg text-foreground/70">公司荣誉内容待添加</p>
           </div>
         )}
 
