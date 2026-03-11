@@ -86,11 +86,10 @@ export function CompanyTabs() {
                 </div>
               </div>
 
-              {/* Application Domains Section with Full-width Background */}
-              <div className="w-full bg-gradient-to-br from-slate-50 to-slate-100 py-16 lg:py-20 -mx-4 lg:-mx-8 mt-16 px-4 lg:px-8">
-                <div className="mx-auto max-w-7xl">
-                  <h3 className="font-sans text-3xl font-bold text-foreground mb-12 text-center">应用领域</h3>
-                  <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {/* Application Domains Section */}
+              <div className="mt-16">
+                <h3 className="font-sans text-3xl font-bold text-foreground mb-12 text-center">应用领域</h3>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {/* Financial Domain */}
                     <div className="text-center space-y-4">
                       <div className="flex justify-center">
@@ -184,7 +183,6 @@ export function CompanyTabs() {
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           )}
 
