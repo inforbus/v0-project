@@ -153,13 +153,6 @@ export function HeroSection() {
                     console.log("[v0] Image error handler:", error)
                   }
                 }}
-                onLoadError={(e) => {
-                  try {
-                    console.log("[v0] Image load error")
-                  } catch (error) {
-                    // Silent catch
-                  }
-                }}
               />
             )}
           </div>

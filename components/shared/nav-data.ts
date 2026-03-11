@@ -52,7 +52,6 @@ export function getProductCategories(): ProductCategory[] {
       name: "物联网平台",
       href: "/iot",
       children: [
-        { name: "应用安全", href: "/iot/app-security" },
         { name: "统一监管平台", href: "/iot/supervision" },
         { name: "物联网监控平台", href: "/iot/monitoring" },
         { name: "高速公路智慧管控平台", href: "/iot/highway" },

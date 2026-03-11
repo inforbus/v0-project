@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getProductCategories, type NavItem } from "./nav-data"
@@ -163,9 +164,14 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
       <div className={`border-b bg-transparent ${isOverlay ? "border-white/10" : "border-white/20"}`}>
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
           <Link href="/" className="flex-shrink-0">
-            <div className={`text-sm font-bold ${isOverlay ? "text-white" : "text-foreground"}`}>
-              INFORS
-            </div>
+            <Image
+              src="/logo.svg"
+              alt="中创软件"
+              width={120}
+              height={40}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
 
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
