@@ -98,6 +98,77 @@ export function CompanyTabs() {
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
                       与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用。
                     </p>
+                  </div>
+
+                  {/* Taxation Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🏛️</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">税务领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      中创工作流中间件在IBM和Oracle公司同类产品竞争中胜出，作为国家金税工程基础软件平台的重要组成部分。
+                    </p>
+                  </div>
+
+                  {/* Transportation Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🚗</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑。
+                    </p>
+                  </div>
+
+                  {/* Energy Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">⚡</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">能源领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      深度参与某电力大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越。
+                    </p>
+                  </div>
+
+                  {/* Smart Manufacturing Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">⚙️</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">智能制造领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变。
+                    </p>
+                  </div>
+
+                  {/* Self-reliant Innovation */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">💡</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">自主创新领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      已涵盖30余省及几十个部委级客户，成功打造央企国产化替代标杆。
+                    </p>
+                  </div>
+
+                  {/* Security Products */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🔒</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">安全产品</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      公司安全产品服务包括全国人大、全国政协30个部委级网站，覆盖全国31个省市自治区。
+                    </p>
+                  </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">金融领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用。
+                    </p>
                     <div className="flex flex-wrap gap-2 justify-center">
                       <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
                       <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">泛半导体行业</span>
@@ -128,7 +199,7 @@ export function CompanyTabs() {
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                      为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑。
+                      为国家取消省��收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑。
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center">
                       <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
