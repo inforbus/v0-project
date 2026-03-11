@@ -54,7 +54,10 @@ export function TimelineComponent() {
   }
 
   return (
-    <div className="animate-fadeIn space-y-16">
+    <div 
+      className="animate-fadeIn space-y-16 bg-cover bg-center bg-no-repeat py-20 px-8 rounded-lg"
+      style={{ backgroundImage: 'url(/images/timeline-bg.jpg)' }}
+    >
       {/* Title */}
       <div className="text-center">
         <h2 className="font-sans text-4xl font-bold text-foreground mb-4">发展历程</h2>
