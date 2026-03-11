@@ -85,14 +85,16 @@ export function CompanyTabs() {
             </div>
 
             {/* Application Domains Section with Background */}
-            <div className="mt-16 -mx-4 -mb-4 bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-16 lg:px-8 lg:py-20">
+            <div className="mt-16 -mx-4 bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-16 lg:px-8 lg:py-20 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
               <div className="mx-auto max-w-7xl">
                 <h3 className="font-sans text-3xl font-bold text-foreground mb-12">应用领域</h3>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                   {/* Financial Domain */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">💰</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">金融领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
@@ -103,7 +105,9 @@ export function CompanyTabs() {
                   {/* Taxation Domain */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">🏛️</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">税务领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
@@ -114,7 +118,9 @@ export function CompanyTabs() {
                   {/* Transportation Domain */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">🚗</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
@@ -125,7 +131,9 @@ export function CompanyTabs() {
                   {/* Energy Domain */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">⚡</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">能源领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
@@ -136,7 +144,9 @@ export function CompanyTabs() {
                   {/* Smart Manufacturing Domain */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">⚙️</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">智能制造领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
@@ -147,7 +157,9 @@ export function CompanyTabs() {
                   {/* Self-reliant Innovation */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">💡</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">自主创新领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
@@ -158,18 +170,18 @@ export function CompanyTabs() {
                   {/* Security Products */}
                   <div className="text-center space-y-4">
                     <div className="flex justify-center">
-                      <div className="text-5xl">🔒</div>
+                      <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
                     </div>
                     <h4 className="font-sans text-lg font-bold text-foreground">安全产品</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
                       公司安全产品服务包括全国人大、全国政协30个部委级网站，覆盖全国31个省市自治区。
                     </p>
                   </div>
-                    <h4 className="font-sans text-lg font-bold text-foreground">金融领域</h4>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                      与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用。
-                    </p>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                </div>
+              </div>
+            </div>
                       <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
                       <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">泛半导体行业</span>
                       <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">新能源行业</span>
