@@ -36,20 +36,12 @@ export function DataIntegrationHeroSection() {
           style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
         />
 
-        {/* Subtitle 1 */}
+        {/* Subtitle */}
         <p
           className="font-sans font-normal text-[#332C2B]"
           style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
         >
-          集成异构数据
-        </p>
-
-        {/* Subtitle 2 */}
-        <p
-          className="font-sans font-normal text-[#332C2B]"
-          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
-        >
-          实现敏捷共享
+          集成异构数据 实现敏捷共享
         </p>
       </div>
 
