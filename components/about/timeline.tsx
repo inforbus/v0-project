@@ -96,7 +96,7 @@ export function TimelineComponent() {
           <div className="flex items-center gap-6 pt-10">
             <button
               onClick={handlePrev}
-              disabled={windowStart === 0}
+              disabled={selectedYear === 0}
               className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
               aria-label="Previous year"
             >

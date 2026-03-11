@@ -19,9 +19,6 @@ const config: Config = {
       '3xl': '1920px',
     },
     extend: {
-      fontFamily: {
-        'source-han': ['var(--font-noto-sans-sc)', 'Noto Sans SC', 'Source Han Sans CN', 'sans-serif'],
-      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
