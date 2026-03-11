@@ -1,36 +1,93 @@
 "use client"
 
-import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const features = [
   {
     title: "应用可视化编排",
     description: "提供图形化编排界面，通过拖拽组件和连线，快速构建云原生应用的部署结构，支持一键编排、部署即启用、部署即监控，显著提升应用上云的效率。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='20' y='20' width='30' height='30' fill='none' stroke='%23BF1920' stroke-width='2' rx='4'/%3E%3Crect x='60' y='20' width='30' height='30' fill='none' stroke='%23BF1920' stroke-width='2' rx='4'/%3E%3Crect x='20' y='60' width='30' height='30' fill='none' stroke='%23BF1920' stroke-width='2' rx='4'/%3E%3Crect x='60' y='60' width='30' height='30' fill='none' stroke='%23BF1920' stroke-width='2' rx='4'/%3E%3Cline x1='50' y1='35' x2='60' y2='35' stroke='%23BF1920' stroke-width='1.5'/%3E%3Cline x1='35' y1='50' x2='35' y2='60' stroke='%23BF1920' stroke-width='1.5'/%3E%3Cline x1='65' y1='50' x2='65' y2='60' stroke='%23BF1920' stroke-width='1.5'/%3E%3C/svg%3E",
+    icon: "grid",
   },
   {
     title: "微服务治理",
     description: "提供向微云、跨数据中心及异构环境的全方位容器管理能力，支持多云场景下高效调度、资源的智能化分配与交维协作，全面提升业务的弹性与可扩展性。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='30' r='12' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='30' cy='70' r='12' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='70' cy='70' r='12' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Cline x1='45' y1='38' x2='35' y2='62' stroke='%23BF1920' stroke-width='1.5'/%3E%3Cline x1='55' y1='38' x2='65' y2='62' stroke='%23BF1920' stroke-width='1.5'/%3E%3Cline x1='30' y1='82' x2='70' y2='82' stroke='%23BF1920' stroke-width='1.5'/%3E%3C/svg%3E",
+    icon: "network",
   },
   {
     title: "云端编排、边缘交付",
     description: "具备云边协同能力，统一将云端编排的应用精准下发至各边缘节点，实现大规模应用的自动化部署与升级，并对边缘应用的运行状态与日志进行全方位监控和管理。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 60 Q50 30 80 60' fill='none' stroke='%23BF1920' stroke-width='2'/%3E%3Ccircle cx='30' cy='50' r='8' fill='%23BF1920'/%3E%3Ccircle cx='50' cy='35' r='8' fill='%23BF1920'/%3E%3Ccircle cx='70' cy='50' r='8' fill='%23BF1920'/%3E%3Crect x='15' y='70' width='70' height='20' fill='none' stroke='%23BF1920' stroke-width='2' rx='3'/%3E%3Cline x1='30' y1='80' x2='30' y2='85' stroke='%23BF1920' stroke-width='1'/%3E%3Cline x1='50' y1='80' x2='50' y2='85' stroke='%23BF1920' stroke-width='1'/%3E%3Cline x1='70' y1='80' x2='70' y2='85' stroke='%23BF1920' stroke-width='1'/%3E%3C/svg%3E",
+    icon: "cloud",
   },
   {
     title: "研发交付一体化",
     description: "深度践行DevOps理念，全面赋能企业研发与交付一体化，助力软件开发全生命周期的智能化与自动化管理。融合云原生技术，系统性优化研发流程，显著提升效率与产品质量，实现高效交付与项目全流程的精细化管理。",
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M25 50 L35 40 L45 50 L55 40 L65 50 L75 40 L75 70' fill='none' stroke='%23BF1920' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='25' cy='50' r='3' fill='%23BF1920'/%3E%3Ccircle cx='45' cy='50' r='3' fill='%23BF1920'/%3E%3Ccircle cx='65' cy='50' r='3' fill='%23BF1920'/%3E%3Crect x='20' y='70' width='60' height='15' fill='none' stroke='%23BF1920' stroke-width='2' rx='2'/%3E%3C/svg%3E",
+    icon: "chart",
   },
 ]
+
+function IconComponent({ type }: { type: string }) {
+  switch (type) {
+    case "grid":
+      return (
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+          <rect x="20" y="20" width="30" height="30" fill="none" stroke="#BF1920" strokeWidth="2" rx="4" />
+          <rect x="60" y="20" width="30" height="30" fill="none" stroke="#BF1920" strokeWidth="2" rx="4" />
+          <rect x="20" y="60" width="30" height="30" fill="none" stroke="#BF1920" strokeWidth="2" rx="4" />
+          <rect x="60" y="60" width="30" height="30" fill="none" stroke="#BF1920" strokeWidth="2" rx="4" />
+          <line x1="50" y1="35" x2="60" y2="35" stroke="#BF1920" strokeWidth="1.5" />
+          <line x1="35" y1="50" x2="35" y2="60" stroke="#BF1920" strokeWidth="1.5" />
+          <line x1="65" y1="50" x2="65" y2="60" stroke="#BF1920" strokeWidth="1.5" />
+        </svg>
+      )
+    case "network":
+      return (
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="30" r="12" fill="none" stroke="#BF1920" strokeWidth="2" />
+          <circle cx="30" cy="70" r="12" fill="none" stroke="#BF1920" strokeWidth="2" />
+          <circle cx="70" cy="70" r="12" fill="none" stroke="#BF1920" strokeWidth="2" />
+          <line x1="45" y1="38" x2="35" y2="62" stroke="#BF1920" strokeWidth="1.5" />
+          <line x1="55" y1="38" x2="65" y2="62" stroke="#BF1920" strokeWidth="1.5" />
+          <line x1="30" y1="82" x2="70" y2="82" stroke="#BF1920" strokeWidth="1.5" />
+        </svg>
+      )
+    case "cloud":
+      return (
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+          <path d="M20 60 Q50 30 80 60" fill="none" stroke="#BF1920" strokeWidth="2" />
+          <circle cx="30" cy="50" r="8" fill="#BF1920" />
+          <circle cx="50" cy="35" r="8" fill="#BF1920" />
+          <circle cx="70" cy="50" r="8" fill="#BF1920" />
+          <rect x="15" y="70" width="70" height="20" fill="none" stroke="#BF1920" strokeWidth="2" rx="3" />
+          <line x1="30" y1="80" x2="30" y2="85" stroke="#BF1920" strokeWidth="1" />
+          <line x1="50" y1="80" x2="50" y2="85" stroke="#BF1920" strokeWidth="1" />
+          <line x1="70" y1="80" x2="70" y2="85" stroke="#BF1920" strokeWidth="1" />
+        </svg>
+      )
+    case "chart":
+      return (
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+          <path d="M25 50 L35 40 L45 50 L55 40 L65 50 L75 40 L75 70" fill="none" stroke="#BF1920" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="25" cy="50" r="3" fill="#BF1920" />
+          <circle cx="45" cy="50" r="3" fill="#BF1920" />
+          <circle cx="65" cy="50" r="3" fill="#BF1920" />
+          <rect x="20" y="70" width="60" height="15" fill="none" stroke="#BF1920" strokeWidth="2" rx="2" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
 
 export function PaaSFeaturesSection() {
   return (
     <section className="relative overflow-hidden bg-white px-4 py-12 md:py-16 lg:px-0 lg:py-[80px] 3xl:py-[120px]">
       <div className="pointer-events-none absolute inset-0 h-full w-full opacity-50">
-        <Image src="/images/section-bg-wave.png" alt="" fill className="object-cover" style={{ mixBlendMode: "soft-light" }} />
+        <div className="h-full w-full" style={{
+          backgroundImage: "url('/images/section-bg-wave.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          mixBlendMode: "soft-light"
+        }} />
       </div>
       <div className="pointer-events-none absolute left-[3%] top-[12%] h-3 w-3 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 7s ease-in-out infinite" }} />
       <div className="pointer-events-none absolute right-[5%] top-[22%] h-2 w-2 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 9s ease-in-out 1.5s infinite" }} />
@@ -56,7 +113,7 @@ export function PaaSFeaturesSection() {
                     
                     {/* Icon */}
                     <div className="relative z-10 mb-5 flex items-center justify-center rounded-lg bg-[#BF1920]/10 p-3 w-fit transition-all duration-500 group-hover:bg-[#BF1920]/20 group-hover:scale-110">
-                      <Image src={feature.icon} alt={feature.title} width={40} height={40} className="h-10 w-10 object-contain" />
+                      <IconComponent type={feature.icon} />
                     </div>
                     
                     {/* Title */}

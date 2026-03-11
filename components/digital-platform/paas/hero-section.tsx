@@ -1,9 +1,3 @@
-import Link from "next/link"
-import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
-
-const navItems = getNavItems("/products")
-
 export function PaaSHeroSection() {
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
@@ -13,8 +7,6 @@ export function PaaSHeroSection() {
         alt="中创PaaS平台"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
-
-      <Header navItems={navItems} />
 
       {/* Main title and subtitle text content */}
       <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
@@ -50,7 +42,7 @@ export function PaaSHeroSection() {
 
       {/* Free trial and video buttons */}
       <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
-        <Link
+        <a
           href="/trial"
           className="group inline-flex items-center justify-center rounded bg-[#BF1920] px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#a8151b] hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
         >
@@ -58,8 +50,8 @@ export function PaaSHeroSection() {
           <svg width="8" height="15" viewBox="0 0 8 15" fill="none" className="ml-3 transition-transform duration-300 group-hover:translate-x-1">
             <path d="M1 1L7 7.5L1 14" stroke="white" strokeWidth="2" />
           </svg>
-        </Link>
-        <Link
+        </a>
+        <a
           href="/video"
           className="group inline-flex items-center justify-center rounded border-2 border-[#BF1920] bg-transparent px-6 py-2.5 text-sm font-medium text-[#BF1920] shadow-lg transition-all duration-300 hover:bg-[#BF1920] hover:text-white hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
         >
@@ -68,7 +60,7 @@ export function PaaSHeroSection() {
             <path d="M10.5 8L6 5.5V10.5L10.5 8Z" fill="currentColor" />
           </svg>
           查看视频
-        </Link>
+        </a>
       </div>
     </div>
   )

@@ -63,7 +63,7 @@ export function PaaSOverviewSection() {
                   }}
                 >
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/paas_img1-tcKRV182KUXj5DCPDwopSg44gQ0uWv.png"
+                    src="/images/paas_img1.png"
                     alt="中创PaaS平台架构图"
                     width={489}
                     height={339}
