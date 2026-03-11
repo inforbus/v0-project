@@ -99,7 +99,7 @@ export function HonorsCarousel() {
     <div className="animate-fadeIn space-y-8">
       {/* Carousel Section */}
       <div 
-        className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white rounded-lg"
+        className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden rounded-lg"
         onMouseEnter={() => setIsAutoPlay(false)}
         onMouseLeave={() => setIsAutoPlay(true)}
       >
