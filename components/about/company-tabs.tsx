@@ -84,96 +84,139 @@ export function CompanyTabs() {
               </div>
             </div>
 
-            {/* Application Domains Section - Irregular Grid */}
-            <div className="mt-16 pt-12 border-t border-border">
-              <h3 className="font-sans text-3xl font-bold text-foreground mb-10">应用领域</h3>
-              <div className="grid gap-6 auto-rows-max" style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              }}>
-                {/* Financial Domain - Large */}
-                <div className="lg:row-span-2 p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-[#BF1920]/5 to-transparent">
-                  <div className="space-y-4 h-full flex flex-col">
-                    <div className="text-4xl">💰</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">金融领域</h4>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed flex-grow">
-                      与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用，实现基础中间件全栈式规模替代。
-                    </p>
-                  </div>
-                </div>
-
-                {/* Taxation Domain */}
-                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="text-4xl">🏛️</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">税务领域</h4>
+            {/* Application Domains Section with Background */}
+            <div className="mt-16 -mx-4 -mb-4 bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-16 lg:px-8 lg:py-20">
+              <div className="mx-auto max-w-7xl">
+                <h3 className="font-sans text-3xl font-bold text-foreground mb-12">应用领域</h3>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                  {/* Financial Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">💰</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">金融领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                      中创工作流中间件在IBM和Oracle公司同类产品竞争中胜出。
+                      与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用。
                     </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">泛半导体行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">新能源行业</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Transportation Domain */}
-                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="text-4xl">🚗</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">交通领域</h4>
+                  {/* Taxation Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🏛️</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">税务领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      中创工作流中间件在IBM和Oracle公司同类产品竞争中胜出，作为国家金税工程基础软件平台的重要组成部分。
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">装备制造业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">电力行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">机械加工业</span>
+                    </div>
+                  </div>
+
+                  {/* Transportation Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🚗</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
                       为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑。
                     </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">新能源行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">装备制造业</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Energy Domain */}
-                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="text-4xl">⚡</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">能源领域</h4>
+                  {/* Energy Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">⚡</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">能源领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
                       深度参与某电力大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越。
                     </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">泛半导体行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">精密机械制造</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Smart Manufacturing Domain - Large */}
-                <div className="lg:row-span-2 p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-[#BF1920]/5 to-transparent">
-                  <div className="space-y-4 h-full flex flex-col">
-                    <div className="text-4xl">⚙️</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">智能制造领域</h4>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed flex-grow">
-                      与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变，是工业互联网的典型应用案例。
+                  {/* Smart Manufacturing Domain */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">⚙️</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">智能制造领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变。
                     </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">机械加工业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">装备制造业</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Self-reliant Innovation */}
-                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <div className="text-4xl">💡</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">自主创新领域</h4>
+                  {/* Self-reliant Innovation */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">💡</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">自主创新领域</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
                       已涵盖30余省及几十个部委级客户，成功打造央企国产化替代标杆。
                     </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">电子信息行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">新能源行业</span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Security Products - Full Width */}
-                <div className="lg:col-span-2 p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-[#BF1920]/5 via-transparent to-[#BF1920]/5">
-                  <div className="space-y-4">
-                    <div className="text-4xl">🔒</div>
-                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">安全产品</h4>
+                  {/* Security Products */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🔒</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">安全产品</h4>
                     <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                      公司安全产品服务包括全国人大、全国政协30个部委级网站，覆盖全国31个省、市、自治区，保障国家信息安全。
+                      公司安全产品服务包括全国人大、全国政协30个部委级网站，覆盖全国31个省市自治区。
                     </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">汽车行业</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">电子信息行业</span>
+                    </div>
+                  </div>
+
+                  {/* Additional placeholder - 8th item */}
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <div className="text-5xl">🌐</div>
+                    </div>
+                    <h4 className="font-sans text-lg font-bold text-foreground">国际合作</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      中创软件致力于国际信息产业合作，推动中国基础软件产业国际竞争力提升。
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">国际合作</span>
+                      <span className="inline-block px-3 py-1 text-xs border border-foreground/20 rounded-full text-foreground/60">技术标准</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-
-        {activeTab === 'honors' && (
-          <div className="animate-fadeIn">
-            <p className="font-sans text-lg text-foreground/70">公司荣誉内容待添加</p>
           </div>
         )}
 
