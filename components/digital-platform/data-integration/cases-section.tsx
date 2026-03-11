@@ -9,7 +9,7 @@ import { dataIntegrationCases } from "@/lib/data-integration-cases"
 export function DataIntegrationCases() {
   const [caseOffset, setCaseOffset] = useState(0)
   const visibleCases = 3
-  const maxCaseOffset = cases.length - visibleCases
+  const maxCaseOffset = dataIntegrationCases.length - visibleCases
   const scrollCasePrev = () => setCaseOffset((prev) => Math.max(prev - 1, 0))
   const scrollCaseNext = () => setCaseOffset((prev) => Math.min(prev + 1, maxCaseOffset))
 
