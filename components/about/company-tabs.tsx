@@ -18,39 +18,30 @@ export function CompanyTabs() {
 
   return (
     <div className="w-full">
-      {/* Banner Section */}
-      <div className="w-full h-80 bg-cover bg-center relative" style={{ backgroundImage: 'url(/images/about-banner.jpg)' }}>
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        
-        {/* Content */}
-        <div className="relative h-full flex flex-col items-center justify-center space-y-6">
-          <div className="text-center space-y-2">
-            <h1 className="font-sans text-5xl font-bold text-white">关于我们</h1>
-          </div>
-
-          {/* Tabs Navigation - Capsule Style */}
-          <div className="flex flex-wrap gap-4 justify-center items-center px-4">
-            <div className="flex items-center gap-2 opacity-60">
-              <div className="w-8 h-px bg-white/50"></div>
+      {/* Tabs Navigation - Capsule Style */}
+      <div className="w-full -mt-20 relative z-10">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="flex flex-wrap gap-4 justify-center items-center py-8">
+            <div className="flex items-center gap-2 opacity-60 hidden md:flex">
+              <div className="w-8 h-px bg-foreground/30"></div>
             </div>
             
-            {tabs.map((tab, index) => (
+            {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-2 px-6 font-sans font-semibold text-sm transition-all duration-300 whitespace-nowrap rounded-full border-2 ${
                   activeTab === tab.id
                     ? 'bg-blue-500 border-blue-500 text-white'
-                    : 'border-white/70 text-white hover:border-white'
+                    : 'border-foreground/40 text-foreground/70 hover:border-foreground/60 hover:text-foreground'
                 }`}
               >
                 {tab.label}
               </button>
             ))}
             
-            <div className="flex items-center gap-2 opacity-60">
-              <div className="w-8 h-px bg-white/50"></div>
+            <div className="flex items-center gap-2 opacity-60 hidden md:flex">
+              <div className="w-8 h-px bg-foreground/30"></div>
             </div>
           </div>
         </div>
