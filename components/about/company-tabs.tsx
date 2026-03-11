@@ -32,8 +32,8 @@ export function CompanyTabs() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`py-2 px-6 font-sans font-semibold text-sm transition-all duration-300 whitespace-nowrap rounded-full border-2 ${
                   activeTab === tab.id
-                    ? 'bg-blue-500 border-blue-500 text-white'
-                    : 'border-foreground/40 text-foreground/70 hover:border-foreground/60 hover:text-foreground'
+                    ? 'bg-[#BF1920] border-[#BF1920] text-white'
+                    : 'border-white text-white hover:border-white/80'
                 }`}
               >
                 {tab.label}
