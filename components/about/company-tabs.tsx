@@ -229,87 +229,59 @@ export function CompanyTabs() {
 
           {activeTab === 'investors' && (
             <div className="animate-fadeIn">
-              <div className="space-y-12">
-                {/* Overview Section */}
-                <div className="space-y-6">
-                  <h2 className="font-sans text-3xl font-bold text-foreground">投资者关系</h2>
-                  <p className="font-sans text-base text-foreground/80 leading-relaxed max-w-3xl">
-                    中创软件致力于为投资者创造长期价值，通过透明的沟通和稳健的财务管理，建立可靠的投资者关系。我们欢迎机构投资者和个人投资者了解公司的战略发展、财务表现和企业治理情况。
+              <div className="space-y-16">
+                {/* Title */}
+                <div className="text-center space-y-4">
+                  <h2 className="font-sans text-4xl font-bold text-foreground">投资者关系</h2>
+                </div>
+
+                {/* Contact Information Cards */}
+                <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+                  {/* Phone */}
+                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] hover:shadow-md transition-all duration-300 text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-14 h-14 bg-[#BF1920]/10 rounded-lg flex items-center justify-center">
+                        <svg className="w-7 h-7 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 00.948.684l1.498 7.487a1 1 0 00.502.756l4.038 2.676a5 5 0 00-6.519 6.519l-2.676-4.038a1 1 0 00-.756-.502L3.684 9.28A1 1 0 003 8.28V5z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="font-sans text-sm text-foreground/60 mb-2">联系电话</p>
+                    <p className="font-sans text-2xl font-bold text-foreground">0531-81753702</p>
+                  </div>
+
+                  {/* Fax */}
+                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] hover:shadow-md transition-all duration-300 text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-14 h-14 bg-[#BF1920]/10 rounded-lg flex items-center justify-center">
+                        <svg className="w-7 h-7 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="font-sans text-sm text-foreground/60 mb-2">公司传真</p>
+                    <p className="font-sans text-2xl font-bold text-foreground">0531-81753668</p>
+                  </div>
+
+                  {/* Email */}
+                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] hover:shadow-md transition-all duration-300 text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-14 h-14 bg-[#BF1920]/10 rounded-lg flex items-center justify-center">
+                        <svg className="w-7 h-7 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="font-sans text-sm text-foreground/60 mb-2">投资者关系邮箱</p>
+                    <p className="font-sans text-lg font-bold text-foreground break-all">infors_ir@cvicse.com</p>
+                  </div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="text-center bg-slate-50 rounded-lg p-8 border border-border">
+                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                    如有任何关于投资者关系的问题，欢迎通过上述方式与我们联系，我们将竭诚为您服务。
                   </p>
-                </div>
-
-                {/* Key Sections Grid */}
-                <div className="grid gap-8 md:grid-cols-2">
-                  {/* Financial Information */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] transition-colors duration-300">
-                    <div className="flex items-start gap-4 mb-4">
-                      <svg className="w-6 h-6 text-[#BF1920] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <h3 className="font-sans text-xl font-bold text-foreground">财务信息</h3>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed mb-6">
-                      获取公司最新的财务报表、季度报告和年度业绩分析。
-                    </p>
-                    <a href="#" className="font-sans text-sm font-medium text-[#BF1920] hover:underline">了解更多 →</a>
-                  </div>
-
-                  {/* Corporate Governance */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] transition-colors duration-300">
-                    <div className="flex items-start gap-4 mb-4">
-                      <svg className="w-6 h-6 text-[#BF1920] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5.581m0 0H9m5.581 0a2 2 0 100-4 2 2 0 000 4zM9 7h.01M9 17h.01M9 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <h3 className="font-sans text-xl font-bold text-foreground">公司治理</h3>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed mb-6">
-                      了解公司的治理结构、董事会成员及企业政策。
-                    </p>
-                    <a href="#" className="font-sans text-sm font-medium text-[#BF1920] hover:underline">了解更多 →</a>
-                  </div>
-
-                  {/* Stock Information */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] transition-colors duration-300">
-                    <div className="flex items-start gap-4 mb-4">
-                      <svg className="w-6 h-6 text-[#BF1920] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8L5.293 19.707a1 1 0 01-1.414-1.414L16.586 7z" />
-                      </svg>
-                      <h3 className="font-sans text-xl font-bold text-foreground">股票信息</h3>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed mb-6">
-                      查看股票行情、股本结构和重要公告。
-                    </p>
-                    <a href="#" className="font-sans text-sm font-medium text-[#BF1920] hover:underline">了解更多 →</a>
-                  </div>
-
-                  {/* Events & Presentations */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] transition-colors duration-300">
-                    <div className="flex items-start gap-4 mb-4">
-                      <svg className="w-6 h-6 text-[#BF1920] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <h3 className="font-sans text-xl font-bold text-foreground">活动与演讲</h3>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/70 leading-relaxed mb-6">
-                      参加公司举办的投资者大会、业绩说明会和路演活动。
-                    </p>
-                    <a href="#" className="font-sans text-sm font-medium text-[#BF1920] hover:underline">了解更多 →</a>
-                  </div>
-                </div>
-
-                {/* Contact Section */}
-                <div className="bg-slate-50 rounded-lg p-8 border border-border">
-                  <h3 className="font-sans text-xl font-bold text-foreground mb-4">投资者联系方式</h3>
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <div>
-                      <p className="font-sans text-sm text-foreground/60 mb-1">邮箱</p>
-                      <p className="font-sans text-base font-medium text-foreground">ir@zcsoftware.com</p>
-                    </div>
-                    <div>
-                      <p className="font-sans text-sm text-foreground/60 mb-1">电话</p>
-                      <p className="font-sans text-base font-medium text-foreground">+86-531-8888-0000</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
