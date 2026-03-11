@@ -167,9 +167,9 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
             <Image
               src="/logo.png"
               alt="中创软件"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
               priority
             />
           </Link>
