@@ -3,15 +3,15 @@
 import { useState, useEffect } from 'react'
 
 const honors = [
-  { id: 1, image: '/images/honor-1.jpg', title: '国家高新技术企业', icon: '🏢' },
-  { id: 2, image: '/images/honor-2.jpg', title: 'CMMI DEV 5级认证', icon: '⚙️' },
-  { id: 3, image: '/images/honor-3.jpg', title: 'ISO9001质量认证', icon: '✓' },
-  { id: 4, image: '/images/honor-4.jpg', title: '国家技术创新示范企业', icon: '🎯' },
-  { id: 5, image: '/images/honor-5.jpg', title: '国家企业技术中心', icon: '🔬' },
-  { id: 6, image: '/images/honor-6.jpg', title: '山东省科学技术进步二等奖', icon: '🏆' },
-  { id: 7, image: '/images/honor-7.jpg', title: '中国十大创新软件企业', icon: '💡' },
-  { id: 8, image: '/images/honor-8.jpg', title: '信创可靠企业核心软件品牌', icon: '⭐' },
-  { id: 9, image: '/images/honor-9.jpg', title: '国际Jakarta EE工作组企业级会员', icon: '🌐' },
+  { id: 1, image: '/images/cert-1.jpg', title: '中国电子信息行业卓越企业' },
+  { id: 2, image: '/images/cert-2.jpg', title: 'CMMI DEV 5级认证' },
+  { id: 3, image: '/images/cert-3.jpg', title: '信创工委会卓越贡献成员单位' },
+  { id: 4, image: '/images/cert-4.jpg', title: '中国十大创新软件企业' },
+  { id: 5, image: '/images/cert-5.jpg', title: '推动中间件软件杰出贡献奖' },
+  { id: 6, image: '/images/cert-6.jpg', title: '山东省科学技术进步二等奖' },
+  { id: 7, image: '/images/cert-7.jpg', title: 'ISO9001质量体系认证' },
+  { id: 8, image: '/images/cert-8.jpg', title: '信创可靠企业核心软件品牌' },
+  { id: 9, image: '/images/cert-9.jpg', title: '国际Jakarta EE工作组企业级会员单位' },
 ]
 
 export function HonorsCarousel() {
@@ -28,69 +28,138 @@ export function HonorsCarousel() {
     return () => clearInterval(interval)
   }, [isAutoPlay])
 
-  const visibleHonors = [
-    honors[(currentIndex - 1 + honors.length) % honors.length],
-    honors[currentIndex],
-    honors[(currentIndex + 1) % honors.length],
-  ]
+  // Get 5 visible cards for fan layout
+  const getVisibleHonors = () => {
+    const result = []
+    for (let i = -2; i <= 2; i++) {
+      const index = (currentIndex + i + honors.length) % honors.length
+      result.push({ ...honors[index], position: i })
+    }
+    return result
+  }
+
+  const visibleHonors = getVisibleHonors()
+
+  // Card styles based on position
+  const getCardStyle = (position: number) => {
+    const baseStyle = "absolute transition-all duration-500 ease-out cursor-pointer"
+    
+    switch (position) {
+      case -2: // Far left
+        return {
+          className: `${baseStyle} w-28 md:w-36 lg:w-40`,
+          style: {
+            transform: 'translateX(-180%) rotate(-12deg) scale(0.7)',
+            opacity: 0.4,
+            zIndex: 1,
+          }
+        }
+      case -1: // Left
+        return {
+          className: `${baseStyle} w-32 md:w-40 lg:w-48`,
+          style: {
+            transform: 'translateX(-100%) rotate(-6deg) scale(0.85)',
+            opacity: 0.7,
+            zIndex: 2,
+          }
+        }
+      case 0: // Center
+        return {
+          className: `${baseStyle} w-40 md:w-52 lg:w-60`,
+          style: {
+            transform: 'translateX(-50%) rotate(0deg) scale(1)',
+            opacity: 1,
+            zIndex: 3,
+          }
+        }
+      case 1: // Right
+        return {
+          className: `${baseStyle} w-32 md:w-40 lg:w-48`,
+          style: {
+            transform: 'translateX(0%) rotate(6deg) scale(0.85)',
+            opacity: 0.7,
+            zIndex: 2,
+          }
+        }
+      case 2: // Far right
+        return {
+          className: `${baseStyle} w-28 md:w-36 lg:w-40`,
+          style: {
+            transform: 'translateX(80%) rotate(12deg) scale(0.7)',
+            opacity: 0.4,
+            zIndex: 1,
+          }
+        }
+      default:
+        return { className: baseStyle, style: {} }
+    }
+  }
 
   return (
-    <div className="animate-fadeIn space-y-12">
+    <div className="animate-fadeIn space-y-8">
       {/* Carousel Section */}
       <div 
-        className="relative h-96 flex items-center justify-center group"
+        className="relative h-[400px] md:h-[450px] lg:h-[500px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white rounded-lg"
         onMouseEnter={() => setIsAutoPlay(false)}
         onMouseLeave={() => setIsAutoPlay(true)}
       >
-        <div className="flex justify-center items-center gap-6 w-full px-4">
-          {/* Left Card - Smaller */}
-          <div className="flex-shrink-0 w-40 h-80 transform -rotate-6 opacity-50 hover:opacity-75 transition-all">
-            <img
-              src={visibleHonors[0].image}
-              alt={visibleHonors[0].title}
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-          </div>
-
-          {/* Center Card - Larger */}
-          <div className="flex-shrink-0 w-56 h-80 transform hover:scale-105 transition-transform">
-            <img
-              src={visibleHonors[1].image}
-              alt={visibleHonors[1].title}
-              className="w-full h-full object-cover rounded-lg shadow-2xl"
-            />
-          </div>
-
-          {/* Right Card - Smaller */}
-          <div className="flex-shrink-0 w-40 h-80 transform rotate-6 opacity-50 hover:opacity-75 transition-all">
-            <img
-              src={visibleHonors[2].image}
-              alt={visibleHonors[2].title}
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-          </div>
+        {/* Cards Container */}
+        <div className="relative w-full h-full flex items-center justify-center">
+          {visibleHonors.map((honor) => {
+            const cardStyle = getCardStyle(honor.position)
+            return (
+              <div
+                key={`${honor.id}-${honor.position}`}
+                className={cardStyle.className}
+                style={{
+                  ...cardStyle.style,
+                  left: '50%',
+                }}
+                onClick={() => {
+                  if (honor.position !== 0) {
+                    setCurrentIndex(honors.findIndex(h => h.id === honor.id))
+                  }
+                }}
+              >
+                <div className="bg-white rounded-lg shadow-xl overflow-hidden border-4 border-white">
+                  <img
+                    src={honor.image}
+                    alt={honor.title}
+                    className="w-full h-auto aspect-[3/4] object-cover"
+                  />
+                </div>
+              </div>
+            )
+          })}
         </div>
 
         {/* Navigation Arrows */}
         <button
           onClick={() => setCurrentIndex((prev) => (prev - 1 + honors.length) % honors.length)}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full shadow-lg z-10 transition-colors"
           aria-label="Previous honor"
         >
-          <svg className="w-6 h-6 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
         <button
           onClick={() => setCurrentIndex((prev) => (prev + 1) % honors.length)}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 p-3 rounded-full shadow-lg z-10 transition-colors"
           aria-label="Next honor"
         >
-          <svg className="w-6 h-6 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
+      </div>
+
+      {/* Current Honor Title */}
+      <div className="text-center">
+        <h3 className="font-sans text-xl md:text-2xl font-bold text-foreground">
+          {honors[currentIndex].title}
+        </h3>
       </div>
 
       {/* Pagination Dots */}
@@ -101,30 +170,11 @@ export function HonorsCarousel() {
             onClick={() => setCurrentIndex(index)}
             className={`h-2 rounded-full transition-all ${
               index === currentIndex
-                ? 'bg-[#BF1920] w-8'
+                ? 'bg-blue-600 w-8'
                 : 'bg-gray-300 w-2 hover:bg-gray-400'
             }`}
             aria-label={`Go to honor ${index + 1}`}
           />
-        ))}
-      </div>
-
-      {/* Honors Info Grid - Below Carousel */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 bg-gradient-to-b from-slate-50 to-white p-8 rounded-lg">
-        {honors.map((honor) => (
-          <div
-            key={honor.id}
-            className={`text-center p-4 rounded-lg transition-all ${
-              currentIndex === honor.id - 1
-                ? 'border-2 border-[#BF1920] bg-[#BF1920]/5'
-                : 'border border-gray-200 hover:border-[#BF1920]/50'
-            }`}
-          >
-            <div className="text-2xl mb-3">{honor.icon}</div>
-            <h4 className="font-sans font-bold text-foreground text-sm leading-relaxed">
-              {honor.title}
-            </h4>
-          </div>
         ))}
       </div>
     </div>
