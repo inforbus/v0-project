@@ -108,19 +108,11 @@ export function TimelineComponent() {
                     <button
                       key={year}
                       onClick={() => handleYearClick(index)}
-                      className="flex flex-col items-center group"
+                      className="flex flex-col items-center group relative"
                     >
-                      {/* Vertical stem */}
+                      {/* Halo + dot - positioned on the line */}
                       <div
-                        className={`w-px transition-all duration-200 ${
-                          index === selectedYear
-                            ? 'h-6 bg-[#BF1920]'
-                            : 'h-4 bg-gray-300 group-hover:bg-[#BF1920]/50 group-hover:h-5'
-                        }`}
-                      />
-                      {/* Halo + dot */}
-                      <div
-                        className={`relative flex items-center justify-center rounded-full transition-all duration-200 ${
+                        className={`relative flex items-center justify-center rounded-full transition-all duration-200 z-10 ${
                           index === selectedYear
                             ? 'w-9 h-9 bg-[#BF1920]/15'
                             : 'w-6 h-6 bg-gray-100 group-hover:bg-[#BF1920]/10'
@@ -134,6 +126,16 @@ export function TimelineComponent() {
                           }`}
                         />
                       </div>
+                      
+                      {/* Vertical stem going down from dot */}
+                      <div
+                        className={`w-px transition-all duration-200 ${
+                          index === selectedYear
+                            ? 'h-6 bg-[#BF1920]'
+                            : 'h-4 bg-gray-300 group-hover:bg-[#BF1920]/50 group-hover:h-5'
+                        }`}
+                      />
+                      
                       {/* Year label */}
                       <span
                         className={`font-sans whitespace-nowrap transition-all duration-200 mt-2 ${
