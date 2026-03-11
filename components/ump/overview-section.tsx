@@ -35,7 +35,7 @@ export function UMPOverviewSection() {
           <ScrollReveal delay={100}>
             <div className="w-full lg:w-[440px] lg:flex-shrink-0 lg:pt-[40px] 3xl:w-[592px] 3xl:pt-[61px]">
               <p className="text-sm leading-[200%] text-[#242222] md:text-base lg:text-[16px] lg:leading-[200%] 3xl:text-[22px]">
-                中创PaaS平台是一款基于容器技术的企业级容器云平台软件，提供应用编排、微服务治理、DevOps一站式云原生解决方案，帮助客户解决传统应用快速上云和微服务应用治理，简化应用部署、监控、运维等应用生命周期管理工作。该产品全面兼容国产环境，并广泛应用政府、金融、交通、军工等行业，助力客户云原生数字化转型。
+                中创统一监管平台(简称:InforGuard UMP) 是一款集 IT 运行环境、业务应用、物联网监控于一体的全景多维综合监控运维平台。支持对国产及主流品牌软硬件设施运行状态和关键指标进行采集监控分析告警，提供故障实时预警快速定位，拓扑关联诊断，风险预警，智能巡检，远程运维，全面保障系统稳定可靠运行
               </p>
             </div>
           </ScrollReveal>
@@ -63,8 +63,8 @@ export function UMPOverviewSection() {
                   }}
                 >
                   <Image
-                    src="/images/paas-architecture.png"
-                    alt="中创PaaS平台架构图"
+                    src="/images/ump-architecture.png"
+                    alt="中创统一监管平台架构图"
                     width={489}
                     height={339}
                     className="h-auto w-[79%] object-contain"
