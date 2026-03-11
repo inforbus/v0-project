@@ -1,10 +1,12 @@
+"use client"
+
+import { useMemo } from "react"
 import Link from "next/link"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-const navItems = getNavItems("/products")
-
 export function MiddlewareHeroSection() {
+  const navItems = useMemo(() => getNavItems("/products"), [])
 
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">

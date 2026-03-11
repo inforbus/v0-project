@@ -12,7 +12,7 @@ export function DataIntegrationHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="/images/data-integration-banner.jpg"
+        src="/images/application-server-banner.png"
         alt="中创数据集成平台"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
@@ -20,33 +20,34 @@ export function DataIntegrationHeroSection() {
       <Header navItems={navItems} />
 
       {/* Main title and subtitle text content */}
-      <div className="relative z-10 flex flex-col justify-center h-full" style={{ paddingLeft: '21.7%' }}>
-        {/* Red accent line */}
-        <div
-          className="bg-[#BF1920]"
-          style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px' }}
-        />
-
-        {/* Title */}
+      {/* 原稿画布 1440×554，left:313px≈21.7% */}
+      <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+        {/* Title: 原稿 45px / 1440px ≈ 3.125vw，但容器仅 300-554px 高，用较小 vw */}
         <h1
-          className="font-sans font-bold text-white"
-          style={{ fontSize: 'clamp(14px, 2.5vw, 32px)', lineHeight: '1.2', marginTop: 'clamp(8px, 1vw, 16px)' }}
+          className="font-sans font-bold text-[#332C2B]"
+          style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
           中创数据集成平台
         </h1>
 
+        {/* Red accent line */}
+        <div
+          className="bg-[#BF1920]"
+          style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+        />
+
         {/* Subtitle 1 */}
         <p
-          className="font-sans font-normal text-white/90"
-          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', marginTop: 'clamp(6px, 0.8vw, 12px)', opacity: 0.8 }}
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
         >
           统一数据集成管理平台
         </p>
 
         {/* Subtitle 2 */}
         <p
-          className="font-sans font-normal text-white/90"
-          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', marginTop: 'clamp(4px, 0.6vw, 8px)', opacity: 0.8 }}
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
         >
           支持多源异构数据融合处理
         </p>
