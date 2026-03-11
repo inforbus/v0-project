@@ -39,11 +39,21 @@ export function TimelineComponent() {
   const visibleYears = allYears.slice(windowStart, windowStart + VISIBLE)
 
   const handlePrev = () => {
-    if (windowStart > 0) setWindowStart(windowStart - 1)
+    if (windowStart > 0) {
+      const newWindowStart = windowStart - 1
+      setWindowStart(newWindowStart)
+      // Select the first year in the new window
+      setSelectedYear(newWindowStart)
+    }
   }
 
   const handleNext = () => {
-    if (windowStart + VISIBLE < allYears.length) setWindowStart(windowStart + 1)
+    if (windowStart + VISIBLE < allYears.length) {
+      const newWindowStart = windowStart + 1
+      setWindowStart(newWindowStart)
+      // Select the last year in the new window
+      setSelectedYear(newWindowStart + VISIBLE - 1)
+    }
   }
 
   const handleYearClick = (index: number) => {
