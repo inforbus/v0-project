@@ -64,8 +64,8 @@ export function TimelineComponent() {
 
   return (
     <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/timeline-bg.jpg)' }}>
-      {/* White overlay with 50% opacity */}
-      <div className="absolute inset-0 bg-white/50"></div>
+      {/* White overlay with 70% opacity */}
+      <div className="absolute inset-0 bg-white/70"></div>
       <div className="mx-auto max-w-7xl px-4 lg:px-8 py-16 lg:py-20 relative z-10">
         {/* Title */}
         <div className="text-center mb-16">
