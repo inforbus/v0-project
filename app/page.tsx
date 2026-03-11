@@ -6,7 +6,7 @@ import { CustomersSection } from "@/components/home/customers-section"
 import { CasesSection } from "@/components/home/cases-section"
 import { HonorsSection } from "@/components/home/honors-section"
 import { NewsSection } from "@/components/home/news-section"
-import { ContactForm } from "@/components/shared/contact-form"
+import { CTASection } from "@/components/home/cta-section"
 import { Footer } from "@/components/shared/footer"
 
 export default function HomePage() {
@@ -20,7 +20,7 @@ export default function HomePage() {
       <NewsSection />
       <CustomersSection />
       <HonorsSection />
-      <ContactForm />
+      <CTASection />
       <Footer />
     </div>
   )
