@@ -102,7 +102,7 @@ export function CompanyTabs() {
             <div className="animate-fadeIn">
               <div className="space-y-12">
                 {/* Title */}
-                <div className="space-y-4">
+                <div className="space-y-4 text-center">
                   <h2 className="font-sans text-4xl font-bold text-foreground">联系我们</h2>
                   <p className="font-sans text-base text-foreground/70">欢迎通过以下方式与我们取得联系</p>
                 </div>
@@ -358,7 +358,7 @@ export function CompanyTabs() {
                 </div>
                 <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
                 <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                  为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑。
+                  为国家取消省界收费及武汉城市自由��车联网系统7年的稳定可靠运行提供中间件支撑。
                 </p>
               </div>
 
