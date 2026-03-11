@@ -1,16 +1,15 @@
 import { MiddlewareHeroSection } from "@/components/middleware/hero-section"
-import { OverviewSection } from "@/components/middleware/overview-section"
+import { PaaSOverviewSection } from "@/components/paas/overview-section"
 import { ProductIntro } from "@/components/middleware/product-intro"
 import { CasesSection } from "@/components/middleware/cases-section"
 import { Footer } from "@/components/shared/footer"
 import { OnlineServiceWidget } from "@/components/online-service-widget"
 
-// PaaS Platform Page
 export default function PaaSPlatformPage() {
   return (
     <div className="min-h-screen w-full bg-white">
       <MiddlewareHeroSection />
-      <OverviewSection />
+      <PaaSOverviewSection />
       <ProductIntro />
       <CasesSection />
       <Footer />
