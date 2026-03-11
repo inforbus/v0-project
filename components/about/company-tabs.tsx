@@ -82,12 +82,33 @@ export function CompanyTabs() {
                     <p className="font-sans text-sm text-foreground leading-relaxed">
                       中创中间件作为信息领域基础软件的主力军，中创中间件在中间件行业深耕二十年，致力于推动中间件的技术创新与产品化、产业化，树立了信得信的品牌声誉。多款产品列入政府采购目录，被信息技术应用创新工作委员会评为"信息技术应用创新工作委员会卓越贡献成员单位"。系列产品遵循国际及国内中间件主流技术标准，拥有核心技术知识产权，中间件研发水平在国内处于领先水平，并全面适配当前大数据、物联网、云计算等前沿技术，核心产品具备规模化替代国外主流中间件厂商产品的能力。
                     </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
 
-        {/* Application Domains Section - Full Width */}
-        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-gradient-to-br from-slate-50 to-slate-100 py-16 lg:py-20 mt-16">
+          {activeTab === 'honors' && (
+            <HonorsCarousel />
+          )}
+
+          {activeTab === 'timeline' && (
+            <div className="animate-fadeIn">
+              <p className="font-sans text-lg text-foreground/70">发展历程内容待添加</p>
+            </div>
+          )}
+
+          {activeTab === 'contact' && (
+            <div className="animate-fadeIn">
+              <p className="font-sans text-lg text-foreground/70">联系我们内容待添加</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Application Domains Section - Full Width - Outside tab content */}
+      {activeTab === 'profile' && (
+        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-gradient-to-br from-slate-50 to-slate-100 py-16 lg:py-20">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <h3 className="font-sans text-3xl font-bold text-foreground mb-12 text-center">应用领域</h3>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -126,7 +147,7 @@ export function CompanyTabs() {
                       </div>
                       <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
                       <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                        为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行���供中间件支撑。
+                        为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠���行���供中间件支撑。
                       </p>
                     </div>
 
@@ -186,8 +207,10 @@ export function CompanyTabs() {
                 </div>
               </div>
             )}
-          </div>
-        )}
+        </div>
+    </div>
+  )
+}
 
           {activeTab === 'honors' && (
             <HonorsCarousel />
