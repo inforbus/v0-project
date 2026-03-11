@@ -162,8 +162,11 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
     <header className="relative z-50">
       <div className={`border-b bg-transparent ${isOverlay ? "border-white/10" : "border-white/20"}`}>
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
-          <Link href="/" className="flex-shrink-0">
-            <div className={`text-sm font-bold ${isOverlay ? "text-white" : "text-foreground"}`}>
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2">
+            <div className={`text-lg font-bold tracking-tight ${isOverlay ? "text-white" : "text-foreground"}`}>
+              中创
+            </div>
+            <div className={`text-sm font-semibold ${isOverlay ? "text-white/80" : "text-foreground/70"}`}>
               INFORS
             </div>
           </Link>
