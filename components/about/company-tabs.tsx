@@ -88,8 +88,55 @@ export function CompanyTabs() {
           )}
 
           {activeTab === 'honors' && (
-            <div className="animate-fadeIn">
-              <p className="font-sans text-lg text-foreground/70">公司荣誉内容待添加</p>
+            <div className="animate-fadeIn space-y-12">
+              {/* Certificates Display Image */}
+              <div className="relative w-full h-96">
+                <Image
+                  src="/images/honors-certificates.png"
+                  alt="公司荣誉证书展示"
+                  fill
+                  className="object-cover object-center rounded-lg shadow-lg"
+                  priority
+                />
+              </div>
+
+              {/* Honors Content - Two Columns */}
+              <div className="grid gap-12 md:grid-cols-2">
+                {/* Left Column */}
+                <div className="space-y-4 border-l-4 border-[#BF1920] pl-6">
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">中国电子信息行业卓越企业</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">CMMI DEV 5级认证</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">信创工委会卓越贡献成员单位</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">中国十大创新软件企业</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">推动中间件软件杰出贡献奖</h4>
+                  </div>
+                </div>
+
+                {/* Right Column */}
+                <div className="space-y-4 border-l-4 border-[#BF1920] pl-6">
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">山东省科学技术进步二等奖</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">ISO9001质量体系认证</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">信创可靠企业核心软件品牌</h4>
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-[#BF1920] text-lg">国际Jakarta EE工作组企业级会员单位</h4>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
