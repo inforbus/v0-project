@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getProductCategories, type NavItem } from "./nav-data"
@@ -162,13 +163,15 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
     <header className="relative z-50">
       <div className={`border-b bg-transparent ${isOverlay ? "border-white/10" : "border-white/20"}`}>
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-            <div className={`text-lg font-bold tracking-tight ${isOverlay ? "text-white" : "text-foreground"}`}>
-              中创
-            </div>
-            <div className={`text-sm font-semibold ${isOverlay ? "text-white/80" : "text-foreground/70"}`}>
-              INFORS
-            </div>
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/logo.png"
+              alt="中创软件"
+              width={40}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
