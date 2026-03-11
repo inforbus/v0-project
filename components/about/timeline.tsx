@@ -144,7 +144,7 @@ export function TimelineComponent() {
                             : 'text-gray-400 text-xs group-hover:text-[#BF1920]'
                         }`}
                       >
-                      {year}年
+                        {year}年
                       </span>
                     </button>
                   )
