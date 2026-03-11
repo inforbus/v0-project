@@ -18,22 +18,41 @@ export function CompanyTabs() {
 
   return (
     <div className="w-full">
-      {/* Tabs Navigation */}
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="flex gap-8 border-b-2 border-border overflow-x-auto">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`py-5 px-1 font-sans font-semibold text-lg transition-all duration-300 relative whitespace-nowrap border-b-2 ${
-                activeTab === tab.id
-                  ? 'text-[#BF1920] border-[#BF1920]'
-                  : 'text-foreground/60 border-transparent hover:text-foreground'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+      {/* Banner Section */}
+      <div className="w-full h-80 bg-cover bg-center relative" style={{ backgroundImage: 'url(/images/about-banner.jpg)' }}>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Content */}
+        <div className="relative h-full flex flex-col items-center justify-center space-y-6">
+          <div className="text-center space-y-2">
+            <h1 className="font-sans text-5xl font-bold text-white">关于我们</h1>
+          </div>
+
+          {/* Tabs Navigation - Capsule Style */}
+          <div className="flex flex-wrap gap-4 justify-center items-center px-4">
+            <div className="flex items-center gap-2 opacity-60">
+              <div className="w-8 h-px bg-white/50"></div>
+            </div>
+            
+            {tabs.map((tab, index) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`py-2 px-6 font-sans font-semibold text-sm transition-all duration-300 whitespace-nowrap rounded-full border-2 ${
+                  activeTab === tab.id
+                    ? 'bg-blue-500 border-blue-500 text-white'
+                    : 'border-white/70 text-white hover:border-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+            
+            <div className="flex items-center gap-2 opacity-60">
+              <div className="w-8 h-px bg-white/50"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -134,7 +153,7 @@ export function CompanyTabs() {
                         </div>
                         <div className="flex-1">
                           <h4 className="font-sans font-bold text-foreground mb-2">济南总部</h4>
-                          <p className="font-sans text-sm text-foreground/70 leading-relaxed">山东省济南市历下区千佛山东路41-1号</p>
+                          <p className="font-sans text-sm text-foreground/70 leading-relaxed">山东省���南市历下区千佛山东路41-1号</p>
                         </div>
                       </div>
                     </div>
@@ -354,7 +373,7 @@ export function CompanyTabs() {
                 </div>
                 <h4 className="font-sans text-lg font-bold text-foreground">智能制造领域</h4>
                 <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                  与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变。
+                  与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变��
                 </p>
               </div>
 
