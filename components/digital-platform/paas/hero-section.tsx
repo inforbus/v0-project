@@ -1,3 +1,5 @@
+"use client"
+
 export function PaaSHeroSection() {
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
