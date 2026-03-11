@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { ProductsHeroSection } from "@/components/products/hero-section"
+import { AboutHeroSection } from "@/components/about/hero-section"
 import { CompanyTabs } from "@/components/about/company-tabs"
 import { Footer } from "@/components/shared/footer"
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function CompanyIntroductionPage() {
   return (
     <div className="min-h-screen w-full bg-background">
-      <ProductsHeroSection />
+      <AboutHeroSection />
       <CompanyTabs />
       <Footer />
     </div>
