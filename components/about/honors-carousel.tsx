@@ -47,25 +47,25 @@ export function HonorsCarousel() {
     switch (position) {
       case -2: // Far left
         return {
-          className: `${baseStyle} w-28 md:w-36 lg:w-40`,
+          className: `${baseStyle} w-32 md:w-44 lg:w-56`,
           style: {
-            transform: 'translateX(-180%) rotate(-12deg) scale(0.7)',
+            transform: 'translateX(-180%) rotate(-12deg) scale(0.75)',
             opacity: 0.4,
             zIndex: 1,
           }
         }
       case -1: // Left
         return {
-          className: `${baseStyle} w-32 md:w-40 lg:w-48`,
+          className: `${baseStyle} w-40 md:w-52 lg:w-64`,
           style: {
-            transform: 'translateX(-100%) rotate(-6deg) scale(0.85)',
+            transform: 'translateX(-100%) rotate(-6deg) scale(0.9)',
             opacity: 0.7,
             zIndex: 2,
           }
         }
       case 0: // Center
         return {
-          className: `${baseStyle} w-40 md:w-52 lg:w-60`,
+          className: `${baseStyle} w-56 md:w-72 lg:w-80`,
           style: {
             transform: 'translateX(-50%) rotate(0deg) scale(1)',
             opacity: 1,
@@ -74,18 +74,18 @@ export function HonorsCarousel() {
         }
       case 1: // Right
         return {
-          className: `${baseStyle} w-32 md:w-40 lg:w-48`,
+          className: `${baseStyle} w-40 md:w-52 lg:w-64`,
           style: {
-            transform: 'translateX(0%) rotate(6deg) scale(0.85)',
+            transform: 'translateX(0%) rotate(6deg) scale(0.9)',
             opacity: 0.7,
             zIndex: 2,
           }
         }
       case 2: // Far right
         return {
-          className: `${baseStyle} w-28 md:w-36 lg:w-40`,
+          className: `${baseStyle} w-32 md:w-44 lg:w-56`,
           style: {
-            transform: 'translateX(80%) rotate(12deg) scale(0.7)',
+            transform: 'translateX(80%) rotate(12deg) scale(0.75)',
             opacity: 0.4,
             zIndex: 1,
           }
@@ -99,7 +99,7 @@ export function HonorsCarousel() {
     <div className="animate-fadeIn space-y-8">
       {/* Carousel Section */}
       <div 
-        className="relative h-[400px] md:h-[450px] lg:h-[500px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white rounded-lg"
+        className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white rounded-lg"
         onMouseEnter={() => setIsAutoPlay(false)}
         onMouseLeave={() => setIsAutoPlay(true)}
       >
