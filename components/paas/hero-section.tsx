@@ -13,7 +13,7 @@ export function PaaSHeroSection() {
       {/* Banner image */}
       <img
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/paas_banner-iclib5JnvAi3DC8axEsCYRSIjPllOR.png"
-        alt="中创PaaS平台一-容器云平台"
+        alt="中创PaaS平台——容器云平台"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
@@ -27,7 +27,7 @@ export function PaaSHeroSection() {
           className="font-sans font-bold text-[#332C2B]"
           style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
-          中创PaaS平台一-容器云平台
+          中创PaaS平台——容器云平台
         </h1>
 
         {/* Red accent line */}
