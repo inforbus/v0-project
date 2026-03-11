@@ -165,10 +165,10 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="中创软件"
-              width={32}
-              height={32}
+              width={120}
+              height={40}
               className="h-8 w-auto"
               priority
             />
