@@ -27,7 +27,7 @@ export function DataIntegrationHeroSection() {
           className="font-sans font-bold text-[#332C2B]"
           style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
-          中创数据集成平台
+          中创元穹数据集成平台 InforSuite DI
         </h1>
 
         {/* Red accent line */}
@@ -41,7 +41,7 @@ export function DataIntegrationHeroSection() {
           className="font-sans font-normal text-[#332C2B]"
           style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
         >
-          统一数据集成管理平台
+          集成异构数据
         </p>
 
         {/* Subtitle 2 */}
@@ -49,7 +49,7 @@ export function DataIntegrationHeroSection() {
           className="font-sans font-normal text-[#332C2B]"
           style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
         >
-          支持多源异构数据融合处理
+          实现敏捷共享
         </p>
       </div>
 
