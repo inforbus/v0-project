@@ -131,64 +131,66 @@ export function TimelineComponent() {
       </div>
 
       {/* Timeline Track */}
-      <div className="mt-24 px-4">
+      <div className="mt-32 px-4">
         {/* Years Container with Navigation */}
-        <div className="flex items-center gap-6 justify-center relative">
+        <div className="flex items-center gap-8 justify-center relative">
           <button
             onClick={handlePrev}
             disabled={selectedYear === 0}
-            className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-50 disabled:border-gray-300 transition-colors"
+            className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-50 disabled:border-gray-300 transition-colors shadow-md"
             aria-label="Previous year"
           >
-            <svg className="w-5 h-5 text-[#BF1920] disabled:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg className="w-6 h-6 text-[#BF1920] disabled:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           {/* Timeline Container */}
-          <div className="flex-1 relative py-8">
-            {/* Timeline Line with Gradient */}
-            <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-gray-300 via-blue-600 to-gray-300 transform -translate-y-1/2"></div>
+          <div className="flex-1 max-w-4xl">
+            <div className="relative py-12 px-6">
+              {/* Timeline Line with Red Gradient */}
+              <div className="absolute left-0 right-0 top-1/2 h-1.5 bg-gradient-to-r from-gray-300 via-[#BF1920] to-gray-300 transform -translate-y-1/2 rounded-full"></div>
 
-            {/* Years Container */}
-            <div className="flex items-center justify-between relative z-10 px-4">
-              {allYears.map((year, index) => (
-                <button
-                  key={year}
-                  onClick={() => handleYearClick(index)}
-                  className="flex flex-col items-center gap-3 transition-all group"
-                >
-                  {/* Point */}
-                  <div
-                    className={`rounded-full transition-all shadow-md ${
-                      index === selectedYear
-                        ? 'bg-blue-600 w-5 h-5 ring-4 ring-blue-200'
-                        : 'bg-white w-4 h-4 border-2 border-gray-300 group-hover:border-blue-400'
-                    }`}
-                  ></div>
-                  {/* Year Label */}
-                  <span
-                    className={`font-sans text-xs whitespace-nowrap transition-all ${
-                      index === selectedYear
-                        ? 'text-blue-600 font-bold text-sm'
-                        : 'text-gray-500 group-hover:text-blue-500'
-                    }`}
+              {/* Years Container */}
+              <div className="flex items-center justify-between relative z-20">
+                {allYears.map((year, index) => (
+                  <button
+                    key={year}
+                    onClick={() => handleYearClick(index)}
+                    className="flex flex-col items-center gap-4 transition-all group"
                   >
-                    {year}年
-                  </span>
-                </button>
-              ))}
+                    {/* Point with Animation */}
+                    <div
+                      className={`rounded-full transition-all shadow-lg ${
+                        index === selectedYear
+                          ? 'bg-[#BF1920] w-6 h-6 ring-4 ring-[#BF1920]/30 scale-110'
+                          : 'bg-white w-5 h-5 border-2.5 border-[#BF1920] group-hover:scale-105 hover:ring-2 hover:ring-[#BF1920]/20'
+                      }`}
+                    ></div>
+                    {/* Year Label */}
+                    <span
+                      className={`font-sans font-semibold whitespace-nowrap transition-all text-center ${
+                        index === selectedYear
+                          ? 'text-[#BF1920] text-sm'
+                          : 'text-gray-600 text-xs group-hover:text-[#BF1920]'
+                      }`}
+                    >
+                      {year}年
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
           <button
             onClick={handleNext}
             disabled={selectedYear === timelineData.length - 1}
-            className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-50 disabled:border-gray-300 transition-colors"
+            className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-50 disabled:border-gray-300 transition-colors shadow-md"
             aria-label="Next year"
           >
-            <svg className="w-5 h-5 text-[#BF1920] disabled:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg className="w-6 h-6 text-[#BF1920] disabled:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
