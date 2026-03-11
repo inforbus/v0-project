@@ -1,28 +1,20 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
-
-const cases = [
-  {
-    title: "多省海事局信息系统数据集成",
-    description: "铜分散在各业务系统的共享事项源进行聚合，通过该数据接口方式，协同表结构、主题库和主题整合管理，充分利用开放活动的数据级别分权管理；数据接续：将各海事信息资源转换为标准格式，以协议表结构结构上的转换和数据、定义上的转换两个方向的内容；数据聚合：将各海事信息在数据层面之间的转换与运行一个一体中存储管理。",
-    bgColor: "from-blue-50 to-blue-100"
-  },
-  {
-    title: "某医药数据仓库建设项目",
-    description: "某医药数据仓库项目致力于为医院的信息系统中下层广点不同期间设，与数据系统在下层广点不间服务中，经过长期的业务积累和验证，数据特收点到且，统统一管理和分层出来的数据系统中的，中创元穹数据集成平台，将分散在各个数据源中的数据进行统一的存储管理，提高数据的一一存储和管理，提高数据的一一性和可访问性。",
-    bgColor: "from-green-50 to-green-100"
-  },
-  {
-    title: "某省市场监督管理局",
-    description: "某省市场监督管理局正在进行市场化产业升级，目前已建设的概念系统不下层广点的数据处理，业务线服务分，该市网市场服务关键等需要进行基于市场分析、数据分析的业务决策。中创元穹数据集成平台通过支撑市场分析数据的统一化，确保整个中心中的数据用于业务决策和系统应用，其次是面向市场监督管理的个性化应用。",
-    bgColor: "from-amber-50 to-amber-100"
-  }
-]
+import { cases } from "@/lib/cases-data"
 
 export function DataIntegrationCases() {
+  const [caseOffset, setCaseOffset] = useState(0)
+  const visibleCases = 3
+  const maxCaseOffset = cases.length - visibleCases
+  const scrollCasePrev = () => setCaseOffset((prev) => Math.max(prev - 1, 0))
+  const scrollCaseNext = () => setCaseOffset((prev) => Math.min(prev + 1, maxCaseOffset))
+
   return (
-    <section className="relative bg-white px-4 py-12 md:py-16 lg:px-0 lg:py-[80px] 3xl:py-[120px]">
+    <section className="relative bg-white py-12 md:py-16 3xl:py-24" style={{ overflowX: "clip" }}>
       {/* Dynamic background decorations */}
       <div className="pointer-events-none absolute left-[3%] top-[15%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 7s ease-in-out infinite" }} />
       <div className="pointer-events-none absolute right-[4%] top-[12%] h-2 w-2 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 9s ease-in-out 1.2s infinite" }} />
@@ -38,57 +30,113 @@ export function DataIntegrationCases() {
           </h2>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-[1340px]">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 3xl:gap-8">
-            {cases.map((caseItem, index) => (
-              <ScrollReveal key={caseItem.title} delay={index * 50}>
-                <div className="group relative overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0px_12px_40px_rgba(191,25,32,0.3)]">
-                  {/* Case card container */}
-                  <div className="relative h-[380px] w-full overflow-hidden rounded-xl bg-white 3xl:h-[500px]">
-                  {/* Background gradient - no external images */}
-                    <div className={`pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-br ${caseItem.bgColor} opacity-40 transition-opacity duration-500 group-hover:opacity-60`}></div>
-                    
-                    {/* Overlay */}
+        {/* Desktop: transform-based carousel */}
+        <div className="relative mx-auto hidden max-w-[1020px] lg:block 3xl:max-w-[1380px]">
+          {/* Left Arrow */}
+          <button
+            type="button"
+            onClick={scrollCasePrev}
+            className="absolute top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-300 hover:scale-110 hover:shadow-lg active:scale-95"
+            style={{ left: "-56px", width: "40px", height: "40px", boxShadow: "0px 4px 12px rgba(84, 30, 30, 0.1)", opacity: caseOffset === 0 ? 0.3 : 1, pointerEvents: caseOffset === 0 ? "none" : "auto" }}
+            aria-label="上一个案例"
+          >
+            <svg width="18" height="6" viewBox="0 0 18 6" fill="none">
+              <path d="M5.5 0.5L1 3L5.5 5.5" stroke="#BF1920" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M1 3H18" stroke="#BF1920" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            type="button"
+            onClick={scrollCaseNext}
+            className="absolute top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full bg-white transition-all duration-300 hover:scale-110 hover:shadow-lg active:scale-95"
+            style={{ right: "-56px", width: "40px", height: "40px", boxShadow: "0px 4px 12px rgba(84, 30, 30, 0.1)", opacity: caseOffset >= maxCaseOffset ? 0.3 : 1, pointerEvents: caseOffset >= maxCaseOffset ? "none" : "auto" }}
+            aria-label="下一个案例"
+          >
+            <svg width="18" height="6" viewBox="0 0 18 6" fill="none">
+              <path d="M12.5 0.5L17 3L12.5 5.5" stroke="#BF1920" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M17 3H0" stroke="#BF1920" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+
+          {/* Cards track */}
+          <div className="flex gap-[45px] py-4" style={{ transition: "transform 0.5s cubic-bezier(0.4,0,0.2,1)", transform: `translateX(calc(-${caseOffset} * (calc((100% - 90px) / 3 + 45px))))` }}>
+            {cases.map((card, idx) => {
+              const isVisible = idx >= caseOffset && idx < caseOffset + visibleCases
+              return (
+                <div key={card.slug} className="flex-shrink-0 transition-opacity duration-500" style={{ width: "calc((100% - 90px) / 3)", opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? "auto" : "none" }}>
+                  <Link href={`/cases/${card.slug}`} className="group relative block h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)] transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-[0px_12px_40px_rgba(191,25,32,0.3)] 3xl:h-[500px]">
+                    <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
+                    <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60 transition-opacity duration-500 group-hover:opacity-100">
+                      <Image src={card.photo} alt={card.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                    </div>
                     <div className="absolute inset-0 h-full w-full rounded-xl bg-white/90 transition-all duration-500 group-hover:bg-[rgba(191,25,32,0.82)] group-hover:backdrop-blur-[10px]" />
-                    
-                    {/* Decorative element */}
                     <div className="absolute bottom-6 right-6 opacity-60 transition-all duration-500 group-hover:scale-105 group-hover:opacity-80">
-                      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <circle cx="40" cy="40" r="35" stroke="currentColor" strokeWidth="1" opacity="0.2"/>
-                        <path d="M40 30V50M30 40H50" stroke="currentColor" strokeWidth="2" opacity="0.3"/>
-                      </svg>
+                      <Image src="/images/subtract-icon.png" alt="" width={217} height={200} className="h-[180px] w-[195px] object-contain 3xl:h-[200px] 3xl:w-[217px]" />
                     </div>
-                    
-                    {/* Content */}
-                    <div className="relative z-10 flex h-full flex-col justify-between p-5 3xl:p-7">
-                      <div>
-                        <span className="mb-3 inline-block rounded-full bg-[#BF1920]/10 px-3 py-1 text-xs font-semibold text-[#BF1920] transition-colors duration-500 group-hover:bg-white/20 group-hover:text-white">
-                          {`案例 ${index + 1}`}
-                        </span>
-                        <h3 className="mt-2 text-lg font-medium leading-[1.5] text-[#242222] transition-colors duration-500 group-hover:text-white 3xl:text-[22px] 3xl:leading-[34px]">
-                          {caseItem.title}
-                        </h3>
-                      </div>
-                      
-                      <div>
-                        <p className="text-sm leading-[1.7] text-[#242222]/80 transition-colors duration-500 group-hover:text-white/95 3xl:text-[16px] 3xl:leading-[28px] line-clamp-3">
-                          {caseItem.description}
-                        </p>
-                        <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-[#BF1920] transition-colors duration-500 group-hover:text-white/90">
-                          <span>查看详情</span>
-                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
+                    <div className="relative z-10 p-5 3xl:p-7">
+                      <span className="mb-2 inline-block rounded-full bg-[#BF1920]/10 px-3 py-1 text-xs font-semibold text-[#BF1920] transition-colors duration-500 group-hover:bg-white/20 group-hover:text-white">
+                        {card.tag}
+                      </span>
+                      <h3 className="mt-2 text-lg font-medium leading-[1.5] text-[#242222] transition-colors duration-500 group-hover:text-white 3xl:text-[22px] 3xl:leading-[34px]">
+                        {card.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-[1.7] text-[#242222]/80 transition-colors duration-500 group-hover:text-white/95 3xl:mt-5 3xl:text-[16px] 3xl:leading-[28px]">
+                        {card.desc}
+                      </p>
+                      <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-[#BF1920] transition-colors duration-500 group-hover:text-white/90">
+                        <span>{card.metrics}</span>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                       </div>
                     </div>
-                    
-                    {/* Bottom border line */}
                     <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-white/60 transition-all duration-500 group-hover:w-full" />
-                  </div>
+                  </Link>
                 </div>
-              </ScrollReveal>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Mobile: horizontal scroll */}
+        <div className="lg:hidden">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+            {cases.map((card) => (
+              <div key={card.slug} className="w-[280px] flex-shrink-0 snap-start">
+                <Link href={`/cases/${card.slug}`} className="group relative block h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)]">
+                  <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
+                  <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60">
+                    <Image src={card.photo} alt={card.title} fill className="object-cover" />
+                  </div>
+                  <div className="absolute inset-0 h-full w-full rounded-xl bg-white/90" />
+                  <div className="absolute bottom-6 right-6 opacity-60">
+                    <Image src="/images/subtract-icon.png" alt="" width={217} height={200} className="h-[180px] w-[195px] object-contain" />
+                  </div>
+                  <div className="relative z-10 p-5">
+                    <span className="mb-2 inline-block rounded-full bg-[#BF1920]/10 px-3 py-1 text-xs font-semibold text-[#BF1920]">
+                      {card.tag}
+                    </span>
+                    <h3 className="mt-2 text-lg font-medium leading-[1.5] text-[#242222]">{card.title}</h3>
+                    <p className="mt-3 text-sm leading-[1.7] text-[#242222]/80">{card.desc}</p>
+                    <p className="mt-3 text-xs font-semibold text-[#BF1920]">{card.metrics}</p>
+                  </div>
+                </Link>
+              </div>
             ))}
+          </div>
+          <div className="mt-4 flex items-center justify-center gap-6">
+            <button type="button" onClick={scrollCasePrev} className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white transition-all duration-300 hover:shadow-lg active:scale-90" style={{ boxShadow: "0px 4px 12px rgba(84, 30, 30, 0.08)" }} aria-label="上一个案例">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                <path d="M7 1L1 7L7 13" stroke="#BF1920" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button type="button" onClick={scrollCaseNext} className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white transition-all duration-300 hover:shadow-lg active:scale-90" style={{ boxShadow: "0px 4px 12px rgba(84, 30, 30, 0.08)" }} aria-label="下一个案例">
+              <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+                <path d="M1 1L7 7L1 13" stroke="#BF1920" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
