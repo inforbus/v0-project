@@ -83,8 +83,7 @@ export function TimelineComponent() {
 
         {/* Timeline Track */}
         <div className="px-4 pb-8">
-          <div className="flex items-center gap-6">
-            {/* Prev Button */}
+          <div className="flex items-center gap-6 pt-10">
             <button
               onClick={handlePrev}
               disabled={windowStart === 0}
@@ -97,9 +96,9 @@ export function TimelineComponent() {
             </button>
 
             {/* Timeline */}
-            <div className="flex-1 relative">
+            <div className="flex-1 relative py-4">
               {/* Horizontal line */}
-              <div className="absolute left-0 right-0 top-0 h-px bg-gray-300"></div>
+              <div className="absolute left-0 right-0 top-1/2 h-px bg-gray-300 transform -translate-y-1/2"></div>
 
               {/* Year nodes */}
               <div className="flex justify-between">
