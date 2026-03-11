@@ -54,37 +54,35 @@ export function TimelineComponent() {
   }
 
   return (
-    <div 
-      className="animate-fadeIn space-y-16 bg-cover bg-center bg-no-repeat py-20 px-8 rounded-lg"
-      style={{ backgroundImage: 'url(/images/timeline-bg.jpg)' }}
-    >
-      {/* Title */}
-      <div className="text-center">
-        <h2 className="font-sans text-4xl font-bold text-foreground mb-4">发展历程</h2>
-        <div className="w-16 h-1 bg-[#BF1920] mx-auto"></div>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="flex items-center justify-center gap-16 min-h-64 px-8">
-        {/* Left Side - Large Year */}
-        <div className="text-center flex-1">
-          <div className="text-8xl font-bold text-foreground/80">{currentData.year}年</div>
+    <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/timeline-bg.jpg)' }}>
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 py-16 lg:py-20">
+        {/* Title */}
+        <div className="text-center mb-16">
+          <h2 className="font-sans text-4xl font-bold text-foreground mb-4">发展历程</h2>
+          <div className="w-16 h-1 bg-[#BF1920] mx-auto"></div>
         </div>
 
-        {/* Right Side - Events List */}
-        <div className="flex-1 space-y-5">
-          {currentData.events.map((event, index) => (
-            <div key={index} className="flex gap-3 items-start">
-              <div className="w-2 h-2 rounded-full bg-[#BF1920] mt-1.5 flex-shrink-0"></div>
-              <p className="font-sans text-base text-foreground/80 leading-relaxed">{event}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+        {/* Main Content Area */}
+        <div className="flex items-center justify-center gap-16 min-h-64 mb-16">
+          {/* Left Side - Large Year */}
+          <div className="text-center flex-1">
+            <div className="text-8xl font-bold text-foreground/80">{currentData.year}年</div>
+          </div>
 
-      {/* Timeline Track */}
-      <div className="px-4 pb-8">
-        <div className="flex items-center gap-6">
+          {/* Right Side - Events List */}
+          <div className="flex-1 space-y-5">
+            {currentData.events.map((event, index) => (
+              <div key={index} className="flex gap-3 items-start">
+                <div className="w-2 h-2 rounded-full bg-[#BF1920] mt-1.5 flex-shrink-0"></div>
+                <p className="font-sans text-base text-foreground/80 leading-relaxed">{event}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Timeline Track */}
+        <div className="px-4 pb-8">
+          <div className="flex items-center gap-6">
           {/* Prev Button */}
           <button
             onClick={handlePrev}
