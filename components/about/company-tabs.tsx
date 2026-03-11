@@ -89,60 +89,77 @@ export function CompanyTabs() {
 
           {activeTab === 'honors' && (
             <div className="animate-fadeIn space-y-12">
-              {/* Certificates Display Image */}
+              {/* Honors Banner Display */}
               <div className="w-full">
                 <img
-                  src="/images/honors-certificates.png"
-                  alt="公司荣誉证书展示"
+                  src="/images/honors-banner.jpg"
+                  alt="中创软件公司荣誉展示"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
               </div>
 
-              {/* Honors Content - Three Columns Grid */}
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {/* Honor Item 1 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">中国电子信息行业卓越企业</h4>
+              {/* Key Honors - Four Column Grid */}
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 bg-gradient-to-b from-slate-50 to-white p-8 rounded-lg">
+                {/* Honor 1 */}
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 mb-4">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m0 0a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 0a9 9 0 00-9 9m0 0c-1.657 0-3 4.03-3 9s1.343 9 3 9" />
+                    </svg>
+                  </div>
+                  <h4 className="font-sans font-bold text-foreground text-sm">国家高新技术企业</h4>
                 </div>
 
-                {/* Honor Item 2 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">山东省科学技术进步二等奖</h4>
+                {/* Honor 2 */}
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 mb-4">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-sans font-bold text-foreground text-sm">CMMI DEV 5级认证</h4>
                 </div>
 
-                {/* Honor Item 3 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">CMMI DEV 5级认证</h4>
+                {/* Honor 3 */}
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 mb-4">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-sans font-bold text-foreground text-sm">ISO9001质量认证</h4>
                 </div>
 
-                {/* Honor Item 4 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">ISO9001质量体系认证</h4>
+                {/* Honor 4 */}
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 mb-4">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-sans font-bold text-foreground text-sm">信创核心软件企业</h4>
                 </div>
+              </div>
 
-                {/* Honor Item 5 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">信创工委会卓越贡献成员单位</h4>
+              {/* Additional Honors List */}
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="p-4 rounded-lg border border-blue-200 bg-blue-50">
+                  <p className="font-sans text-sm text-foreground">中国电子信息行业卓越企业</p>
                 </div>
-
-                {/* Honor Item 6 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">信创可靠企业核心软件品牌</h4>
+                <div className="p-4 rounded-lg border border-blue-200 bg-blue-50">
+                  <p className="font-sans text-sm text-foreground">山东省科学技术进步二等奖</p>
                 </div>
-
-                {/* Honor Item 7 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">中国十大创新软件企业</h4>
+                <div className="p-4 rounded-lg border border-blue-200 bg-blue-50">
+                  <p className="font-sans text-sm text-foreground">中国十大创新软件企业</p>
                 </div>
-
-                {/* Honor Item 8 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">推动中间件软件杰出贡献奖</h4>
+                <div className="p-4 rounded-lg border border-blue-200 bg-blue-50">
+                  <p className="font-sans text-sm text-foreground">推动中间件软件杰出贡献奖</p>
                 </div>
-
-                {/* Honor Item 9 */}
-                <div className="p-4 rounded-lg border border-[#BF1920]/20 bg-white hover:shadow-md transition-shadow">
-                  <h4 className="font-sans font-bold text-[#BF1920] text-sm leading-relaxed">国际Jakarta EE工作组企业级会员单位</h4>
+                <div className="p-4 rounded-lg border border-blue-200 bg-blue-50">
+                  <p className="font-sans text-sm text-foreground">信创工委会卓越贡献成员单位</p>
+                </div>
+                <div className="p-4 rounded-lg border border-blue-200 bg-blue-50">
+                  <p className="font-sans text-sm text-foreground">国际Jakarta EE工作组会员单位</p>
                 </div>
               </div>
             </div>
