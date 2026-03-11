@@ -39,20 +39,20 @@ export function TimelineComponent() {
   const visibleYears = allYears.slice(windowStart, windowStart + VISIBLE)
 
   const handlePrev = () => {
-    if (windowStart > 0) {
-      const newWindowStart = windowStart - 1
-      setWindowStart(newWindowStart)
-      // Select the first year in the new window
-      setSelectedYear(newWindowStart)
+    if (selectedYear > 0) {
+      const newYear = selectedYear - 1
+      setSelectedYear(newYear)
+      // Keep in window by adjusting window if needed
+      if (newYear < windowStart) setWindowStart(Math.max(0, newYear - Math.floor(VISIBLE / 2)))
     }
   }
 
   const handleNext = () => {
-    if (windowStart + VISIBLE < allYears.length) {
-      const newWindowStart = windowStart + 1
-      setWindowStart(newWindowStart)
-      // Select the last year in the new window
-      setSelectedYear(newWindowStart + VISIBLE - 1)
+    if (selectedYear < allYears.length - 1) {
+      const newYear = selectedYear + 1
+      setSelectedYear(newYear)
+      // Keep in window by adjusting window if needed
+      if (newYear >= windowStart + VISIBLE) setWindowStart(newYear - Math.floor(VISIBLE / 2))
     }
   }
 
@@ -165,7 +165,7 @@ export function TimelineComponent() {
             {/* Next Button */}
             <button
               onClick={handleNext}
-              disabled={windowStart + VISIBLE >= allYears.length}
+              disabled={selectedYear >= allYears.length - 1}
               className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full border-2 border-[#BF1920] hover:bg-[#BF1920]/10 disabled:opacity-30 disabled:border-gray-300 transition-colors"
               aria-label="Next year"
             >
