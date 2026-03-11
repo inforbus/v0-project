@@ -45,7 +45,7 @@ const valueItems = [
     prevLine2: "运行可靠",
     nextLine1: "深度适配、",
     nextLine2: "国产支持",
-    description: "实现信息系统的防攻击、防篡改，帮助用户信息系统等级保护建设检测评工作的顺利通过。",
+    description: "实现信息系统的防攻击、防篡改，帮助用户信息系统等级保护建设检测评估工作的顺利通过。",
     icon: "/images/ws-icon-4.png",
   },
   {
@@ -56,109 +56,204 @@ const valueItems = [
     prevLine2: "等级保护测评",
     nextLine1: "多重防护、",
     nextLine2: "网站安全加固",
-    description: "经4000+用户、上万个复杂环境验证，支持国家信创环境和主流操作系统、数据库、Web及应用服务器。",
+    description: "经4000+用户、上万个生产环境验证，支持国家信创环境和主流操作系统、数据库、Web及应用服务器。",
     icon: "/images/ws-icon-5.png",
   },
 ]
 
+const AUTO_PLAY_DURATION = 5000
+
 export function WSValueSection() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const containerRef = useRef(null)
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null)
+  const [valueIndex, setValueIndex] = useState(0)
+  const [displayIndex, setDisplayIndex] = useState(0)
+  const [fadePhase, setFadePhase] = useState<"visible" | "fadeOut" | "fadeIn">("visible")
+  const [progress, setProgress] = useState(0)
+  const progressRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(null)
+  const startTimeRef = useRef<number>(0)
+  const isPausedRef = useRef(false)
 
-  const handlePrevious = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + valueItems.length) % valueItems.length)
+  const goToIndex = useCallback((index: number) => {
+    if (fadePhase !== "visible" || index === valueIndex) return
+    setFadePhase("fadeOut")
+    setProgress(0)
+    setTimeout(() => {
+      setValueIndex(index)
+      setDisplayIndex(index)
+      setFadePhase("fadeIn")
+      setTimeout(() => {
+        setFadePhase("visible")
+      }, 250)
+    }, 250)
+  }, [fadePhase, valueIndex])
+
+  const goToNext = useCallback(() => {
+    setFadePhase("fadeOut")
+    setProgress(0)
+    setTimeout(() => {
+      setValueIndex((prev) => (prev + 1) % valueItems.length)
+      setDisplayIndex((prev) => (prev + 1) % valueItems.length)
+      setFadePhase("fadeIn")
+      setTimeout(() => {
+        setFadePhase("visible")
+      }, 250)
+    }, 250)
   }, [])
 
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % valueItems.length)
-  }, [])
-
-  const startAutoPlay = useCallback(() => {
-    autoPlayRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % valueItems.length)
-    }, 6000)
-  }, [])
-
-  const stopAutoPlay = useCallback(() => {
-    if (autoPlayRef.current) clearInterval(autoPlayRef.current)
-  }, [])
-
+  // Auto-play with progress bar
   useEffect(() => {
-    startAutoPlay()
-    return () => stopAutoPlay()
-  }, [startAutoPlay, stopAutoPlay])
+    if (isPausedRef.current) return
+
+    startTimeRef.current = Date.now()
+
+    const interval = setInterval(() => {
+      goToNext()
+      startTimeRef.current = Date.now()
+      setProgress(0)
+    }, AUTO_PLAY_DURATION)
+
+    const updateProgress = () => {
+      if (!isPausedRef.current) {
+        const elapsed = Date.now() - startTimeRef.current
+        setProgress((elapsed / AUTO_PLAY_DURATION) * 100)
+      }
+      progressRef.current = requestAnimationFrame(updateProgress)
+    }
+    progressRef.current = requestAnimationFrame(updateProgress)
+
+    return () => {
+      clearInterval(interval)
+      if (progressRef.current) cancelAnimationFrame(progressRef.current)
+    }
+  }, [goToNext])
+
+  const handleMouseEnter = () => {
+    isPausedRef.current = true
+  }
+
+  const handleMouseLeave = () => {
+    isPausedRef.current = false
+    setProgress(0)
+    startTimeRef.current = Date.now()
+  }
+
+  const currentItem = valueItems[displayIndex]
 
   return (
-    <section className="relative mx-auto w-full max-w-[1440px] px-4 py-12 md:py-[50px] 3xl:py-[70px]" ref={containerRef} onMouseEnter={stopAutoPlay} onMouseLeave={startAutoPlay}>
-      <div className="mb-8 text-center md:mb-[50px]">
-        <h2 className="text-2xl font-bold leading-[100%] text-[#242222] md:text-3xl 3xl:text-[40px]">产品特点</h2>
-      </div>
+    <section className="relative min-h-screen w-full bg-gradient-to-b from-white to-[#F9F7F9] px-4 py-16 md:py-24 lg:px-0 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 text-center md:mb-12">
+          <h2 className="text-3xl font-bold text-[#242222] md:text-4xl lg:text-[40px]">产品特点</h2>
+        </div>
 
-      <div className="relative flex items-center justify-center">
-        {/* Central Circle Display */}
-        <div className="flex w-full flex-col items-center justify-center">
-          {/* Center Circle */}
-          <div className="relative mb-8 flex h-[240px] w-[240px] items-center justify-center md:mb-12 md:h-[320px] md:w-[320px] 3xl:mb-16 3xl:h-[400px] 3xl:w-[400px]">
-            {/* Outer Ring */}
-            <svg className="absolute h-full w-full" viewBox="0 0 400 400">
-              <circle cx="200" cy="200" r="190" fill="none" stroke="#E8E8E8" strokeWidth="2" />
-              <circle cx="200" cy="200" r="160" fill="none" stroke="#E8E8E8" strokeWidth="1" />
-            </svg>
-
-            {/* Previous Item Text - Left */}
-            <div className="absolute left-0 top-1/2 flex -translate-y-1/2 flex-col items-center justify-center text-center">
-              <button onClick={handlePrevious} className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-white transition-all duration-300 hover:shadow-lg md:h-12 md:w-12" style={{ boxShadow: "0px 4px 12px rgba(84, 30, 30, 0.1)" }}>
-                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" className="group-hover:scale-110 transition-transform">
-                  <path d="M1 5L5.5 1.5M1 5L5.5 8.5M1 5H15" stroke="#BF1920" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <div className="mt-2 text-xs leading-tight text-[#999] md:mt-3 md:text-sm 3xl:text-base">
-                <div>{valueItems[(currentIndex - 1 + valueItems.length) % valueItems.length].prevLine1}</div>
-                <div>{valueItems[(currentIndex - 1 + valueItems.length) % valueItems.length].prevLine2}</div>
-              </div>
-            </div>
-
-            {/* Center Circle Content */}
-            <div className="relative z-10 flex flex-col items-center justify-center">
-              <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center md:h-[80px] md:w-[80px] 3xl:h-[100px] 3xl:w-[100px]">
-                <Image src={valueItems[currentIndex].icon} alt={valueItems[currentIndex].title} width={100} height={100} className="h-full w-full object-contain" />
-              </div>
-              <h3 className="text-center text-sm font-bold text-[#242222] md:text-base 3xl:text-lg" style={{ maxWidth: "120px" }}>
-                {valueItems[currentIndex].title}
-              </h3>
-            </div>
-
-            {/* Next Item Text - Right */}
-            <div className="absolute right-0 top-1/2 flex -translate-y-1/2 flex-col items-center justify-center text-center">
-              <button onClick={handleNext} className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-white transition-all duration-300 hover:shadow-lg md:h-12 md:w-12" style={{ boxShadow: "0px 4px 12px rgba(84, 30, 30, 0.1)" }}>
-                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" className="group-hover:scale-110 transition-transform">
-                  <path d="M15 5L10.5 1.5M15 5L10.5 8.5M15 5H1" stroke="#BF1920" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <div className="mt-2 text-xs leading-tight text-[#999] md:mt-3 md:text-sm 3xl:text-base">
-                <div>{valueItems[(currentIndex + 1) % valueItems.length].nextLine1}</div>
-                <div>{valueItems[(currentIndex + 1) % valueItems.length].nextLine2}</div>
-              </div>
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex">
+          <div className="flex-1">
+            {/* Prev Item */}
+            <div className="relative flex h-56 items-center justify-center">
+              {valueItems[(displayIndex - 1 + valueItems.length) % valueItems.length] && (
+                <div className="text-center opacity-40">
+                  <div className="text-sm text-[#999]">
+                    {valueItems[(displayIndex - 1 + valueItems.length) % valueItems.length].prevLine1}
+                  </div>
+                  <div className="text-sm text-[#999]">
+                    {valueItems[(displayIndex - 1 + valueItems.length) % valueItems.length].prevLine2}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Description */}
-          <div className="w-full max-w-[600px] text-center">
-            <p className="text-sm leading-[160%] text-[#666] md:text-base 3xl:text-lg">{valueItems[currentIndex].description}</p>
+          {/* Center: Current Item with enhanced interaction */}
+          <div
+            className="flex w-full max-w-md flex-col items-center justify-center px-8 transition-all duration-300"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Top indicator */}
+            <div className="mb-6 h-1 w-16 bg-[#BF1920]" />
+
+            {/* Icon */}
+            {currentItem.icon && (
+              <div className="relative mb-6 flex h-24 w-24 items-center justify-center">
+                <Image src={currentItem.icon} alt={currentItem.title} width={96} height={96} className="h-full w-full object-contain" />
+              </div>
+            )}
+
+            {/* Title */}
+            <h3 className="mb-4 text-center text-xl font-semibold text-[#242222] leading-relaxed">{currentItem.title}</h3>
+
+            {/* Description */}
+            <p className="mb-8 text-center text-sm leading-relaxed text-[#666]">{currentItem.description}</p>
+
+            {/* Progress bar */}
+            <div className="mb-6 h-1 w-full bg-[#f0f0f0]">
+              <div className="h-full bg-[#BF1920] transition-all duration-100" style={{ width: `${progress}%` }} />
+            </div>
+
+            {/* Navigation dots */}
+            <div className="flex gap-2">
+              {valueItems.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goToIndex(idx)}
+                  className={`h-2 rounded-full transition-all ${idx === displayIndex ? "w-6 bg-[#BF1920]" : "w-2 bg-[#ddd] hover:bg-[#999]"}`}
+                  aria-label={`Go to item ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Dots Navigation */}
-          <div className="mt-8 flex items-center justify-center gap-2 md:mt-12">
-            {valueItems.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className="h-2 w-2 rounded-full transition-all duration-300 md:h-2.5 md:w-2.5"
-                style={{ backgroundColor: idx === currentIndex ? "#BF1920" : "#E8E8E8" }}
-                aria-label={`切换到第 ${idx + 1} 个特点`}
-              />
-            ))}
+          <div className="flex-1">
+            {/* Next Item */}
+            <div className="relative flex h-56 items-center justify-center">
+              {valueItems[(displayIndex + 1) % valueItems.length] && (
+                <div className="text-center opacity-40">
+                  <div className="text-sm text-[#999]">
+                    {valueItems[(displayIndex + 1) % valueItems.length].nextLine1}
+                  </div>
+                  <div className="text-sm text-[#999]">
+                    {valueItems[(displayIndex + 1) % valueItems.length].nextLine2}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          <div className="space-y-6">
+            {/* Icon */}
+            {currentItem.icon && (
+              <div className="flex justify-center">
+                <div className="relative flex h-20 w-20 items-center justify-center">
+                  <Image src={currentItem.icon} alt={currentItem.title} width={80} height={80} className="h-full w-full object-contain" />
+                </div>
+              </div>
+            )}
+
+            {/* Title */}
+            <h3 className="text-center text-lg font-semibold text-[#242222]">{currentItem.title}</h3>
+
+            {/* Description */}
+            <p className="text-center text-sm leading-relaxed text-[#666]">{currentItem.description}</p>
+
+            {/* Progress bar */}
+            <div className="h-1 w-full bg-[#f0f0f0]">
+              <div className="h-full bg-[#BF1920] transition-all duration-100" style={{ width: `${progress}%` }} />
+            </div>
+
+            {/* Navigation dots */}
+            <div className="flex justify-center gap-2">
+              {valueItems.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goToIndex(idx)}
+                  className={`h-2 rounded-full transition-all ${idx === displayIndex ? "w-6 bg-[#BF1920]" : "w-2 bg-[#ddd] hover:bg-[#999]"}`}
+                  aria-label={`Go to item ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
