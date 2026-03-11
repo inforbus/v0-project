@@ -142,7 +142,7 @@ export function CompanyTabs() {
             <div className="text-center space-y-4">
               <div className="flex justify-center">
                 <svg className="w-12 h-12 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 17l4 4m0 0l4-4m-4 4V3m0 0l4 4m-4-4L4 7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <h4 className="font-sans text-lg font-bold text-foreground">交通领域</h4>
