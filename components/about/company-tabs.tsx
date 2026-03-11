@@ -25,7 +25,7 @@ export function CompanyTabs() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-4 px-6 font-sans font-medium text-lg transition-all duration-300 relative ${
+              className={`py-4 px-8 font-sans font-medium text-lg transition-all duration-300 relative mr-4 ${
                 activeTab === tab.id
                   ? 'text-[#BF1920]'
                   : 'text-foreground/60 hover:text-foreground'
