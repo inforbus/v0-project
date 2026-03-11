@@ -245,7 +245,8 @@ export function ValueSection() {
 
         {/* Large icon */}
         <div className="absolute" style={{ left: "50.73%", top: "25.93%" }}>
-          <Image src={currentValue.icon} alt={currentValue.title} width={169} height={155} className="object-contain" style={{ width: "clamp(90px,8.8vw,169px)", height: "auto",
+          <Image src={currentValue.icon} alt={currentValue.title} width={169} height={155} className="object-contain" style={{
+            width: "clamp(90px,8.8vw,169px)", height: "auto",
             transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
             opacity: showContent ? 1 : 0,
             transform: showContent ? "translateY(0)" : "translateY(10px)",
@@ -338,7 +339,7 @@ export function ValueSection() {
 
       {/* Mobile layout */}
       <div className="relative z-10 px-4 py-12 lg:hidden">
-        <h2 className="text-center text-3xl font-bold leading-[100%] text-[#242222]">产品价值</h2>
+        <h2 className="text-center text-3xl font-bold leading-[100%] text-[#242222]">产品特点</h2>
 
         {/* Circle indicators */}
         <div className="mt-8 flex items-center justify-center gap-3">
