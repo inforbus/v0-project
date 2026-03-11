@@ -146,30 +146,38 @@ export function TimelineComponent() {
           </button>
 
           {/* Timeline Container */}
-          <div className="flex-1 max-w-4xl">
-            <div className="relative py-12 px-6">
-              {/* Timeline Line with Red Gradient */}
-              <div className="absolute left-0 right-0 top-1/2 h-1.5 bg-gradient-to-r from-gray-300 via-[#BF1920] to-gray-300 transform -translate-y-1/2 rounded-full"></div>
+          <div className="flex-1 max-w-5xl">
+            <div className="relative py-16 px-6">
+              {/* Timeline Line - Simple Gray */}
+              <div className="absolute left-0 right-0 top-6 h-1 bg-gray-300"></div>
 
               {/* Years Container */}
-              <div className="flex items-center justify-between relative z-20">
+              <div className="flex items-flex-start justify-between relative z-20">
                 {allYears.map((year, index) => (
                   <button
                     key={year}
                     onClick={() => handleYearClick(index)}
-                    className="flex flex-col items-center gap-4 transition-all group"
+                    className="flex flex-col items-center transition-all group -mt-3"
                   >
-                    {/* Point with Animation */}
+                    {/* Pin/Needle Stick */}
                     <div
-                      className={`rounded-full transition-all shadow-lg ${
+                      className={`w-1 transition-all ${
                         index === selectedYear
-                          ? 'bg-[#BF1920] w-6 h-6 ring-4 ring-[#BF1920]/30 scale-110'
-                          : 'bg-white w-5 h-5 border-2.5 border-[#BF1920] group-hover:scale-105 hover:ring-2 hover:ring-[#BF1920]/20'
+                          ? 'h-8 bg-[#BF1920]'
+                          : 'h-6 bg-gray-400 group-hover:bg-[#BF1920]'
+                      }`}
+                    ></div>
+                    {/* Circle Point */}
+                    <div
+                      className={`rounded-full transition-all shadow-md -mt-0.5 ${
+                        index === selectedYear
+                          ? 'bg-[#BF1920] w-5 h-5 ring-4 ring-[#BF1920]/20'
+                          : 'bg-white w-4 h-4 border-2 border-gray-400 group-hover:border-[#BF1920]'
                       }`}
                     ></div>
                     {/* Year Label */}
                     <span
-                      className={`font-sans font-semibold whitespace-nowrap transition-all text-center ${
+                      className={`font-sans font-semibold whitespace-nowrap transition-all text-center mt-4 ${
                         index === selectedYear
                           ? 'text-[#BF1920] text-sm'
                           : 'text-gray-600 text-xs group-hover:text-[#BF1920]'
