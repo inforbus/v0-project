@@ -84,16 +84,90 @@ export function CompanyTabs() {
               </div>
             </div>
 
-            {/* Application Domains Section */}
+            {/* Application Domains Section - Irregular Grid */}
             <div className="mt-16 pt-12 border-t border-border">
               <h3 className="font-sans text-3xl font-bold text-foreground mb-10">应用领域</h3>
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {/* Financial Domain */}
-                <div className="space-y-4 p-6 rounded-lg hover:bg-muted/50 transition-colors duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#BF1920]/10 rounded-lg flex items-center justify-center text-2xl">💰</div>
-                    <h4 className="font-sans text-lg font-bold text-[#BF1920]">金融领域</h4>
+              <div className="grid gap-6 auto-rows-max" style={{
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              }}>
+                {/* Financial Domain - Large */}
+                <div className="lg:row-span-2 p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-[#BF1920]/5 to-transparent">
+                  <div className="space-y-4 h-full flex flex-col">
+                    <div className="text-4xl">💰</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">金融领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed flex-grow">
+                      与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用，实现基础中间件全栈式规模替代。
+                    </p>
                   </div>
+                </div>
+
+                {/* Taxation Domain */}
+                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
+                  <div className="space-y-4">
+                    <div className="text-4xl">🏛️</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">税务领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      中创工作流中间件在IBM和Oracle公司同类产品竞争中胜出。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Transportation Domain */}
+                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
+                  <div className="space-y-4">
+                    <div className="text-4xl">🚗</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">交通领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      为国家取消省界收费及武汉城市自由流车联网系统7年的稳定可靠运行提供中间件支撑。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Energy Domain */}
+                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
+                  <div className="space-y-4">
+                    <div className="text-4xl">⚡</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">能源领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      深度参与某电力大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Smart Manufacturing Domain - Large */}
+                <div className="lg:row-span-2 p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-[#BF1920]/5 to-transparent">
+                  <div className="space-y-4 h-full flex flex-col">
+                    <div className="text-4xl">⚙️</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">智能制造领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed flex-grow">
+                      与中国某制造业百强探索智能制造型，实现从"少品种、大批量"转到"个性化、少批量"的转变，是工业互联网的典型应用案例。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Self-reliant Innovation */}
+                <div className="p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300">
+                  <div className="space-y-4">
+                    <div className="text-4xl">💡</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">自主创新领域</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      已涵盖30余省及几十个部委级客户，成功打造央企国产化替代标杆。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Security Products - Full Width */}
+                <div className="lg:col-span-2 p-8 rounded-xl border border-border hover:border-[#BF1920]/30 hover:shadow-lg transition-all duration-300 bg-gradient-to-r from-[#BF1920]/5 via-transparent to-[#BF1920]/5">
+                  <div className="space-y-4">
+                    <div className="text-4xl">🔒</div>
+                    <h4 className="font-sans text-xl font-bold text-[#BF1920]">安全产品</h4>
+                    <p className="font-sans text-sm text-foreground/70 leading-relaxed">
+                      公司安全产品服务包括全国人大、全国政协30个部委级网站，覆盖全国31个省、市、自治区，保障国家信息安全。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
                   <p className="font-sans text-sm text-foreground/70 leading-relaxed">
                     与产品操作系统、数据库运维等结合多年，为ZGS银行、ZS银行等大型商业银行及国家政策性银行成功应用，实现基础中间件全栈式规模替代。
                   </p>
@@ -128,7 +202,7 @@ export function CompanyTabs() {
                     <h4 className="font-sans text-lg font-bold text-[#BF1920]">能源领域</h4>
                   </div>
                   <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    深度参与某电力大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越，应用场景从综合办公系统延伸至电力调度等生产核心领域。
+                    深度参与某电��大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越，应用场景从综合办公系统延伸至电力调度等生产核心领域。
                   </p>
                 </div>
 
