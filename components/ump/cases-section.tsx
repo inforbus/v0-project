@@ -4,12 +4,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
-import { paasCases } from "@/lib/paas-cases-data"
+import { umpCases } from "@/lib/ump-cases-data"
 
 export function UMPCasesSection() {
   const [caseOffset, setCaseOffset] = useState(0)
-  const visibleCases = 4
-  const maxCaseOffset = Math.max(0, paasCases.length - visibleCases)
+  const visibleCases = 3
+  const maxCaseOffset = Math.max(0, umpCases.length - visibleCases)
   const scrollCasePrev = () => setCaseOffset((prev) => Math.max(prev - 1, 0))
   const scrollCaseNext = () => setCaseOffset((prev) => Math.min(prev + 1, maxCaseOffset))
 
@@ -31,7 +31,7 @@ export function UMPCasesSection() {
         </ScrollReveal>
 
         {/* Desktop: transform-based carousel */}
-        <div className="relative mx-auto hidden max-w-[1340px] lg:block 3xl:max-w-[1800px]">
+        <div className="relative mx-auto hidden max-w-[1200px] lg:block 3xl:max-w-[1620px]">
           {/* Left Arrow */}
           <button
             type="button"
@@ -61,11 +61,11 @@ export function UMPCasesSection() {
           </button>
 
           {/* Cards track */}
-          <div className="flex gap-6 py-4" style={{ transition: "transform 0.5s cubic-bezier(0.4,0,0.2,1)", transform: `translateX(calc(-${caseOffset} * (calc(25% + 24px))))` }}>
-            {paasCases.map((card, idx) => {
+          <div className="flex gap-6 py-4" style={{ transition: "transform 0.5s cubic-bezier(0.4,0,0.2,1)", transform: `translateX(calc(-${caseOffset} * (calc(33.333% + 24px))))` }}>
+            {umpCases.map((card, idx) => {
               const isVisible = idx >= caseOffset && idx < caseOffset + visibleCases
               return (
-                <div key={card.slug} className="flex-shrink-0 transition-opacity duration-500" style={{ width: "calc(25% - 18px)", opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? "auto" : "none" }}>
+                <div key={card.slug} className="flex-shrink-0 transition-opacity duration-500" style={{ width: "calc(33.333% - 16px)", opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? "auto" : "none" }}>
                   <Link href={`/cases/${card.slug}`} className="group relative block h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)] transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-[0px_12px_40px_rgba(191,25,32,0.3)] 3xl:h-[500px]">
                     <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
                     <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60 transition-opacity duration-500 group-hover:opacity-100">
@@ -103,7 +103,7 @@ export function UMPCasesSection() {
         {/* Mobile: horizontal scroll */}
         <div className="lg:hidden">
           <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-            {paasCases.map((card) => (
+            {umpCases.map((card) => (
               <div key={card.slug} className="w-[280px] flex-shrink-0 snap-start">
                 <Link href={`/cases/${card.slug}`} className="group relative block h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)]">
                   <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
