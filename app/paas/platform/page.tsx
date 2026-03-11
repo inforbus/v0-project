@@ -1,7 +1,7 @@
 import { MiddlewareHeroSection } from "@/components/middleware/hero-section"
 import { PaaSOverviewSection } from "@/components/paas/overview-section"
 import { PaaSValueSection } from "@/components/paas/value-section"
-import { CasesSection } from "@/components/middleware/cases-section"
+import { PaaSCasesSection } from "@/components/paas/cases-section"
 import { Footer } from "@/components/shared/footer"
 import { OnlineServiceWidget } from "@/components/online-service-widget"
 
@@ -11,7 +11,7 @@ export default function PaaSPlatformPage() {
       <MiddlewareHeroSection />
       <PaaSOverviewSection />
       <PaaSValueSection />
-      <CasesSection />
+      <PaaSCasesSection />
       <Footer />
       <OnlineServiceWidget />
     </div>
