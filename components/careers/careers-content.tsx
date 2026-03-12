@@ -267,7 +267,7 @@ const jobs: Job[] = [
           "本科及以上学历，5年以上软件/互联网产品经理经验，有政法相关项目产品设计优先；",
           "熟练掌握产品需求分析、设计的技巧，对交互设计过程有深入的了解；",
           "具备计算机软件相关知识，有B端PC、APP软件产品设计经验；",
-          "熟练使用原型工具（如蓝湖/Axure）、思维导图、Word/Excel/PPT/Visio等；",
+          "熟练使用原型工具（如蓝湖/Axure）、思维导图��Word/Excel/PPT/Visio等；",
           "擅长数据分析与需求调研；文档编写能力强；",
           "较强的逻辑思维能力与沟通表达能力；工作积极有责任心。",
         ],
@@ -491,24 +491,12 @@ export function CareersContent() {
               <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
                 Talent Recruitment
               </span>
-              <h1 className="mt-4 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
+              <h1 className="mt-6 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
                 加入我们
               </h1>
-              <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
+              <p className="mt-8 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
                 我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
               </p>
-              <div className="mt-8 flex flex-wrap gap-6 3xl:mt-10 3xl:gap-8">
-                {[
-                  { num: String(jobs.length) + "+", label: "开放岗位" },
-                  { num: "5+", label: "城市" },
-                  { num: "20+", label: "年行业经验" },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col">
-                    <span className="text-2xl font-bold text-primary 3xl:text-3xl">{stat.num}</span>
-                    <span className="text-sm text-background/60 3xl:text-base">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
