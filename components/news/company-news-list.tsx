@@ -218,49 +218,52 @@ export function CompanyNewsList() {
         {/* News Items */}
         <div className="space-y-8 md:space-y-12">
           {currentNews.map((item) => (
-            <article key={item.id} className="group flex flex-col md:flex-row gap-6 md:gap-8 border-b border-border pb-8 md:pb-12">
-              {/* Image */}
-              <div className="flex-shrink-0 w-full md:w-80">
-                <div className="relative overflow-hidden rounded-lg bg-muted aspect-[4/3]">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+            <article key={item.id} className="group border-b border-border pb-8 md:pb-12">
+              {/* Date Header */}
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground line-clamp-2 group-hover:text-primary transition-colors duration-300 flex-1">
+                  {item.title}
+                </h3>
+                <div className="flex-shrink-0 ml-4 text-right">
+                  <div className="text-primary font-bold text-lg md:text-xl">
+                    {item.month}月
+                  </div>
+                  <div className="text-foreground/70 text-sm">
+                    {item.date.split('/')[1]}日
+                  </div>
+                  <div className="text-foreground/50 text-xs mt-1">
+                    {item.year}
+                  </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground mb-3 md:mb-4 line-clamp-2 group-hover:text-primary transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-foreground/70 leading-relaxed line-clamp-3 md:line-clamp-4">
+              {/* Image and Content */}
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                {/* Image */}
+                <div className="w-full md:w-96 flex-shrink-0">
+                  <div className="relative overflow-hidden rounded-lg bg-muted aspect-[4/3]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 flex flex-col justify-between">
+                  <p className="text-sm md:text-base text-foreground/70 leading-relaxed line-clamp-4 md:line-clamp-5">
                     {item.description}
                   </p>
-                </div>
-                <Link
-                  href="#"
-                  className="inline-flex items-center text-primary font-medium text-sm md:text-base mt-4 hover:gap-2 transition-all duration-300"
-                >
-                  查看更多
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
-                    <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Date */}
-              <div className="flex-shrink-0 text-right hidden md:block">
-                <div className="text-primary font-bold text-xl md:text-2xl">
-                  {item.month}
-                </div>
-                <div className="text-foreground/70 text-sm md:text-base">
-                  {item.date.split('/')[1]}
-                </div>
-                <div className="text-foreground/50 text-xs md:text-sm mt-1">
-                  {item.year}
+                  <Link
+                    href="#"
+                    className="inline-flex items-center text-primary font-medium text-sm md:text-base mt-4 hover:gap-2 transition-all duration-300 w-fit"
+                  >
+                    查看更多
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
+                      <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </article>
