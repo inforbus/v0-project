@@ -183,7 +183,7 @@ const jobs: Job[] = [
     id: "ui",
     title: "UI设计师",
     location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招���人数不限",
+    headcount: "招聘人数不限",
     education: "统招本科及以上",
     category: "设计类",
     duties: [
@@ -361,7 +361,7 @@ const jobs: Job[] = [
       {
         heading: "任职要求",
         items: [
-          "5年以上相关软件销售工作经验，具有突出销售业绩者优先；",
+          "5年以上相关软件销售工作经验，具有突出销售业绩���优先；",
           "熟悉相关客户行业信息化，能够独立开发新客户；",
           "具有良好的沟通协调能力及团队合作精神，学习能力和抗压能力强。",
         ],
@@ -477,7 +477,7 @@ export function CareersContent() {
       {/* Hero with Header */}
       <section className="relative overflow-hidden bg-[#1a1a1a]">
         {/* Header overlay */}
-        <Header navItems={navItems} variant="overlay" />
+        <Header navItems={navItems} variant="overlay" isDarkBg={true} />
         
         {/* Hero content */}
         <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
@@ -491,24 +491,12 @@ export function CareersContent() {
               <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
                 Talent Recruitment
               </span>
-              <h1 className="mt-4 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
+              <h1 className="mt-6 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
                 加入我们
               </h1>
-              <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
+              <p className="mt-8 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
                 我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
               </p>
-              <div className="mt-8 flex flex-wrap gap-6 3xl:mt-10 3xl:gap-8">
-                {[
-                  { num: String(jobs.length) + "+", label: "开放岗位" },
-                  { num: "5+", label: "城市" },
-                  { num: "20+", label: "年行业经验" },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col">
-                    <span className="text-2xl font-bold text-primary 3xl:text-3xl">{stat.num}</span>
-                    <span className="text-sm text-background/60 3xl:text-base">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>

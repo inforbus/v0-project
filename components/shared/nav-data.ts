@@ -52,7 +52,6 @@ export function getProductCategories(): ProductCategory[] {
       name: "物联网平台",
       href: "/iot",
       children: [
-        { name: "应用安全", href: "/iot/app-security" },
         { name: "统一监管平台", href: "/iot/supervision" },
         { name: "物联网监控平台", href: "/iot/monitoring" },
         { name: "高速公路智慧管控平台", href: "/iot/highway" },
@@ -76,13 +75,13 @@ export function getNavItems(activePath: string): NavItem[] {
     {
       name: "产品中心",
       href: "/products",
-      active: activePath === "/products" || activePath.startsWith("/middleware"),
+      active: activePath === "/products" || activePath.startsWith("/middleware") || activePath.startsWith("/digital-platform") || activePath.startsWith("/paas") || activePath.startsWith("/iot") || activePath.startsWith("/security"),
       children: [],
       isMega: true,
     },
     {
       name: "解决方案",
-      href: "/solutions",
+      href: "",
       active: activePath === "/solutions",
       isMega: false,
       children: [
@@ -97,7 +96,7 @@ export function getNavItems(activePath: string): NavItem[] {
     },
     {
       name: "成功案例",
-      href: "/cases",
+      href: "",
       active: activePath === "/cases" || activePath.startsWith("/cases"),
       isMega: false,
       children: [
@@ -108,8 +107,8 @@ export function getNavItems(activePath: string): NavItem[] {
     },
     {
       name: "服务支持",
-      href: "/support",
-      active: activePath === "/support",
+      href: "",
+      active: activePath === "/support" || activePath.startsWith("/support"),
       isMega: false,
       children: [
         { name: "在线服务", href: "/support/online" },
@@ -121,7 +120,7 @@ export function getNavItems(activePath: string): NavItem[] {
     },
     {
       name: "关于我们",
-      href: "/about",
+      href: "",
       active: activePath === "/about" || activePath === "/news" || activePath.startsWith("/news"),
       isMega: false,
       children: [

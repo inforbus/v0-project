@@ -131,6 +131,13 @@ export function ProductsSection() {
                         className={`h-6 w-5 object-contain transition-all duration-400 md:h-7 md:w-6 3xl:h-8 3xl:w-7 ${
                           isActive ? "drop-shadow-[0_0_4px_rgba(191,25,32,0.2)]" : ""
                         }`}
+                        onError={(e) => {
+                          try {
+                            e.currentTarget.style.display = "none"
+                          } catch (error) {
+                            console.warn("Product icon error:", error)
+                          }
+                        }}
                       />
                     </div>
 
@@ -179,6 +186,13 @@ export function ProductsSection() {
                           width={86}
                           height={113}
                           className="h-[72px] w-[60px] object-contain 3xl:h-[84px] 3xl:w-[72px]"
+                          onError={(e) => {
+                            try {
+                              e.currentTarget.style.display = "none"
+                            } catch (error) {
+                              console.warn("Product icon error:", error)
+                            }
+                          }}
                         />
                       </div>
                       {/* Title text - left aligned */}

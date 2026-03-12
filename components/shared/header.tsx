@@ -2,13 +2,34 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getProductCategories, type NavItem } from "./nav-data"
 
 function ProductMegaMenu() {
   const [activeCategory, setActiveCategory] = useState(0)
-  const productCategories = getProductCategories()
+  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+    try {
+      const categories = getProductCategories()
+      setProductCategories(categories)
+    } catch (e) {
+      console.error("Failed to load product categories:", e)
+      setProductCategories([])
+    }
+  }, [])
+
+  // During SSR, return placeholder to avoid hydration mismatch
+  if (!isClient) {
+    return <div />
+  }
+
+  if (!productCategories || productCategories.length === 0) {
+    return null
+  }
 
   return (
     <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
@@ -55,17 +76,41 @@ function ProductMegaMenu() {
 
 function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
+  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
+  const [isClient, setIsClient] = useState(false)
   const hasChildren = item.children.length > 0 || item.isMega
+
+  useEffect(() => {
+    setIsClient(true)
+    if (item.isMega) {
+      try {
+        const categories = getProductCategories()
+        setProductCategories(categories)
+      } catch (e) {
+        console.error("Failed to load product categories:", e)
+        setProductCategories([])
+      }
+    }
+  }, [item.isMega])
 
   return (
     <div className="border-b border-border/40 last:border-b-0">
       <div className="flex items-center justify-between">
-        <Link
-          href={item.href}
-          className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
-        >
-          {item.name}
-        </Link>
+        {item.href ? (
+          <Link
+            href={item.href}
+            className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
+          >
+            {item.name}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className={`flex-1 py-3 text-left text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
+          >
+            {item.name}
+          </button>
+        )}
         {hasChildren && (
           <button
             type="button"
@@ -90,9 +135,9 @@ function MobileNavItem({ item }: { item: NavItem }) {
           ))}
         </div>
       )}
-      {item.isMega && expanded && (
+      {item.isMega && expanded && isClient && productCategories && productCategories.length > 0 && (
         <div className="pb-2 pl-4">
-          {getProductCategories().map((category, catIdx) => (
+          {productCategories.map((category, catIdx) => (
             <div key={catIdx} className="mb-2">
               <Link
                 href={category.href}
@@ -119,21 +164,21 @@ function MobileNavItem({ item }: { item: NavItem }) {
   )
 }
 
-export function Header({ navItems, variant = "default" }: { navItems: NavItem[]; variant?: "default" | "overlay" }) {
+export function Header({ navItems, variant = "default", isDarkBg = false }: { navItems: NavItem[]; variant?: "default" | "overlay"; isDarkBg?: boolean }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const isOverlay = variant === "overlay"
 
   return (
     <header className="relative z-50">
-      <div className={`border-b bg-transparent ${isOverlay ? "border-white/10" : "border-white/20"}`}>
+      <div className={`border-b ${isOverlay ? "border-white/10" : "border-white/20"}`}>
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/vector.png"
-              alt="INFORS 中创中间件"
-              width={280}
-              height={30}
-              className={`h-6 w-auto md:h-7 3xl:h-8 ${isOverlay ? "brightness-0 invert" : ""}`}
+              src="/logo.svg"
+              alt="中创软件"
+              width={120}
+              height={40}
+              className={`h-8 w-auto ${isDarkBg && isOverlay ? "brightness-0 invert" : ""}`}
               priority
             />
           </Link>
@@ -141,17 +186,37 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
             {navItems.map((item, index) => (
               <div key={index} className="group/nav relative">
-                <Link
-                  href={item.href}
-                  className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : isOverlay ? "text-white/90" : "text-foreground"
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors 3xl:text-base ${
+                      isDarkBg && isOverlay
+                        ? `${item.active ? "text-white" : "text-white/80"} hover:text-white`
+                        : `${item.active ? "text-primary" : "text-foreground"} hover:text-primary`
                     }`}
-                >
-                  {item.name}
-                  {(item.children.length > 0 || item.isMega) && (
-                    <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
-                  )}
-                  {item.active && <span className="absolute -bottom-[13px] left-0 h-[3px] w-full bg-primary" />}
-                </Link>
+                  >
+                    {item.name}
+                    {(item.children.length > 0 || item.isMega) && (
+                      <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
+                    )}
+                    {item.active && <span className={`absolute -bottom-[13px] left-0 h-[3px] w-full ${isDarkBg && isOverlay ? "bg-white" : "bg-primary"}`} />}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors 3xl:text-base ${
+                      isDarkBg && isOverlay
+                        ? `${item.active ? "text-white" : "text-white/80"} hover:text-white`
+                        : `${item.active ? "text-primary" : "text-foreground"} hover:text-primary`
+                    }`}
+                  >
+                    {item.name}
+                    {(item.children.length > 0 || item.isMega) && (
+                      <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
+                    )}
+                    {item.active && <span className={`absolute -bottom-[13px] left-0 h-[3px] w-full ${isDarkBg && isOverlay ? "bg-white" : "bg-primary"}`} />}
+                  </button>
+                )}
 
                 {item.isMega && (
                   <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
@@ -189,7 +254,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
         </nav>
 
         {mobileMenuOpen && (
-          <div className="max-h-[70vh] overflow-y-auto border-t border-border bg-background lg:hidden">
+          <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 lg:hidden">
             <div className="px-4 py-4">
               {navItems.map((item, index) => (
                 <MobileNavItem key={index} item={item} />
