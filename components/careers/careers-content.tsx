@@ -141,20 +141,6 @@ function JobCard({ job }: JobCardProps) {
             <span className={`h-2 w-2 flex-shrink-0 rounded-full ${open ? "bg-primary" : "bg-border"} transition-colors duration-300`} />
             <h3 className="text-base font-semibold text-foreground lg:text-lg">{job.title}</h3>
           </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pl-5 sm:pl-0">
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <MapPin size={12} className="flex-shrink-0" />
-              {job.location}
-            </span>
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Users size={12} className="flex-shrink-0" />
-              {job.headcount}
-            </span>
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <GraduationCap size={12} className="flex-shrink-0" />
-              {job.education}
-            </span>
-          </div>
         </div>
         <div className="flex flex-shrink-0 items-center gap-3 pt-0.5">
           <span className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${open ? "border-primary/30 bg-primary/5 text-primary" : "border-border bg-background text-muted-foreground"}`}>
@@ -275,20 +261,13 @@ export function CareersContent() {
       {/* Contact banner */}
       <section className="border-t border-border bg-muted/40">
         <div className="mx-auto max-w-6xl px-4 py-12 lg:px-8 lg:py-16 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-          <div className="flex flex-col items-center gap-6 rounded-2xl border border-primary/15 bg-background p-8 text-center shadow-sm lg:flex-row lg:justify-between lg:text-left 3xl:p-10">
-            <div>
-              <h3 className="text-lg font-bold text-foreground lg:text-xl 3xl:text-2xl">没有找到合适的岗位？</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground 3xl:text-base">
-                欢迎发送简历至我们的招聘邮箱，我们会在有合适岗位时第一时间联系您。
+          <div className="flex flex-col items-center gap-4 rounded-2xl border border-primary/15 bg-background p-8 text-center lg:flex-row lg:justify-between lg:text-left 3xl:p-10">
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-foreground lg:text-xl 3xl:text-2xl">投递简历</h3>
+              <p className="mt-2 text-sm text-muted-foreground 3xl:text-base">
+                请将简历发送至：<span className="font-medium text-foreground">wu_wting@inforbus.com</span>
               </p>
             </div>
-            <a
-              href="mailto:wu_wting@inforbus.com"
-              className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:shadow-primary/20 3xl:px-8 3xl:py-3.5 3xl:text-base"
-            >
-              <Mail size={16} />
-              发送简历
-            </a>
           </div>
         </div>
       </section>
