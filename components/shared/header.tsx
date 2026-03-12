@@ -99,14 +99,14 @@ function MobileNavItem({ item }: { item: NavItem }) {
         {item.href ? (
           <Link
             href={item.href}
-            className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-white" : "text-white/80"}`}
+            className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
           >
             {item.name}
           </Link>
         ) : (
           <button
             type="button"
-            className={`flex-1 py-3 text-left text-base font-medium transition-colors ${item.active ? "text-white" : "text-white/80"}`}
+            className={`flex-1 py-3 text-left text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
           >
             {item.name}
           </button>
@@ -189,7 +189,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-white 3xl:text-base ${item.active ? "text-white" : "text-white/80"
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : "text-foreground"
                       }`}
                   >
                     {item.name}
@@ -201,7 +201,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
                 ) : (
                   <button
                     type="button"
-                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-white 3xl:text-base ${item.active ? "text-white" : "text-white/80"
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : "text-foreground"
                       }`}
                   >
                     {item.name}
@@ -239,7 +239,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
 
           <button
             type="button"
-            className="p-2 text-white lg:hidden"
+            className={`p-2 lg:hidden ${isOverlay ? "text-white" : "text-foreground"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="打开菜单"
           >
