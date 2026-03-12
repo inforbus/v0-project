@@ -178,7 +178,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
               alt="中创软件"
               width={120}
               height={40}
-              className="h-8 w-auto"
+              className={`h-8 w-auto ${isOverlay ? "brightness-0 invert" : ""}`}
               priority
             />
           </Link>
