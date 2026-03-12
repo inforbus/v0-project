@@ -150,7 +150,7 @@ const allNews = [
   },
   {
     id: 17,
-    title: 'AI重塑软件 赋能产业未来 中创股份出席2025软件技术大会',
+    title: 'AI��塑软件 赋能产业未来 中创股份出席2025软件技术大会',
     date: '12/08',
     month: '12',
     year: '2025',
@@ -234,7 +234,7 @@ export function CompanyNewsList() {
 
               {/* Image Column */}
               <div className="flex-shrink-0 hidden md:block">
-                <div className="w-32 h-24 rounded-lg overflow-hidden bg-muted">
+                <div className="w-56 h-40 rounded-lg overflow-hidden bg-muted">
                   <img
                     src={item.image}
                     alt={item.title}
