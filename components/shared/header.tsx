@@ -4,50 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useMemo } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
-import { getProductCategories, getNavItems, type NavItem } from "./nav-data"
-
-function ProductMegaMenu() {
-  const [activeCategory, setActiveCategory] = useState(0)
-  const [productCategories, setProductCategories] = useState<ReturnType<typeof getProductCategories> | null>(null)
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-    try {
-      const categories = getProductCategories()
-      setProductCategories(categories)
-    } catch (e) {
-      console.error("Failed to load product categories:", e)
-      setProductCategories([])
-    }
-  }, [])
-
-  // During SSR, return placeholder to avoid hydration mismatch
-  if (!isClient) {
-    return <div />
-  }
-
-  if (!productCategories || productCategories.length === 0) {
-    return null
-  }
-
-  return (
-    <div className="flex overflow-hidden rounded-lg border border-border bg-background shadow-xl" style={{ minWidth: "680px" }}>
-      <div className="flex w-[180px] flex-shrink-0 flex-col bg-muted py-2">
-        {productCategories.map((category, idx) => (
-          <button
-            key={idx}
-            type="button"
-            onMouseEnter={() => setActiveCategory(idx)}
-            onClick={() => setActiveCategory(idx)}
-            className={`relative flex items-center justify-between px-5 py-3.5 text-left text-sm transition-all duration-150 ${activeCategory === idx
-              ? "bg-background font-semibold text-primary"
-              : "font-medium text-foreground/80 hover:bg-background/80 hover:text-primary"
-              }`}
-          >
-            {category.name}
-            <ChevronRight className={`h-3.5 w-3.5 transition-colors ${activeCategory === idx ? "text-primary" : "text-muted-foreground"}`} />
-            {activeCategory === idx && (
+import { getNavItems, type NavItem } from "./nav-data"
               <span className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r bg-primary" />
             )}
           </button>
@@ -225,12 +182,6 @@ export function Header({ navItems, variant = "default", isDarkBg = false, active
                     )}
                     {item.active && <span className={`absolute -bottom-[13px] left-0 h-[3px] w-full ${isDarkBg && isOverlay ? "bg-white" : "bg-primary"}`} />}
                   </button>
-                )}
-
-                {item.isMega && (
-                  <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
-                    <ProductMegaMenu />
-                  </div>
                 )}
 
                 {!item.isMega && item.children.length > 0 && (
