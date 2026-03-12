@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
 import { type NavItem } from "@/components/shared/nav-data"
@@ -468,6 +468,12 @@ function JobCard({ job }: { job: Job }) {
 
 export function CareersContent({ navItems }: { navItems: NavItem[] }) {
   const [activeCategory, setActiveCategory] = useState("全部")
+  const [isClient, setIsClient] = useState(false)
+
+  // Ensure we only render on client to avoid hydration mismatch
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
 
@@ -475,8 +481,8 @@ export function CareersContent({ navItems }: { navItems: NavItem[] }) {
     <main>
       {/* Hero with Header */}
       <section className="relative overflow-hidden bg-[#1a1a1a]">
-        {/* Header overlay */}
-        <Header navItems={navItems} variant="overlay" />
+        {/* Header overlay - only render after client hydration */}
+        {isClient && <Header navItems={navItems} variant="overlay" />}
         
         {/* Hero content */}
         <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
