@@ -1,13 +1,6 @@
-import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
-
-const navItems = getNavItems("/about/careers")
-
 export function CareersHeroSection() {
   return (
     <div className="relative overflow-hidden bg-[#1a1a1a]">
-      <Header navItems={navItems} variant="overlay" />
-      
       {/* Hero content */}
       <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
         <div className="pointer-events-none absolute inset-0">
