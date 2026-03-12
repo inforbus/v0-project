@@ -13,7 +13,7 @@ const nextConfig = {
     ],
   },
   turbopack: {
-    root: process.cwd(),
+    root: "/vercel/share/v0-project",
   },
 }
 
