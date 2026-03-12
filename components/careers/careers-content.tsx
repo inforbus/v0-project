@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
+import { type NavItem } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
@@ -267,7 +267,7 @@ const jobs: Job[] = [
           "本科及以上学历，5年以上软件/互联网产品经理经验，有政法相关项目产品设计优先；",
           "熟练掌握产品需求分析、设计的技巧，对交互设计过程有深入的了解；",
           "具备计算机软件相关知识，有B端PC、APP软件产品设计经验；",
-          "熟练使用原型工具（如蓝湖/Axure）、思维导图、Word/Excel/PPT/Visio等；",
+          "熟练使用原型工具（如蓝湖/Axure）、思维导图��Word/Excel/PPT/Visio等；",
           "擅长数据分析与需求调研；文档编写能力强；",
           "较强的逻辑思维能力与沟通表达能力；工作积极有责任心。",
         ],
@@ -466,9 +466,8 @@ function JobCard({ job }: { job: Job }) {
   )
 }
 
-export function CareersContent() {
+export function CareersContent({ navItems }: { navItems: NavItem[] }) {
   const [activeCategory, setActiveCategory] = useState("全部")
-  const navItems = getNavItems("/about/careers")
 
   const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
 
