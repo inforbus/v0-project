@@ -74,8 +74,6 @@ export function getNavItems(activePath: string): NavItem[] {
     { name: "首页", href: "/", active: activePath === "/", children: [], isMega: false },
     {
       name: "产品中心",
-      href: "",
-      active: activePath === "/products" || activePath.startsWith("/middleware"),
       href: "/products",
       active: activePath === "/products" || activePath.startsWith("/middleware") || activePath.startsWith("/digital-platform") || activePath.startsWith("/paas") || activePath.startsWith("/iot") || activePath.startsWith("/security"),
       children: [],
