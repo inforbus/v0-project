@@ -89,20 +89,20 @@ const allNews: NewsItem[] = [
   },
   {
     id: 9,
-    title: "喜报！中创股份荣获国家级专精特新"小巨人"企业称号",
+    title: '喜报！中创股份荣获国家级专精特新"小巨人"企业称号',
     date: "10/21",
     month: "10",
     year: "2025",
-    description: "近日，工业和信息化部发布了国家级专精特新"小巨人"企业名单，山东中创股份荣登"小巨人"企业名单。此次被认定为专精特新"小巨人"企业，是对公司创新发展成绩的充分肯定。",
+    description: '近日，工业和信息化部发布了国家级专精特新"小巨人"企业名单，山东中创股份荣登"小巨人"企业名单。此次被认定为专精特新"小巨人"企业，是对公司创新发展成绩的充分肯定。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png"
   },
   {
     id: 10,
-    title: "中创股份出席"2025年第二十七届中国国际软件博览会"荣获"2025年度软件和信息技术服务名牌企业"",
+    title: '中创股份出席"2025年第二十七届中国国际软件博览会"荣获"2025年度软件和信息技术服务名牌企业"',
     date: "10/16",
     month: "10",
     year: "2025",
-    description: "今日，第27届中国国际软件博览会（以下简称"软博会"）成功举办。本次会议以"开源创新主场"为主题，聚焦软件和信息技术产业深耕、促进数字化转型升级、会议期间，中创股份凭台展示优势产品和丰富的案例。",
+    description: '今日，第27届中国国际软件博览会（以下简称"软博会"）成功举办。本次会议以"开源创新主场"为主题，聚焦软件和信息技术产业深耕、促进数字化转型升级、会议期间，中创股份凭台展示优势产品和丰富的案例。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png"
   },
   {
@@ -111,16 +111,16 @@ const allNews: NewsItem[] = [
     date: "09/28",
     month: "09",
     year: "2025",
-    description: "9月26日，济南市人民政府新闻办公室举办了"产业链上的好盛景"济南市企业家见面会——高端软件专场。作为中国软件名城，济南的软件产业生态建设成效显著；本次活动旨在集聚阳光济南高端软件企业团队发展力。",
+    description: '9月26日，济南市人民政府新闻办公室举办了"产业链上的好盛景"济南市企业家见面会——高端软件专场。作为中国软件名城，济南的软件产业生态建设成效显著；本次活动旨在集聚阳光济南高端软件企业团队发展力。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png"
   },
   {
     id: 12,
-    title: "中创股份荣选出席"第三届中国上市公司产业发展论坛"荣获"2025年度未来产业之星·上市公司（未来信息）"奖项",
+    title: '中创股份荣选出席"第三届中国上市公司产业发展论坛"荣获"2025年度未来产业之星·上市公司（未来信息）"奖项',
     date: "09/25",
     month: "09",
     year: "2025",
-    description: "近日，第三届中国上市公司产业发展论坛在上海召开。活动以"未来产业与国有战略"为主题，由上海市发改委主办，深圳证券交易所发起主办。中国科技发展基金会、上海交会……",
+    description: '近日，第三届中国上市公司产业发展论坛在上海召开。活动以"未来产业与国有战略"为主题，由上海市发改委主办，深圳证券交易所发起主办。中国科技发展基金会、上海交会……',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png"
   },
   {
@@ -143,20 +143,20 @@ const allNews: NewsItem[] = [
   },
   {
     id: 15,
-    title: "实力彰显！中创股份荣登"2025数字生态500强"榜单",
+    title: '实力彰显！中创股份荣登"2025数字生态500强"榜单',
     date: "10/24",
     month: "10",
     year: "2025",
-    description: "近日，由BP商业评刊主办的"2025数字生态大会"圆满落幕。同期推出，由产业链专业评测平台发布的年度榜单"实力彰显！中创股份荣选"2025数字生态500强"榜单"中创股份"被直送约增约新增的产业创新…"",
+    description: '近日，由BP商业评刊主办的"2025数字生态大会"圆满落幕。同期推出，由产业链专业评测平台发布的年度榜单"实力彰显！中创股份荣选"2025数字生态500强"榜单"中创股份"被直送约增约新增的产业创新…"',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png"
   },
   {
     id: 16,
-    title: "中软协·2024中国软件创新发展大会"成功召开｜中创分布式数据缓存中间件获得软件奖"2025年创新软件产品"",
+    title: '中软协·2024中国软件创新发展大会"成功召开｜中创分布式数据缓存中间件获得软件奖"2025年创新软件产品"',
     date: "10/23",
     month: "10",
     year: "2025",
-    description: "今日，由中国软件行业协会主办的2025软件创新发展大会在苏州隆重召开。本次大会以\"AI国策软件，赋能产业未来\"为主题、聚焦基础软件、人工智能、数据智能等前沿技术架构、开发运行业应用带来的深远影响。",
+    description: '今日，由中国软件行业协会主办的2025软件创新发展大会在苏州隆重召开。本次大会以"AI国策软件，赋能产业未来"为主题、聚焦基础软件、人工智能、数据智能等前沿技术架构、开发运行业应用带来的深远影响。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png"
   },
   {
@@ -165,7 +165,7 @@ const allNews: NewsItem[] = [
     date: "12/08",
     month: "12",
     year: "2025",
-    description: "近日，中软行业联盟与有限公司主办的\"2025软件技术大会\"在北京国家会议中心隆重举行。本次大会以\"AI重塑软件，赋能产业未来\"为主题，邀请了来自业界的专家学者和企业代表参加。",
+    description: '近日，中软行业联盟与有限公司主办的"2025软件技术大会"在北京国家会议中心隆重举行。本次大会以"AI重塑软件，赋能产业未来"为主题，邀请了来自业界的专家学者和企业代表参加。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png"
   },
   {
@@ -174,16 +174,16 @@ const allNews: NewsItem[] = [
     date: "11/19",
     month: "11",
     year: "2025",
-    description: "近日，山东信息化学会淮坊市卫生健康委员会联合主办的\"数智医疗，信创未来――信创服务助力医疗高质量发展\"医疗信息解决方案研讨会（淮坊）在淮坊召开。与会医疗卫生机构的500家医疗系统会议。",
+    description: '近日，山东信息化学会淮坊市卫生健康委员会联合主办的"数智医疗，信创未来――信创服务助力医疗高质量发展"医疗信息解决方案研讨会（淮坊）在淮坊召开。与会医疗卫生机构的500家医疗系统会议。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png"
   },
   {
     id: 19,
-    title: "第二届教育信息技术应用创新大赛决赛将于11月15日在浙江大学举行，经过全国初赛的激烈角逐，脱颖而出的36支队伍将直播"信息技术应用创新应让"展开终极比拼",
+    title: '第二届教育信息技术应用创新大赛决赛将于11月15日在浙江大学举行，经过全国初赛的激烈角逐，脱颖而出的36支队伍将直播"信息技术应用创新应让"展开终极比拼',
     date: "11/13",
     month: "11",
     year: "2025",
-    description: "由中国教育技术协会与中国教育技术协会主办的\"第二届教育信息技术应用创新大赛\"决赛将于11月15日在浙江大学举行。经过全国初赛的激烈角逐，脱颖而出的36支队伍将直播\"信息技术应用创新应让\"展开终极比拼、作为委属重一中间件提单位。",
+    description: '由中国教育技术协会与中国教育技术协会主办的"第二届教育信息技术应用创新大赛"决赛将于11月15日在浙江大学举行。经过全国初赛的激烈角逐，脱颖而出的36支队伍将直播"信息技术应用创新应让"展开终极比拼、作为委属重一中间件提单位。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png"
   },
   {
@@ -192,7 +192,7 @@ const allNews: NewsItem[] = [
     date: "11/11",
     month: "11",
     year: "2025",
-    description: "近日，\"数智医疗、信创未来――信创服务助力医疗高质量发展\"医疗信息创新解决方案研讨会（日照站）成功举办。本次会议由山东信息化学会与日照市卫生健康委员会、潍坊、烟台等多家医疗卫生机构与医疗管理部门共同参与。",
+    description: '近日，"数智医疗、信创未来――信创服务助力医疗高质量发展"医疗信息创新解决方案研讨会（日照站）成功举办。本次会议由山东信息化学会与日照市卫生健康委员会、潍坊、烟台等多家医疗卫生机构与医疗管理部门共同参与。',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png"
   }
 ]
