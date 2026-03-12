@@ -189,26 +189,32 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : "text-foreground"
-                      }`}
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors 3xl:text-base ${
+                      isOverlay
+                        ? `${item.active ? "text-white" : "text-white/80"} hover:text-white`
+                        : `${item.active ? "text-primary" : "text-foreground"} hover:text-primary`
+                    }`}
                   >
                     {item.name}
                     {(item.children.length > 0 || item.isMega) && (
                       <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
                     )}
-                    {item.active && <span className="absolute -bottom-[13px] left-0 h-[3px] w-full bg-primary" />}
+                    {item.active && <span className={`absolute -bottom-[13px] left-0 h-[3px] w-full ${isOverlay ? "bg-white" : "bg-primary"}`} />}
                   </Link>
                 ) : (
                   <button
                     type="button"
-                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : "text-foreground"
-                      }`}
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors 3xl:text-base ${
+                      isOverlay
+                        ? `${item.active ? "text-white" : "text-white/80"} hover:text-white`
+                        : `${item.active ? "text-primary" : "text-foreground"} hover:text-primary`
+                    }`}
                   >
                     {item.name}
                     {(item.children.length > 0 || item.isMega) && (
                       <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
                     )}
-                    {item.active && <span className="absolute -bottom-[13px] left-0 h-[3px] w-full bg-primary" />}
+                    {item.active && <span className={`absolute -bottom-[13px] left-0 h-[3px] w-full ${isOverlay ? "bg-white" : "bg-primary"}`} />}
                   </button>
                 )}
 
