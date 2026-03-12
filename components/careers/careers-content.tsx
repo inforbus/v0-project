@@ -181,7 +181,7 @@ const jobs: Job[] = [
   {
     id: "ui",
     title: "UI设计师",
-    location: "北京、���汉、成都、哈尔滨等",
+    location: "北京、�����汉、成都、哈尔滨等",
     headcount: "招���人数不限",
     education: "统招本科及以上",
     category: "设计类",
@@ -495,18 +495,6 @@ export function CareersContent() {
               <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
                 我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
               </p>
-              <div className="mt-8 flex flex-wrap gap-6 3xl:mt-10 3xl:gap-8">
-                {[
-                  { num: String(jobs.length) + "+", label: "开放岗位" },
-                  { num: "5+", label: "城市" },
-                  { num: "20+", label: "年行业经验" },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col">
-                    <span className="text-2xl font-bold text-primary 3xl:text-3xl">{stat.num}</span>
-                    <span className="text-sm text-background/60 3xl:text-base">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
