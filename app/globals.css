@@ -43,9 +43,16 @@
 }
 
 body {
-  font-family: 'Noto Sans SC', 'Source Han Sans CN', Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'SimHei', Arial, Helvetica, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 确保所有文本都使用正确的中文字体 */
+p, span, div, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'SimHei', Arial, Helvetica, sans-serif;
 }
 
 * {
