@@ -261,11 +261,11 @@ export function CareersContent() {
       {/* Contact banner */}
       <section className="border-t border-border bg-muted/40">
         <div className="mx-auto max-w-6xl px-4 py-12 lg:px-8 lg:py-16 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-          <div className="flex flex-col items-center gap-4 rounded-2xl border border-primary/15 bg-background p-8 text-center lg:flex-row lg:justify-between lg:text-left 3xl:p-10">
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-foreground lg:text-xl 3xl:text-2xl">投递简历</h3>
-              <p className="mt-2 text-sm text-muted-foreground 3xl:text-base">
-                请将简历发送至：<span className="font-medium text-foreground">wu_wting@inforbus.com</span>
+          <div className="flex flex-col items-center gap-6 rounded-2xl border border-primary/15 bg-background p-8 text-center shadow-sm lg:flex-row lg:justify-between lg:text-left 3xl:p-10">
+            <div>
+              <h3 className="text-lg font-bold text-foreground lg:text-xl 3xl:text-2xl">没有找到合适的岗位？</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground 3xl:text-base">
+                欢迎发送简历至我们的招聘邮箱，我们会在有合适岗位时第一时间联系您。
               </p>
             </div>
           </div>
