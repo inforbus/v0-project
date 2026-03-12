@@ -181,7 +181,7 @@ const jobs: Job[] = [
   {
     id: "ui",
     title: "UI设计师",
-    location: "北京、武汉、成都、哈尔滨等",
+    location: "北京、���汉、成都、哈尔滨等",
     headcount: "招���人数不限",
     education: "统招本科及以上",
     category: "设计类",
@@ -361,7 +361,7 @@ const jobs: Job[] = [
         heading: "任职要求",
         items: [
           "5年以上相关软件销售工作经验，具有突出销售业绩者优先；",
-          "熟悉相关客户行业信息化，能够独立开发新客户；",
+          "熟悉相关客户行业信���化，能够独立开发新客户；",
           "具有良好的沟通协调能力及团队合作精神，学习能力和抗压能力强。",
         ],
       },
@@ -473,9 +473,9 @@ export function CareersContent() {
   return (
     <main>
       {/* Hero with Header */}
-      <section className="relative overflow-hidden bg-[#1a1a1a]">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a]">
         {/* Header overlay */}
-        <Header activePath="/about/careers" variant="overlay" />
+        <Header activePath="/about/careers" variant="overlay" isDarkBg={true} />
         
         {/* Hero content */}
         <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">

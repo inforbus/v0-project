@@ -187,7 +187,7 @@ export function Header({ navItems, variant = "default", isDarkBg = false, active
               alt="中创软件"
               width={120}
               height={40}
-              className={`h-8 w-auto ${isDarkBg && isOverlay ? "brightness-0 invert" : ""}`}
+              className={`h-8 w-auto transition-all ${isDarkBg && isOverlay ? "brightness-200 invert" : ""}`}
               priority
             />
           </Link>
