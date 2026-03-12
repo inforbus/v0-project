@@ -361,7 +361,7 @@ const jobs: Job[] = [
       {
         heading: "任职要求",
         items: [
-          "5年以上相关软件销售工作经验，具有突出销售业绩者优先；",
+          "5年以上相关软件销售工作经验，具有突出销售业绩���优先；",
           "熟悉相关客户行业信息化，能够独立开发新客户；",
           "具有良好的沟通协调能力及团队合作精神，学习能力和抗压能力强。",
         ],
@@ -477,7 +477,7 @@ export function CareersContent() {
       {/* Hero with Header */}
       <section className="relative overflow-hidden bg-[#1a1a1a]">
         {/* Header overlay */}
-        <Header navItems={navItems} variant="overlay" />
+        <Header navItems={navItems} variant="overlay" isDarkBg={true} />
         
         {/* Hero content */}
         <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
