@@ -147,7 +147,7 @@ const allNews: NewsItem[] = [
     date: "10/24",
     month: "10",
     year: "2025",
-    description: '近日，由BP商业评刊主办的"2025数字生态大会"圆满落幕。同期推出，由产业链专业评测平台发布的年度榜单"实力彰显！中创股份荣选"2025数字生态500强"榜单"中创股份"被直送约增约新增的产业创新…"',
+    description: '近日，由BP商业评刊主办的"2025数字生态大会"圆满落幕。同期推出，由产业链专业评测平台发布的年度榜单"实力彰显！中创股份荣选"2025数字生态500强"榜单"中创股份"被直送��增约新增的产业创新…"',
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png"
   },
   {
@@ -221,7 +221,7 @@ export function CompanyNewsList() {
             <article key={item.id} className="group flex gap-6 md:gap-8 border-b border-border pb-8 md:pb-12">
               {/* Image */}
               <div className="flex-shrink-0 w-32 md:w-48 lg:w-56">
-                <div className="relative overflow-hidden rounded-lg bg-muted h-32 md:h-48 lg:h-56">
+                <div className="relative overflow-hidden rounded-lg bg-muted aspect-[4/3]">
                   <img
                     src={item.image}
                     alt={item.title}
