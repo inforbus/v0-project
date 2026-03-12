@@ -8,7 +8,7 @@ export function AboutHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}
       <img
-        src="/images/about-banner.jpg"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-wpfy5Xde0Pf7Iu8U96v6hb8l0OB7vx.png"
         alt="关于中创"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />

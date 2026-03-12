@@ -14,6 +14,7 @@ export function UMPOverviewSection() {
           fill
           className="object-cover"
           style={{ mixBlendMode: "soft-light" }}
+          loading="eager"
         />
       </div>
       {/* Dynamic background decorations */}

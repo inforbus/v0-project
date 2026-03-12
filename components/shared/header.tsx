@@ -170,7 +170,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
 
   return (
     <header className="relative z-50">
-      <div className={`border-b bg-transparent ${isOverlay ? "border-white/10" : "border-white/20"}`}>
+      <div className={`border-b ${isOverlay ? "border-white/10" : "border-white/20"}`}>
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -189,7 +189,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : isOverlay ? "text-white/90" : "text-foreground"
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : "text-foreground"
                       }`}
                   >
                     {item.name}
@@ -201,7 +201,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
                 ) : (
                   <button
                     type="button"
-                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : isOverlay ? "text-white/90" : "text-foreground"
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : "text-foreground"
                       }`}
                   >
                     {item.name}
@@ -248,7 +248,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
         </nav>
 
         {mobileMenuOpen && (
-          <div className="max-h-[70vh] overflow-y-auto border-t border-border bg-background lg:hidden">
+          <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 lg:hidden">
             <div className="px-4 py-4">
               {navItems.map((item, index) => (
                 <MobileNavItem key={index} item={item} />
