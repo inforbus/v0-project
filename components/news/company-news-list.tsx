@@ -150,7 +150,7 @@ const allNews = [
   },
   {
     id: 17,
-    title: 'AI��塑软件 赋能产业未来 中创股份出席2025软件技术大会',
+    title: 'AI���塑软件 赋能产业未来 中创股份出席2025软件技术大会',
     date: '12/08',
     month: '12',
     year: '2025',
@@ -224,7 +224,7 @@ export function CompanyNewsList() {
                 <p className="text-sm md:text-base text-foreground/70 line-clamp-2 mb-3">
                   {item.description}
                 </p>
-                <Link href="#" className="inline-flex items-center text-primary text-sm md:text-base font-medium hover:gap-1 transition-all">
+                <Link href={item.id === 1 ? `/news/company/${item.id}` : "#"} className="inline-flex items-center text-primary text-sm md:text-base font-medium hover:gap-1 transition-all">
                   详细
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
                     <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
