@@ -150,8 +150,8 @@ export function CompanyTabs() {
                 <div className="bg-gradient-to-r from-[#BF1920]/10 to-[#BF1920]/5 rounded-lg p-8 border border-[#BF1920]/20">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 bg-[#BF1920] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 00.948.684l1.498 7.487a1 1 0 00.502.756l4.038 2.676a5 5 0 00-6.519 6.519l-2.676-4.038a1 1 0 00-.756-.502L3.684 9.28A1 1 0 003 8.28V5z" />
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
                       </svg>
                     </div>
                     <div>
