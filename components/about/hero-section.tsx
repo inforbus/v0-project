@@ -1,9 +1,9 @@
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-const navItems = getNavItems("/about")
-
 export function AboutHeroSection() {
+  const navItems = getNavItems("/about")
+
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}

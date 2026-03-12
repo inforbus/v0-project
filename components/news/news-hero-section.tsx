@@ -25,16 +25,16 @@ export function NewsHeroSection() {
 
         {/* Title */}
         <h1
-          className="font-sans font-bold text-[#BF1920]"
-          style={{ fontSize: 'clamp(24px, 3.5vw, 48px)', lineHeight: '1.3', letterSpacing: '0.1em' }}
+          className="font-sans font-bold text-[#332C2B]"
+          style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
           新闻资讯
         </h1>
 
-        {/* Subtitle 1 */}
+        {/* Subtitle */}
         <p
-          className="font-sans font-normal text-[#666666]"
-          style={{ fontSize: 'clamp(12px, 1.2vw, 16px)', lineHeight: '1.5', marginTop: 'clamp(8px, 1vw, 14px)' }}
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
         >
           最热新闻资讯，最新行业动态
         </p>
