@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Footer } from "@/components/shared/footer"
 import { CareersContent } from "@/components/careers/careers-content"
-import { getNavItems } from "@/components/shared/nav-data"
 
 export const metadata: Metadata = {
   title: "加入我们 - 人才招聘",
@@ -9,11 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function CareersPage() {
-  const navItems = getNavItems("/about/careers")
-
   return (
     <div className="min-h-screen w-full bg-background">
-      <CareersContent navItems={navItems} />
+      <CareersContent />
       <Footer />
     </div>
   )

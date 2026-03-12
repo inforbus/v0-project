@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
+import { getNavItems } from "@/components/shared/nav-data"
 import { type NavItem } from "@/components/shared/nav-data"
 
 type Job = {
@@ -361,7 +362,7 @@ const jobs: Job[] = [
       {
         heading: "任职要求",
         items: [
-          "5年以上相关软件销售工作经验，具有突出销售业绩者优先；",
+          "5年以上相关软件销售工作经验，具���突出销售业绩者优先；",
           "熟悉相关客户行业信息化，能够独立开发新客户；",
           "具有良好的沟通协调能力及团队合作精神，学习能力和抗压能力强。",
         ],
@@ -466,13 +467,17 @@ function JobCard({ job }: { job: Job }) {
   )
 }
 
-export function CareersContent({ navItems }: { navItems: NavItem[] }) {
+export function CareersContent() {
   const [activeCategory, setActiveCategory] = useState("全部")
+  const [navItems, setNavItems] = useState<NavItem[]>([])
   const [isClient, setIsClient] = useState(false)
 
   // Ensure we only render on client to avoid hydration mismatch
   useEffect(() => {
     setIsClient(true)
+    // Get nav items only on client side
+    const items = getNavItems("/about/careers")
+    setNavItems(items)
   }, [])
 
   const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
