@@ -1,10 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
-import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
-import { type NavItem } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
@@ -371,7 +368,7 @@ const jobs: Job[] = [
   },
 ]
 
-const categories = ["全部", "技术类", "设计类", "产品与方案", "管理类", "销售类"]
+const categories = ["全部", "技术类", "设计类", "产���与方案", "管理类", "销售类"]
 
 function JobCard({ job }: { job: Job }) {
   const [open, setOpen] = useState(false)
@@ -469,60 +466,44 @@ function JobCard({ job }: { job: Job }) {
 
 export function CareersContent() {
   const [activeCategory, setActiveCategory] = useState("全部")
-  const [navItems, setNavItems] = useState<NavItem[]>([])
-  const [isClient, setIsClient] = useState(false)
-
-  // Ensure we only render on client to avoid hydration mismatch
-  useEffect(() => {
-    setIsClient(true)
-    // Get nav items only on client side
-    const items = getNavItems("/about/careers")
-    setNavItems(items)
-  }, [])
 
   const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
 
   return (
-    <main>
-      {/* Hero with Header */}
-      <section className="relative overflow-hidden bg-[#1a1a1a]">
-        {/* Header overlay - only render after client hydration */}
-        {isClient && <Header navItems={navItems} variant="overlay" />}
-        
-        {/* Hero content */}
-        <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-            <div className="absolute -bottom-10 right-10 h-80 w-80 rounded-full bg-primary/8 blur-3xl" />
-            <div className="absolute left-1/2 top-1/2 h-[1px] w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          </div>
-          <div className="relative mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-2xl">
-              <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
-                Talent Recruitment
-              </span>
-              <h1 className="mt-4 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
-                加入我们
-              </h1>
-              <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
-                我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
-              </p>
-              <div className="mt-8 flex flex-wrap gap-6 3xl:mt-10 3xl:gap-8">
-                {[
-                  { num: String(jobs.length) + "+", label: "开放岗位" },
-                  { num: "5+", label: "城市" },
-                  { num: "20+", label: "年行业经验" },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col">
-                    <span className="text-2xl font-bold text-primary 3xl:text-3xl">{stat.num}</span>
-                    <span className="text-sm text-background/60 3xl:text-base">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
+    <>
+      {/* Hero content */}
+      <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute -bottom-10 right-10 h-80 w-80 rounded-full bg-primary/8 blur-3xl" />
+          <div className="absolute left-1/2 top-1/2 h-[1px] w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+        </div>
+        <div className="relative mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
+          <div className="max-w-2xl">
+            <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
+              Talent Recruitment
+            </span>
+            <h1 className="mt-4 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
+              加入我们
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
+              我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
+            </p>
+            <div className="mt-8 flex flex-wrap gap-6 3xl:mt-10 3xl:gap-8">
+              {[
+                { num: String(jobs.length) + "+", label: "开放岗位" },
+                { num: "5+", label: "城市" },
+                { num: "20+", label: "年行业经验" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex flex-col">
+                  <span className="text-2xl font-bold text-primary 3xl:text-3xl">{stat.num}</span>
+                  <span className="text-sm text-background/60 3xl:text-base">{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Why us */}
       <section className="border-b border-border bg-muted/40">
@@ -597,6 +578,8 @@ export function CareersContent() {
           </div>
         </div>
       </section>
-    </main>
+    </>
+  )
+}
   )
 }
