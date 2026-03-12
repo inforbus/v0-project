@@ -63,18 +63,11 @@ export function TimelineComponent() {
   }
 
   return (
-    <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/timeline-bg.jpg)' }}>
-      {/* White overlay with 70% opacity */}
-      <div className="absolute inset-0 bg-white/70"></div>
-      <div className="mx-auto max-w-7xl px-4 lg:px-8 py-16 lg:py-20 relative z-10">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="font-sans text-4xl font-bold text-foreground mb-4">发展历程</h2>
-          <div className="w-16 h-1 bg-[#BF1920] mx-auto"></div>
-        </div>
+    <div className="w-full">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8 py-0 lg:py-0">
 
         {/* Main Content Area */}
-        <div className="flex items-center justify-center gap-16 min-h-64 mb-16">
+        <div className="flex items-center justify-center gap-16 min-h-64 mb-8">
           {/* Left Side - Large Year */}
           <div className="text-center flex-1">
             <div className="text-8xl font-bold text-foreground/80">{currentData.year}年</div>
@@ -92,7 +85,7 @@ export function TimelineComponent() {
         </div>
 
         {/* Timeline Track */}
-        <div className="px-4 pb-8">
+        <div className="px-4 pb-0">
           <div className="flex items-center gap-6 pt-10">
             <button
               onClick={handlePrev}

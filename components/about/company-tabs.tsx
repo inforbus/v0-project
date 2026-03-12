@@ -98,11 +98,29 @@ export function CompanyTabs() {
           )}
 
           {activeTab === 'honors' && (
-            <HonorsCarousel />
+            <div className="animate-fadeIn">
+              <div className="space-y-12">
+                {/* Title */}
+                <div className="space-y-4 text-center">
+                  <h2 className="font-sans text-4xl font-bold text-foreground">公司荣誉</h2>
+                  <p className="font-sans text-base text-foreground/70">见证我们的成就与荣耀</p>
+                </div>
+                <HonorsCarousel />
+              </div>
+            </div>
           )}
 
           {activeTab === 'timeline' && (
-            <TimelineComponent />
+            <div className="animate-fadeIn">
+              <div className="space-y-12">
+                {/* Title */}
+                <div className="space-y-4 text-center">
+                  <h2 className="font-sans text-4xl font-bold text-foreground">发展历程</h2>
+                  <p className="font-sans text-base text-foreground/70">二十年砥砺前行，见证行业发展</p>
+                </div>
+                <TimelineComponent />
+              </div>
+            </div>
           )}
 
           {activeTab === 'contact' && (
