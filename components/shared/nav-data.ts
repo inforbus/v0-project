@@ -74,14 +74,14 @@ export function getNavItems(activePath: string): NavItem[] {
     { name: "首页", href: "/", active: activePath === "/", children: [], isMega: false },
     {
       name: "产品中心",
-      href: "/products",
+      href: "",
       active: activePath === "/products" || activePath.startsWith("/middleware"),
       children: [],
       isMega: true,
     },
     {
       name: "解决方案",
-      href: "/solutions",
+      href: "",
       active: activePath === "/solutions",
       isMega: false,
       children: [
@@ -96,7 +96,7 @@ export function getNavItems(activePath: string): NavItem[] {
     },
     {
       name: "成功案例",
-      href: "/cases",
+      href: "",
       active: activePath === "/cases" || activePath.startsWith("/cases"),
       isMega: false,
       children: [
@@ -107,7 +107,7 @@ export function getNavItems(activePath: string): NavItem[] {
     },
     {
       name: "服务支持",
-      href: "/support",
+      href: "",
       active: activePath === "/support" || activePath.startsWith("/support"),
       isMega: false,
       children: [
@@ -120,7 +120,7 @@ export function getNavItems(activePath: string): NavItem[] {
     },
     {
       name: "关于我们",
-      href: "/about",
+      href: "",
       active: activePath === "/about" || activePath === "/news" || activePath.startsWith("/news"),
       isMega: false,
       children: [
