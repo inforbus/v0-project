@@ -63,7 +63,7 @@ export function getNavItems(activePath?: string): NavItem[] {
         { name: "在线服务", href: "/support/online" },
         { name: "认证证书", href: "/support/certification" },
         { name: "产品升级", href: "/support/upgrade" },
-        { name: "常见问题", href: "/support/faq" },
+        { name: "FAQ", href: "/support/faq" },
         { name: "Kubernetes服务", href: "/support/kubernetes" },
       ],
       isMega: false,
