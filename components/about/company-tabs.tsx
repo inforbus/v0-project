@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { HonorsCarousel } from './honors-carousel'
 import { TimelineComponent } from './timeline'
@@ -13,8 +14,24 @@ const tabs = [
   { id: 'investors', label: '投资者关系' },
 ]
 
+// 根据URL路径获取对应的tab ID
+function getTabFromPath(pathname: string): string {
+  if (pathname.includes('/introduction')) return 'profile'
+  if (pathname.includes('/honors')) return 'honors'
+  if (pathname.includes('/history')) return 'timeline'
+  if (pathname.includes('/contact')) return 'contact'
+  if (pathname.includes('/investor')) return 'investors'
+  return 'profile'
+}
+
 export function CompanyTabs() {
+  const pathname = usePathname()
   const [activeTab, setActiveTab] = useState('profile')
+
+  useEffect(() => {
+    const tab = getTabFromPath(pathname)
+    setActiveTab(tab)
+  }, [pathname])
 
   return (
     <div className="w-full">
@@ -302,7 +319,7 @@ export function CompanyTabs() {
                 {/* Additional Info */}
                 <div className="text-center bg-slate-50 rounded-lg p-8 border border-border">
                   <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    如有任何关于投资者关系的问题，欢迎通过上述方式与我们联系，我们将竭诚为您服务。
+                    如有任何关于投资者关系的问题，欢���通过上述方式与我们联系，我们将竭诚为您服务。
                   </p>
                 </div>
               </div>
