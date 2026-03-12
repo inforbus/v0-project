@@ -176,7 +176,7 @@ export function CompanyTabs() {
                         </div>
                         <div className="flex-1">
                           <h4 className="font-sans font-bold text-foreground mb-2">济南总部</h4>
-                          <p className="font-sans text-sm text-foreground/70 leading-relaxed">山东省���南市历下区千佛山东路41-1号</p>
+                          <p className="font-sans text-sm text-foreground/70 leading-relaxed">山东省济南市历下区千佛山东路41-1号</p>
                         </div>
                       </div>
                     </div>
