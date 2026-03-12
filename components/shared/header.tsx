@@ -96,12 +96,21 @@ function MobileNavItem({ item }: { item: NavItem }) {
   return (
     <div className="border-b border-border/40 last:border-b-0">
       <div className="flex items-center justify-between">
-        <Link
-          href={item.href}
-          className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
-        >
-          {item.name}
-        </Link>
+        {item.href ? (
+          <Link
+            href={item.href}
+            className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
+          >
+            {item.name}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className={`flex-1 py-3 text-left text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
+          >
+            {item.name}
+          </button>
+        )}
         {hasChildren && (
           <button
             type="button"
@@ -177,17 +186,31 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
             {navItems.map((item, index) => (
               <div key={index} className="group/nav relative">
-                <Link
-                  href={item.href}
-                  className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : isOverlay ? "text-white/90" : "text-foreground"
-                    }`}
-                >
-                  {item.name}
-                  {(item.children.length > 0 || item.isMega) && (
-                    <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
-                  )}
-                  {item.active && <span className="absolute -bottom-[13px] left-0 h-[3px] w-full bg-primary" />}
-                </Link>
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : isOverlay ? "text-white/90" : "text-foreground"
+                      }`}
+                  >
+                    {item.name}
+                    {(item.children.length > 0 || item.isMega) && (
+                      <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
+                    )}
+                    {item.active && <span className="absolute -bottom-[13px] left-0 h-[3px] w-full bg-primary" />}
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className={`relative flex items-center gap-1 whitespace-nowrap py-4 text-sm font-medium transition-colors hover:text-primary 3xl:text-base ${item.active ? "text-primary" : isOverlay ? "text-white/90" : "text-foreground"
+                      }`}
+                  >
+                    {item.name}
+                    {(item.children.length > 0 || item.isMega) && (
+                      <ChevronDown className="h-3 w-3 transition-transform duration-200 group-hover/nav:rotate-180" />
+                    )}
+                    {item.active && <span className="absolute -bottom-[13px] left-0 h-[3px] w-full bg-primary" />}
+                  </button>
+                )}
 
                 {item.isMega && (
                   <div className="pointer-events-none absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
