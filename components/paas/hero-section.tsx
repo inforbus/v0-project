@@ -5,15 +5,15 @@ import Link from "next/link"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-export function DataIntegrationHeroSection() {
-  const navItems = useMemo(() => getNavItems("/digital-platform/data-integration"), [])
+export function PaaSHeroSection() {
+  const navItems = useMemo(() => getNavItems("/products"), [])
 
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20109%20%281%29-JFnaPYNkygfBba9oE3cPrabQteeVqp.png"
-        alt="中创数据集成平台"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/paas_banner-bNAKiPnOysaLdZd8g3FGfwoDUv91oI.png"
+        alt="中创PaaS平台——容器云平台"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
@@ -27,7 +27,7 @@ export function DataIntegrationHeroSection() {
           className="font-sans font-bold text-[#332C2B]"
           style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
-          中创元穹数据集成平台 InforSuite DI
+          中创PaaS平台——容器云平台
         </h1>
 
         {/* Red accent line */}
@@ -36,12 +36,20 @@ export function DataIntegrationHeroSection() {
           style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
         />
 
-        {/* Subtitle */}
+        {/* Subtitle 1 */}
         <p
           className="font-sans font-normal text-[#332C2B]"
           style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
         >
-          集成异构数据 实现敏捷共享
+          融合云计算、大数据、微服务
+        </p>
+
+        {/* Subtitle 2 */}
+        <p
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
+        >
+          基于容器技术打造的私有云平台
         </p>
       </div>
 

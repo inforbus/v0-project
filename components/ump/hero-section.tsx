@@ -5,15 +5,15 @@ import Link from "next/link"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-export function DataIntegrationHeroSection() {
-  const navItems = useMemo(() => getNavItems("/digital-platform/data-integration"), [])
+export function UMPHeroSection() {
+  const navItems = useMemo(() => getNavItems("/products"), [])
 
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20109%20%281%29-JFnaPYNkygfBba9oE3cPrabQteeVqp.png"
-        alt="中创数据集成平台"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AS%E7%9A%84banner%E5%9B%BE-BSECyM15Z10y2OyngqvfzXGcFJPx5x.png"
+        alt="中创应用服务器软件 InforSuite AS"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
@@ -27,7 +27,7 @@ export function DataIntegrationHeroSection() {
           className="font-sans font-bold text-[#332C2B]"
           style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
-          中创元穹数据集成平台 InforSuite DI
+          中创统一监管平台 InforGuard UMP
         </h1>
 
         {/* Red accent line */}
@@ -41,7 +41,7 @@ export function DataIntegrationHeroSection() {
           className="font-sans font-normal text-[#332C2B]"
           style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
         >
-          集成异构数据 实现敏捷共享
+          智慧化运维监管     一体化可视可控
         </p>
       </div>
 

@@ -96,7 +96,7 @@ export function HonorsCarousel() {
   }
 
   return (
-    <div className="animate-fadeIn space-y-8">
+    <div className="space-y-8">
       {/* Carousel Section */}
       <div 
         className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center overflow-hidden rounded-lg"
