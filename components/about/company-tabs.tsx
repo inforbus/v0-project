@@ -101,9 +101,8 @@ export function CompanyTabs() {
             <div className="animate-fadeIn">
               <div className="space-y-12">
                 {/* Title */}
-                <div className="space-y-4 text-center">
+                <div className="text-center">
                   <h2 className="font-sans text-4xl font-bold text-foreground">公司荣誉</h2>
-                  <p className="font-sans text-base text-foreground/70">见证我们的成就与荣耀</p>
                 </div>
                 <HonorsCarousel />
               </div>
@@ -114,9 +113,8 @@ export function CompanyTabs() {
             <div className="animate-fadeIn">
               <div className="space-y-12">
                 {/* Title */}
-                <div className="space-y-4 text-center">
+                <div className="text-center">
                   <h2 className="font-sans text-4xl font-bold text-foreground">发展历程</h2>
-                  <p className="font-sans text-base text-foreground/70">二十年砥砺前行，见证行业发展</p>
                 </div>
                 <TimelineComponent />
               </div>
@@ -127,9 +125,8 @@ export function CompanyTabs() {
             <div className="animate-fadeIn">
               <div className="space-y-12">
                 {/* Title */}
-                <div className="space-y-4 text-center">
+                <div className="text-center">
                   <h2 className="font-sans text-4xl font-bold text-foreground">联系我们</h2>
-                  <p className="font-sans text-base text-foreground/70">欢迎通过以下方式与我们取得联系</p>
                 </div>
 
                 {/* Phone Section */}
@@ -368,7 +365,7 @@ export function CompanyTabs() {
                 </div>
                 <h4 className="font-sans text-lg font-bold text-foreground">能源领域</h4>
                 <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                  深度参与某电力大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨越。
+                  深度参与某电力大型央企数字化转型，实现从单一中间件产品替代到基础中间件全栈式替代的跨���。
                 </p>
               </div>
 
