@@ -1,7 +1,8 @@
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { getNavItems } from "@/components/shared/nav-data"
+import { NewsHeroSection } from "@/components/news/news-hero-section"
 import { CompanyNewsList } from "@/components/news/company-news-list"
+import { getNavItems } from "@/components/shared/nav-data"
 
 export const metadata = {
   title: "公司要闻 - 中创股份",
@@ -14,6 +15,7 @@ export default function CompanyNewsPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header navItems={navItems} />
+      <NewsHeroSection />
       <main className="flex-1">
         <CompanyNewsList />
       </main>
