@@ -26,7 +26,7 @@ function getTabFromPath(pathname: string): string {
 
 export function CompanyTabs() {
   const pathname = usePathname()
-  const [activeTab, setActiveTab] = useState('profile')
+  const [activeTab, setActiveTab] = useState(() => getTabFromPath(pathname))
 
   useEffect(() => {
     const tab = getTabFromPath(pathname)
