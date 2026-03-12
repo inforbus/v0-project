@@ -170,7 +170,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
 
   return (
     <header className="relative z-50">
-      <div className={`border-b ${isOverlay ? "bg-black/80 border-white/10" : "bg-black border-white/20"}`}>
+      <div className={`border-b ${isOverlay ? "border-white/10" : "border-white/20"}`}>
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -248,7 +248,7 @@ export function Header({ navItems, variant = "default" }: { navItems: NavItem[];
         </nav>
 
         {mobileMenuOpen && (
-          <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 bg-black lg:hidden">
+          <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 lg:hidden">
             <div className="px-4 py-4">
               {navItems.map((item, index) => (
                 <MobileNavItem key={index} item={item} />
