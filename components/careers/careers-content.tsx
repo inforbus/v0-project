@@ -547,5 +547,3 @@ export function CareersContent() {
     </main>
   )
 }
-  )
-}
