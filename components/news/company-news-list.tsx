@@ -55,7 +55,7 @@ const allNews = [
     date: '12/19',
     month: '12',
     year: '2025',
-    description: '近日，以数智齐章 共创未来为主题2025年全省数智产业发展大会在济南隆重召开，本次大会由山省数据局举办。',
+    description: '近日，以数智齐章 共创未来为主题2025年全省数智产业发展大会在济南隆重召开，本次大会由山省数据局举办,汇聚了全省工信系统、120余位代表。',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-i2KNP2AhZwpeqihLLdcUl6i510xEY7.jpg'
   },
   {
@@ -64,7 +64,7 @@ const allNews = [
     date: '12/17',
     month: '12',
     year: '2025',
-    description: '中国互联网协会日正式发布6项团体标准。中创股份作为两内领先的中间件软件中间件产品与服务提供商。',
+    description: '中国互联网协会日正式发布6项团体标准。中创股份作为两内领先的中间件软件中间件产品与服务提供商，亦是遗选为从资源共享研究的企业。',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7-FkN0BtmQalmMM5PmXwzaqzaxPW3JA1.jpg'
   },
   {
@@ -73,7 +73,7 @@ const allNews = [
     date: '12/16',
     month: '12',
     year: '2025',
-    description: '近日，由中国通信标准协会主办、中国信息通信研究院承办的2025年云评估及创新应用大会在北京成功召开。',
+    description: '近日，由中国通信标准协会主办、中国信息通信研究院承办的2025年云评估及创新应用大会在北京成功召开，本次大会由山专合作企业云计算服务商主办。',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8-9xHsjh1EaCnCfLcr3s4LUX9or50E2x.jpg'
   },
   {
@@ -82,28 +82,117 @@ const allNews = [
     date: '10/21',
     month: '10',
     year: '2025',
-    description: '近日，工业和信息化部发布了国家级专精特新企业名单，山东中创股份荣登企业名单。此次被认定为专精特新企业。',
+    description: '近日，工业和信息化部发布了国家级专精特新企业名单，山东中创股份荣登企业名单。此次被认定为专精特新企业，是对公司创新发展成绩的充分肯定。',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9-itxhffSXs26i8UICrXb7coMEifb2T7.jpg'
   },
   {
     id: 10,
-    title: '中创股份出席第二十七届中国国际软件博览会',
+    title: '中创股份出席2025年第二十七届中国国际软件博览会',
     date: '10/16',
     month: '10',
     year: '2025',
-    description: '今日，第27届中国国际软件博览会成功举办。本次会议以开源创新主场为主题，聚焦软件和信息技术产业深耕。',
+    description: '今日，第27届中国国际软件博览会成功举办。本次会议以开源创新主场为主题，聚焦软件和信息技术产业深耕、促进数字化转型升级。',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10-hn1JmzJokXIYFj4IQXoT2zRBfRt9jS.jpg'
+  },
+  {
+    id: 11,
+    title: '济南市商埠软件与场企业资讯员见面会召开',
+    date: '09/28',
+    month: '09',
+    year: '2025',
+    description: '9月26日，济南市人民政府新闻办公室举办了产业链上的好盛景济南市企业家见面会。作为中国软件名城，济南的软件产业生态建设成效显著。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png'
+  },
+  {
+    id: 12,
+    title: '中创股份荣选出席第三届中国上市公司产业发展论坛',
+    date: '09/25',
+    month: '09',
+    year: '2025',
+    description: '近日，第三届中国上市公司产业发展论坛在上海召开。活动以未来产业与国有战略为主题，由上海市发改委主办。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png'
+  },
+  {
+    id: 13,
+    title: '正式布局电信运营领域！中创股份新获中国移动应用服务器中间件采购项目',
+    date: '11/03',
+    month: '11',
+    year: '2025',
+    description: '近日，国内领先的基础软件中创股份与中国的应用服务器中间件产品选择为中创软件，获得了中国移动应用服务器中间件采购项目。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+  },
+  {
+    id: 14,
+    title: '中创应用服务器：以AI重塑企业数字化竞争力',
+    date: '10/24',
+    month: '10',
+    year: '2025',
+    description: '当前，人工智能技术正以前所有的速度重塑各行业。从生产制造到金融服务，从医疗健康到企业管理，AI的广泛渗透与应用。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+  },
+  {
+    id: 15,
+    title: '实力彰显！中创股份荣登2025数字生态500强榜单',
+    date: '10/24',
+    month: '10',
+    year: '2025',
+    description: '近日，由BP商业评刊主办的2025数字生态大会圆满落幕。同期推出，由产业链专业评测平台发布的年度榜单。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+  },
+  {
+    id: 16,
+    title: '中软协·2024中国软件创新发展大会成功召开',
+    date: '10/23',
+    month: '10',
+    year: '2025',
+    description: '今日，由中国软件行业协会主办的2025软件创新发展大会在苏州隆重召开。本次大会以AI国策软件，赋能产业未来为主题。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+  },
+  {
+    id: 17,
+    title: 'AI重塑软件 赋能产业未来 中创股份出席2025软件技术大会',
+    date: '12/08',
+    month: '12',
+    year: '2025',
+    description: '近日，中软行业联盟与有限公司主办的2025软件技术大会在北京国家会议中心隆重举行。本次大会以AI重塑软件，赋能产业未来为主题。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+  },
+  {
+    id: 18,
+    title: '数智医疗，信创未来——中创股份荣选出席医疗信息解决方案研讨会',
+    date: '11/19',
+    month: '11',
+    year: '2025',
+    description: '近日，山东信息化学会淮坊市卫生健康委员会联合主办的数智医疗，信创未来医疗信息解决方案研讨会成功举办。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+  },
+  {
+    id: 19,
+    title: '第二届教育信息技术应用创新大赛决赛在浙江大学举行',
+    date: '11/13',
+    month: '11',
+    year: '2025',
+    description: '由中国教育技术协会主办的第二届教育信息技术应用创新大赛决赛在浙江大学举行。经过全国初赛的激烈角逐，36支队伍脱颖而出。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+  },
+  {
+    id: 20,
+    title: '数智医疗、信创未来——中创股份荣邀出席日照医疗信息创新解决方案研讨会',
+    date: '11/11',
+    month: '11',
+    year: '2025',
+    description: '近日，数智医疗、信创未来医疗信息创新解决方案研讨会日照站成功举办。本次会议由山东信息化学会与日照市卫生健康委员会共同参与。',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
   }
 ]
 
-const ITEMS_PER_PAGE = 4
+const itemsPerPage = 5
 
 export function CompanyNewsList() {
   const [currentPage, setCurrentPage] = useState(1)
-
-  const totalPages = Math.ceil(allNews.length / ITEMS_PER_PAGE)
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-  const currentNews = allNews.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+  const totalPages = Math.ceil(allNews.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const currentNews = allNews.slice(startIndex, startIndex + itemsPerPage)
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
@@ -111,72 +200,65 @@ export function CompanyNewsList() {
   }
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 3xl:py-24">
-      <div className="mx-auto max-w-5xl px-4 lg:px-8">
+    <section className="py-12 md:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
         {/* News List */}
-        <div className="space-y-12 md:space-y-16">
-          {currentNews.map((item) => (
-            <article key={item.id} className="group">
-              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-                {/* Image */}
-                <div className="flex-shrink-0 w-full lg:w-96">
-                  <div className="relative overflow-hidden rounded-lg bg-muted aspect-[4/3]">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
+        <div className="space-y-0">
+          {currentNews.map((item, index) => (
+            <article key={item.id} className="flex gap-6 md:gap-8 border-b border-border py-6 md:py-8">
+              {/* Date Column */}
+              <div className="flex-shrink-0 text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary">
+                  {item.month}-{item.date.split('/')[1]}
                 </div>
-
-                {/* Content */}
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-baseline gap-4 mb-4">
-                      <h3 className="text-xl lg:text-2xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors duration-300 flex-1">
-                        {item.title}
-                      </h3>
-                      <div className="flex-shrink-0 text-right">
-                        <div className="text-primary font-bold text-2xl">{item.month}</div>
-                        <div className="text-foreground/70 text-sm">{item.date.split('/')[1]}</div>
-                        <div className="text-foreground/50 text-xs mt-1">{item.year}</div>
-                      </div>
-                    </div>
-                    <p className="text-base text-foreground/70 leading-relaxed line-clamp-4">
-                      {item.description}
-                    </p>
-                  </div>
-                  <Link
-                    href="#"
-                    className="inline-flex items-center text-primary font-medium text-base mt-6 hover:gap-2 transition-all duration-300 w-fit"
-                  >
-                    查看更多
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-2">
-                      <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
+                <div className="text-xs md:text-sm text-foreground/50 mt-1 px-2 py-1 bg-foreground/5 rounded inline-block">
+                  {item.year}
                 </div>
               </div>
 
-              {/* Divider */}
-              <div className="border-b border-border mt-12 md:mt-16" />
+              {/* Content Column */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base md:text-lg font-semibold text-foreground mb-2 line-clamp-2 hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm md:text-base text-foreground/70 line-clamp-2 mb-3">
+                  {item.description}
+                </p>
+                <Link href="#" className="inline-flex items-center text-primary text-sm md:text-base font-medium hover:gap-1 transition-all">
+                  详细
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="ml-1">
+                    <path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* Image Column */}
+              <div className="flex-shrink-0 hidden md:block">
+                <div className="w-32 h-24 rounded-lg overflow-hidden bg-muted">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
             </article>
           ))}
         </div>
 
         {/* Pagination */}
-        <div className="mt-12 md:mt-16 flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-2 mt-12">
           <button
             onClick={() => handlePageChange(1)}
-            className="px-4 py-2 text-sm font-medium text-foreground border border-border rounded transition-all duration-300 hover:bg-foreground/5 disabled:opacity-50"
             disabled={currentPage === 1}
+            className="px-3 py-2 text-sm font-medium rounded border border-border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-foreground/5"
           >
             首页
           </button>
           <button
-            onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-            className="px-4 py-2 text-sm font-medium text-foreground border border-border rounded transition-all duration-300 hover:bg-foreground/5 disabled:opacity-50"
+            onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
+            className="px-3 py-2 text-sm font-medium rounded border border-border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-foreground/5"
           >
             上一页
           </button>
@@ -185,10 +267,10 @@ export function CompanyNewsList() {
             <button
               key={page}
               onClick={() => handlePageChange(page)}
-              className={`px-3 py-2 text-sm font-medium rounded transition-all duration-300 ${
+              className={`px-3 py-2 text-sm font-medium rounded border ${
                 currentPage === page
-                  ? 'bg-primary text-white'
-                  : 'text-foreground border border-border hover:bg-foreground/5'
+                  ? 'bg-primary border-primary text-white'
+                  : 'border-border hover:bg-foreground/5'
               }`}
             >
               {page}
@@ -196,16 +278,16 @@ export function CompanyNewsList() {
           ))}
 
           <button
-            onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
-            className="px-4 py-2 text-sm font-medium text-foreground border border-border rounded transition-all duration-300 hover:bg-foreground/5 disabled:opacity-50"
+            onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
+            className="px-3 py-2 text-sm font-medium rounded border border-border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-foreground/5"
           >
             下一页
           </button>
           <button
             onClick={() => handlePageChange(totalPages)}
-            className="px-4 py-2 text-sm font-medium text-foreground border border-border rounded transition-all duration-300 hover:bg-foreground/5 disabled:opacity-50"
             disabled={currentPage === totalPages}
+            className="px-3 py-2 text-sm font-medium rounded border border-border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-foreground/5"
           >
             尾页
           </button>
