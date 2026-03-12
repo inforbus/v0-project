@@ -2,9 +2,9 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
-import { getProductCategories, type NavItem } from "./nav-data"
+import { getProductCategories, getNavItems, type NavItem } from "./nav-data"
 
 function ProductMegaMenu() {
   const [activeCategory, setActiveCategory] = useState(0)
@@ -164,9 +164,18 @@ function MobileNavItem({ item }: { item: NavItem }) {
   )
 }
 
-export function Header({ navItems, variant = "default", isDarkBg = false }: { navItems: NavItem[]; variant?: "default" | "overlay"; isDarkBg?: boolean }) {
+export function Header({ navItems, variant = "default", isDarkBg = false, activePath = "/" }: { navItems?: NavItem[]; variant?: "default" | "overlay"; isDarkBg?: boolean; activePath?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const isOverlay = variant === "overlay"
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Use local nav data to ensure consistent rendering between server and client
+  const localNavItems = useMemo(() => getNavItems(activePath), [activePath])
+  const items = mounted ? localNavItems : []
 
   return (
     <header className="relative z-50">
@@ -184,7 +193,7 @@ export function Header({ navItems, variant = "default", isDarkBg = false }: { na
           </Link>
 
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
-            {navItems.map((item, index) => (
+            {items.map((item, index) => (
               <div key={index} className="group/nav relative">
                 {item.href ? (
                   <Link
@@ -253,10 +262,10 @@ export function Header({ navItems, variant = "default", isDarkBg = false }: { na
           </button>
         </nav>
 
-        {mobileMenuOpen && (
+        {mobileMenuOpen && mounted && (
           <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 lg:hidden">
             <div className="px-4 py-4">
-              {navItems.map((item, index) => (
+              {items.map((item, index) => (
                 <MobileNavItem key={index} item={item} />
               ))}
             </div>

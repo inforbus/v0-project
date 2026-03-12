@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
@@ -468,7 +467,6 @@ function JobCard({ job }: { job: Job }) {
 
 export function CareersContent() {
   const [activeCategory, setActiveCategory] = useState("全部")
-  const navItems = getNavItems("/about/careers")
 
   const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
 
@@ -477,7 +475,7 @@ export function CareersContent() {
       {/* Hero with Header */}
       <section className="relative overflow-hidden bg-[#1a1a1a]">
         {/* Header overlay */}
-        <Header navItems={navItems} variant="overlay" />
+        <Header activePath="/about/careers" variant="overlay" />
         
         {/* Hero content */}
         <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
