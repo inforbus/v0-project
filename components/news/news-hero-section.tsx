@@ -1,9 +1,9 @@
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-export function NewsHeroSection() {
-  const navItems = getNavItems("/news/company")
+const navItems = getNavItems("/news/company")
 
+export function NewsHeroSection() {
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}
@@ -31,10 +31,10 @@ export function NewsHeroSection() {
           新闻资讯
         </h1>
 
-        {/* Subtitle */}
+        {/* Subtitle 1 */}
         <p
           className="font-sans font-normal text-[#332C2B]"
-          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
         >
           最热新闻资讯，最新行业动态
         </p>
