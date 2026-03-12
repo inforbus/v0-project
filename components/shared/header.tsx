@@ -183,11 +183,11 @@ export function Header({ navItems, variant = "default", isDarkBg = false, active
         <nav className="mx-auto flex w-full items-center justify-between px-6 py-3 lg:px-10 xl:px-16">
           <Link href="/" className="flex-shrink-0">
             <Image
-              src={isDarkBg && isOverlay ? "/logo-white.svg" : "/logo.svg"}
+              src="/logo.svg"
               alt="中创软件"
               width={120}
               height={40}
-              className="h-8 w-auto transition-all"
+              className="h-8 w-auto"
               priority
             />
           </Link>
