@@ -7,14 +7,41 @@ const row1 = [
   { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E9%AB%98%E6%96%B0%E6%8A%80%E6%9C%AF%E4%BC%81%E4%B8%9A%E8%AE%A4%E8%AF%81-7xYKpLTzHeFI1OGMJVBMnM590DbUqc.jpg", title: "高新技术企业认证", num: "02" },
   { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ISO9001%E8%B4%A8%E9%87%8F%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81-4KG8T5EULxGDoRiGbZtYsCMDLXPfml.jpg", title: "ISO9001质量体系认证", num: "03" },
   { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ISO20000%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81-3zZyHRWiZRz8vgtoDJIjoE6hzqS7g6.jpg", title: "ISO20000信息技术服务管理体系认证", num: "04" },
-  { img: "/images/honor-placeholder-05.jpg", title: "企业荣誉证书（待添加）", num: "05" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ITSS%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E5%88%86%E4%BC%9A%E4%BC%9A%E5%91%98%E5%8D%95%E4%BD%8D-P1sL9unDGwEUgBpc3eei1Vf5yYAfX6.jpg", title: "ITSS信息技术服务分会会员单位", num: "05" },
 ]
 
 const row2 = [
   { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB-T8fpuOjHx0A6Pdtl7xbzAZn2pCrcd7.jpg", title: "信息安全管理体系", num: "06" },
   { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%81%8C%E4%B8%9A%E5%81%A5%E5%BA%B7%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81%E8%AF%81%E4%B9%A6-rIJHiArKUbTN6rE8O927ZicUp3zKuU.jpg", title: "职业健康安全管理体系认证证书", num: "07" },
-  { img: "/images/honor-placeholder-08.jpg", title: "企业荣誉证书（待添加）", num: "08" },
-  { img: "/images/honor-placeholder-09.jpg", title: "企业荣誉证书（待添加）", num: "09" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2024%E5%B9%B4%E5%88%9B%E6%96%B0%E8%BD%AF%E4%BB%B6%E4%BA%A7%E5%93%81-O2bGg1AqsDuORQDj0tWjvjtcOXGhrL.jpg", title: "2024年创新软件产品", num: "08" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2024%E5%B9%B4%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%85%B8%E5%9E%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-tRSoRfkpahYCI12iO5LIplGV6h74CZ.jpg", title: "2024年信息技术应用创新典型解决方案", num: "09" },
+]
+
+const row3 = [
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2024-2025%E5%B9%B4%E5%BA%A6%E8%80%83%E6%A0%B8%E7%AD%89%E7%BA%A7%E4%BC%98%E7%A7%80.png-vQXq077LJULo65EYdrWOQie2tNkTYA.jpeg", title: "2024-2025年度考核等级优秀", num: "10" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%AC%AC%E5%85%AD%E5%B1%8A%E6%B5%8E%E5%8D%97%E5%B8%82%E7%BD%91%E7%BB%9C%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E6%94%AF%E6%92%91%E5%8D%95%E4%BD%8D.png-CQSvNn7PofEeL6gsDdceh1pujwkIbd.jpeg", title: "第六届济南市网络和数据安全技术支撑单位", num: "11" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BF%A1%E5%88%9B%E6%95%B0%E6%99%BA%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E8%83%BD%E5%8A%9B%E4%B8%80%E7%BA%A7-%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E8%83%BD%E5%8A%9B_01.png-ERHg3Vzw9E8r6RFQ8BYstvQ1xbym7m.jpeg", title: "信创数智技术服务能力一级-数据服务能力", num: "12" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2024%E7%BD%91%E7%BB%9C%E4%BA%A7%E5%93%81%E5%AE%89%E5%85%A8%E8%83%BD%E5%8A%9B%E6%8F%90%E5%8D%87%E8%AE%A1%E5%88%92%E4%BC%98%E7%A7%80%E5%8F%82%E4%B8%8E%E5%8D%95%E4%BD%8D.png-k3JTatqMoxDRQ7qc1GENAHl9SVUDXA.jpeg", title: "2024网络产品安全能力提升计划优秀参与单位", num: "13" },
+]
+
+const row4 = [
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%96%B0%E5%9E%8B%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82%E4%BC%98%E7%A7%80%E8%A7%A3%E5%86%B3%E6%96%B9.png-o3S0Qz7gQMsRBTGQyvxbK8UK2YAdHs.jpeg", title: "新型智慧城市优秀解决方案", num: "14" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BF%A1%E5%88%9B%E6%95%B0%E6%99%BA%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E8%83%BD%E5%8A%9B%E4%B8%80%E7%BA%A7-%E4%BF%A1%E5%88%9B%E5%B7%A5%E7%A8%8B%E5%AE%9E%E6%96%BD%E8%83%BD%E5%8A%9B_01.png-TpyvzsSTvplgTzhsicBkvLf6KCHSkh.jpeg", title: "信创数智技术服务能力一级-信创工程实施能力", num: "15" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2025%E5%B9%B4%E5%BA%A6%E8%BD%AF%E4%BB%B6%E5%92%8C%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E7%AB%9E%E4%BA%89%E5%8A%9B%E7%99%BE%E5%BC%BA%E4%BC%81%E4%B8%9A.png-WynkPDmiwSCIwYKF4FiOxVvoFT0PVm.jpeg", title: "2025年度软件和信息技术服务竞争力百强企业", num: "16" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E9%87%91%E9%BC%8E%E7%AD%91%E5%9F%BA%E5%A5%96.png-8wxp7caz6YMRZdyj56yTSiQGFwOHim.jpeg", title: "金鼎筑基奖", num: "17" },
+]
+
+const row5 = [
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%B7%A5%E4%BD%9C%E5%A7%94%E5%91%98%E4%BC%9A%E6%8A%80%E6%9C%AF%E6%B4%BB%E5%8A%A8%E5%8D%95%E4%BD%8D.png-6Lp5wISNuOuvrn1YiG3VvqwkYRzoP6.jpeg", title: "信息技术应用创新工作委员会技术活动单位", num: "18" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2024%E6%95%B0%E5%AD%97%E7%94%9F%E6%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%A2%86%E5%86%9B%E4%BC%81%E4%B8%9A-0ZgGfn04grwuk7aGDOoxFVc68B1b15.jpg", title: "2024数字生态中间件领军企业", num: "19" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%B1%B1%E4%B8%9C%E7%9C%81%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E4%BC%98%E7%A7%80%E4%BA%A7%E5%93%81-nU6hC4W3E4XtwmHjWkUGqtqFfF2EwK.jpg", title: "山东省数据治理优秀产品", num: "20" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9C%AA%E6%9D%A5%E4%BA%A7%E4%B8%9A%E4%B9%8B%E6%98%9F.png-utIOY69S4qG8QA6Drn9MdLUd70KIeg.jpeg", title: "未来产业之星", num: "21" },
+]
+
+const row6 = [
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2025%E5%B9%B4%E5%BA%A6%E8%BD%AF%E4%BB%B6%E5%92%8C%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E5%90%8D%E7%89%8C%E4%BC%81%E4%B8%9A.png-V2BQ4AliElctYTbsbFvSdyN4OuhAaJ.jpeg", title: "2025年度软件和信息技术服务名牌企业", num: "22" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2025%E5%B9%B4AICLOUDIA%E5%88%9B%E6%96%B0%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5AI%CLOUD%E4%B8%AD%E9%97%B4%E4%BB%B6-3Gerh8hfI3m9RinrVhqnMbBM8hpHGk.jpeg", title: "中创智能体中间件", num: "23" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2025%E5%B9%B4%E5%BA%A6%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E5%88%9B%E6%96%B0%E5%B7%A5%E4%BD%9C%E5%A7%94%E5%91%98%E4%BC%9A%E5%8D%93%E8%B6%8A%E8%B4%A1%E7%8C%AE%E6%88%90%E5%91%98%E5%8D%95%E4%BD%8D.png-bb6e3syVBMdN2nhEBES5zK6MDeRbUi.jpeg", title: "2025年度信息技术应用创新工作委员会卓越贡献成员单位", num: "24" },
 ]
 
 function HonorCard({ honor, prefix, hideNum = false }: { honor: (typeof row1)[0]; prefix: string; hideNum?: boolean }) {
@@ -76,6 +103,38 @@ export function HonorsSection() {
           <div className="honor-marquee-wrapper relative">
             <div className="honor-marquee-track-reverse flex gap-5 3xl:gap-6">
               {[...Array(2)].map((_, setIdx) => row2.map((honor, i) => <HonorCard key={`r2-${setIdx}-${i}`} honor={honor} prefix="row2" hideNum={true} />))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={400}>
+          <div className="honor-marquee-wrapper relative">
+            <div className="honor-marquee-track flex gap-5 3xl:gap-6">
+              {[...Array(2)].map((_, setIdx) => row3.map((honor, i) => <HonorCard key={`r3-${setIdx}-${i}`} honor={honor} prefix="row3" hideNum={true} />))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={550}>
+          <div className="honor-marquee-wrapper relative">
+            <div className="honor-marquee-track-reverse flex gap-5 3xl:gap-6">
+              {[...Array(2)].map((_, setIdx) => row4.map((honor, i) => <HonorCard key={`r4-${setIdx}-${i}`} honor={honor} prefix="row4" hideNum={true} />))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={700}>
+          <div className="honor-marquee-wrapper relative">
+            <div className="honor-marquee-track flex gap-5 3xl:gap-6">
+              {[...Array(2)].map((_, setIdx) => row5.map((honor, i) => <HonorCard key={`r5-${setIdx}-${i}`} honor={honor} prefix="row5" hideNum={true} />))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={850}>
+          <div className="honor-marquee-wrapper relative">
+            <div className="honor-marquee-track-reverse flex gap-5 3xl:gap-6">
+              {[...Array(2)].map((_, setIdx) => row6.map((honor, i) => <HonorCard key={`r6-${setIdx}-${i}`} honor={honor} prefix="row6" hideNum={true} />))}
             </div>
           </div>
         </ScrollReveal>
