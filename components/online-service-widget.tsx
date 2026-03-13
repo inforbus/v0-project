@@ -53,22 +53,14 @@ export function OnlineServiceWidget() {
           gap: "6px",
         }}
       >
-        {/* Chat icon placeholder */}
-        <div
-          style={{
-            width: "36px",
-            height: "32px",
-            background: "#f0f0f0",
-            borderRadius: "4px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "12px",
-            color: "#999",
-          }}
-        >
-          💬
-        </div>
+        {/* Chat icon - replaced with new image */}
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9C%A8%E7%BA%BF-9UdxG92GVQ7UZ44cfJw5DbpK3kU5VT.png"
+          alt="在线服务"
+          width={36}
+          height={32}
+          className="object-contain"
+        />
         {/* Vertical text "在线服务" - centered horizontally via flexbox */}
         <span
           className="text-primary"

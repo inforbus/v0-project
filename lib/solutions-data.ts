@@ -12,6 +12,7 @@ export interface SolutionDetail {
   }
   features: { title: string; desc: string }[]
   benefits: { label: string; value: string }[]
+  values?: { title: string; desc: string }[]
   useCases: string[]
   relatedProducts: { name: string; href: string }[]
 }
@@ -116,7 +117,7 @@ export const solutions: SolutionDetail[] = [
     ],
     architecture: {
       title: "监控架构",
-      desc: "基于国产化技术栈构建，支持多种国产芯片平台部署，通过统一的监控接口实现对全栈信创组件的综合监控。",
+      desc: "基于国产化技术栈构建，支持多种国产芯片平台部署，通过统一的监控�����口实现对全栈信创组件的综合监控。",
       image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80&auto=format",
     },
     features: [
@@ -146,7 +147,65 @@ export const solutions: SolutionDetail[] = [
     ],
   },
   {
-    slug: "xinchuang-middleware",
+    slug: "ai-agent",
+    title: "企业级全场景 AI 智能体管理平台解决方案",
+    subtitle: "",
+    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&auto=format",
+    overview: `随着大语言模型（LLM）技术的爆发，企业对 AI 的需求已从简单的"对话问答"转向深度的"业务协同"。本解决方案旨在构建一套以任务为导向、以领域为核心的企业级智能体管理平台。
+本平台通过整合底层大模型能力、RAG（检索增强生成）知识库以及 AI 安全防护机制，向上对接互联网及内网用户，中台实现智能体的全生命周期管理（AgentMgt、UserMgt、RAGMgt），核心层通过"任务与领域（Task & Domain）"引擎实现业务逻辑的自动化编排，并通过强大的连接器（Connection）触达 ERP、数据库、WeChat 等各类生产系统。`,
+    highlights: [
+      { icon: "deploy", title: `打通业务'最后一公里'`, desc: `传统 LLM 往往是孤岛，本方案通过 Connection 层实现与现有 ERP、RDB、Email 等系统的深度集成，让 Agent 具备"手"的能力，从"会说到会做"。` },
+      { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）转化为 Agent 的即时背景知识，解决大模型幻觉问题。" },
+      { icon: "govern", title: "多领域敏捷支撑", desc: "通过 Domain A/B/C 的划分，实现不同业务部门（HR、销售、IT）的隔离与协同，确保任务处理的专业性。" },
+      { icon: "decouple", title: "全链路安全可控", desc: "底座内置 AI Security 模块，针对数据脱敏、内容审查、访问授权进行全方位监控，满足企业合规性需求。" },
+    ],
+    architecture: {
+      title: "平台架构",
+      desc: "企业级全场景 AI 智能体管理平台架构，涵盖用户接入、Agent 平台、任务编排、系统连接和生产环保四大层次。",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9E%B6%E6%9E%84%E5%9B%BE-qte6VDj3U4iS74yOekcWo9DCTojP0r.png",
+    },
+    features: [
+      { title: "多端响应式交互", desc: "AgentWebSite 支持跨设备访问，提供流畅的对话式交互体验。" },
+      { title: "RAG 检索增强", desc: "支持多种格式文档上传与自动向量化，使 Agent 能够基于企业最新文档进行精准答复。" },
+      { title: "可视化任务编排", desc: "支持对 Task 进行流转设计，定义 Agent 在遇到特定条件时的决策分支。" },
+      { title: "异构系统桥接", desc: "WebSSH：允许 IT Support Agent 直接对服务器进行远程诊断。\nRDB Connection：实现 Agent 对数据库的自然语言查询 (Text-to-SQL)。" },
+      { title: "安全防御体系", desc: "AI Security 模块对敏感词、隐私字段（如身份证、工资条）进行自动过滤。" },
+    ],
+    benefits: [
+      { label: "降低开发门槛", value: "配置上线" },
+      { label: "响应效率提升", value: "7x24h" },
+      { label: "成本降低", value: "显著下降" },
+      { label: "可扩展性", value: "支持横向扩展" },
+    ],
+    values: [
+      { title: "降低开发门槛", desc: "业务人员可通过配置 AgentMgt 和 Task 模块快速上线智能体，无需深度编写 LLM 调用代码。" },
+      { title: "提升响应效率", desc: "通过 ASKHR 和 IT Support Agent，实现 7x24 小时自动响应，显著降低人力资源与运维成本。" },
+      { title: "决策数据化", desc: "通过连接 ERP 和 RDB，Agent 能够实时调取最新数据生成分析报告，辅助管理层决策。" },
+      { title: "架构可扩展性", desc: "支持 Domain 的横向扩展。当企业业务增加时，只需新增 Domain 模块和对应的 Connection 即可快速集成。" },
+    ],
+    useCases: [
+      `场景 1：智慧 HR 咨询 (ASKHR Agent)
+员工询问："我的年假还剩几天？"
+流程：用户请求 -> AgentPlatform -> ASKHR Agent -> Connection (RDB) -> ERP 系统。
+结果：Agent 自动查询考勤库并给出准确答复。`,
+      `场景 2：智能 IT 运维 (IT Support Agent)
+运维人员："某服务器 CPU 占用过高，请排查。"
+流程：用户请求 -> IT Support Agent -> Connection (WebSSH) -> 执行指令 -> 观察结果。
+结果：Agent 反馈进程列表并建议重启相关服务。`,
+      `场景 3：销售数据驱动 (Sales Agent)
+销售主管："分析上季度华东区销售额下滑原因。"
+流程：Sales Agent -> RAG (读取季度报告) + Connection (RDB 查询销售明细) -> 生成分析。`,
+    ],
+    relatedProducts: [
+      { name: "大模型 (LLM)", href: "#" },
+      { name: "向量数据库 (Vector DB)", href: "#" },
+      { name: "开发工具 (Lite XL/Zed/Neovim)", href: "#" },
+      { name: "Apache Airflow", href: "#" },
+      { name: "安全组件", href: "#" },
+    ],
+  },
+  {
+    slug: "disaster-recovery",
     title: "信创全栈中间件解决方案",
     subtitle: "基于自主可控技术体系，提供覆盖全场景的国产中间件产品矩阵",
     heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&auto=format",
@@ -163,11 +222,11 @@ export const solutions: SolutionDetail[] = [
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%B1%8F2026-02-26%2009.48.54-dINeUw8HwaEHihoN4MlRtqH4ruXSaP.png",
     },
     features: [
-      { title: "InforSuite AS", desc: "高性能应用服务器，支持Java EE全规范" },
+      { title: "InforSuite AS", desc: "高性能应用服务器，支持Java EE全��范" },
       { title: "InforSuite MQ", desc: "企业级消息中间件，支持多种消息协议" },
       { title: "InforSuite LB", desc: "智能负载均衡软件，支持多种调度算法" },
-      { title: "InforSuite Cache", desc: "分布式数据缓存中间件，提供亿级数据访问能力" },
-      { title: "InforSuite WF", desc: "工作流中间件，支持复杂业务流程编排" },
+      { title: "InforSuite Cache", desc: "分布式数据缓存中间件，提供亿��数据访问能力" },
+      { title: "InforSuite WF", desc: "工作流中间件，支持复���业务流程编排" },
       { title: "InforSuite ESB", desc: "企业服务总线，实现异构系统集成" },
     ],
     benefits: [

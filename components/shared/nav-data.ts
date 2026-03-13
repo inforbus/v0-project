@@ -89,9 +89,9 @@ export function getNavItems(activePath?: string): NavItem[] {
       href: "/solutions",
       active: activePath === "/solutions" || activePath.startsWith("/solutions"),
       children: [
-        { name: "金融行业", href: "/solutions/financial" },
-        { name: "政府行业", href: "/solutions/government" },
-        { name: "企业应用", href: "/solutions/enterprise" },
+        { name: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
+        { name: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
+        { name: "新创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
       ],
       isMega: false,
     },
