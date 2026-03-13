@@ -121,7 +121,7 @@ export function HeroSection() {
                         const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
                         if (fallbackEl) fallbackEl.style.display = "block"
                       } catch (error) {
-                        console.warn("Video error handler failed:", error)
+                        // Silently fail on error handler failure
                       }
                     }}
                   />
@@ -135,7 +135,7 @@ export function HeroSection() {
                       try {
                         e.currentTarget.style.display = "none"
                       } catch (error) {
-                        console.warn("Fallback image error handler failed:", error)
+                        // Silently fail on error handler failure
                       }
                     }}
                   />
