@@ -2,7 +2,6 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Link from "next/link"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { getNavItems } from "@/components/shared/nav-data"
 
 export const metadata = {
   title: "新闻资讯 - 中创股份",
@@ -40,11 +39,9 @@ const newsItems = [
 ]
 
 export default function NewsPage() {
-  const navItems = getNavItems("/news")
-  
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Header navItems={navItems} />
+      <Header activePath="/news" />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-background py-12 md:py-16 lg:py-20">

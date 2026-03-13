@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 
 export function OnlineServiceWidget() {
   const [showWidget, setShowWidget] = useState(true)
@@ -23,11 +24,14 @@ export function OnlineServiceWidget() {
         <p className="mb-2.5 text-xs font-medium text-foreground">
           扫码关注公众号
         </p>
-        <div 
-          className="h-[140px] w-[140px] rounded bg-gray-100 flex items-center justify-center"
-          style={{ fontSize: "12px", color: "#999" }}
-        >
-          二维码
+        <div className="h-[140px] w-[140px] rounded overflow-hidden">
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BA%8C%E7%BB%B4%E7%A0%81-3QQlOLHPwaOM6AnNMeoVLpZj7NcMnM.png"
+            alt="中创股份公众号二维码"
+            width={140}
+            height={140}
+            className="h-full w-full object-cover"
+          />
         </div>
         <div className="mt-3 text-[11px] text-foreground/70" style={{ lineHeight: "20px" }}>
           <p className="font-medium text-foreground">联系方式</p>

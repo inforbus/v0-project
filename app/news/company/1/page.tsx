@@ -1,6 +1,5 @@
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { getNavItems } from "@/components/shared/nav-data"
 import Link from "next/link"
 
 export const metadata = {
@@ -9,11 +8,9 @@ export const metadata = {
 }
 
 export default function NewsDetailPage() {
-  const navItems = getNavItems("/news/company")
-  
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Header navItems={navItems} />
+      <Header activePath="/news/company" />
       <main className="flex-1">
         <article className="py-12 md:py-16 lg:py-20">
           <div className="mx-auto max-w-4xl px-4 lg:px-8">
