@@ -19,7 +19,13 @@ export function getNavItems(activePath?: string): NavItem[] {
       name: "产品中心",
       href: "/products",
       active: activePath === "/products" || activePath.startsWith("/middleware") || activePath.startsWith("/digital-platform") || activePath.startsWith("/paas") || activePath.startsWith("/iot") || activePath.startsWith("/security"),
-      children: [],
+      children: [
+        { name: "基础中间件", href: "/middleware" },
+        { name: "数智化平台", href: "/digital-platform" },
+        { name: "PaaS云平台", href: "/paas" },
+        { name: "物联网平台", href: "/iot" },
+        { name: "应用安全产品", href: "/security" },
+      ],
       isMega: true,
     },
     {
