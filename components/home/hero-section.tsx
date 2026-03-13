@@ -37,7 +37,7 @@ function ScrollProgress() {
         const total = document.documentElement.scrollHeight - window.innerHeight
         if (total > 0) setProgress((window.scrollY / total) * 100)
       } catch (error) {
-        console.warn("Scroll progress calculation error:", error)
+        // Silently ignore scroll calculation errors
       }
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -262,7 +262,7 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"践行国家战略\u00B7共创数智未来"}
+                {"践行国家战略·共创数智未来"}
               </p>
             </div>
           </div>
