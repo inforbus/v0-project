@@ -3,18 +3,18 @@ import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const row1 = [
-  { img: "/images/honor-excellence.jpg", title: "中国电子信息行业卓越企业", num: "01" },
-  { img: "/images/honor-cmmi.jpg", title: "CMMI DEV 5级认证", num: "02" },
-  { img: "/images/honor-xinchuang.jpg", title: "信创工委会卓越贡献成员单位", num: "03" },
-  { img: "/images/honor-innovation.jpg", title: "中国十大创新软件企业", num: "04" },
-  { img: "/images/honor-middleware.jpg", title: "推动中间件软件杰出贡献奖", num: "05" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CMMI%20DEV%205%E7%BA%A7%E8%AE%A4%E8%AF%81-96yjxWPJgFvcm63MuTIuAvhhPINBKV.jpg", title: "CMMI DEV 5级认证", num: "01" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E9%AB%98%E6%96%B0%E6%8A%80%E6%9C%AF%E4%BC%81%E4%B8%9A%E8%AE%A4%E8%AF%81-7xYKpLTzHeFI1OGMJVBMnM590DbUqc.jpg", title: "高新技术企业认证", num: "02" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ISO9001%E8%B4%A8%E9%87%8F%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81-4KG8T5EULxGDoRiGbZtYsCMDLXPfml.jpg", title: "ISO9001质量体系认证", num: "03" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ISO20000%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81-3zZyHRWiZRz8vgtoDJIjoE6hzqS7g6.jpg", title: "ISO20000信息技术服务管理体系认证", num: "04" },
+  { img: "/images/honor-placeholder-05.jpg", title: "企业荣誉证书（待添加）", num: "05" },
 ]
 
 const row2 = [
-  { img: "/images/honor-science.jpg", title: "山东省科学技术进步二等奖", num: "06" },
-  { img: "/images/honor-iso.jpg", title: "ISO9001质量体系认证", num: "07" },
-  { img: "/images/honor-brand.jpg", title: "信创可靠企业核心软件品牌", num: "08" },
-  { img: "/images/honor-jakarta.jpg", title: "Jakarta EE工作组企业级会员单位", num: "09" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB-T8fpuOjHx0A6Pdtl7xbzAZn2pCrcd7.jpg", title: "信息安全管理体系", num: "06" },
+  { img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%81%8C%E4%B8%9A%E5%81%A5%E5%BA%B7%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E4%BD%93%E7%B3%BB%E8%AE%A4%E8%AF%81%E8%AF%81%E4%B9%A6-rIJHiArKUbTN6rE8O927ZicUp3zKuU.jpg", title: "职业健康安全管理体系认证证书", num: "07" },
+  { img: "/images/honor-placeholder-08.jpg", title: "企业荣誉证书（待添加）", num: "08" },
+  { img: "/images/honor-placeholder-09.jpg", title: "企业荣誉证书（待添加）", num: "09" },
 ]
 
 function HonorCard({ honor, prefix, hideNum = false }: { honor: (typeof row1)[0]; prefix: string; hideNum?: boolean }) {
@@ -80,20 +80,6 @@ export function HonorsSection() {
           </div>
         </ScrollReveal>
       </div>
-
-      <ScrollReveal delay={400}>
-        <div className="relative z-10 mx-auto mt-12 flex max-w-3xl items-center justify-center gap-8 px-4 md:gap-16 lg:mt-16 3xl:mt-20 3xl:max-w-4xl">
-          {[{ num: "30+", label: "年行业深耕" }, { num: "xxx+", label: "项荣誉奖项" }, { num: "xxx", label: "项核心认证" }].map((stat, i) => (
-            <React.Fragment key={i}>
-              {i > 0 && <div className="h-8 w-px bg-border" />}
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary md:text-3xl 3xl:text-4xl">{stat.num}</div>
-                <div className="mt-1 text-xs text-muted-foreground md:text-sm 3xl:text-base">{stat.label}</div>
-              </div>
-            </React.Fragment>
-          ))}
-        </div>
-      </ScrollReveal>
     </section>
   )
 }

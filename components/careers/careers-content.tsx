@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
@@ -18,20 +17,22 @@ type Job = {
 
 const jobs: Job[] = [
   {
-    id: "sysops",
-    title: "系统集成/运维工程师",
-    location: "全国各地",
+    id: "senior-qa",
+    title: "一、高级测试工程师",
+    location: "北京、武汉、成都、哈尔滨等",
     headcount: "招聘人数不限",
-    education: "统招本科及以上",
+    education: "本科及以上",
     category: "技术类",
     duties: [
       {
         heading: "岗位职责",
         items: [
-          "独立完成信息安全类项目的实施交付、维护与测试考核工作；包括现场系统勘察/搭建/部署/调试/测试上线/验收，实施方案和过程文档编写与维护，现场客户沟通等。对软硬件实施质量、上线任务和测试考核结果负责；",
-          "发现产品或系统问题，具备清晰的排障思路，能够提交清晰的问题记录和产品优化建议；对现网系统运维稳定性负责；",
-          "解决系统技术问题，调查与挖掘客户需求，提出有针对性的解决方案；",
-          "配合销售和产品线拓展市场，维护客户关系。",
+          "全流程质量保障：负责公司核心业务线（或复杂模块）的全流程质量保障工作，包括参与需求评审、技术方案评审，独立设计测试方案、编写测试用例、执行测试并跟进缺陷生命周期。",
+          "自动化测试体系建设：主导所负责系统的接口自动化或UI自动化测试框架的建设与维护，提升回归测试效率。",
+          "AI赋能测试提效：探索并应用AI技术（如大语言模型）辅助测试活动，包括但不限于：利用AI生成测试数据和测试用例、基于AI进行UI遍历测试或智能Monkey测试、利用AI辅助缺陷分类和根因分析。",
+          "性能与稳定性测试：针对核心接口或业务场景进行性能测试（压力/负载/稳定性），分析系统瓶颈并协助开发人员进行性能调优。",
+          "过程改进与风险把控：识别研发流程中的质量风险，推动流程优化和CI/CD（持续集成/持续部署）流水线的完善，提升交付质量。",
+          "团队赋能：指导初中级测试工程师，推广AI在测试领域的应用实践。",
         ],
       },
     ],
@@ -39,66 +40,39 @@ const jobs: Job[] = [
       {
         heading: "任职要求",
         items: [
-          "本科以上学历，信息安全、计算机、通信、电子类相关专业；",
-          "具有3年以上工作经验；有运营商项目经验者和项目管理经验者优先；",
-          "熟悉Linux操作系统的使用和维护，了解mysql/oracle等主流数据库；了解TCP/IP协议及路由交换体系架构；",
-          "具有通信机房集成实施经验和运维经验；",
-          "具有很好的技术文档编制能力；较强的表达能力及与客户沟通能力，责任心强，承压能力强。",
+          "本科及以上学历，计算机/人工智能相关专业，5年以上测试经验。",
+          "熟悉软件测试理论、流程及方法，具备独立负责中大型项目测试的经验。",
+          "技术栈要求：代码能力（至少熟练掌握一门编程语言：Java/Python/Go，能独立编写测试工具或维护自动化脚本）、数据库（精通SQL，熟练使用至少一种数据库：MySQL/Redis/PostgreSQL）、工具使用（熟练使用Linux命令，熟悉Jenkins、Git、Docker等持续集成/容器化工具）。",
+          "AI应用能力：熟悉Prompt Engineering（提示词工程），能够通过大模型（如ChatGPT、Claude、文心一言等）高效生成测试用例、测试数据或测试代码；了解AI辅助测试工具（如TestSprite、Mabl、Applitools等）的使用。",
+          "具备优秀的逻辑思维能力和问题定位能力，能从测试角度提出对产品的改进建议。",
+          "强烈的责任心，具有owner意识，能够承受一定的工作压力。",
+          "对新技术敏感，乐于探索AI在质量保障领域的应用场景。",
+          "加分项：有大型分布式系统、高并发项目测试经验者优先；有性能测试（JMeter/Locust）实战经验者优先；有AI产品（如LLM应用、AIGC平台、智能推荐系统）测试经验者优先；熟悉机器学习基础概念，有使用Python进行数据分析或模型评估经验者优先；有利用AI生成代码（GitHub Copilot、Cursor等）提升测试开发效率的实践经验者优先。",
         ],
       },
     ],
   },
   {
-    id: "qa",
-    title: "测试工程师",
+    id: "qa-engineer",
+    title: "二、测试工程师",
     location: "北京、武汉、成都、哈尔滨等",
     headcount: "招聘人数不限",
-    education: "统招本科及以上",
+    education: "本科及以上",
     category: "技术类",
     duties: [
       {
         heading: "岗位职责",
         items: [
-          "参与项目的需求和迭代开发计划的讨论和评审；",
-          "依据开发规划制定软件集成测试计划及编写测试案例；",
-          "执行测试用例及bug的定位、跟踪和管理；",
-          "测试问题管理及测试报告发布；",
-          "产品操作版本发布及产品操作手册组织编写。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职资格",
-        items: [
-          "3年以上测试经验，熟练掌握常用的软件测试方法、软件工程知识；",
-          "掌握一到多种自动化测试工具，针对接口测试、Web程序测试、数据类项目测试；",
-          "掌握一到多种性能测试工具，Jmeter熟练优先；",
-          "熟练运用一到多种脚本语言进行测试脚本的编写；",
-          "熟练操作DDL、DML数据库操作语言，能够操作MySQL、Oracle等数据库；",
-          "熟练掌握版本控制工具，如Git、SVN；",
-          "熟悉Linux操作系统，能够对产品进行发版、部署；",
-          "有大型数据集成类项目测试经验优先。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "c-dev",
-    title: "C开发工程师",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "技术类",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "功能或服务级软件的开发，对公共模块、组件的设计及实现；",
-          "功能模块的开发和提测文档的编写；经验的总结归纳与分享；",
-          "团队协作；",
-          "新技术预研；",
-          "上级领导安排的其他临时性工作。",
+          "制定测试计划，组织编写测试用例及方案等；",
+          "参与策划、需求、设计、测试、手册等相关评审；",
+          "执行测试用例，分析测试结果，编写测试小结、测试报告；",
+          "对测试进度进行跟踪，识别测试风险并主动汇报；",
+          "负责测试经验积累，测试优秀文档、案例的收集，维护测试资产库并定期组织培训分享；",
+          "负责与各利益相关方沟通，保障项目测试进展及质量；",
+          "负责产品测试团队成员管理；",
+          "负责组织产品测试各阶段评审及验收；",
+          "进行缺陷跟踪和管理，确保测试覆盖全面；",
+          "持续改进测试方法和工具，提升团队整体测试能力。",
         ],
       },
     ],
@@ -106,277 +80,57 @@ const jobs: Job[] = [
       {
         heading: "任职要求",
         items: [
-          "本科以上学历，通信类、计算机类、电子、自动化控制类专业；",
-          "3年以上C工作经验；",
-          "熟悉Linux系统下C或C++语言软件开发，熟练使用标准库、IO操作及常用库；",
-          "熟练使用Linux系统，包括常用操作和配置，能够熟练编写shell脚本；",
-          "熟悉网络编程，对TCP/IP协议有深入了解；熟悉HTTP/HTTPS等常用网络通信协议；",
-          "具有网络安全知识，对网络访问的路由和过滤拦截有实际开发经验更佳。",
+          "本科及以上学历，计算机、软件相关专业，3年以上测试经验；",
+          "熟悉Linux系统，精通一种或多种语言（如Python、Shell等），有工具、平台开发经验者优先；",
+          "具备自动化测试经验优先；",
+          "熟练掌握软件测试理论、方法和流程，包括黑盒测试、白盒测试、灰盒测试等，具备较强的逻辑思维能力；",
+          "熟悉常用的测试工具和框架如Jmeter、Loadrunner等；",
+          "具备良好的团队合作精神，善于协调沟通，具备较高的问题推动解决能力；",
+          "有学习欲望，具有自我持续提升的内驱力。",
         ],
       },
     ],
   },
   {
-    id: "frontend",
-    title: "前端开发工程师",
-    location: "北京、武汉、成都、哈尔滨等",
+    id: "finance-accountant",
+    title: "三、财务会计",
+    location: "北京",
     headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "技术类",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "与产品设计师、后台工程师、产品经理进行协作，参与产品的UI设计和需求讨论，开发和维护项目/自研产品；",
-          "对现有代码进行持续改进；",
-          "前端组件的开发和维护；",
-          "思路清晰，具备良好的沟通能力和团队协作精神。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职资格",
-        items: [
-          "2年以上前端开发经验，本科以上学历，计算机或相关专业；",
-          "扎实的前端基础，熟练掌握JavaScript、HTML5、CSS3核心技术；",
-          "有Vue.js或React框架实践经验，并了解其中原理；",
-          "对前端工程化有深刻理解，熟练掌握webpack、rollup等工具；",
-          "熟悉前端性能优化，能够独立完成开发和优化迭代；",
-          "有Git使用经验，理解Git workflow；",
-          "熟悉微信小程序、公众号开发更佳。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "java-dev",
-    title: "Java/后端开发工程师",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "技术类",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "按照项目计划，按时提交高质量代码，完成开发任务；",
-          "帮助团队其他成员解决技术问题及相关技术分享；",
-          "项目核心业务系统架构设计及优化；",
-          "辅助项目经理完成项目现场的部分组织工作。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职要求",
-        items: [
-          "大学本科以上学历，计算机或相关专业；5年以上Java实际项目开发经验；",
-          "精通Java，对Spring、SpringBoot、MyBatis等了解原理和实现机制，具有SpringCloud开发经验优先；",
-          "精通SQL，熟练使用MySQL、Oracle等数据库，具备一定的SQL优化能力；",
-          "熟悉分布式系统的设计和应用，熟悉分布式、缓存、消息、负载均衡等机制和实现。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "ui",
-    title: "UI设计师",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招���人数不限",
-    education: "统招本科及以上",
-    category: "设计类",
-    duties: [
-      {
-        heading: "职位描述",
-        items: [
-          "进行软件产品UI设计工作；",
-          "了解产品行业特点，协同售前及开发团队进行设计可行性和易用性评审，快速输出UI及交互原型；",
-          "协助产品设计实现工作，配合开发团队不断优化产品实现效果，确保产品易用；",
-          "完成日常PPT美化、产品操作界面美化等工作。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "工作要求",
-        items: [
-          "本科及以上，计算机或设计类相关专业；",
-          "3年以上B端产品、大屏等设计经验，并有成功上线案例；",
-          "熟悉后端产品用户研究方法及交互设计流程，具有良好的创新思维和逻辑思维能力；",
-          "熟练使用Sketch、Axure、PS等原型及设计软件；",
-          "有大数据及数据管理类软件UI设计经验者优先。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "solution-engineer",
-    title: "解决方案工程师",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "产品与方案",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "负责公司产品/方案工作，包括客户调研、需求分析和应用解决方案的制定、产品方案讲解与交流、数据的整理、产品规划、产品演示等；",
-          "配合销售人员完成销售过程中的技术支持和销售拓展工作；",
-          "负责提供产品培训、讲解及用户答疑等工作；",
-          "与客户进行沟通，了解关键的技术或业务需求，提出相应的解决方案；",
-          "维护客户关系，解答客户咨询，制定方案计划，协同完成团队目标；",
-          "收集客户建议并落地规划产品需求，编写产品物料，与研发一起完成项目交付。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职要求",
-        items: [
-          "本科以上，计算机、统计学等专业或从事过数据中台、数据分析、数据治理、地理信息系统等相关专业的技术工作者优先；",
-          "有政府行业、电力行业、安全行业等相关经验者优先。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "pm",
-    title: "产品经理",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "产品与方案",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "对产品的需求、业务设计负责；",
-          "负责收集、汇总、分析客户需求，并形成客户认可的产品设计；",
-          "引导并确定产品功能、界面设计、交互设计，确保产品的最终交付；",
-          "协同研发团队，控制产品交付成果与设计契合度，达成产品目标；",
-          "负责后期产品相应文档的编制；",
-          "负责竞品分析、行业分析等工作，持续推进产品完善、优化。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职资格",
-        items: [
-          "本科及以上学历，5年以上软件/互联网产品经理经验，有政法相关项目产品设计优先；",
-          "熟练掌握产品需求分析、设计的技巧，对交互设计过程有深入的了解；",
-          "具备计算机软件相关知识，有B端PC、APP软件产品设计经验；",
-          "熟练使用原型工具（如蓝湖/Axure）、思维导图、Word/Excel/PPT/Visio等；",
-          "擅长数据分析与需求调研；文档编写能力强；",
-          "较强的逻辑思维能力与沟通表达能力；工作积极有责任心。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "project-manager",
-    title: "项目经理",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
+    education: "本科及以上",
     category: "管理类",
     duties: [
       {
         heading: "岗位职责",
         items: [
-          "负责软件交付类项目全生命周期中的需求调研、客户协调与项目管理工作；",
-          "负责与研发、销售团队紧密沟通与配合，对接和推进产品开发工作进度；",
-          "掌握软件交付类项目实施进度、质量情况，保证项目的正常进行；",
-          "负责软件交付类项目的深化设计方案、实施方案、验收方案等文档的拟制工作；",
-          "编制项目相关执行计划，包括进度、预算、资源和质量目标。",
+          "项目成本管理：项目预算及成本管理、项目日常核算等。",
+          "税务会计：日常税务管理；税务筹划与优化；熟悉税收优惠政策、办理申报流程：软件产品增值税即征即退、研发加计扣除、高新技术资格认定、重点软件企业认定等相关工作。",
+          "其他与岗位相关工作或领导交办任务。",
         ],
       },
     ],
     requirements: [
       {
-        heading: "任职要求",
+        heading: "任职条件",
         items: [
-          "本科及以上学历，电子信息、计算机、网络通信等相关专业；",
-          "具有5年以上政企信息化或者IT项目的实施管理经验；10人以上团队管理经验；",
-          "掌握从系统到应用的IT综合知识（linux系统、网络、数据库等）；",
-          "具有较强的文档撰写能力，良好的沟通能力；",
-          "熟练使用Axure、Word、Excel、PPT、Project等工具；",
-          "有大型项目交付经验，有政企类数据治理项目经验的优先；",
-          "熟悉CMMI或项目管理方法论，有相关认证资质者优先。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "sales",
-    title: "销售经理",
-    location: "北京、武汉、成都、哈尔滨等",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "销售类",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "负责公司软件产品、数据产品、安全产品与解决方案的市场拓展、维护与宣传；",
-          "完成公司下达的年度销售任务与市场拓展目标；",
-          "根据行业用户业务场景，结合公司发展方向，打造行业大客户标杆案例；",
-          "开发并管理合作伙伴，构建行业整体解决方案，拓展市场机会。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职要求",
-        items: [
-          "本科及以上学历，计算机相关专业优先；",
-          "5年及以上软件、信息化产品销售经验，有独立运作项目经验优先；",
-          "良好的心理承受能力、强烈的目标感、乐观积极向上；",
-          "较好的团队合作能力、沟通能力和亲和力；",
-          "吃苦耐劳，能适应频繁出差。",
-        ],
-      },
-    ],
-  },
-  {
-    id: "sales-middleware",
-    title: "销售经理（中间件业务）",
-    location: "全国",
-    headcount: "招聘人数不限",
-    education: "统招本科及以上",
-    category: "销售类",
-    duties: [
-      {
-        heading: "岗位职责",
-        items: [
-          "负责开发、维护金融、运营商、军队军工、能源、交通、烟草、央企等客户行业；",
-          "深度挖掘客户需求，跟踪项目进度，执行公司销售策略，完成业绩考核指标；",
-          "负责行业销售计划的制定与实施，行业范围内的项目协调与管理；",
-          "负责行业合作渠道的建立与关系维护。",
-        ],
-      },
-    ],
-    requirements: [
-      {
-        heading: "任职要求",
-        items: [
-          "5年以上相关软件销售工作经验，具有突出销售业绩者优先；",
-          "熟悉相关客户行业信息化，能够独立开发新客户；",
-          "具有良好的沟通协调能力及团队合作精神，学习能力和抗压能力强。",
+          "本科及以上学历，会计学、财务管理、税务学等财经类相关专业，有3年以上项目成本管理或办税经验。",
+          "持有中级会计师职称或税务师职业资格证书，具备CPA证书者优先。",
+          "熟悉软件行业相关税收优惠政策的适用条件、申报流程及后续管理要求；如软件产品增值税即征即退的备案、审核要点，研发加计扣除、高新技术资格认定、重点软件企业税收优惠享受条件等。",
+          "其他要求：内外部沟通协作能力强；严谨细致的工作态度；具备强烈的学习意愿与快速学习能力；抗压能力强。",
         ],
       },
     ],
   },
 ]
 
-const categories = ["全部", "技术类", "设计类", "产品与方案", "管理类", "销售类"]
+type JobCardProps = {
+  job: Job
+}
 
-function JobCard({ job }: { job: Job }) {
+function JobCard({ job }: JobCardProps) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className={`overflow-hidden rounded-xl border transition-all duration-300 ${open ? "border-primary/30 shadow-md shadow-primary/5" : "border-border hover:border-primary/20 hover:shadow-sm"}`}>
+    <div className="overflow-hidden rounded-xl border border-border bg-background transition-all duration-300">
       <button
         className="flex w-full items-start justify-between gap-4 px-6 py-5 text-left"
         onClick={() => setOpen(!open)}
@@ -387,25 +141,8 @@ function JobCard({ job }: { job: Job }) {
             <span className={`h-2 w-2 flex-shrink-0 rounded-full ${open ? "bg-primary" : "bg-border"} transition-colors duration-300`} />
             <h3 className="text-base font-semibold text-foreground lg:text-lg">{job.title}</h3>
           </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pl-5 sm:pl-0">
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <MapPin size={12} className="flex-shrink-0" />
-              {job.location}
-            </span>
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Users size={12} className="flex-shrink-0" />
-              {job.headcount}
-            </span>
-            <span className="flex items-center gap-1 text-xs text-muted-foreground">
-              <GraduationCap size={12} className="flex-shrink-0" />
-              {job.education}
-            </span>
-          </div>
         </div>
         <div className="flex flex-shrink-0 items-center gap-3 pt-0.5">
-          <span className="hidden rounded-full bg-primary/8 px-3 py-1 text-xs font-medium text-primary sm:inline-block">
-            {job.category}
-          </span>
           <span className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${open ? "border-primary/30 bg-primary/5 text-primary" : "border-border bg-background text-muted-foreground"}`}>
             {open ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
           </span>
@@ -442,22 +179,13 @@ function JobCard({ job }: { job: Job }) {
               </div>
             ))}
           </div>
-          <div className="mt-5 flex items-center justify-between border-t border-border/40 pt-5">
+          <div className="mt-5 border-t border-border/40 pt-5">
             <a
-              href="mailto:hr@inforbus.com"
+              href="mailto:wu_wting@inforbus.com"
               className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               <Mail size={14} />
-              投递简历：hr@inforbus.com
-            </a>
-            <a
-              href="mailto:hr@inforbus.com"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 hover:shadow-md hover:shadow-primary/20 hover:scale-[1.02]"
-            >
-              立即投递
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              投递简历：wu_wting@inforbus.com
             </a>
           </div>
         </div>
@@ -467,50 +195,43 @@ function JobCard({ job }: { job: Job }) {
 }
 
 export function CareersContent() {
-  const [activeCategory, setActiveCategory] = useState("全部")
-  const navItems = getNavItems("/about/careers")
-
-  const filtered = activeCategory === "全部" ? jobs : jobs.filter((j) => j.category === activeCategory)
-
   return (
     <main>
-      {/* Hero with Header */}
-      <section className="relative overflow-hidden bg-[#1a1a1a]">
+      {/* Hero with Banner Image */}
+      <section className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
+        {/* Background image */}
+        <img
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111%20%286%29-0XwyXR1GRDSt5c19zQXGYnheLiaDKS.png"
+          alt="加入我们"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+
         {/* Header overlay */}
-        <Header navItems={navItems} variant="overlay" />
+        <Header activePath="/about/careers" variant="overlay-light" />
         
-        {/* Hero content */}
-        <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-            <div className="absolute -bottom-10 right-10 h-80 w-80 rounded-full bg-primary/8 blur-3xl" />
-            <div className="absolute left-1/2 top-1/2 h-[1px] w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          </div>
-          <div className="relative mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-2xl">
-              <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
-                Talent Recruitment
-              </span>
-              <h1 className="mt-4 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
-                加入我们
-              </h1>
-              <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
-                我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
-              </p>
-              <div className="mt-8 flex flex-wrap gap-6 3xl:mt-10 3xl:gap-8">
-                {[
-                  { num: String(jobs.length) + "+", label: "开放岗位" },
-                  { num: "5+", label: "城市" },
-                  { num: "20+", label: "年行业经验" },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col">
-                    <span className="text-2xl font-bold text-primary 3xl:text-3xl">{stat.num}</span>
-                    <span className="text-sm text-background/60 3xl:text-base">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Main title and subtitle text content */}
+        <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+          {/* Red accent line */}
+          <div
+            className="bg-[#BF1920]"
+            style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+          />
+
+          {/* Title */}
+          <h1
+            className="font-sans font-bold text-[#332C2B]"
+            style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
+          >
+            加入我们
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            className="font-sans font-normal text-[#332C2B]"
+            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
+          >
+            携手共进，共创未来
+          </p>
         </div>
       </section>
 
@@ -536,32 +257,12 @@ export function CareersContent() {
 
       {/* Job listings */}
       <section className="mx-auto max-w-6xl px-4 py-12 lg:px-8 lg:py-16 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:py-20">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between 3xl:mb-10">
-          <div>
-            <h2 className="text-xl font-bold text-foreground lg:text-2xl 3xl:text-3xl">在招职位</h2>
-            <p className="mt-1 text-sm text-muted-foreground 3xl:text-base">
-              共 <span className="font-semibold text-primary">{filtered.length}</span> 个岗位
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all duration-200 3xl:px-5 3xl:py-2 3xl:text-sm ${
-                  activeCategory === cat
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "border border-border bg-background text-muted-foreground hover:border-primary/30 hover:text-primary"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+        <div className="mb-8 flex flex-col gap-4 3xl:mb-10">
+          <h2 className="text-xl font-bold text-foreground lg:text-2xl 3xl:text-3xl">在招职位</h2>
         </div>
 
         <div className="flex flex-col gap-3 3xl:gap-4">
-          {filtered.map((job) => (
+          {jobs.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
         </div>
@@ -577,13 +278,6 @@ export function CareersContent() {
                 欢迎发送简历至我们的招聘邮箱，我们会在有合适岗位时第一时间联系您。
               </p>
             </div>
-            <a
-              href="mailto:hr@inforbus.com"
-              className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:shadow-primary/20 3xl:px-8 3xl:py-3.5 3xl:text-base"
-            >
-              <Mail size={16} />
-              发送简历
-            </a>
           </div>
         </div>
       </section>
