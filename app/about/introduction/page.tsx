@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { AboutHeroSection } from "@/components/about/hero-section"
 import { CompanyTabs } from "@/components/about/company-tabs"
+import { ContactSection } from "@/components/about/contact-section"
 import { Footer } from "@/components/shared/footer"
 
 export const metadata: Metadata = {
@@ -13,6 +14,14 @@ export default function CompanyIntroductionPage() {
     <div className="min-h-screen w-full bg-background">
       <AboutHeroSection />
       <CompanyTabs />
+      
+      {/* Contact Section - 第二模块 */}
+      <section className="bg-background">
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+          <ContactSection />
+        </div>
+      </section>
+      
       <Footer />
     </div>
   )

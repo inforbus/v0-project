@@ -171,7 +171,7 @@ function MobileSubNavItem({ item }: { item: NavItem }) {
   )
 }
 
-export function Header({ variant = "default", isDarkBg = false, activePath = "/" }: { variant?: "default" | "overlay"; isDarkBg?: boolean; activePath?: string }) {
+export function Header({ variant = "default", isDarkBg = false, activePath = "/", navItems: propsNavItems }: { variant?: "default" | "overlay"; isDarkBg?: boolean; activePath?: string; navItems?: NavItem[] }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const isOverlay = variant === "overlay"
@@ -180,12 +180,12 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
     setMounted(true)
   }, [])
 
-  // Use local nav data to ensure consistent rendering between server and client
-  const localNavItems = useMemo(() => getNavItems(activePath), [activePath])
+  // Use provided nav items or fetch from local data
+  const localNavItems = useMemo(() => propsNavItems || getNavItems(activePath), [propsNavItems, activePath])
   const items = mounted ? localNavItems : []
 
   return (
-    <header className={`relative z-50 ${isOverlay ? "absolute w-full" : "sticky top-0 bg-background"}`}>
+    <header className={`${isOverlay ? "absolute top-0 left-0 right-0 z-50 w-full" : "sticky top-0 z-50 bg-background"}`}>
       <div className={`border-b ${isOverlay ? "border-white/10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm" : "border-border"}`}>
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
           <Link href="/" className="flex-shrink-0">
@@ -209,10 +209,10 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
                       item.active
                         ? isOverlay
-                          ? "text-white"
+                          ? isDarkBg ? "text-white" : "text-primary"
                           : "text-primary"
                         : isOverlay
-                          ? "text-white/70 hover:text-white"
+                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
                           : "text-foreground/70 hover:text-primary"
                     }`}
                   >
@@ -224,10 +224,10 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
                       item.active
                         ? isOverlay
-                          ? "text-white"
+                          ? isDarkBg ? "text-white" : "text-primary"
                           : "text-primary"
                         : isOverlay
-                          ? "text-white/70 hover:text-white"
+                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
                           : "text-foreground/70 hover:text-primary"
                     }`}
                   >
@@ -251,7 +251,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`flex-shrink-0 lg:hidden ${isOverlay ? "text-white" : "text-foreground"}`}
+            className={`flex-shrink-0 lg:hidden ${isOverlay ? (isDarkBg ? "text-white" : "text-foreground") : "text-foreground"}`}
             aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
