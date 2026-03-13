@@ -268,11 +268,6 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                       </div>
                     </div>
                   </div>
-                  item.isMega ? (
-                    <MegaMenu item={item} />
-                  ) : (
-                    <DropdownMenu item={item} />
-                  )
                 )}
               </div>
             ))}
