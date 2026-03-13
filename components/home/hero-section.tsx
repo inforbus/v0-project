@@ -159,7 +159,7 @@ export function HeroSection() {
         ))}
         <ParticleField />
 
-        <Header navItems={navItems} />
+        <Header variant="overlay" navItems={navItems} />
 
         {/* Slide 1 text: 中创API网关软件 */}
         <div
