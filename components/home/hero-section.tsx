@@ -182,7 +182,7 @@ export function HeroSection() {
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
-                {"一站式流量管控与AI赋能，让智能更简单"}
+                一站式流量管控与AI赋能，让智能更简单
               </p>
             </div>
           </div>
@@ -262,7 +262,7 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"践行国家战略·共创数智未来"}
+                践行国家战略·共创数智未来
               </p>
             </div>
           </div>
@@ -288,7 +288,7 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"高可靠\u00B7高性能\u00B7高可用\u00B7高安全"}
+                高可靠·高性能·高可用·高安全
               </p>
               <p
                 className="mt-4 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] xl:text-[24px] 3xl:text-[26px]"
