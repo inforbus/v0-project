@@ -58,17 +58,11 @@ function MobileNavItem({ item }: { item: NavItem }) {
 
 export function Header({ variant = "default", isDarkBg = false, activePath = "/" }: { variant?: "default" | "overlay" | "overlay-light"; isDarkBg?: boolean; activePath?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  
+  // Use local nav data to ensure consistent rendering between server and client
+  const items = useMemo(() => getNavItems(activePath), [activePath])
   const isOverlay = variant === "overlay" || variant === "overlay-light"
   const isLightOverlay = variant === "overlay-light"
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  // Use local nav data to ensure consistent rendering between server and client
-  const localNavItems = useMemo(() => getNavItems(activePath), [activePath])
-  const items = mounted ? localNavItems : []
 
   return (
     <header className={`relative z-50 ${isOverlay ? "absolute w-full" : "sticky top-0 bg-background"}`}>
