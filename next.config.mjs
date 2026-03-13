@@ -12,6 +12,9 @@ const nextConfig = {
       },
     ],
   },
+  turbopack: {
+    root: "/vercel/share/v0-project",
+  },
 }
 
 export default nextConfig
