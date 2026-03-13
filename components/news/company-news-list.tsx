@@ -221,17 +221,7 @@ export function CompanyNewsList() {
                 </div>
               </div>
 
-              {/* Content Column */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm md:text-base text-foreground/70 line-clamp-3 mb-4">
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Image Column */}
+              {/* Image Column - 放在左侧 */}
               <div className="flex-shrink-0 hidden md:block">
                 <div className="w-56 h-40 rounded-lg overflow-hidden bg-muted">
                   <img
@@ -240,6 +230,16 @@ export function CompanyNewsList() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+              </div>
+
+              {/* Content Column */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm md:text-base text-foreground/70 line-clamp-3 mb-4">
+                  {item.description}
+                </p>
               </div>
             </article>
           ))}
