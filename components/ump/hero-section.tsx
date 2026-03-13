@@ -12,7 +12,7 @@ export function UMPHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ump_banner-5QlH3fr1WFn6zPIe1rCUeVdy3cScbD.png"
+        src="/ump_banner_resized.png"
         alt="中创统一监管平台 InforGuard UMP"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
