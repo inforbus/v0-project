@@ -56,10 +56,11 @@ function MobileNavItem({ item }: { item: NavItem }) {
   )
 }
 
-export function Header({ variant = "default", isDarkBg = false, activePath = "/" }: { variant?: "default" | "overlay"; isDarkBg?: boolean; activePath?: string }) {
+export function Header({ variant = "default", isDarkBg = false, activePath = "/" }: { variant?: "default" | "overlay" | "overlay-light"; isDarkBg?: boolean; activePath?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const isOverlay = variant === "overlay"
+  const isOverlay = variant === "overlay" || variant === "overlay-light"
+  const isLightOverlay = variant === "overlay-light"
 
   useEffect(() => {
     setMounted(true)
@@ -93,12 +94,16 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     href={item.href}
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
                       item.active
-                        ? isOverlay
-                          ? "text-white"
-                          : "text-primary"
-                        : isOverlay
-                          ? "text-white/70 hover:text-white"
-                          : "text-foreground/70 hover:text-primary"
+                        ? isLightOverlay
+                          ? "text-primary"
+                          : isOverlay
+                            ? "text-white"
+                            : "text-primary"
+                        : isLightOverlay
+                          ? "text-foreground/70 hover:text-primary"
+                          : isOverlay
+                            ? "text-white/70 hover:text-white"
+                            : "text-foreground/70 hover:text-primary"
                     }`}
                   >
                     {item.name}
@@ -108,12 +113,16 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     type="button"
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
                       item.active
-                        ? isOverlay
-                          ? "text-white"
-                          : "text-primary"
-                        : isOverlay
-                          ? "text-white/70 hover:text-white"
-                          : "text-foreground/70 hover:text-primary"
+                        ? isLightOverlay
+                          ? "text-primary"
+                          : isOverlay
+                            ? "text-white"
+                            : "text-primary"
+                        : isLightOverlay
+                          ? "text-foreground/70 hover:text-primary"
+                          : isOverlay
+                            ? "text-white/70 hover:text-white"
+                            : "text-foreground/70 hover:text-primary"
                     }`}
                   >
                     {item.name}
@@ -146,7 +155,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`flex-shrink-0 lg:hidden ${isOverlay ? "text-white" : "text-foreground"}`}
+            className={`flex-shrink-0 lg:hidden ${isLightOverlay ? "text-foreground" : isOverlay ? "text-white" : "text-foreground"}`}
             aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

@@ -1,8 +1,6 @@
 import { Header } from "@/components/shared/header"
-import { getNavItems } from "@/components/shared/nav-data"
 
 export function NewsHeroSection() {
-  const navItems = getNavItems("/news")
 
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
@@ -13,7 +11,7 @@ export function NewsHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} variant="overlay" />
+      <Header activePath="/news" variant="overlay-light" />
 
       {/* Main title and subtitle text content */}
       <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
