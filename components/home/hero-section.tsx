@@ -150,7 +150,7 @@ export function HeroSection() {
                   try {
                     e.currentTarget.style.display = "none"
                   } catch (error) {
-                    console.log("[v0] Image error handler:", error)
+                    // Silently fail on error handler failure
                   }
                 }}
               />
