@@ -149,15 +149,38 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         </section>
 
         {/* Use Cases */}
+        {solution.values && solution.values.length > 0 && (
+          <section className="mb-12 lg:mb-16 3xl:mb-20">
+            <SectionTitle>方案价值</SectionTitle>
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 3xl:mt-8 3xl:gap-5">
+              {solution.values.map((v, idx) => (
+                <div
+                  key={idx}
+                  className="group rounded-xl border border-border/60 bg-muted/20 p-5 transition-all duration-300 hover:border-[#BF1920]/15 hover:bg-muted/40 lg:p-6 3xl:p-7"
+                >
+                  <div className="mb-2 flex items-center gap-3">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#BF1920]" />
+                    <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{v.title}</h4>
+                  </div>
+                  <p className="pl-5 text-sm text-muted-foreground 3xl:text-base">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Use Cases */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>应用场景</SectionTitle>
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 3xl:mt-8 3xl:gap-4">
             {solution.useCases.map((uc, idx) => (
-              <div key={idx} className="flex items-center gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
-                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
-                  {idx + 1}
-                </span>
-                <span className="text-sm text-foreground md:text-base 3xl:text-lg">{uc}</span>
+              <div key={idx} className="flex flex-col gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
+                    {idx + 1}
+                  </span>
+                </div>
+                <p className="whitespace-pre-wrap text-sm text-foreground md:text-base 3xl:text-lg">{uc}</p>
               </div>
             ))}
           </div>
