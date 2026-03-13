@@ -38,7 +38,7 @@ function MegaMenu({ item }: { item: NavItem }) {
             <h3 className="text-base font-semibold text-foreground mb-4 pb-2 border-b border-border">
               {item.children[activeCategory]?.name}
             </h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
               {item.children[activeCategory]?.children?.map((subItem, subIdx) => (
                 <Link
                   key={subIdx}
