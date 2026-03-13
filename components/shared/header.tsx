@@ -8,7 +8,7 @@ import { getNavItems, type NavItem } from "./nav-data"
 
 function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
-  const hasChildren = item.children.length > 0
+  const hasChildren = item.children && item.children.length > 0
 
   return (
     <div className="border-b border-border/40 last:border-b-0">
@@ -42,12 +42,56 @@ function MobileNavItem({ item }: { item: NavItem }) {
       {hasChildren && expanded && (
         <div className="pb-2 pl-4">
           {item.children.map((child, cIdx) => (
+            <MobileSubNavItem key={cIdx} item={child} />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function MobileSubNavItem({ item }: { item: NavItem }) {
+  const [expanded, setExpanded] = useState(false)
+  const hasChildren = item.children && item.children.length > 0
+
+  return (
+    <div className="border-b border-border/20 last:border-b-0">
+      <div className="flex items-center justify-between">
+        {item.href ? (
+          <Link
+            href={item.href}
+            className="flex-1 py-2.5 pl-2 text-sm text-foreground/70 transition-all duration-150 hover:text-primary"
+          >
+            {item.name}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            className="flex-1 py-2.5 pl-2 text-left text-sm text-foreground/70 transition-all duration-150 hover:text-primary"
+          >
+            {item.name}
+          </button>
+        )}
+        {hasChildren && (
+          <button
+            type="button"
+            onClick={() => setExpanded(!expanded)}
+            className="p-1 text-muted-foreground"
+            aria-label={expanded ? "收起" : "展开"}
+          >
+            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} />
+          </button>
+        )}
+      </div>
+      {hasChildren && expanded && (
+        <div className="pb-2 pl-4">
+          {item.children.map((grandchild, gcIdx) => (
             <Link
-              key={cIdx}
-              href={child.href}
-              className="block cursor-pointer rounded-md py-2.5 pl-2 text-sm text-foreground/70 transition-all duration-150 hover:bg-primary/5 hover:pl-4 hover:text-primary active:scale-[0.97] active:bg-primary/10 active:text-primary"
+              key={gcIdx}
+              href={grandchild.href}
+              className="block cursor-pointer rounded-md py-2 pl-2 text-xs text-foreground/50 transition-all duration-150 hover:bg-primary/5 hover:pl-3 hover:text-primary"
             >
-              {child.name}
+              {grandchild.name}
             </Link>
           ))}
         </div>
@@ -126,13 +170,44 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
                       <div className="flex flex-col py-1">
                         {item.children.map((child, cIdx) => (
-                          <Link
-                            key={cIdx}
-                            href={child.href}
-                            className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
-                          >
-                            {child.name}
-                          </Link>
+                          <div key={cIdx} className="group/submenu relative">
+                            {child.children && child.children.length > 0 ? (
+                              // Has nested children - show as button with submenu
+                              <>
+                                <button
+                                  type="button"
+                                  className="flex w-full items-center justify-between cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
+                                >
+                                  {child.name}
+                                  <ChevronDown size={12} className="ml-2 transition-transform group-hover/submenu:rotate-180" />
+                                </button>
+                                {/* Third level submenu */}
+                                <div className="pointer-events-none absolute left-full top-0 z-50 ml-1 opacity-0 transition-all duration-200 group-hover/submenu:pointer-events-auto group-hover/submenu:opacity-100">
+                                  <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
+                                    <div className="flex flex-col py-1">
+                                      {child.children.map((grandchild, gcIdx) => (
+                                        <Link
+                                          key={gcIdx}
+                                          href={grandchild.href}
+                                          className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
+                                        >
+                                          {grandchild.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              </>
+                            ) : (
+                              // No nested children - regular link
+                              <Link
+                                href={child.href}
+                                className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
+                              >
+                                {child.name}
+                              </Link>
+                            )}
+                          </div>
                         ))}
                       </div>
                     </div>
