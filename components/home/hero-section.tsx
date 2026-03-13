@@ -37,7 +37,7 @@ function ScrollProgress() {
         const total = document.documentElement.scrollHeight - window.innerHeight
         if (total > 0) setProgress((window.scrollY / total) * 100)
       } catch (error) {
-        console.warn("Scroll progress calculation error:", error)
+        // Silently ignore scroll calculation errors
       }
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -150,7 +150,7 @@ export function HeroSection() {
                   try {
                     e.currentTarget.style.display = "none"
                   } catch (error) {
-                    console.log("[v0] Image error handler:", error)
+                    // Silently fail on error handler failure
                   }
                 }}
               />
@@ -182,7 +182,7 @@ export function HeroSection() {
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
-                一站式流量管控与AI赋能，让智能更简单
+                {"一站式流量管控与AI赋能，让智能更简单"}
               </p>
             </div>
           </div>
@@ -262,7 +262,7 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"践行国家战略\u00B7共创数智未来"}
+                {"践行国家战略·共创数智未来"}
               </p>
             </div>
           </div>
