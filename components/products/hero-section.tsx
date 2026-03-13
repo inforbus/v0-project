@@ -15,7 +15,7 @@ export function ProductsHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
 
       {/* Main title and subtitle text content */}
       {/* 左对齐布局，与应用服务器保持一致 */}

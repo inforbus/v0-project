@@ -16,7 +16,7 @@ export function NewsHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
 
       {/* Main title and subtitle text content */}
       <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>

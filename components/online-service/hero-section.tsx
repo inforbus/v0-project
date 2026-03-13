@@ -14,7 +14,7 @@ export function OnlineServiceHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
 
       {/* Buttons only */}
       <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
