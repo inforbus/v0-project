@@ -45,17 +45,6 @@ export function getNavItems(activePath?: string): NavItem[] {
       isMega: false,
     },
     {
-      name: "新闻中心",
-      href: "/news",
-      active: activePath === "/news" || activePath.startsWith("/news"),
-      children: [
-        { name: "公司要闻", href: "/news/company" },
-        { name: "行业资讯", href: "/news/industry" },
-        { name: "媒体报道", href: "/news/media" },
-      ],
-      isMega: false,
-    },
-    {
       name: "技术支持",
       href: "",
       active: activePath === "/support" || activePath.startsWith("/support"),
@@ -71,12 +60,13 @@ export function getNavItems(activePath?: string): NavItem[] {
     {
       name: "关于我们",
       href: "",
-      active: activePath === "/about" || activePath === "/news" || activePath.startsWith("/news"),
+      active: activePath === "/about" || activePath === "/news/company" || activePath.startsWith("/about"),
       children: [
         { name: "公司介绍", href: "/about/introduction" },
         { name: "公司荣誉", href: "/about/honors" },
         { name: "发展历程", href: "/about/history" },
         { name: "企业文化", href: "/about/culture" },
+        { name: "公司要闻", href: "/news/company" },
       ],
       isMega: false,
     },
