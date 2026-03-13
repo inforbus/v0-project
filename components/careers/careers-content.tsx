@@ -182,13 +182,10 @@ function JobCard({ job }: JobCardProps) {
             ))}
           </div>
           <div className="mt-5 border-t border-border/40 pt-5">
-            <a
-              href="mailto:wu_wting@inforbus.com"
-              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
-            >
-              <Mail size={14} />
+            <div className="flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-3 text-sm font-semibold text-primary">
+              <Mail size={16} />
               投递简历：wu_wting@inforbus.com
-            </a>
+            </div>
           </div>
         </div>
       </div>
