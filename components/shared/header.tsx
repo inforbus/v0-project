@@ -92,7 +92,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
+                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 relative ${
                       item.active
                         ? isLightOverlay
                           ? "text-primary"
@@ -107,11 +107,14 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     }`}
                   >
                     {item.name}
+                    {item.active && (
+                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isLightOverlay ? "bg-primary" : isOverlay ? "bg-white" : "bg-primary"}`} />
+                    )}
                   </Link>
                 ) : (
                   <button
                     type="button"
-                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
+                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 relative ${
                       item.active
                         ? isLightOverlay
                           ? "text-primary"
@@ -127,6 +130,9 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                   >
                     {item.name}
                     {item.children.length > 0 && <ChevronDown size={14} />}
+                    {item.active && (
+                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isLightOverlay ? "bg-primary" : isOverlay ? "bg-white" : "bg-primary"}`} />
+                    )}
                   </button>
                 )}
 
@@ -134,15 +140,22 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                   <div className="pointer-events-none absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
                     <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
                       <div className="flex flex-col py-1">
-                        {item.children.map((child, cIdx) => (
-                          <Link
-                            key={cIdx}
-                            href={child.href}
-                            className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
+                        {item.children.map((child, cIdx) => {
+                          const isChildActive = activePath === child.href || activePath.startsWith(child.href + '/')
+                          return (
+                            <Link
+                              key={cIdx}
+                              href={child.href}
+                              className={`block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm transition-colors duration-150 ${
+                                isChildActive 
+                                  ? "bg-primary/10 text-primary font-medium" 
+                                  : "text-foreground hover:bg-primary/5 hover:text-primary"
+                              }`}
+                            >
+                              {child.name}
+                            </Link>
+                          )
+                        })}
                       </div>
                     </div>
                   </div>
