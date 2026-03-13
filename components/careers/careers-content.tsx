@@ -1,8 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
-import { Header } from "@/components/shared/header"
+import { useMemo } from "react"
+import { getNavItems } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
@@ -195,40 +194,81 @@ function JobCard({ job }: JobCardProps) {
 }
 
 export function CareersContent() {
+  const navItems = useMemo(() => getNavItems("/about/careers"), [])
+
   return (
     <main>
-      {/* Hero with Header */}
-      <section className="relative overflow-hidden">
-        {/* Background image */}
+      {/* Hero Banner - 按照应用服务器页面样式修改 */}
+      <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
+        {/* Banner image */}
         <img
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111%20%286%29-XkEWWQ1R1ZVnSsnrH13QZ3KZJpP4xX.png"
           alt="加入我们"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        
-        {/* Header overlay */}
-        <Header activePath="/about/careers" variant="overlay" isDarkBg={false} />
-        
-        {/* Hero content */}
-        <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
-          <div className="relative mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-2xl">
-              <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
-                Talent Recruitment
-              </span>
-              <h1 className="mt-4 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl 3xl:text-6xl">
-                加入我们
-              </h1>
-              <p className="mt-4 text-base leading-relaxed text-foreground/70 md:text-lg 3xl:text-xl">
-                我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
-              </p>
-            </div>
-          </div>
+
+        <Header navItems={navItems} variant="overlay" isDarkBg={false} />
+
+        {/* Main title and subtitle text content */}
+        {/* 按照 middleware 页面的排版布局：左边 21.7% 的 padding */}
+        <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+          {/* Title: 采用 middleware 的字体样式 */}
+          <h1
+            className="font-sans font-bold text-[#332C2B]"
+            style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
+          >
+            加入中创
+          </h1>
+
+          {/* Red accent line - 同 middleware 页面 */}
+          <div
+            className="bg-[#BF1920]"
+            style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+          />
+
+          {/* Subtitle 1 */}
+          <p
+            className="font-sans font-normal text-[#332C2B]"
+            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
+          >
+            一起推动中国软件基础设施的自主创新
+          </p>
+
+          {/* Subtitle 2 */}
+          <p
+            className="font-sans font-normal text-[#332C2B]"
+            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
+          >
+            让技术更好地服务于数字中国建设
+          </p>
         </div>
-      </section>
+
+        {/* Action buttons - 采用 middleware 页面的按钮样式 */}
+        <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
+          <Link
+            href="#jobs"
+            className="group inline-flex items-center justify-center rounded bg-[#BF1920] px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:bg-[#a8151b] hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
+          >
+            查看职位
+            <svg width="8" height="15" viewBox="0 0 8 15" fill="none" className="ml-3 transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M1 1L7 7.5L1 14" stroke="white" strokeWidth="2" />
+            </svg>
+          </Link>
+          <Link
+            href="mailto:wu_wting@inforbus.com"
+            className="group inline-flex items-center justify-center rounded border-2 border-[#BF1920] bg-transparent px-6 py-2.5 text-sm font-medium text-[#BF1920] shadow-lg transition-all duration-300 hover:bg-[#BF1920] hover:text-white hover:shadow-xl hover:shadow-[#BF1920]/30 active:scale-95 md:text-base 3xl:px-8 3xl:py-3 3xl:text-lg"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2 transition-colors duration-300">
+              <path d="M3 3H13C13.5304 3 14.0391 3.21071 14.4142 3.58579C14.7893 3.96086 15 4.46957 15 5V11C15 11.5304 14.7893 12.0391 14.4142 12.4142C14.0391 12.7893 13.5304 13 13 13H3C2.46957 13 1.96086 12.7893 1.58579 12.4142C1.21071 12.0391 1 11.5304 1 11V5C1 4.46957 1.21071 3.96086 1.58579 3.58579C1.96086 3.21071 2.46957 3 3 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path d="M15 5L8 9L1 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            投递简历
+          </Link>
+        </div>
+      </div>
 
       {/* Why us */}
-      <section className="border-b border-border bg-muted/40">
+      <section id="jobs" className="border-b border-border bg-muted/40">
         <div className="mx-auto max-w-6xl px-4 py-12 lg:px-8 lg:py-16 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:py-20">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
             {[

@@ -107,7 +107,7 @@ export function getNavItems(activePath?: string): NavItem[] {
       isMega: false,
     },
     {
-      name: "技术支持",
+      name: "服务与支持",
       href: "",
       active: activePath === "/support" || activePath.startsWith("/support"),
       children: [
