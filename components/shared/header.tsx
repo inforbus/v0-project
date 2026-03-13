@@ -3,8 +3,79 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useMemo } from "react"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getNavItems, type NavItem } from "./nav-data"
+
+// Mega Menu Component for Products
+function MegaMenu({ item }: { item: NavItem }) {
+  const [activeCategory, setActiveCategory] = useState(0)
+  
+  return (
+    <div className="pointer-events-none absolute left-1/2 top-full z-50 pt-2 opacity-0 transition-all duration-200 -translate-x-1/2 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
+      <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl min-w-[600px]">
+        <div className="flex">
+          {/* Left sidebar - Category list */}
+          <div className="w-[180px] border-r border-border bg-slate-50 py-2">
+            {item.children.map((category, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onMouseEnter={() => setActiveCategory(idx)}
+                className={`flex w-full items-center justify-between px-4 py-3 text-sm transition-colors duration-150 ${
+                  activeCategory === idx
+                    ? "bg-background text-primary font-medium"
+                    : "text-foreground hover:bg-background/50"
+                }`}
+              >
+                {category.name}
+                <ChevronRight size={14} className={activeCategory === idx ? "text-primary" : "text-muted-foreground"} />
+              </button>
+            ))}
+          </div>
+          
+          {/* Right content - Subcategories */}
+          <div className="flex-1 p-6">
+            <h3 className="text-base font-semibold text-foreground mb-4 pb-2 border-b border-border">
+              {item.children[activeCategory]?.name}
+            </h3>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+              {item.children[activeCategory]?.children?.map((subItem, subIdx) => (
+                <Link
+                  key={subIdx}
+                  href={subItem.href}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
+                >
+                  {subItem.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Regular dropdown menu
+function DropdownMenu({ item }: { item: NavItem }) {
+  return (
+    <div className="pointer-events-none absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
+      <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
+        <div className="flex flex-col py-1">
+          {item.children.map((child, cIdx) => (
+            <Link
+              key={cIdx}
+              href={child.href}
+              className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
+            >
+              {child.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function MobileNavItem({ item }: { item: NavItem }) {
   const [expanded, setExpanded] = useState(false)
@@ -166,52 +237,11 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                 )}
 
                 {item.children.length > 0 && (
-                  <div className="pointer-events-none absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
-                    <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
-                      <div className="flex flex-col py-1">
-                        {item.children.map((child, cIdx) => (
-                          <div key={cIdx} className="group/submenu relative">
-                            {child.children && child.children.length > 0 ? (
-                              // Has nested children - show as button with submenu
-                              <>
-                                <button
-                                  type="button"
-                                  className="flex w-full items-center justify-between cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
-                                >
-                                  {child.name}
-                                  <ChevronDown size={12} className="ml-2 transition-transform group-hover/submenu:rotate-180" />
-                                </button>
-                                {/* Third level submenu */}
-                                <div className="pointer-events-none absolute left-full top-0 z-50 ml-1 opacity-0 transition-all duration-200 group-hover/submenu:pointer-events-auto group-hover/submenu:opacity-100">
-                                  <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
-                                    <div className="flex flex-col py-1">
-                                      {child.children.map((grandchild, gcIdx) => (
-                                        <Link
-                                          key={gcIdx}
-                                          href={grandchild.href}
-                                          className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
-                                        >
-                                          {grandchild.name}
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </div>
-                              </>
-                            ) : (
-                              // No nested children - regular link
-                              <Link
-                                href={child.href}
-                                className="block cursor-pointer whitespace-nowrap px-5 py-2.5 text-sm text-foreground transition-colors duration-150 hover:bg-primary/5 hover:text-primary"
-                              >
-                                {child.name}
-                              </Link>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  item.isMega ? (
+                    <MegaMenu item={item} />
+                  ) : (
+                    <DropdownMenu item={item} />
+                  )
                 )}
               </div>
             ))}
