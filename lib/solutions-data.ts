@@ -117,7 +117,7 @@ export const solutions: SolutionDetail[] = [
     ],
     architecture: {
       title: "监控架构",
-      desc: "基于国产化技术栈构建，支持多种国产芯片平台部署，通过统一的监控���口实现对全栈信创组件的综合监控。",
+      desc: "基于国产化技术栈构建，支持多种国产芯片平台部署，通过统一的监控�����口实现对全栈信创组件的综合监控。",
       image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80&auto=format",
     },
     features: [
@@ -154,7 +154,7 @@ export const solutions: SolutionDetail[] = [
     overview: `随着大语言模型（LLM）技术的爆发，企业对 AI 的需求已从简单的"对话问答"转向深度的"业务协同"。本解决方案旨在构建一套以任务为导向、以领域为核心的企业级智能体管理平台。
 本平台通过整合底层大模型能力、RAG（检索增强生成）知识库以及 AI 安全防护机制，向上对接互联网及内网用户，中台实现智能体的全生命周期管理（AgentMgt、UserMgt、RAGMgt），核心层通过"任务与领域（Task & Domain）"引擎实现业务逻辑的自动化编排，并通过强大的连接器（Connection）触达 ERP、数据库、WeChat 等各类生产系统。`,
     highlights: [
-      { icon: "deploy", title: "打通业务'最后一公里'", desc: `传统 LLM 往往是孤岛，本方案通过 Connection 层实现与现有 ERP、RDB、Email 等系统的深度集成，让 Agent 具备"手"的能力，从"会说到会做"。` },
+      { icon: "deploy", title: `打通业务'最后一公里'`, desc: `传统 LLM 往往是孤岛，本方案通过 Connection 层实现与现有 ERP、RDB、Email 等系统的深度集成，让 Agent 具备"手"的能力，从"会说到会做"。` },
       { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）转化为 Agent 的即时背景知识，解决大模型幻觉问题。" },
       { icon: "govern", title: "多领域敏捷支撑", desc: "通过 Domain A/B/C 的划分，实现不同业务部门（HR、销售、IT）的隔离与协同，确保任务处理的专业性。" },
       { icon: "decouple", title: "全链路安全可控", desc: "底座内置 AI Security 模块，针对数据脱敏、内容审查、访问授权进行全方位监控，满足企业合规性需求。" },
@@ -222,7 +222,7 @@ export const solutions: SolutionDetail[] = [
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%B1%8F2026-02-26%2009.48.54-dINeUw8HwaEHihoN4MlRtqH4ruXSaP.png",
     },
     features: [
-      { title: "InforSuite AS", desc: "高性能应用服务器，支持Java EE全规范" },
+      { title: "InforSuite AS", desc: "高性能应用服务器，支持Java EE全��范" },
       { title: "InforSuite MQ", desc: "企业级消息中间件，支持多种消息协议" },
       { title: "InforSuite LB", desc: "智能负载均衡软件，支持多种调度算法" },
       { title: "InforSuite Cache", desc: "分布式数据缓存中间件，提供亿��数据访问能力" },
