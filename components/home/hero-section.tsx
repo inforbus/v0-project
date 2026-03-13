@@ -171,10 +171,11 @@ export function HeroSection() {
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
-            opacity: currentSlide === 0 ? 1 : 0,
-            transform: currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
-            pointerEvents: currentSlide === 0 ? "auto" : "none",
+            opacity: mounted && currentSlide === 0 ? 1 : !mounted ? 1 : 0,
+            transform: mounted && currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
+            pointerEvents: mounted && currentSlide === 0 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[708px]">
@@ -198,10 +199,11 @@ export function HeroSection() {
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
-            opacity: currentSlide === 1 ? 1 : 0,
-            transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
-            pointerEvents: currentSlide === 1 ? "auto" : "none",
+            opacity: mounted && currentSlide === 1 ? 1 : 0,
+            transform: mounted && currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
+            pointerEvents: mounted && currentSlide === 1 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
@@ -240,10 +242,11 @@ export function HeroSection() {
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
-            opacity: currentSlide === 2 ? 1 : 0,
-            transform: currentSlide === 2 ? "translateY(0)" : "translateY(20px)",
-            pointerEvents: currentSlide === 2 ? "auto" : "none",
+            opacity: mounted && currentSlide === 2 ? 1 : 0,
+            transform: mounted && currentSlide === 2 ? "translateY(0)" : "translateY(20px)",
+            pointerEvents: mounted && currentSlide === 2 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
