@@ -76,6 +76,8 @@ const bannerSlides = [
   },
 ]
 
+const SLIDE_INTERVAL = 5000 // 5 seconds
+
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
