@@ -116,7 +116,7 @@ export function CompanyTabs() {
 
           {activeTab === 'honors' && (
             <div className="animate-fadeIn">
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {/* Title */}
                 <div className="text-center">
                   <h2 className="font-sans text-4xl font-bold text-foreground">公司荣誉</h2>
