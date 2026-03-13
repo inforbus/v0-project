@@ -67,14 +67,8 @@ export function getNavItems(activePath?: string): NavItem[] {
         { name: "发展历程", href: "/about/history" },
         { name: "企业文化", href: "/about/culture" },
         { name: "公司要闻", href: "/news/company" },
+        { name: "加入我们", href: "/about/careers" },
       ],
-      isMega: false,
-    },
-    {
-      name: "联系我们",
-      href: "/contact",
-      active: activePath === "/contact",
-      children: [],
       isMega: false,
     },
   ]
