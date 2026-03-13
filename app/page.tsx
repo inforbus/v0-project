@@ -13,7 +13,7 @@ import { Footer } from "@/components/shared/footer"
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-background">
-      <div className="relative">
+      <div className="relative w-full">
         <HeroSection />
         <Header variant="overlay" isDarkBg={false} />
       </div>
