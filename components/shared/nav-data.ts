@@ -47,10 +47,10 @@ export function getNavItems(activePath?: string): NavItem[] {
           href: "/digital-platform", 
           children: [
             { name: "数据集成平台", href: "/digital-platform/data-integration", children: [] },
-            { name: "数据治理平台", href: "/digital-platform/data-governance", children: [] },
             { name: "大数据分析平台", href: "/digital-platform/big-data", children: [] },
-            { name: "AI模型管理平台", href: "/digital-platform/ai-model", children: [] },
             { name: "业务信息和电子文件交换系统", href: "/digital-platform/file-exchange", children: [] },
+            { name: "数据治理平台", href: "/digital-platform/data-governance", children: [] },
+            { name: "AI模型管理平台", href: "/digital-platform/ai-model", children: [] },
             { name: "DTP数据传输中心", href: "/digital-platform/dtp", children: [] },
           ],
         },
@@ -67,7 +67,6 @@ export function getNavItems(activePath?: string): NavItem[] {
           name: "物联网平台", 
           href: "/iot", 
           children: [
-            { name: "应用安全", href: "/iot/app-security", children: [] },
             { name: "统一监管平台", href: "/iot/supervision", children: [] },
             { name: "物联网监控平台", href: "/iot/monitoring", children: [] },
             { name: "高速公路智慧管控平台", href: "/iot/highway", children: [] },

@@ -38,16 +38,29 @@ function MegaMenu({ item }: { item: NavItem }) {
             <h3 className="text-base font-semibold text-foreground mb-4 pb-2 border-b border-border">
               {item.children[activeCategory]?.name}
             </h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-              {item.children[activeCategory]?.children?.map((subItem, subIdx) => (
-                <Link
-                  key={subIdx}
-                  href={subItem.href}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
-                >
-                  {subItem.name}
-                </Link>
-              ))}
+            <div className="flex flex-col gap-4">
+              {item.children[activeCategory]?.children?.map((subItem, subIdx) => {
+                const isLongItem = subItem.name.length > 15 && activeCategory === 0
+                return (
+                  <div
+                    key={subIdx}
+                    className={`${
+                      isLongItem
+                        ? "w-full"
+                        : subIdx % 2 === 0 && subIdx > 0
+                        ? "w-1/2"
+                        : ""
+                    }`}
+                  >
+                    <Link
+                      href={subItem.href}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-150"
+                    >
+                      {subItem.name}
+                    </Link>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
