@@ -201,7 +201,7 @@ export function CareersContent() {
       <section className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
         {/* Background image */}
         <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111%20%285%29-0N0rqPkmNL3DMqXI26rlGIP3xXPixG.png"
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111%20%286%29-0XwyXR1GRDSt5c19zQXGYnheLiaDKS.png"
           alt="加入我们"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
