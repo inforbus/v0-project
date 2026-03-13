@@ -166,7 +166,7 @@ export const solutions: SolutionDetail[] = [
       { title: "InforSuite AS", desc: "高性能应用服务器，支持Java EE全规范" },
       { title: "InforSuite MQ", desc: "企业级消息中间件，支持多种消息协议" },
       { title: "InforSuite LB", desc: "智能负载均衡软件，支持多种调度算法" },
-      { title: "InforSuite Cache", desc: "分布式数据缓存中间件，提供亿级数据访问能力" },
+      { title: "InforSuite Cache", desc: "分布式数据缓存中间件，���供亿级数据访问能力" },
       { title: "InforSuite WF", desc: "工作流中间件，支持复杂业务流程编排" },
       { title: "InforSuite ESB", desc: "企业服务总线，实现异构系统集成" },
     ],
@@ -189,6 +189,8 @@ export const solutions: SolutionDetail[] = [
       { name: "InforSuite Cache", href: "/middleware/data-cache" },
     ],
   },
+  {
+    slug: "xinchuang-middleware",
     title: "信创全栈中间件解决方案",
     subtitle: "基于自主可控技术体系，提供覆盖全场景的国产中间件产品矩阵",
     heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&auto=format",
