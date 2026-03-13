@@ -105,6 +105,8 @@ export const solutions: SolutionDetail[] = [
       { name: "InforSuite Cache", href: "/middleware/data-cache" },
     ],
   },
+  {
+    slug: "middleware-management",
     title: "中间件统一管理平台解决方案",
     subtitle: "打破烟囱式格局，实现中间件的快速部署、规模化管理、深度运维分析及治理",
     heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80&auto=format",
@@ -208,7 +210,7 @@ export const solutions: SolutionDetail[] = [
     features: [
       { title: "信创适配", desc: "支持鲲鹏、飞腾、龙芯、海光等国产芯片平台" },
       { title: "统一纳管", desc: "对信创环境下各类中间件进行统一纳管" },
-      { title: "性能基测", desc: "提供信创环境专属的性能基准测试工具" },
+      { title: "性能基测", desc: "提供信创环境专属���性能基准测试工具" },
       { title: "迁移评估", desc: "自动化的中间件迁移评估与兼容性检测" },
       { title: "安全加固", desc: "信创环境专属的安全配置基线与加固策略" },
       { title: "合规报告", desc: "自动生成信创合规检查报告，辅助审计" },
