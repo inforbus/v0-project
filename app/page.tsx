@@ -1,4 +1,3 @@
-import { Header } from "@/components/shared/header"
 import { HeroSection } from "@/components/home/hero-section"
 import { StatsBar } from "@/components/home/stats-bar"
 import { ProductsSection } from "@/components/home/products-section"
@@ -13,10 +12,7 @@ import { Footer } from "@/components/shared/footer"
 export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-background">
-      <div className="relative w-full">
-        <HeroSection />
-        <Header variant="overlay" isDarkBg={false} />
-      </div>
+      <HeroSection />
       <StatsBar />
       <ProductsSection />
       <SolutionsSection />

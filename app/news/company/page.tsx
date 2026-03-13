@@ -11,10 +11,7 @@ export const metadata = {
 export default function CompanyNewsPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <div className="relative w-full">
-        <NewsHeroSection />
-        <Header variant="overlay" activePath="/news/company" />
-      </div>
+      <NewsHeroSection />
       <main className="flex-1">
         <CompanyNewsList />
       </main>
