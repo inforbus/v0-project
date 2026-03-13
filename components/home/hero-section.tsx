@@ -83,14 +83,19 @@ const navItems = getNavItems("/")
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (bannerSlides.length <= 1) return
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted || bannerSlides.length <= 1) return
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
     }, SLIDE_INTERVAL)
     return () => clearInterval(timer)
-  }, [])
+  }, [mounted])
 
   return (
     <>
@@ -101,9 +106,10 @@ export function HeroSection() {
             key={index}
             className="pointer-events-none absolute inset-0 transition-all duration-[1500ms] ease-in-out"
             style={{
-              opacity: currentSlide === index ? 1 : 0,
-              transform: currentSlide === index ? "scale(1)" : "scale(1.03)",
+              opacity: mounted && currentSlide === index ? 1 : mounted && index === 0 ? 0 : 0,
+              transform: mounted && currentSlide === index ? "scale(1)" : "scale(1.03)",
             }}
+            suppressHydrationWarning
           >
             {slide.type === "video" ? (
               <>
