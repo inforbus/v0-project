@@ -1,7 +1,9 @@
 "use client"
 
 import { useMemo } from "react"
+import Link from "next/link"
 import { getNavItems } from "@/components/shared/nav-data"
+import { Header } from "@/components/shared/header"
 
 type Job = {
   id: string
