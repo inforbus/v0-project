@@ -197,31 +197,41 @@ function JobCard({ job }: JobCardProps) {
 export function CareersContent() {
   return (
     <main>
-      {/* Hero with Header */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a]">
+      {/* Hero with Banner Image */}
+      <section className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
+        {/* Background image */}
+        <img
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111%20%285%29-0N0rqPkmNL3DMqXI26rlGIP3xXPixG.png"
+          alt="加入我们"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+
         {/* Header overlay */}
-        <Header activePath="/about/careers" variant="overlay" isDarkBg={true} />
+        <Header activePath="/about/careers" variant="overlay-light" />
         
-        {/* Hero content */}
-        <div className="relative py-16 md:py-20 lg:py-24 3xl:py-32">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-            <div className="absolute -bottom-10 right-10 h-80 w-80 rounded-full bg-primary/8 blur-3xl" />
-            <div className="absolute left-1/2 top-1/2 h-[1px] w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          </div>
-          <div className="relative mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-2xl">
-              <span className="inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-medium text-primary 3xl:text-sm">
-                Talent Recruitment
-              </span>
-              <h1 className="mt-4 text-3xl font-bold text-background md:text-4xl lg:text-5xl 3xl:text-6xl">
-                加入我们
-              </h1>
-              <p className="mt-4 text-base leading-relaxed text-background/70 md:text-lg 3xl:text-xl">
-                我们期待与志同道合的伙伴一起，共同推动中国软件基础设施的自主创新，让技术更好地服务于数字中国建设。
-              </p>
-            </div>
-          </div>
+        {/* Main title and subtitle text content */}
+        <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+          {/* Red accent line */}
+          <div
+            className="bg-[#BF1920]"
+            style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+          />
+
+          {/* Title */}
+          <h1
+            className="font-sans font-bold text-[#332C2B]"
+            style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
+          >
+            加入我们
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            className="font-sans font-normal text-[#332C2B]"
+            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
+          >
+            携手共进，共创未来
+          </p>
         </div>
       </section>
 
