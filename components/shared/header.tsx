@@ -209,10 +209,10 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
                       item.active
                         ? isOverlay
-                          ? "text-white"
+                          ? isDarkBg ? "text-white" : "text-primary"
                           : "text-primary"
                         : isOverlay
-                          ? "text-white/70 hover:text-white"
+                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
                           : "text-foreground/70 hover:text-primary"
                     }`}
                   >
@@ -224,10 +224,10 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
                       item.active
                         ? isOverlay
-                          ? "text-white"
+                          ? isDarkBg ? "text-white" : "text-primary"
                           : "text-primary"
                         : isOverlay
-                          ? "text-white/70 hover:text-white"
+                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
                           : "text-foreground/70 hover:text-primary"
                     }`}
                   >
@@ -251,7 +251,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`flex-shrink-0 lg:hidden ${isOverlay ? "text-white" : "text-foreground"}`}
+            className={`flex-shrink-0 lg:hidden ${isOverlay ? (isDarkBg ? "text-white" : "text-foreground") : "text-foreground"}`}
             aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
