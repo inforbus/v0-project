@@ -12,7 +12,7 @@ function MegaMenu({ item }: { item: NavItem }) {
   
   return (
     <div className="pointer-events-none absolute left-1/2 top-full z-50 pt-2 opacity-0 transition-all duration-200 -translate-x-1/2 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
-      <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl min-w-[600px]">
+      <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl min-w-[720px]">
         <div className="flex">
           {/* Left sidebar - Category list */}
           <div className="w-[180px] border-r border-border bg-slate-50 py-2">
@@ -38,7 +38,7 @@ function MegaMenu({ item }: { item: NavItem }) {
             <h3 className="text-base font-semibold text-foreground mb-4 pb-2 border-b border-border">
               {item.children[activeCategory]?.name}
             </h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-4">
               {item.children[activeCategory]?.children?.map((subItem, subIdx) => (
                 <Link
                   key={subIdx}
