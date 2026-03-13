@@ -286,7 +286,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && mounted && (
+      {mobileMenuOpen && (
         <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 lg:hidden">
           <div className="px-4 py-4">
             {items.map((item, index) => (
