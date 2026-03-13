@@ -48,9 +48,12 @@ function MegaMenu({ item }: { item: NavItem }) {
                   {subItem.name}
                 </Link>
               ))}
-            </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        </div>
       </div>
     </div>
   )
