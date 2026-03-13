@@ -1,9 +1,10 @@
 "use client"
 
-import { useMemo } from "react"
+import { useState, useMemo } from "react"
 import Link from "next/link"
-import { getNavItems } from "@/components/shared/nav-data"
+import { MapPin, Users, GraduationCap, ChevronDown, ChevronUp, Mail } from "lucide-react"
 import { Header } from "@/components/shared/header"
+import { getNavItems } from "@/components/shared/nav-data"
 
 type Job = {
   id: string
