@@ -6,6 +6,23 @@ import { useState, useEffect, useMemo } from "react"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import { getNavItems, type NavItem } from "./nav-data"
 
+// Logo Component with dynamic text color
+function Logo({ isDarkBg }: { isDarkBg: boolean }) {
+  return (
+    <Link href="/" className="flex-shrink-0 flex items-center gap-2">
+      {/* Logo Icon */}
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="4" fill="#1F2937"/>
+        <text x="16" y="20" fontSize="14" fontWeight="bold" textAnchor="middle" fill="white" fontFamily="Arial">ZC</text>
+      </svg>
+      {/* Logo Text - "中创中间件" with dynamic color */}
+      <span className={`hidden sm:inline text-sm font-semibold ${isDarkBg ? "text-white" : "text-foreground"}`}>
+        中创中间件
+      </span>
+    </Link>
+  )
+}
+
 // Mega Menu Component for Products
 function MegaMenu({ item }: { item: NavItem }) {
   const [activeCategory, setActiveCategory] = useState(0)
@@ -188,16 +205,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
     <header className={`relative z-50 ${isOverlay ? "absolute w-full" : "sticky top-0 bg-background"}`}>
       <div className={`border-b ${isOverlay ? "border-white/10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm" : "border-border"}`}>
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
-          <Link href="/" className="flex-shrink-0">
-            <Image
-              src="/logo.svg"
-              alt="中创软件"
-              width={120}
-              height={40}
-              className="h-8 w-auto"
-              priority
-            />
-          </Link>
+          <Logo isDarkBg={isOverlay} />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
