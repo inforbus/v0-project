@@ -92,7 +92,7 @@ export function HeroSection() {
   return (
     <>
       <ScrollProgress />
-      <div className="relative flex h-[700px] w-full flex-col overflow-hidden">
+      <div className="relative -mt-16 flex h-[calc(100vh-4rem)] w-full flex-col overflow-hidden">
         {bannerSlides.map((slide, index) => (
           <div
             key={index}
@@ -156,7 +156,7 @@ export function HeroSection() {
         ))}
         <ParticleField />
 
-        <Header activePath="/" variant="default" />
+        <Header activePath="/" variant="overlay" />
 
         {/* Slide 1 text: 中创API网关软件 */}
         <div
