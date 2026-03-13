@@ -1,5 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -39,8 +39,22 @@ export function Footer() {
           <div className="relative border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <p className="text-sm text-foreground 3xl:text-base">扫描关注中创中间件微信公众号或视频号</p>
             <div className="mt-3 flex gap-3 3xl:mt-4 3xl:gap-4">
-              <Image src="/images/qrcode-1.png" alt="微信公众号" width={92} height={92} className="h-[72px] w-[72px] 3xl:h-[92px] 3xl:w-[92px]" style={{ width: 'auto', height: 'auto' }} />
-              <Image src="/images/qrcode-2.png" alt="视频号" width={92} height={92} className="h-[72px] w-[72px] 3xl:h-[92px] 3xl:w-[92px]" style={{ width: 'auto', height: 'auto' }} />
+              {/* WeChat QR Code */}
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BA%8C%E7%BB%B4%E7%A0%81-57sFPmnhiXZUGIDptfDZm3lWnVvXJc.png"
+                alt="中创股份微信公众号二维码"
+                width={72}
+                height={72}
+                className="rounded 3xl:h-[92px] 3xl:w-[92px]"
+              />
+              {/* Video Account QR Code */}
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BA%8C%E7%BB%B4%E7%A0%812-ZvQiroB73HZa0RR8y9kaVvioBvP79A.png"
+                alt="中创股份视频号二维码"
+                width={72}
+                height={72}
+                className="rounded 3xl:h-[92px] 3xl:w-[92px]"
+              />
             </div>
             <div className="mt-4 space-y-2 text-sm text-foreground 3xl:mt-6 3xl:space-y-3 3xl:text-base">
               <p>产品咨询：400-618-6180</p>
