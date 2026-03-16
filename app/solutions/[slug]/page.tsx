@@ -90,9 +90,14 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Overview */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>方案概述</SectionTitle>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
+          <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
             {solution.overview}
           </p>
+          {solution.overviewHighlight && (
+            <div className="mt-4 flex items-center gap-3 rounded-lg border-l-4 border-[#BF1920] bg-[#BF1920]/5 px-4 py-3 3xl:mt-6">
+              <span className="text-sm font-semibold text-[#BF1920] md:text-base 3xl:text-lg">{solution.overviewHighlight}</span>
+            </div>
+          )}
         </section>
 
         {/* Highlights */}
@@ -120,15 +125,36 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Architecture */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>{solution.architecture.title}</SectionTitle>
-          <div className="relative mt-6 w-full overflow-hidden rounded-2xl 3xl:mt-8">
-            <Image
-              src={solution.architecture.image}
-              alt={solution.architecture.title}
-              width={1200}
-              height={600}
-              className="h-auto w-full object-contain"
-            />
-          </div>
+          {solution.architecture.images && solution.architecture.images.length > 0 ? (
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2 3xl:mt-8 3xl:gap-8">
+              {solution.architecture.images.map((arch, idx) => (
+                <div key={idx} className="overflow-hidden rounded-2xl border border-border/40 bg-white">
+                  <div className="border-b border-border/40 bg-muted/30 px-4 py-3">
+                    <h4 className="text-sm font-semibold text-foreground md:text-base">{arch.title}</h4>
+                  </div>
+                  <div className="p-4">
+                    <Image
+                      src={arch.image}
+                      alt={arch.title}
+                      width={600}
+                      height={400}
+                      className="h-auto w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="relative mt-6 w-full overflow-hidden rounded-2xl 3xl:mt-8">
+              <Image
+                src={solution.architecture.image}
+                alt={solution.architecture.title}
+                width={1200}
+                height={600}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          )}
         </section>
 
         {/* Features */}
