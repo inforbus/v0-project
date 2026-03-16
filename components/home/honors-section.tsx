@@ -75,7 +75,7 @@ export function HonorsSection() {
         <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-20 bg-gradient-to-l from-[#F7F8FA] to-transparent md:w-32 lg:w-44" />
 
         <ScrollReveal delay={100}>
-          <div className="honor-marquee-wrapper relative">
+          <div className="honor-marquee-wrapper relative overflow-x-hidden">
             <div className="honor-marquee-track flex gap-5 3xl:gap-6">
               {[...Array(2)].map((_, setIdx) => row1.map((honor, i) => <HonorCard key={`r1-${setIdx}-${i}`} honor={honor} prefix="row1" hideNum={true} />))}
             </div>
@@ -83,7 +83,7 @@ export function HonorsSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={250}>
-          <div className="honor-marquee-wrapper relative">
+          <div className="honor-marquee-wrapper relative overflow-x-hidden">
             <div className="honor-marquee-track-reverse flex gap-5 3xl:gap-6">
               {[...Array(2)].map((_, setIdx) => row2.map((honor, i) => <HonorCard key={`r2-${setIdx}-${i}`} honor={honor} prefix="row2" hideNum={true} />))}
             </div>
