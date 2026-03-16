@@ -24,7 +24,7 @@ export const solutions: SolutionDetail[] = [
     slug: "ai-agent",
     title: "AI 智能体管理平台解决方案",
     subtitle: "构建自主可控的AI智能体管理与编排平台",
-    heroImage: "/images/solutions/ai-agent-hero.jpg",
+    heroImage: "/images/solutions/ai-agent.png",
     overview: "AI智能体管理平台解决方案是一套完整的企业级AI智能体管理与编排系统，提供智能体的开发、部署、运维和治理全生命周期能力，帮助企业快速构建和管理AI应用。",
     highlights: [
       { icon: "deploy", title: "快速开发", desc: "提供完整的AI智能体开发框架与工具链，加速AI应用开发" },
@@ -35,7 +35,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "平台架构",
       desc: "采用分布式微服务架构，包含智能体开发框架、编排引擎、运行时环境和管控平台，支持高并发、高可用的AI应用运行。",
-      image: "/images/solutions/ai-agent-arch.png",
+      image: "/images/diagrams/ai-agent-arch.png",
     },
     features: [
       { title: "智能体开发框架", desc: "提供Python、Java等多语言开发框架，简化AI智能体开发" },
@@ -66,7 +66,7 @@ export const solutions: SolutionDetail[] = [
     slug: "disaster-recovery",
     title: "信创中间件双活容灾解决方案",
     subtitle: "构建高可用的国产化双活容灾系统",
-    heroImage: "/images/solutions/disaster-recovery-hero.jpg",
+    heroImage: "/images/solutions/disaster-recovery.png",
     overview: "信创中间件双活容灾解决方案是基于国产中间件产品的高可用容灾方案，实现跨地域、跨机房的主主容灾架构，支持RPO=0和RTO<30秒的业务连续性保障。",
     highlights: [
       { icon: "deploy", title: "双活架构", desc: "主主模式，两个数据中心同时提供服务" },
@@ -77,7 +77,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "容灾架构",
       desc: "采用主主容灾架构，两个数据中心运行相同的应用与数据，通过国产中间件提供的数据同步能力，实现无缝的故障转移。",
-      image: "/images/solutions/disaster-recovery-arch.png",
+      image: "/images/diagrams/mq-disaster-recovery-arch.png",
     },
     features: [
       { title: "国产中间件", desc: "基于中创自主研发的中间件产品" },
@@ -109,7 +109,7 @@ export const solutions: SolutionDetail[] = [
     slug: "xinchuang-middleware",
     title: "信创全栈自主可控中间件解决方案",
     subtitle: "构建完全自主可控的国产中间件技术体系",
-    heroImage: "/images/solutions/xinchuang-middleware-hero.jpg",
+    heroImage: "/images/solutions/xinchuang-middleware.png",
     overview: "信创全栈自主可控中间件解决方案提供从应用服务器、消息中间件、数据缓存到服务总线的完整中间件产品体系，基于自主研发的核心技术，完全替代国外产品，满足国家信创战略要求。",
     highlights: [
       { icon: "deploy", title: "完全自主", desc: "100%自主研发，无第三方代码依赖" },
@@ -120,7 +120,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "中间件技术体系",
       desc: "包含应用服务器、消息中间件、数据缓存、服务总线等完整产品线，形成自主可控的国产中间件生态体系。",
-      image: "/images/solutions/xinchuang-arch.png",
+      image: "/images/diagrams/rds-disaster-recovery-arch.png",
     },
     features: [
       { title: "应用服务器", desc: "兼容Jakarta EE标准的企业级应用服务器" },
@@ -133,7 +133,7 @@ export const solutions: SolutionDetail[] = [
     benefits: [
       { label: "研发成本", value: "降低40%" },
       { label: "迁移周期", value: "缩短30%" },
-      { label: "许可证成本", value: "降低80%" },
+      { label: "���可证成本", value: "降低80%" },
       { label: "信创合规", value: "100%达标" },
     ],
     useCases: [
@@ -153,7 +153,7 @@ export const solutions: SolutionDetail[] = [
     slug: "middleware-management",
     title: "中间件统一管理平台解决方案",
     subtitle: "打破烟囱式格局，实现中间件的快速部署、规模化管理、深度运维分析及治理",
-    heroImage: "/images/solutions/middleware-management-hero.jpg",
+    heroImage: "/images/solutions/ai-agent.png",
     overview: "数智效能底座旨在建设中间件服务及运管能力体系，打破原有烟囱式格局，规范中间件软件来源、种类以及版本，实现中间件的快速部署规模化管理、深度运维分析及中间件治理。推动上层业务与中间件解耦，解决中间件管理中的版本复杂不统一、自动化程度低、运维监控不完善、管理分散等问题，降低中间件管理成本，提升中间件运维效率。",
     highlights: [
       { icon: "deploy", title: "快速部署", desc: "支持中间件的一键式自动化部署，将部署时间从天级缩短至分钟级" },
@@ -164,7 +164,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "平台架构",
       desc: "平台采用分层架构设计，包含接入层、服务层、管控层和数据层，通过统一的API网关提供服务接入，实现中间件生命周期的全面管理。",
-      image: "/images/diagrams/middleware-arch.png",
+      image: "/images/diagrams/ai-agent-arch.png",
     },
     features: [
       { title: "自动化部署", desc: "支持多种中间件的自动化安装、配置、升级和卸载，提供模板化部署能力" },
@@ -196,7 +196,7 @@ export const solutions: SolutionDetail[] = [
     slug: "open-source-governance",
     title: "开源治理解决方案",
     subtitle: "构建安全可控的开源生态，实现开源创新与安全合规的平衡",
-    heroImage: "/images/solutions/open-source-governance-hero.jpg",
+    heroImage: "/images/solutions/disaster-recovery.png",
     overview: "容器云解决方案基于Kubernetes等云原生技术，提供容器编排、服务治理、应用管理等完整能力，加速企业应用现代化转型与业务创新。",
     highlights: [
       { icon: "deploy", title: "容器编排", desc: "多集群容器管理与自动调度" },
@@ -207,7 +207,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "云平台架构",
       desc: "采用容器编排层、服务治理层、应用管理层和可观测性层，支持多云、混合云部署，提供统一的应用管理体验。",
-      image: "/images/solutions/open-source-governance-arch.jpg",
+      image: "/images/diagrams/mq-disaster-recovery-arch.png",
     },
     features: [
       { title: "容器引擎", desc: "兼容业界标准的容器运行时" },
