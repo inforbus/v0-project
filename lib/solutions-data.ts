@@ -33,7 +33,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "平台架构",
       desc: "平台采用分层架构设计，包含接入层、服务层、管控层和数据层，通过统一的API网关提供服务接入，实现中间件生命周期的全面管理。",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%B1%8F2026-02-26%2009.48.54-dINeUw8HwaEHihoN4MlRtqH4ruXSaP.png",
+      image: "/images/diagrams/middleware-arch.png",
     },
     features: [
       { title: "自动化部署", desc: "支持多种中间件的自动化安装、配置、升级和卸载，提供模板化部署能力" },
@@ -162,7 +162,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "平台架构",
       desc: "企业级全场景 AI 智能体管理平台架构，涵盖用户接入、Agent 平台、任务编排、系统连接和生产环保四大层次。",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9E%B6%E6%9E%84%E5%9B%BE-qte6VDj3U4iS74yOekcWo9DCTojP0r.png",
+      image: "/images/diagrams/ai-agent-arch.png",
     },
     features: [
       { title: "多端响应式交互", desc: "AgentWebSite 支持跨设备访问，提供流畅的对话式交互体验。" },
@@ -226,7 +226,7 @@ export const solutions: SolutionDetail[] = [
       { title: "InforSuite MQ", desc: "企业级消息中间件，支持多种消息协议" },
       { title: "InforSuite LB", desc: "智能负载均衡软件，支持多种调度算法" },
       { title: "InforSuite Cache", desc: "分布式数据缓存中间件，提供亿��数据访问能力" },
-      { title: "InforSuite WF", desc: "工作流中间件，支持复���业务流程编排" },
+      { title: "InforSuite WF", desc: "工作流中间件，支��复���业务流程编排" },
       { title: "InforSuite ESB", desc: "企业服务总线，实现异构系统集成" },
     ],
     benefits: [
