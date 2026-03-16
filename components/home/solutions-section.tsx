@@ -10,7 +10,7 @@ const solutions = [
     tab: "AI 智能体管理平台",
     title: "AI 智能体管理平台解决方案",
     slug: "ai-agent",
-    icon: "/images/solution-ai-agent.png",
+    icon: "/images/solution-middleware.png",
     desc: `企业级全场景 AI 智能体管理平台，通过整合大模型能力、RAG 知识库及安全防护机制，实现智能体的全生命周期管理，帮助企业从会说到会做，打通业务最后一公里。`,
   },
   {
@@ -24,7 +24,7 @@ const solutions = [
     tab: "信创全栈自主可控",
     title: "信创全栈自主可控中间件解决方案",
     slug: "xinchuang-middleware",
-    icon: "/images/solution-xinchuang.png",
+    icon: "/images/solution-middleware.png",
     desc: "全栈中间件产品矩阵涵盖应用运行、消息通信、流量调度、数据缓存四大核心领域，各组件既可独立部署也可协同工作，全面助力国产化替代与数字化转型。",
   },
 ]
