@@ -105,11 +105,13 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                 className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-6 transition-all duration-300 hover:border-[#BF1920]/20 hover:shadow-lg lg:p-7 3xl:p-8"
               >
                 <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#BF1920] transition-all duration-500 group-hover:w-full" />
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-14 3xl:w-14">
-                  {iconMap[h.icon] || iconMap.deploy}
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-14 3xl:w-14">
+                    {iconMap[h.icon] || iconMap.deploy}
+                  </div>
+                  <h4 className="text-base font-bold text-foreground 3xl:text-lg">{h.title}</h4>
                 </div>
-                <h4 className="text-base font-bold text-foreground 3xl:text-lg">{h.title}</h4>
-                <p className="mt-2 text-sm text-muted-foreground 3xl:text-base">{h.desc}</p>
+                <p className="text-sm text-muted-foreground 3xl:text-base">{h.desc}</p>
               </div>
             ))}
           </div>
