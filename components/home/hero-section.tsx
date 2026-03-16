@@ -225,7 +225,7 @@ export function HeroSection() {
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
                 suppressHydrationWarning
               >
-                为企业提供快速、安全、敏捷的AI应用部署能力
+                {`为企业提供快速、安全、敏捷的AI应用部署能力`}
               </p>
               {/* 三色圆点 + 虚线 */}
               <div className="mt-[12px] flex items-center gap-[8px] sm:mt-[16px] sm:gap-[10px] md:mt-[20px] md:gap-[12px] lg:mt-[24px] lg:gap-[14px] xl:mt-[28px] xl:gap-[16px] 3xl:mt-[32px]">
