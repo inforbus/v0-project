@@ -132,13 +132,13 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                   <div className="border-b border-border/40 bg-muted/30 px-4 py-3">
                     <h4 className="text-sm font-semibold text-foreground md:text-base">{arch.title}</h4>
                   </div>
-                  <div className="p-4">
+                  <div className="flex h-[280px] items-center justify-center p-4 md:h-[320px] lg:h-[300px] 3xl:h-[380px]">
                     <Image
                       src={arch.image}
                       alt={arch.title}
                       width={600}
                       height={400}
-                      className="h-auto w-full object-contain"
+                      className="h-full w-full object-contain"
                     />
                   </div>
                 </div>
