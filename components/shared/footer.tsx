@@ -15,10 +15,9 @@ export function Footer() {
               { label: "应用安全产品", href: "/security" },
             ]} />
             <FooterColumn title="解决方案" links={[
-              { label: "信创中间件解决方案", href: "#" },
-              { label: "信创运维管理解决方案", href: "#" },
-              { label: "数字化转型解决方案", href: "#" },
-              { label: "容器云解决方案", href: "#" },
+              { label: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
+              { label: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
+              { label: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
             ]} />
             <FooterColumn title="服务与支持" links={[
               { label: "产品升级", href: "#" },
