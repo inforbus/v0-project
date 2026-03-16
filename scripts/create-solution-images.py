@@ -6,14 +6,8 @@ import os
 import sys
 from pathlib import Path
 
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-import requests
-from PIL import Image, ImageDraw, ImageFont
-from io import BytesIO
-
-BASE_DIR = Path(__file__).parent.parent
+# Use current directory as base
+BASE_DIR = Path(".").resolve()
 IMAGES_DIR = BASE_DIR / "public" / "images"
 IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
