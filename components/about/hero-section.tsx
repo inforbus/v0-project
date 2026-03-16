@@ -1,9 +1,9 @@
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-const navItems = getNavItems("/about")
-
 export function AboutHeroSection() {
+  const navItems = getNavItems("/about")
+
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}
@@ -13,16 +13,10 @@ export function AboutHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} variant="overlay" />
+      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
 
       {/* Main title and subtitle text content */}
       <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
-        {/* Red accent line */}
-        <div
-          className="bg-[#BF1920]"
-          style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
-        />
-
         {/* Title */}
         <h1
           className="font-sans font-bold text-[#332C2B]"
@@ -30,6 +24,12 @@ export function AboutHeroSection() {
         >
           关于中创
         </h1>
+
+        {/* Red accent line */}
+        <div
+          className="bg-[#BF1920]"
+          style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+        />
 
         {/* Subtitle 1 */}
         <p

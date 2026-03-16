@@ -37,7 +37,7 @@ function ScrollProgress() {
         const total = document.documentElement.scrollHeight - window.innerHeight
         if (total > 0) setProgress((window.scrollY / total) * 100)
       } catch (error) {
-        console.warn("Scroll progress calculation error:", error)
+        // Silently ignore scroll calculation errors
       }
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -83,14 +83,19 @@ const navItems = getNavItems("/")
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (bannerSlides.length <= 1) return
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted || bannerSlides.length <= 1) return
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
     }, SLIDE_INTERVAL)
     return () => clearInterval(timer)
-  }, [])
+  }, [mounted])
 
   return (
     <>
@@ -101,9 +106,10 @@ export function HeroSection() {
             key={index}
             className="pointer-events-none absolute inset-0 transition-all duration-[1500ms] ease-in-out"
             style={{
-              opacity: currentSlide === index ? 1 : 0,
-              transform: currentSlide === index ? "scale(1)" : "scale(1.03)",
+              opacity: mounted && currentSlide === index ? 1 : mounted && index === 0 ? 0 : 0,
+              transform: mounted && currentSlide === index ? "scale(1)" : "scale(1.03)",
             }}
+            suppressHydrationWarning
           >
             {slide.type === "video" ? (
               <>
@@ -121,7 +127,7 @@ export function HeroSection() {
                         const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
                         if (fallbackEl) fallbackEl.style.display = "block"
                       } catch (error) {
-                        console.warn("Video error handler failed:", error)
+                        // Silently fail on error handler failure
                       }
                     }}
                   />
@@ -135,7 +141,7 @@ export function HeroSection() {
                       try {
                         e.currentTarget.style.display = "none"
                       } catch (error) {
-                        console.warn("Fallback image error handler failed:", error)
+                        // Silently fail on error handler failure
                       }
                     }}
                   />
@@ -150,7 +156,7 @@ export function HeroSection() {
                   try {
                     e.currentTarget.style.display = "none"
                   } catch (error) {
-                    console.log("[v0] Image error handler:", error)
+                    // Silently fail on error handler failure
                   }
                 }}
               />
@@ -159,7 +165,7 @@ export function HeroSection() {
         ))}
         <ParticleField />
 
-        <Header navItems={navItems} />
+        <Header variant="overlay" navItems={navItems} isDarkBg={false} />
 
         {/* Slide 1 text: 中创API网关软件 */}
         <div
@@ -169,6 +175,7 @@ export function HeroSection() {
             transform: currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 0 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[708px]">
@@ -181,8 +188,9 @@ export function HeroSection() {
               <p
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
+                suppressHydrationWarning
               >
-                一站式流量管控与AI赋能，让智能更简单
+                {`一站式流量管控与AI赋能，让智能更简单`}
               </p>
             </div>
           </div>
@@ -196,6 +204,7 @@ export function HeroSection() {
             transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 1 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
@@ -238,6 +247,7 @@ export function HeroSection() {
             transform: currentSlide === 2 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 2 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
@@ -262,7 +272,7 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"践行国家战略\u00B7共创数智未来"}
+                践行国家战略·共创数智未来
               </p>
             </div>
           </div>
@@ -288,7 +298,7 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"高可靠\u00B7高性能\u00B7高可用\u00B7高安全"}
+                高可靠·高性能·高可用·高安全
               </p>
               <p
                 className="mt-4 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] xl:text-[24px] 3xl:text-[26px]"

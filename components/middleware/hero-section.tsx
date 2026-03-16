@@ -17,7 +17,7 @@ export function MiddlewareHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} />
+      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
 
       {/* Main title and subtitle text content */}
       {/* 原稿画布 1440×554，left:313px≈21.7% */}
