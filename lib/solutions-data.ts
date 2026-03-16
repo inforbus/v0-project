@@ -16,7 +16,8 @@ export interface SolutionDetail {
   benefits: { label: string; value: string }[]
   values?: { title: string; desc: string }[]
   useCases: { title: string; desc: string }[]
-  relatedProducts: { name: string; href: string }[]
+  relatedProducts: ({ name: string; href: string } | { name: string; desc: string; href: string })[]
+  platformNote?: string
 }
 
 export const solutions: SolutionDetail[] = [
@@ -106,21 +107,62 @@ export const solutions: SolutionDetail[] = [
   },
   {
     slug: "ai-agent",
-    title: "AI 智能体管理平台解决方案",
-    subtitle: "构建自主可控的AI智能体管理与编排平台",
+    title: "企业级全场景 AI 智能体管理平台解决方案",
+    subtitle: "以任务为导向、以领域为核心的智能体中央调度平台",
     heroImage: "/images/solutions/ai-agent.png",
-    overview: "AI智能体管理平台解决方案是一套完整的企业级AI智能体管理与编排系统，提供智能体的开发、部署、运维和治理全生命周期能力，帮助企业快速构建和管理AI应用。",
+    overview: `随着大语言模型（LLM）技术的爆发，企业对 AI 的需求已从简单的"对话问答"转向深度的"业务协同"。本解决方案旨在构建一套以任务为导向、以领域为核心的企业级智能体管理平台。
+
+本平台通过整合底层大模型能力、RAG（检索增强生成）知识库以及 AI 安全防护机制，向上对接互联网及内网用户，中台实现智能体的全生命周期管理（AgentMgt、UserMgt、RAGMgt），核心层通过"任务与领域（Task & Domain）"引擎实现业务逻辑的自动化编排，并通过强大的连接器（Connection）触达 ERP、数据库、WeChat 等各类生产系统。`,
     highlights: [
-      { icon: "deploy", title: "快速开发", desc: "提供完整的AI智能体开发框架与工具链，加速AI应用开发" },
-      { icon: "monitor", title: "智能编排", desc: "支持复杂的多智能体协作与流程编排能力" },
-      { icon: "govern", title: "统一管理", desc: "集中管理、监控和治理企业级AI智能体资源" },
-      { icon: "decouple", title: "安全可控", desc: "提供数据安全、模型保护和执行审计能力" },
+      { icon: "deploy", title: "打通业务最后一公里", desc: `传统 LLM 往往是孤岛，本方案通过 Connection 层实现与现有 ERP、RDB、Email 等系统的深度集成，让 Agent 具备"手"的能力，从"会说到会做"。` },
+      { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）转化为 Agent 的即时背景知识，解决大模型幻觉问题。" },
+      { icon: "govern", title: "多领域敏捷支撑", desc: "通过 Domain A/B/C 的划分，实现不同业务部门（HR、销售、IT）的隔离与协同，确保任务处理的专业性。" },
+      { icon: "decouple", title: "全链路安全可控", desc: "底座内置 AI Security 模块，针对数据脱敏、内容审查、访问授权进行全方位监控，满足企业合规性需求。" },
     ],
     architecture: {
       title: "平台架构",
-      desc: "采用分布式微服务架构，包含智能体开发框架、编排引擎、运行时环境和管控平台，支持高并发、高可用的AI应用运行。",
+      desc: "采用分层设计，从用户交互层、AGENT Platform 中央管理、Task & Domain 分层引擎、Connection 连接器，到底层 LLM、RAG 和 AI Security 三大支撑能力，形成完整的智能体中央调度体系，支持智能体全生命周期管理。",
       image: "/images/diagrams/ai-agent-arch.png",
     },
+    features: [
+      { title: "多端响应式交互", desc: "AgentWebSite 支持跨设备访问，提供流畅的对话式交互体验。" },
+      { title: "RAG 检索增强", desc: "支持多种格式文档上传与自动向量化，使 Agent 能够基于企业最新文档进行精准答复。" },
+      { title: "可视化任务编排", desc: "支持对 Task 进行流转设计，定义 Agent 在遇到特定条件时的决策分支。" },
+      { title: "异构系统桥接", desc: "支持 WebSSH（远程诊断）、RDB Connection（Text-to-SQL 自然语言查询）等多样化连接器。" },
+      { title: "安全防御体系", desc: "AI Security 模块对敏感词、隐私字段（如身份证、工资条）进行自动过滤。" },
+      { title: "企业级权限管理", desc: "支持用户、角色、资源的细粒度权限控制，满足企业信息安全需求。" },
+    ],
+    benefits: [
+      { label: "开发效率提升", value: "5-10倍" },
+      { label: "业务响应时间", value: "-70%" },
+      { label: "人工成本降低", value: "-60%" },
+      { label: "系统可用性", value: "99.99%" },
+    ],
+    values: [
+      { title: "降低开发门槛", desc: "业务人员可通过配置 AgentMgt 和 Task 模块快速上线智能体，无需深度编写 LLM 调用代码。" },
+      { title: "提升响应效率", desc: "通过 ASKHR 和 IT Support Agent，实现 7x24 小时自动响应，显著降低人力资源与运维成本。" },
+      { title: "决策数据化", desc: "通过连接 ERP 和 RDB，Agent 能够实时调取最新数据生成分析报告，辅助管理层决策。" },
+      { title: "架构可扩展性", desc: "支持 Domain 的横向扩展。当企业业务增加时，只需新增 Domain 模块和对应的 Connection 即可快速集成。" },
+    ],
+    useCases: [
+      { title: "智慧 HR 咨询 (ASKHR Agent)", desc: `员工询问："我的年假还剩几天？"
+流程：用户请求 → AgentPlatform → ASKHR Agent → Connection (RDB) → ERP 系统
+结果：Agent 自动查询考勤库并给出准确答复。` },
+      { title: "智能 IT 运维 (IT Support Agent)", desc: `运维人员："某服务器 CPU 占用过高，请排查。"
+流程：用户请求 → IT Support Agent → Connection (WebSSH) → 执行指令 → 观察结果
+结果：Agent 反馈进程列表并建议重启相关服务。` },
+      { title: "销售数据驱动 (Sales Agent)", desc: `销售主管："分析上季度华东区销售额下滑原因。"
+流程：Sales Agent → RAG (读取季度报告) + Connection (RDB 查询销售明细) → 生成分析报告
+结果：Agent 生成数据驱动的分析结论，支撑决策。` },
+    ],
+    relatedProducts: [
+      { name: "大模型 (LLM)", desc: "支持私有化部署（如 Llama 3、DeepSeek）或调用云端 API。", href: "/products" },
+      { name: "向量数据库 (Vector DB)", desc: "用于 RAGMgt，基于 Pgvector。", href: "/products" },
+      { name: "开发工具", desc: "Lite XL/Zed/Neovim 用于开发 Domain 逻辑，Apache Airflow 用于 Task 调度。", href: "/products" },
+      { name: "AI 安全组件", desc: "企业级网关与 AI 内容审查插件。", href: "/products" },
+    ],
+    platformNote: "本智能体平台架构不仅是一个简单的对话界面，更是一个集成企业全量数据与执行能力的\"中央调度器\"。通过 LLM + RAG + Connection 的有机结合，真正实现了 AI 赋能业务流程的全面转型。",
+  },
     features: [
       { title: "智能体开发框架", desc: "提供Python、Java等多语言开发框架，简化AI智能体开发" },
       { title: "多模态支持", desc: "支持文本、语音、图像等多模态数据处理" },

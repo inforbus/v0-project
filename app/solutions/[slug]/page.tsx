@@ -215,24 +215,57 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
           </div>
         </section>
 
+        {/* Solution Values */}
+        {solution.values && solution.values.length > 0 && (
+          <section className="mb-12 lg:mb-16 3xl:mb-20">
+            <SectionTitle>方案价值</SectionTitle>
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 3xl:mt-8 3xl:gap-5">
+              {solution.values.map((v, idx) => (
+                <div key={idx} className="flex flex-col gap-2 rounded-xl border border-border/60 bg-muted/20 p-5 3xl:p-6">
+                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{v.title}</h4>
+                  <p className="text-sm text-muted-foreground 3xl:text-base">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Related Products */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>相关产品</SectionTitle>
-          <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
-            {solution.relatedProducts.map((p, idx) => (
-              <Link
-                key={idx}
-                href={p.href}
-                className="inline-flex items-center gap-2 rounded-full border border-[#BF1920]/15 bg-[#BF1920]/5 px-5 py-2.5 text-sm font-medium text-[#BF1920] transition-all duration-300 hover:bg-[#BF1920]/10 hover:shadow-sm 3xl:px-6 3xl:py-3 3xl:text-base"
-              >
-                {p.name}
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            ))}
-          </div>
+          {typeof solution.relatedProducts[0] === 'object' && 'desc' in solution.relatedProducts[0] ? (
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 3xl:mt-8 3xl:gap-5">
+              {solution.relatedProducts.map((p, idx) => (
+                <div key={idx} className="flex flex-col gap-2 rounded-xl border border-border/60 bg-muted/20 p-5 3xl:p-6">
+                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{p.name}</h4>
+                  {'desc' in p && <p className="text-sm text-muted-foreground 3xl:text-base">{p.desc}</p>}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
+              {solution.relatedProducts.map((p, idx) => (
+                <Link
+                  key={idx}
+                  href={p.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#BF1920]/15 bg-[#BF1920]/5 px-5 py-2.5 text-sm font-medium text-[#BF1920] transition-all duration-300 hover:bg-[#BF1920]/10 hover:shadow-sm 3xl:px-6 3xl:py-3 3xl:text-base"
+                >
+                  {p.name}
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
+
+        {/* Platform Note */}
+        {'platformNote' in solution && solution.platformNote && (
+          <section className="mb-12 rounded-2xl border border-border/40 bg-gradient-to-br from-[#BF1920]/5 to-transparent p-6 lg:mb-16 lg:p-8 3xl:mb-20 3xl:p-10">
+            <p className="text-base text-foreground leading-relaxed md:text-lg 3xl:text-xl">{solution.platformNote}</p>
+          </section>
+        )}
 
         {/* Other Solutions */}
         <section>
