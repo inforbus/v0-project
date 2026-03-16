@@ -234,7 +234,8 @@ export const solutions: SolutionDetail[] = [
       { name: "InforSuite ESB", href: "/middleware" },
     ],
   },
-]
+  {
+    slug: "ai-agent",
     title: "AI 智能体管理平台解决方案",
     subtitle: "构建自主可控的AI智能体管理与编排平台",
     heroImage: "/images/solutions/ai-agent.png",
