@@ -64,7 +64,7 @@ export function WSOverviewSection() {
                   }}
                 >
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260311133604_48_6-42arHy3qpvuB2PAppt7dZtEYBzrSwv.png"
+                    src="/images/banners/ws-overview.png"
                     alt="中创防篡改软件"
                     width={489}
                     height={339}

@@ -126,7 +126,7 @@ const caseDetails: Record<
   },
   "intelligent-monitoring-platform": {
     background:
-      "某大型国有银行的核心交易系统日均处理千万级交易，传统的监控手段已无法满足实时性和智能化的要求。为保障金融交易的安全与稳定，需要建设一套全链路智能监控分析平台，实现从应用层到基础设施层的全方位监控预警与智能诊断。",
+      "某大型国有银行的核心交易系统日均处理千万级交易，传统的监控手段已无法满足实时性和智能化的要求。为保障金融交易的安全与稳定，需要建设一套全链路智能监控分析平台，��现从应用层到基础设施层的全方位监控预警与智能诊断。",
     challenge: [
       "千万级交易的实时监控，数据采集与处理压力巨大",
       "监控维度多、告警规则复杂，人工分析效率低",
@@ -149,8 +149,13 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "监控架构",
-        text: "平台采用「采集-传输-存储-分析-展示」五层架构，通过无侵�����探针实现应用性能数据的自动采集，经消息中间件实时传输至分析引擎，结合时序数据库和知识图谱技术实现智能诊断与可视化展示。",
-        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80&auto=format",
+        text: "平台采用「采集-传输-存储-分析-展示」五层架构，通过无侵入探针实现应用性能数据的自动采集，经消息中间件实时传输至分析引擎，结合时序数据库和知识图谱技术实现智能诊断与可视化展示。",
+        image: "/images/diagrams/middleware-arch.png",
+      },
+      {
+        title: "智能分析",
+        text: "引入机器学习算法，对历史告警数据进行建模训练，实现异常模式的自动识别和根因的快速定位。系统可自动关联上下游调用链，将故障排查时间从小时级缩短至分钟级。",
+        image: "/images/diagrams/ai-agent-arch.png",
       },
       {
         title: "智能分析",
@@ -185,7 +190,7 @@ const caseDetails: Record<
       {
         title: "适配体系",
         text: "构建了覆盖鲲鹏、飞腾、龙芯、海光、兆芯、申威等六大国产芯片平台的全面适配体系。与麒麟、统信等国产操作系统，以及达梦、人大金仓等国产数据库完成深度适配，确保全栈国产化环境下的稳定运行。",
-        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&q=80&auto=format",
+        image: "/images/cases/security.jpg",
       },
       {
         title: "部署方案",
@@ -220,12 +225,12 @@ const caseDetails: Record<
       {
         title: "运维架构",
         text: "平台采用「总部-区域」两级架构，总部平台负责全局监控、策略管理和数据分析，区域节点负责本地数据采集和指令执行。两级之间通过消息中间件实现数据的可靠传输与同步。",
-        image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format",
+        image: "/images/diagrams/middleware-arch.png",
       },
       {
         title: "智能运维",
         text: "通过历史运维数据的深度挖掘，建立故障预测模型和容量规划模型。系统可自动识别潜在风险并提前告警，同时根据资源使用趋势给出扩容建议，实现真正的预测性运维。",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format",
+        image: "/images/diagrams/ai-agent-arch.png",
       },
     ],
   },

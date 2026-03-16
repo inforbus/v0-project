@@ -11,7 +11,7 @@ export function NewsHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}
       <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111%20%284%29-9Uncnq2HhziRedULawuqHCj9VgXZ74.png"
+        src="/images/banners/news-hero.png"
         alt="新闻资讯"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />

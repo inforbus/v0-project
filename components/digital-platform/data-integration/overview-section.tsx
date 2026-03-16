@@ -44,7 +44,7 @@ export function DataIntegrationOverview() {
                   style={{ width: "92%", height: "87.5%", boxShadow: "inset 0px 2px 3px rgba(87, 13, 13, 0.31)", backdropFilter: "blur(3.9px)" }}
                 >
                 <img 
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/etl_img1-Vxg21WQaiT6pjNm3a5zSQqZSOGDYgu.png"
+                  src="/images/diagrams/etl-img1.png"
                   alt="数据集成平台架构图"
                   className="h-auto w-[92%] object-contain rounded-xl"
                   style={{ maxHeight: "87.5%" }}

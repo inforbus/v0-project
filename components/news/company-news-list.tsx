@@ -11,7 +11,7 @@ const allNews = [
     month: '02',
     year: '2026',
     description: '回顾过去一年，中创股份坚定实，勤练本领，稳步前行，在高质量发展道路上迈出坚实步伐。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-36NoQP9iaTba0LOr2DsLCYU7SF8T0G.jpg'
+    image: '/images/news/1.jpg'
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const allNews = [
     month: '02',
     year: '2026',
     description: '近日，中创股份顺利完成了CMM1-DEV V3.0 ML5级整评。实现高能级的研发管理体系。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-x8G1mh2OxXDdwEitQOHHoP2GavA2hP.jpg'
+    image: '/images/news/2.jpg'
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const allNews = [
     month: '01',
     year: '2026',
     description: '近日，2026第十五届双点IT用户大会在山西吕梁重局举办。大会聚焦数据安全、标准化建议。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-18D7gfxEskJpMo4YWTGmkldXcoaOtl.jpg'
+    image: '/images/news/3.jpg'
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const allNews = [
     month: '01',
     year: '2026',
     description: '近日，山东省信息化学会第五届理事会会议暨网络安全与信息化技术交流活动在济南成功举行。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-jfX1cEjcNfA0NuxPdLFbqJFg0wBgJ4.jpg'
+    image: '/images/news/4.jpg'
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const allNews = [
     month: '12',
     year: '2025',
     description: '近日，中国信息学会在北京发布信创数据技术服务能力评估报告，正式公布一级单位名单。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-69ExBIbxUUz6IZyIcRIa6b0hmmMWlS.jpg'
+    image: '/images/news/5.jpg'
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ const allNews = [
     month: '12',
     year: '2025',
     description: '近日，以数智齐章 共创未来为主题2025年全省数智产业发展大会在济南隆重召开。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-i2KNP2AhZwpeqihLLdcUl6i510xEY7.jpg'
+    image: '/images/news/6.jpg'
   },
   {
     id: 7,
@@ -65,7 +65,7 @@ const allNews = [
     month: '12',
     year: '2025',
     description: '中国互联网协会日正式发布6项团体标准。中创股份作为领先的中间件软件企业深度参与。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7-FkN0BtmQalmMM5PmXwzaqzaxPW3JA1.jpg'
+    image: '/images/news/7.jpg'
   },
   {
     id: 8,
@@ -74,7 +74,7 @@ const allNews = [
     month: '12',
     year: '2025',
     description: '近日，由中国通信标准协会主办、中国信息通信研究院承办的2025年云评估大会成功召开。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8-9xHsjh1EaCnCfLcr3s4LUX9or50E2x.jpg'
+    image: '/images/news/8.jpg'
   },
   {
     id: 9,
@@ -83,7 +83,7 @@ const allNews = [
     month: '10',
     year: '2025',
     description: '近日，工业和信息化部发布了国家级专精特新企业名单，山东中创股份荣登名单。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9-itxhffSXs26i8UICrXb7coMEifb2T7.jpg'
+    image: '/images/news/9.jpg'
   },
   {
     id: 10,
@@ -92,7 +92,7 @@ const allNews = [
     month: '10',
     year: '2025',
     description: '今日，第27届中国国际软件博览会成功举办。本次会议以开源创新主场为主题。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10-hn1JmzJokXIYFj4IQXoT2zRBfRt9jS.jpg'
+    image: '/images/news/10.jpg'
   },
   {
     id: 11,
@@ -101,7 +101,7 @@ const allNews = [
     month: '09',
     year: '2025',
     description: '9月26日，济南市人民政府新闻办公室举办了产业链上的好盛景企业家见面会。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png'
+    image: '/images/news/news-default.png'
   },
   {
     id: 12,
@@ -110,7 +110,7 @@ const allNews = [
     month: '09',
     year: '2025',
     description: '近日，第三届中国上市公司产业发展论坛在上海召开。活动以未来产业与国有战略为主题。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ih4gNPZrMx0LW2UBTjEKPuBOc6lEMo.png'
+    image: '/images/news/news-default.png'
   },
   {
     id: 13,
@@ -119,7 +119,7 @@ const allNews = [
     month: '11',
     year: '2025',
     description: '近日，国内领先的基础软件中创股份与中国获得应用服务器中间件产品选择。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+    image: '/images/news/news-alternate.png'
   },
   {
     id: 14,
@@ -128,7 +128,7 @@ const allNews = [
     month: '10',
     year: '2025',
     description: '当前，人工智能技术正以前所有的速度重塑各行业。从生产制造到金融服务，AI应用广泛。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+    image: '/images/news/news-alternate.png'
   },
   {
     id: 15,
@@ -137,7 +137,7 @@ const allNews = [
     month: '10',
     year: '2025',
     description: '近日，由BP商业评刊主办的2025数字生态大会圆满落幕。中创股份荣登榜单。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+    image: '/images/news/news-alternate.png'
   },
   {
     id: 16,
@@ -146,7 +146,7 @@ const allNews = [
     month: '10',
     year: '2025',
     description: '今日，由中国软件行业协会主办的2025软件创新发展大会在苏州隆重召开。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-1sIsYVKdzOdarIHwfE4YGulmcQP3IE.png'
+    image: '/images/news/news-alternate.png'
   },
   {
     id: 17,
@@ -155,7 +155,7 @@ const allNews = [
     month: '12',
     year: '2025',
     description: '近日，2025软件技术大会在北京国家会议中心隆重举行。本次大会聚焦AI赋能。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+    image: '/images/news/news-tech.png'
   },
   {
     id: 18,
@@ -164,7 +164,7 @@ const allNews = [
     month: '11',
     year: '2025',
     description: '近日，山东信息化学会淮坊市卫生健康委员会联合主办医疗信息解决方案研讨会。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+    image: '/images/news/news-tech.png'
   },
   {
     id: 19,
@@ -173,7 +173,7 @@ const allNews = [
     month: '11',
     year: '2025',
     description: '由中国教育技术协会与中国教育技术协会主办的大赛决赛在浙江大学举行。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+    image: '/images/news/news-tech.png'
   },
   {
     id: 20,
@@ -182,7 +182,7 @@ const allNews = [
     month: '11',
     year: '2025',
     description: '近日，医疗信息创新解决方案研讨会日照站成功举办。本次会议由多家机构共同参与。',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LIGnnm5SVyGx4OBAnBeFUPq3dsf0Rn.png'
+    image: '/images/news/news-tech.png'
   }
 ]
 

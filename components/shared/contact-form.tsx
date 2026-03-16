@@ -119,7 +119,7 @@ export function ContactForm() {
               </div>
               <div className="h-12 w-24 rounded-md border border-border bg-muted flex items-center justify-center">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HpRN1ck3SjU81tEMFe9TTmXF2u0ZU5.png"
+                  src="/images/banners/contact-form.png"
                   alt="验证码"
                   width={80}
                   height={40}
