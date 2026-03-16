@@ -7,7 +7,7 @@ from pathlib import Path
 
 # 完整的URL映射表
 URL_MAPPING = {
-    # 客户LOGO (33个) - 已添加
+    # 客户LOGO (33个)
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%91%E9%93%B6%E8%A1%8C-QJdfdGZNIsnDisTWkbWsVwA0twOW0N.png": "/images/customers/ndb.png",
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%B9%B3%E5%AE%89%E7%A7%91%E6%8A%80-xP9pkTi2BHHS4KVnGmteqwog1u0Lf8.webp": "/images/customers/pingan-tech.webp",
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%91%E6%8A%95%E8%B5%84%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-iWXxncUuKsQMZ5r5NtBexjmXCGu4xM.png": "/images/customers/cidg.png",
@@ -43,52 +43,64 @@ URL_MAPPING = {
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%B8%AD%E5%9B%BD%E4%BA%94%E7%9F%BF%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-c1G5f23dAM32GNcuWsEjGJpfeuMSwv.png": "/images/customers/minmetals.png",
 }
 
+def replace_urls_in_file(filepath):
+    """在单个文件中替换URL"""
+    try:
+        content = filepath.read_text(encoding='utf-8')
+        original = content
+        
+        for old_url, new_path in URL_MAPPING.items():
+            if old_url in content:
+                content = content.replace(old_url, new_path)
+        
+        if content != original:
+            filepath.write_text(content, encoding='utf-8')
+            return True
+        return False
+    except Exception:
+        return False
+
 def main():
+    """主程序"""
     print("=" * 80)
     print("快速URL替换工具 - 替换所有源代码中的外部URL")
     print("=" * 80)
     
-    project_root = Path.cwd()
-    print(f"\n项目目录: {project_root}")
+    project_root = Path("/vercel/share/v0-project")
+    print(f"\n项目目录: {project_root}\n")
     
-    # 查找所有源代码文件
-    source_exts = ['*.tsx', '*.ts', '*.jsx', '*.js']
+    # 手动收集所有源文件
     source_files = []
-    for ext in source_exts:
-        source_files.extend(project_root.rglob(ext))
+    for ext in ['tsx', 'ts', 'jsx', 'js']:
+        for item in (project_root / "app").rglob(f"*.{ext}"):
+            source_files.append(item)
+        for item in (project_root / "components").rglob(f"*.{ext}"):
+            source_files.append(item)
+        for item in (project_root / "lib").rglob(f"*.{ext}"):
+            source_files.append(item)
     
-    # 排除特定目录
-    exclude_dirs = {'.git', 'node_modules', '.next', 'dist', 'build'}
-    source_files = [f for f in source_files if not any(ex in f.parts for ex in exclude_dirs)]
+    # 排除node_modules和.next
+    source_files = [f for f in source_files if 'node_modules' not in f.parts and '.next' not in f.parts]
     
     print(f"扫描到 {len(source_files)} 个源代码文件\n")
     
-    total_replaced = 0
     files_changed = 0
+    total_replaced = 0
     
     for filepath in source_files:
-        try:
+        if replace_urls_in_file(filepath):
+            files_changed += 1
+            # 计算替换数量
             content = filepath.read_text(encoding='utf-8')
-            original = content
-            
-            for old_url, new_path in URL_MAPPING.items():
+            for old_url in URL_MAPPING.keys():
                 if old_url in content:
-                    content = content.replace(old_url, new_path)
-                    total_replaced += 1
-            
-            if content != original:
-                filepath.write_text(content, encoding='utf-8')
-                files_changed += 1
-                print(f"  ✓ {filepath.relative_to(project_root)}")
-        except Exception as e:
-            pass
+                    total_replaced += content.count(old_url)
+            print(f"  ✓ {filepath.relative_to(project_root)}")
     
-    # 验证是否还有未替换的URL
     print(f"\n替换完成:")
     print(f"  - 修改文件数: {files_changed} 个")
-    print(f"  - 替换URL数: {total_replaced} 个")
     
-    # 最后检查是否还有残留URL
+    # 验证是否还有未替换的URL
     print(f"\n验证是否还有外部URL...")
     remaining = 0
     for filepath in source_files:
@@ -97,13 +109,13 @@ def main():
             if "hebbkx1anhila5yf.public.blob.vercel-storage.com" in content:
                 remaining += 1
                 print(f"  ✗ {filepath.relative_to(project_root)} 仍然包含外部URL")
-        except:
+        except Exception:
             pass
     
     if remaining == 0:
-        print(f"✅ 完美! 没有发现任何外部URL链接")
+        print("✅ 完美! 所有源代码文件中的外部URL已替换\n")
     else:
-        print(f"⚠️  还有 {remaining} 个文件包含外部URL")
+        print(f"⚠️  还有 {remaining} 个文件包含外部URL\n")
 
 if __name__ == "__main__":
     main()
