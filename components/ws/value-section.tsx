@@ -13,7 +13,7 @@ const valueItems = [
     nextLine1: "7*24发布",
     nextLine2: "权验审计",
     description: "构建应用攻击实时防护、篡改实时阻断、木马病毒识别告警、网站内容发布实时审计的多重防护体系。",
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-6d5wAw1CHEcpX66jutL9j2Scq3HUMO.png",
+    icon: "/images/ws/value-1.png",
   },
   {
     title: "7*24网站发布权验与审计",
@@ -24,7 +24,7 @@ const valueItems = [
     nextLine1: "双机热备",
     nextLine2: "运行可靠",
     description: "实时校验和审计网站文件是否含有隐式篡改、恶意链接、木马病毒、确保网站文件正确无误。",
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-c1OauyrI23GgNpNIEMLVhuOIdLOE86.png",
+    icon: "/images/ws/value-2.png",
   },
   {
     title: "双机热备、运行可靠",
@@ -35,7 +35,7 @@ const valueItems = [
     nextLine1: "助力等保",
     nextLine2: "安全测评",
     description: "提供特有的双引擎篡改恢复技术，让防篡改7*24小时全时覆盖，全时防御。",
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-GcoP45TnMaJV6RhY8eFBFIS9DlX7eH.png",
+    icon: "/images/ws/value-3.png",
   },
   {
     title: "助力网络安全等级保护测评",
@@ -46,7 +46,7 @@ const valueItems = [
     nextLine1: "深度适配",
     nextLine2: "国产支持",
     description: "实现信息系统的防攻击、防篡改，帮助用户信息系统等级保护建设检测工作的顺利通过。",
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-PnfeP3iYKRToIgm6GmSLkuhn2UNCt3.png",
+    icon: "/images/ws/value-4.png",
   },
   {
     title: "深度适配、国产支持",
@@ -57,7 +57,7 @@ const valueItems = [
     nextLine1: "多重防护",
     nextLine2: "安全加固",
     description: "经4000+用户、上万个复杂IT环境验证，支持国家信创环保、主流操作系统、数据库、Web及应用服务器。",
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-jKOGbnhvXBI5xsNOuDh2d8tPXZJS22.png",
+    icon: "/images/ws/value-5.png",
   },
 ]
 
