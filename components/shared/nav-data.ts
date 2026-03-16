@@ -97,7 +97,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     },
     {
       name: "案例中心",
-      href: "/cases",
+      href: "",
       active: activePath === "/cases" || activePath.startsWith("/cases"),
       children: [
         { name: "金融案例", href: "/cases/financial" },

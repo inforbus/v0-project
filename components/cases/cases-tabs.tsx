@@ -6,6 +6,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { cases } from '@/lib/cases-data'
 
+interface CasesTabsProps {
+  defaultCategory?: 'all' | 'financial' | 'government' | 'enterprise'
+}
+
 const tabs = [
   { id: 'all', label: '全部案例' },
   { id: 'financial', label: '金融案例' },
@@ -19,9 +23,9 @@ const caseCategories: Record<string, string[]> = {
   'enterprise': ['central-enterprise-digital-system', 'real-estate-group-localization', 'operator-middleware-services', 'national-highway-toll-stations'],
 }
 
-export function CasesTabs() {
+export function CasesTabs({ defaultCategory = 'all' }: CasesTabsProps) {
   const pathname = usePathname()
-  const [activeTab, setActiveTab] = useState('all')
+  const [activeTab, setActiveTab] = useState<string>(defaultCategory)
 
   useEffect(() => {
     // 检查当前路径是否指向特定分类
@@ -34,7 +38,7 @@ export function CasesTabs() {
   // 根据选中的tab过滤案例
   const filteredCases = activeTab === 'all' 
     ? cases 
-    : cases.filter(c => caseCategories[activeTab]?.includes(c.slug))
+    : cases.filter(c => caseCategories[activeTab as keyof typeof caseCategories]?.includes(c.slug))
 
   return (
     <div className="w-full">
