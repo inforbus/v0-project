@@ -14,8 +14,7 @@ from urllib.parse import urlparse
 from urllib.request import urlopen
 import mimetypes
 
-# Add parent directory to path to import uv
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Project setup (removed __file__ reference for compatibility)
 
 # Image URL mappings
 IMAGE_URLS = {
@@ -123,7 +122,7 @@ def download_image(url: str, destination: Path) -> bool:
 
 def main():
     """Download all images"""
-    project_root = Path(__file__).parent.parent
+    project_root = Path.cwd()
     images_dir = project_root / "public" / "images"
     
     print("=" * 60)
@@ -146,7 +145,7 @@ def main():
     print("\n" + "=" * 60)
     print(f"下载完成!")
     print(f"成功: {success}/{total}")
-    print(f"失败: {failed}/{total}")
+    print(f"失���: {failed}/{total}")
     print("=" * 60)
     
     if failed == 0:
