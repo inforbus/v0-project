@@ -18,9 +18,9 @@ const tabs = [
 ]
 
 const caseCategories: Record<string, string[]> = {
-  'financial': ['commercial-bank-localization'],
-  'government': ['provincial-government-document-exchange'],
-  'enterprise': ['central-enterprise-digital-system', 'real-estate-group-localization', 'operator-middleware-services', 'national-highway-toll-stations'],
+  'financial': ['national-investment-finance-system'],
+  'government': ['police-data-governance'],
+  'enterprise': ['central-enterprise-middleware-platform', 'southern-grid-digital-system', 'zhongchuang-bigdata-platform', 'zhongchuang-data-integration-platform', 'zhongchuang-ai-model-platform', 'national-highway-toll-stations'],
 }
 
 export function CasesTabs({ defaultCategory = 'all' }: CasesTabsProps) {
