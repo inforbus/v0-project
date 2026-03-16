@@ -7,11 +7,10 @@ import requests
 from pathlib import Path
 from PIL import Image
 from io import BytesIO
-import hashlib
+import sys
 
-# Create directories
-script_dir = Path(__file__).parent
-project_root = script_dir.parent
+# Create directories - use absolute path from current working directory
+project_root = Path.cwd()
 public_images = project_root / "public" / "images"
 public_images.mkdir(parents=True, exist_ok=True)
 
