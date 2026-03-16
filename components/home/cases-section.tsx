@@ -131,7 +131,7 @@ export function CasesSection() {
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 3xl:gap-6">
-          {cases.map((caseItem, index) => (
+          {cases.slice(0, 6).map((caseItem, index) => (
             <CaseCard key={caseItem.title} caseItem={caseItem} index={index} />
           ))}
         </div>
