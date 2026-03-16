@@ -270,7 +270,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Other Solutions */}
         <section>
           <SectionTitle>其他解决方案</SectionTitle>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 3xl:mt-8 3xl:gap-5">
+          <div className="mt-6 grid gap-4 sm:grid-cols-3 3xl:mt-8 3xl:gap-5">
             {solutions
               .filter((s) => s.slug !== slug)
               .slice(0, 3)
