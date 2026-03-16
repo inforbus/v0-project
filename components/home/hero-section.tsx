@@ -287,6 +287,7 @@ export function HeroSection() {
             transform: currentSlide === 3 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 3 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
