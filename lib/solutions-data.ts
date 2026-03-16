@@ -15,7 +15,7 @@ export interface SolutionDetail {
   features: { title: string; desc: string }[]
   benefits: { label: string; value: string }[]
   values?: { title: string; desc: string }[]
-  useCases: string[]
+  useCases: { title: string; desc: string }[]
   relatedProducts: { name: string; href: string }[]
 }
 
@@ -52,10 +52,9 @@ export const solutions: SolutionDetail[] = [
       { label: "中间件统一纳管率", value: "100%" },
     ],
     useCases: [
-      "大型企业中间件集群统一运维管理",
-      "金融行业中间件标准化部署与监控",
-      "政务云平台中间件服务治理",
-      "电信运营商多省中间件集中管控",
+      { title: "大型企业中间件集群统一运维管理", desc: "支持多种中间件产品的统一纳管，实现规模化部署、集中化监控和智能化运维，显著降低运维成本和管理复杂度。" },
+      { title: "金融行业中间件标准化部署与监控", desc: "提供金融级的可靠性和安全性保障，支持合规性检查和审计追踪，保障金融机构的业务连续性。" },
+      { title: "政务云平台中间件服务治理", desc: "实现中间件的统一治理和标准化管理，支持多租户隔离和资源限额控制，满足政务云的要求。" },
     ],
     relatedProducts: [
       { name: "InforSuite UMP", href: "/middleware/management" },
@@ -95,10 +94,9 @@ export const solutions: SolutionDetail[] = [
       { label: "故障恢复时间", value: "<1分钟" },
     ],
     useCases: [
-      "企业应用现代化",
-      "微服务架构建设",
-      "多云管理",
-      "边缘计算部署",
+      { title: "企业应用现代化", desc: "加速企业遗留系统向云原生应用的转型，支持灰度迁移和滚动升级，降低迁移风险。" },
+      { title: "微服务架构建设", desc: "提供完整的微服务治理能力，支持服务网格和流量管理，实现高效的服务间协作。" },
+      { title: "多云管理", desc: "支持跨多个公有云和私有云的统一管理，提供一致的应用部署体验。" },
     ],
     relatedProducts: [
       { name: "InforSuite AS", href: "/middleware" },
@@ -137,10 +135,9 @@ export const solutions: SolutionDetail[] = [
       { label: "系统可用性", value: "99.99%" },
     ],
     useCases: [
-      "客户服务AI智能体",
-      "数据分析AI智能体",
-      "决策支持AI智能体",
-      "流程自动化AI智能体",
+      { title: "客户服务AI智能体", desc: "构建自动应答、智能路由、人机协作的客户服务系统，提升服务质量和效率。" },
+      { title: "数据分析AI智能体", desc: "自动化数据处理、模式识别、报告生成，加速数据分析工作流程。" },
+      { title: "决策支持AI智能体", desc: "基于多源数据的智能决策推荐，辅助企业管理层做出更好的业务决策。" },
     ],
     relatedProducts: [
       { name: "中创AI中间件", href: "/middleware" },
@@ -184,9 +181,9 @@ export const solutions: SolutionDetail[] = [
       { label: "部署周期", value: "缩短50%" },
     ],
     useCases: [
-      "关键业务系统保障升级：适用于金融核心交易、能源调度控制、电信计费等对连续性要求极高的关键业务。通过构建双活架构，使系统可用性大幅提升，满足行业监管对业务连续性的严苛要求。",
-      "中间件迁移上云：数据同步工具同样可用于集群迁移，为企业云化转型提供平滑迁移路径。通过双活同步实现本地数据中心与云平台的数据实时对齐，大幅降低迁移风险，保障业务平稳上云。",
-      "国产化改造数据迁移：在信创替代过程中，实现国外中间件（如Kafka、Redis）向中创中间件的平滑过渡。支持异构数据源同步，保障改造期间业务不中断、数据零丢失。",
+      { title: "关键业务系统保障升级", desc: "适用于金融核心交易、能源调度控制、电信计费等对连续性要求极高的关键业务。通过构建双活架构，使系统可用性大幅提升，满足行业监管对业务连续性的严苛要求。" },
+      { title: "中间件迁移上云", desc: "数据同步工具同样可用于集群迁移，为企业云化转型提供平滑迁移路径。通过双活同步实现本地数据中心与云平台的数据实时对齐，大幅降低迁移风险，保障业务平稳上云。" },
+      { title: "国产化改造数据迁移", desc: "在信创替代过程中，实现国外中间件（如Kafka、Redis）向中创中间件的平滑过渡。支持异构数据源同步，保障改造期间业务不中断、数据零丢失。" },
     ],
     relatedProducts: [
       { name: "InforSuite HTMQ", href: "/middleware" },
@@ -227,10 +224,9 @@ export const solutions: SolutionDetail[] = [
       { label: "信创合���", value: "100%达标" },
     ],
     useCases: [
-      "国家关键信息基础设施保护",
-      "金融机构信创改造",
-      "政府部门系统国产化",
-      "能源、电力等战略行业信创建设",
+      { title: "国家关键信息基础设施保护", desc: "满足国家对关键基础设施的自主可控要求，构建安全可靠的国产中间件平台。" },
+      { title: "金融机构信创改造", desc: "替代国外中间件产品，建设符合信创要求的自主可控金融IT基础设施。" },
+      { title: "政府部门系统国产化", desc: "为政务系统提供自主可控的中间件支撑，满足政府信创建设的需要。" },
     ],
     relatedProducts: [
       { name: "InforSuite AS", href: "/middleware" },
