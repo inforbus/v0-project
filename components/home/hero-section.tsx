@@ -223,6 +223,7 @@ export function HeroSection() {
               <p
                 className="mt-[8px] text-[10px] text-black/70 sm:mt-[10px] sm:text-[12px] md:mt-[12px] md:text-[14px] lg:mt-[14px] lg:text-[16px] xl:mt-[16px] xl:text-[18px] 2xl:mt-[18px] 2xl:text-[20px] 3xl:mt-[20px] 3xl:text-[22px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                suppressHydrationWarning
               >
                 为企业提供快速、安全、敏捷的AI应用部署能力
               </p>
