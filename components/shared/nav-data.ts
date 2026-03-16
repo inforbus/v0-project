@@ -128,7 +128,7 @@ export function getNavItems(activePath?: string): NavItem[] {
         { name: "公司荣誉", href: "/about/honors" },
         { name: "发展历程", href: "/about/history" },
         { name: "投资者关系", href: "/about/investor" },
-        { name: "公司要闻", href: "/news/company" },
+        { name: "新闻资讯", href: "/news/company" },
         { name: "加入我们", href: "/about/careers" },
       ],
       isMega: false,
