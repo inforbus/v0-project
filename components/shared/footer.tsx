@@ -40,7 +40,7 @@ export function Footer() {
             <div className="mt-3 flex gap-3 3xl:mt-4 3xl:gap-4">
               {/* WeChat QR Code */}
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BA%8C%E7%BB%B4%E7%A0%81-E5GuTtKdhXDCzFLIy5RdbIxTjYqf6k.png"
+                src="/images/footer/qrcode-wechat.png"
                 alt="中创股份微信公众号二维码"
                 width={72}
                 height={72}
@@ -48,7 +48,7 @@ export function Footer() {
               />
               {/* Video Account QR Code */}
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BA%8C%E7%BB%B4%E7%A0%812-u8eXoO3zYildei5JSTej7TrWsELyEF.png"
+                src="/images/footer/qrcode-video.png"
                 alt="中创股份视频号二维码"
                 width={72}
                 height={72}
