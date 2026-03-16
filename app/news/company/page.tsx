@@ -4,8 +4,8 @@ import { NewsHeroSection } from "@/components/news/news-hero-section"
 import { CompanyNewsList } from "@/components/news/company-news-list"
 
 export const metadata = {
-  title: "公司要闻 - 中创股份",
-  description: "中创股份最新的公司要闻和企业动态",
+  title: "新闻资讯 - 中创股份",
+  description: "中创股份最新的新闻资讯和企业动态",
 }
 
 export default function CompanyNewsPage() {
