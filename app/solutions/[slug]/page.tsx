@@ -201,27 +201,17 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>应用场景</SectionTitle>
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 3xl:mt-8 3xl:gap-4">
-            {solution.useCases.map((uc, idx) => {
-              // Parse the useCase string: "场景 X：标题\n内容" -> extract title and content
-              const lines = uc.split('\n')
-              const firstLine = lines[0]
-              // Remove "场景 X：" prefix and get the title
-              const titleMatch = firstLine.match(/^场景\s*\d+[：:]\s*(.+)$/)
-              const title = titleMatch ? titleMatch[1] : firstLine
-              const content = lines.slice(1).join('\n')
-              
-              return (
-                <div key={idx} className="flex flex-col gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
-                      {idx + 1}
-                    </span>
-                    <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{title}</h4>
-                  </div>
-                  <p className="whitespace-pre-wrap pl-11 text-sm text-muted-foreground 3xl:text-base">{content}</p>
+            {solution.useCases.map((uc, idx) => (
+              <div key={idx} className="flex flex-col gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
+                    {idx + 1}
+                  </span>
+                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{uc.title}</h4>
                 </div>
-              )
-            })}
+                <p className="whitespace-pre-wrap pl-11 text-sm text-muted-foreground 3xl:text-base">{uc.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
