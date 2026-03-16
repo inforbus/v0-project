@@ -19,18 +19,25 @@ export function Footer() {
               { label: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
               { label: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
             ]} />
+            <FooterColumn title="典型案例" links={[
+              { label: "金融案例", href: "#", disabled: true },
+              { label: "政府案例", href: "#", disabled: true },
+              { label: "企业案例", href: "#", disabled: true },
+            ]} />
             <FooterColumn title="服务与支持" links={[
-              { label: "产品升级", href: "#" },
-              { label: "资料中心", href: "#" },
-              { label: "Kubernetes服务", href: "#" },
-              { label: "中间件百科", href: "#" },
+              { label: "在线服务", href: "/support/online" },
+              { label: "认证证书", href: "/support/certification" },
+              { label: "产品升级", href: "/support/upgrade" },
+              { label: "FAQ", href: "/support/faq" },
+              { label: "Kubernetes服务", href: "/support/kubernetes" },
             ]} />
             <FooterColumn title="关于我们" links={[
               { label: "公司介绍", href: "/about/introduction" },
               { label: "公司荣誉", href: "/about/honors" },
               { label: "发展历程", href: "/about/history" },
-              { label: "新闻资讯", href: "/news" },
               { label: "投资者关系", href: "/about/investor" },
+              { label: "公司要闻", href: "/news/company" },
+              { label: "加入我们", href: "/about/careers" },
             ]} />
           </div>
 
@@ -81,7 +88,7 @@ export function Footer() {
   )
 }
 
-function FooterColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+function FooterColumn({ title, links }: { title: string; links: ({ label: string; href: string; disabled?: boolean })[] }) {
   return (
     <div className="relative pl-4">
       <div className="absolute left-0 top-0 h-full w-[0.5px] bg-border" />
@@ -90,9 +97,13 @@ function FooterColumn({ title, links }: { title: string; links: { label: string;
       <ul className="mt-3 space-y-2.5 3xl:mt-5 3xl:space-y-4">
         {links.map((link, i) => (
           <li key={i}>
-            <Link href={link.href} className="footer-link-animated cursor-pointer text-xs text-foreground/70 transition-all duration-200 hover:text-primary hover:underline active:text-primary/80 3xl:text-sm">
-              {link.label}
-            </Link>
+            {link.disabled ? (
+              <span className="text-xs text-foreground/40 3xl:text-sm cursor-not-allowed">{link.label}</span>
+            ) : (
+              <Link href={link.href} className="footer-link-animated cursor-pointer text-xs text-foreground/70 transition-all duration-200 hover:text-primary hover:underline active:text-primary/80 3xl:text-sm">
+                {link.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
