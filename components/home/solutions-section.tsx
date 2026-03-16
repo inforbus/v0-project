@@ -11,7 +11,7 @@ const solutions = [
     title: "AI 智能体管理平台解决方案",
     slug: "ai-agent",
     icon: "/images/solution-ai-agent.png",
-    desc: "企业级全场景 AI 智能体管理平台，通过整合大模型能力、RAG 知识库及安全防护机制，实现智能体的全生命周期管理，帮助企业从'会说'到'会做'，打通业务最后一公里。",
+    desc: "企业级全场景 AI 智能体管理平台，通过整合大模型能力、RAG 知识库及安全防护机制，实现智能体的全生命周期管理，帮助企业从会说到会做，打通业务最后一公里。",
   },
   {
     tab: "信创中间件双活容灾",
@@ -29,130 +29,83 @@ const solutions = [
   },
 ]
 
-export function SolutionsSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [animKey, setAnimKey] = useState(0)
+interface Solution {
+  tab: string
+  title: string
+  slug: string
+  icon: string
+  desc: string
+}
 
-  const handleTabClick = (idx: number) => {
-    if (idx === activeIndex) return
-    setActiveIndex(idx)
-    setAnimKey(prev => prev + 1)
-  }
+export function SolutionsSection() {
+  const [activeTab, setActiveTab] = useState<string>(solutions[0].slug)
+
+  const activeSolution = solutions.find((s) => s.slug === activeTab) || solutions[0]
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F9F8FA] to-[#F0EEF2] py-14 md:py-20 lg:py-[70px] 3xl:py-[90px]">
-      {/* Subtle background decoration */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-0 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#BF1920]/[0.02] blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] translate-x-1/3 translate-y-1/3 rounded-full bg-[#BF1920]/[0.015] blur-[100px]" />
-      </div>
+    <section className="relative w-full overflow-hidden bg-white">
+      <ScrollReveal>
+        <div className="relative mx-auto w-full max-w-[90%] px-4 py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 3xl:py-36">
+          {/* Section Title */}
+          <div className="mb-12 md:mb-14 lg:mb-16 xl:mb-20 2xl:mb-24 3xl:mb-28">
+            <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl">
+              解决方案
+            </h2>
+            <p className="mt-4 text-base text-gray-600 md:mt-6 md:text-lg lg:mt-8 lg:text-xl xl:mt-10 xl:text-2xl 2xl:mt-12 2xl:text-2xl 3xl:mt-14 3xl:text-3xl">
+              为不同行业和场景提供定制化解决方案
+            </p>
+          </div>
 
-      {/* Subtle flowing lines background */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-60">
-        <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 700" preserveAspectRatio="xMidYMid slice">
-          <path d="M-200,180 Q400,100 960,180 T2120,140" fill="none" stroke="rgba(191,25,32,0.07)" strokeWidth="0.8" className="subtle-line-1" />
-          <path d="M-200,360 Q500,290 960,360 T2120,330" fill="none" stroke="rgba(191,25,32,0.05)" strokeWidth="0.8" className="subtle-line-2" />
-          <path d="M-200,520 Q450,460 960,530 T2120,500" fill="none" stroke="rgba(191,25,32,0.06)" strokeWidth="0.8" className="subtle-line-3" />
-        </svg>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-        {/* Section title */}
-        <ScrollReveal>
-          <h2 className="text-center text-2xl font-bold text-foreground md:text-3xl lg:text-[32px] 3xl:text-[40px]">
-            解决方案
-          </h2>
-          <div className="mx-auto mt-2 h-[2px] w-12 rounded-full bg-primary animate-line-sweep 3xl:w-16" />
-          <p className="mt-3 text-center text-sm text-muted-foreground md:mt-4 md:text-base lg:text-base 3xl:text-lg">
-            多样化解决方案，助力企业数智化转型
-          </p>
-        </ScrollReveal>
-
-        {/* Horizontal tab bar */}
-        <ScrollReveal delay={100}>
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-10 lg:mt-12 lg:gap-4 3xl:mt-14 3xl:gap-5">
-            {solutions.map((sol, idx) => (
+          {/* Tab Navigation */}
+          <div className="mb-12 flex flex-wrap gap-3 md:mb-14 md:gap-4 lg:mb-16 lg:gap-5 xl:gap-6 2xl:mb-20 3xl:mb-24">
+            {solutions.map((solution) => (
               <button
-                key={idx}
-                onClick={() => handleTabClick(idx)}
-                className={`relative overflow-hidden rounded-full px-5 py-2.5 text-center text-sm font-medium transition-all duration-500 md:px-6 md:py-3 md:text-base 3xl:px-8 3xl:py-3.5 3xl:text-lg ${
-                  activeIndex === idx
-                    ? "bg-[#BF1920] text-white shadow-[0_4px_16px_rgba(191,25,32,0.3)] scale-[1.02]"
-                    : "bg-white/70 text-foreground/70 hover:bg-white hover:text-foreground shadow-sm hover:scale-[1.01]"
+                key={solution.slug}
+                onClick={() => setActiveTab(solution.slug)}
+                className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 md:px-6 md:py-3 md:text-base lg:px-7 lg:py-3.5 lg:text-lg xl:px-8 xl:py-4 2xl:px-9 2xl:py-4.5 2xl:text-xl 3xl:px-10 3xl:py-5 3xl:text-2xl ${
+                  activeTab === solution.slug
+                    ? "bg-primary text-white"
+                    : "border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary"
                 }`}
               >
-                <span className="relative z-10">{sol.tab}</span>
+                {solution.tab}
               </button>
             ))}
           </div>
-        </ScrollReveal>
 
-        {/* Content area: left text + right image */}
-        <div className="mt-10 md:mt-12 lg:mt-14 3xl:mt-16">
-          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-8 3xl:gap-10">
-            {/* Left: title + desc + CTA */}
-            <div
-              key={`text-${animKey}`}
-              className="w-full animate-fade-slide-up lg:w-1/2 lg:flex-shrink-0 lg:pt-0 3xl:pt-0"
-            >
-              <h3 className="text-xl font-bold text-foreground md:text-2xl lg:text-[26px] 3xl:text-[32px]">
-                {solutions[activeIndex].title}
-              </h3>
-              <p className="mt-4 text-sm leading-[200%] text-foreground/60 md:text-base lg:mt-6 lg:text-base 3xl:mt-8 3xl:text-lg">
-                {solutions[activeIndex].desc}
-              </p>
-              <Link
-                href={`/solutions/${solutions[activeIndex].slug}`}
-                className="group mt-6 inline-flex items-center gap-2 rounded-full bg-[#BF1920] px-6 py-2.5 text-sm font-medium text-white shadow-[0_4px_16px_rgba(191,25,32,0.25)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(191,25,32,0.35)] hover:scale-105 md:mt-8 lg:mt-10 lg:px-7 lg:py-3 lg:text-base 3xl:mt-12 3xl:px-8 3xl:py-3.5 3xl:text-lg"
-              >
-                了解详情
-                <svg
-                  width="19"
-                  height="6"
-                  viewBox="0 0 19 6"
-                  fill="none"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+          {/* Content Grid */}
+          <div className="grid gap-8 md:gap-10 lg:gap-12 xl:gap-14 2xl:gap-16 3xl:gap-20 lg:grid-cols-2">
+            {/* Left: Image */}
+            <div className="relative overflow-hidden rounded-lg bg-gray-100">
+              <Image
+                src={activeSolution.icon}
+                alt={activeSolution.title}
+                width={600}
+                height={400}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {/* Right: Content */}
+            <ScrollReveal delay={0.1}>
+              <div className="flex flex-col justify-center">
+                <h3 className="mb-6 text-2xl font-bold md:mb-8 md:text-3xl lg:mb-10 lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl">
+                  {activeSolution.title}
+                </h3>
+                <p className="mb-8 text-base text-gray-600 leading-relaxed md:mb-10 md:text-lg lg:mb-12 lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-3xl">
+                  {activeSolution.desc}
+                </p>
+                <Link
+                  href={`/solutions/${activeSolution.slug}`}
+                  className="inline-block w-fit rounded-lg bg-primary px-8 py-3 font-semibold text-white transition-all hover:bg-primary/90 md:px-10 md:py-3.5 lg:px-12 lg:py-4 xl:text-lg 2xl:text-xl 3xl:text-2xl"
                 >
-                  <path d="M0 3H17M17 3L14 0.5M17 3L14 5.5" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-              </Link>
-            </div>
-
-            {/* Right: all images rendered, CSS controls visibility for instant switching */}
-            <div className="relative w-full lg:w-1/2 flex items-center justify-start lg:justify-start">
-              <div className="relative h-[300px] w-full md:h-[360px] lg:h-[380px] 3xl:h-[480px]">
-                {solutions.map((sol, idx) => (
-                  <div
-                    key={idx}
-                    className={`absolute inset-0 transition-all duration-500 ${
-                      activeIndex === idx
-                        ? "opacity-100 scale-100 translate-x-0"
-                        : "opacity-0 scale-95 translate-x-8 pointer-events-none"
-                    }`}
-                  >
-                    <div className={activeIndex === idx ? "solution-img-float relative h-full w-full" : "relative h-full w-full"}>
-                      <Image
-                        src={sol.icon}
-                        alt={sol.title}
-                        fill
-                        className="object-contain drop-shadow-lg"
-                        priority
-                        onError={(e) => {
-                          try {
-                            e.currentTarget.style.display = "none"
-                          } catch (error) {
-                            console.warn("Solution icon error:", error)
-                          }
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  了解更多
+                </Link>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   )
 }
