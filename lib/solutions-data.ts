@@ -19,6 +19,7 @@ export interface SolutionDetail {
   relatedProducts: { name: string; href: string }[]
 }
 
+// Solutions data with proper structure
 export const solutions: SolutionDetail[] = [
   {
     slug: "middleware-management",
