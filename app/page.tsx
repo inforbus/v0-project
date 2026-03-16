@@ -11,7 +11,7 @@ import { Footer } from "@/components/shared/footer"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-background">
+    <div className="min-h-screen w-full bg-background">
       <HeroSection />
       <StatsBar />
       <ProductsSection />
