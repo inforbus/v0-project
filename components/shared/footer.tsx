@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-muted pb-4 pt-8 3xl:pb-6 3xl:pt-10">
       <div className="mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4 lg:flex-shrink-0 lg:w-auto">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-2 lg:flex-shrink-0 lg:w-auto">
             <FooterColumn title="产品中心" links={[
               { label: "基础中间件", href: "/middleware" },
               { label: "数智化平台", href: "/digital-platform" },
