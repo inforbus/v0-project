@@ -13,11 +13,9 @@ from io import BytesIO
 import json
 from urllib.parse import unquote
 
-# Add the scripts directory to the path to import uv if needed
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
-# Create images directory
-IMAGES_DIR = Path(__file__).parent.parent / "public" / "images"
+# Get the base directory (one level up from scripts)
+BASE_DIR = Path(".").resolve()
+IMAGES_DIR = BASE_DIR / "public" / "images"
 IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
 # Mapping of external URLs to local paths and metadata
