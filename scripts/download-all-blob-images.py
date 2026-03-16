@@ -11,7 +11,19 @@ import urllib.request
 import urllib.parse
 import hashlib
 
+import subprocess
+
 PROJECT_ROOT = "/vercel/share/v0-project"
+print(f"[v0] PROJECT_ROOT = {PROJECT_ROOT}")
+print(f"[v0] exists: {os.path.exists(PROJECT_ROOT)}")
+try:
+    print(f"[v0] ls: {os.listdir(PROJECT_ROOT)[:20]}")
+except Exception as e:
+    print(f"[v0] ls error: {e}")
+comp_dir = os.path.join(PROJECT_ROOT, "components")
+print(f"[v0] components exists: {os.path.exists(comp_dir)}")
+if os.path.exists(comp_dir):
+    print(f"[v0] components ls: {os.listdir(comp_dir)[:10]}")
 PUBLIC_DIR   = os.path.join(PROJECT_ROOT, "public", "images", "blob")
 LOCAL_PREFIX = "/images/blob"
 
