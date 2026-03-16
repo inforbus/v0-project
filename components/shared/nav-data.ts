@@ -17,7 +17,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     },
     {
       name: "产品中心",
-      href: "/products",
+      href: "",
       active: activePath === "/products" || activePath.startsWith("/middleware") || activePath.startsWith("/digital-platform") || activePath.startsWith("/paas") || activePath.startsWith("/iot") || activePath.startsWith("/security"),
       children: [
         {
@@ -86,7 +86,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     },
     {
       name: "解决方案",
-      href: "/solutions",
+      href: "",
       active: activePath === "/solutions" || activePath.startsWith("/solutions"),
       children: [
         { name: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
@@ -97,7 +97,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     },
     {
       name: "案例中心",
-      href: "/cases",
+      href: "",
       active: activePath === "/cases" || activePath.startsWith("/cases"),
       children: [
         { name: "金融案例", href: "/cases/financial" },
