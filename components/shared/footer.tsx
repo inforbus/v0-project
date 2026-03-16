@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="bg-muted pb-4 pt-8 3xl:pb-6 3xl:pt-10">
       <div className="mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-2 lg:flex-shrink-0 lg:w-auto">
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-1 flex-shrink-0">
             <FooterColumn title="产品中心" links={[
               { label: "基础中间件", href: "/middleware" },
               { label: "数智化平台", href: "/digital-platform" },
@@ -41,7 +41,7 @@ export function Footer() {
             ]} />
           </div>
 
-          <div className="relative flex-shrink-0 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <div className="flex-1 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
             <p className="text-sm text-foreground 3xl:text-base">扫描关注中创中间件微信公众号或视频号</p>
             <div className="mt-3 flex gap-3 3xl:mt-4 3xl:gap-4">
               {/* WeChat QR Code */}
@@ -90,17 +90,17 @@ export function Footer() {
 
 function FooterColumn({ title, links }: { title: string; links: ({ label: string; href: string; disabled?: boolean })[] }) {
   return (
-    <div className="relative pl-4">
+    <div className="relative pl-2">
       <div className="absolute left-0 top-0 h-full w-[0.5px] bg-border" />
-      <div className="absolute left-0 top-[6px] h-[18px] w-1 rounded-full bg-foreground" />
-      <h4 className="text-base font-normal text-foreground 3xl:text-xl">{title}</h4>
-      <ul className="mt-3 space-y-2.5 3xl:mt-5 3xl:space-y-4">
+      <div className="absolute left-0 top-[4px] h-[14px] w-0.5 rounded-full bg-foreground" />
+      <h4 className="text-xs font-normal text-foreground lg:text-sm 3xl:text-base">{title}</h4>
+      <ul className="mt-2 space-y-1.5 lg:space-y-2 3xl:mt-3 3xl:space-y-2.5">
         {links.map((link, i) => (
           <li key={i}>
             {link.disabled ? (
-              <span className="text-xs text-foreground/40 3xl:text-sm cursor-not-allowed">{link.label}</span>
+              <span className="text-xs text-foreground/40 cursor-not-allowed lg:text-xs 3xl:text-sm">{link.label}</span>
             ) : (
-              <Link href={link.href} className="footer-link-animated cursor-pointer text-xs text-foreground/70 transition-all duration-200 hover:text-primary hover:underline active:text-primary/80 3xl:text-sm">
+              <Link href={link.href} className="footer-link-animated cursor-pointer text-xs text-foreground/70 transition-all duration-200 hover:text-primary hover:underline active:text-primary/80 lg:text-xs 3xl:text-sm">
                 {link.label}
               </Link>
             )}
