@@ -13,7 +13,7 @@ const valueItems = [
     nextLine1: "应用平滑",
     nextLine2: "迁移",
     description: "通过Jakarta EE10/9.1/9/8及Java EE8/7/6完整兼容认证，支持应用场景最丰富。公司作为Jakarta EE企业级会员，参与Jakarta EE最新几十项规范制定，引领中间件技术发展。",
-    icon: "/images/icons/middleware-value-1.png",
+    icon: "/images/middleware/value-1.png",
   },
   {
     title: "应用平滑迁移",
@@ -24,7 +24,7 @@ const valueItems = [
     nextLine1: "支撑云原生",
     nextLine2: "",
     description: "兼容主流国外和开源同类中间件的私有协议及配置，保障应用平滑迁移，降低信创改造成本。",
-    icon: "/images/icons/middleware-value-2.png",
+    icon: "/images/middleware/value-2.png",
   },
   {
     title: "支撑云原生",
@@ -35,7 +35,7 @@ const valueItems = [
     nextLine1: "高性能",
     nextLine2: "",
     description: "支持容器镜像、Helm chart、Operator等部署模式，支持系统弹性伸缩、滚动升级及配置热更新，灵活接入状态、链路追踪、日志等第三方监控运维平台，可实现多云环境的统一纳管。",
-    icon: "/images/icons/middleware-value-3.png",
+    icon: "/images/middleware/value-3.png",
   },
   {
     title: "高性能",
@@ -46,7 +46,7 @@ const valueItems = [
     nextLine1: "高安全",
     nextLine2: "",
     description: "采用高性能线程池、连接池及网络处理等核心技术，支持用户高并发、大吞吐访问，可规模化同等替代国外产品，性能优于Tomcat等开源中间件产品。",
-    icon: "/images/icons/middleware-value-4.png",
+    icon: "/images/middleware/value-4.png",
   },
   {
     title: "高安全",
@@ -57,7 +57,7 @@ const valueItems = [
     nextLine1: "高可靠",
     nextLine2: "",
     description: "通过第三方权威机构源代码安全检测和系统漏洞扫描，支持SM2/SM3/SM4等国密算法，支持TLCP安全传输协议，满足等保2.0三级、四级要求。集成应用安全防护模块，加固应用安全。",
-    icon: "/images/icons/middleware-value-5.png",
+    icon: "/images/middleware/value-5.png",
   },
   {
     title: "高可靠",
@@ -68,7 +68,7 @@ const valueItems = [
     nextLine1: "遵循国际",
     nextLine2: "标准",
     description: "支持大规模集群部署，提供故障转移和弹性伸缩能力。提供线程分组、流量控制及过载保护等功能，实现系统故障有效隔离，保障应用系统运行稳定可靠。",
-    icon: "/images/icons/middleware-value-6.png",
+    icon: "/images/middleware/value-6.png",
   },
 ]
 
