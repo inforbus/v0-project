@@ -36,7 +36,7 @@ export function Footer() {
               { label: "公司荣誉", href: "/about/honors" },
               { label: "发展历程", href: "/about/history" },
               { label: "投资者关系", href: "/about/investor" },
-              { label: "公司要闻", href: "/news/company" },
+              { label: "新闻资讯", href: "/news/company" },
               { label: "加入我们", href: "/about/careers" },
             ]} />
           </div>
