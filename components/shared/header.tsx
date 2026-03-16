@@ -203,7 +203,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
             {items.map((item, index) => (
               <div key={index} className="group/nav relative">
-                {item.href ? (
+                {item.href && item.children.length === 0 ? (
                   <Link
                     href={item.href}
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
