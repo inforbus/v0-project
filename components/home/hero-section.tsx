@@ -192,7 +192,7 @@ export function HeroSection() {
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
                 suppressHydrationWarning
               >
-                一站式流量管控与AI赋能，让智能更简单
+                {`一站式流量管控与AI赋能，让智能更简单`}
               </p>
             </div>
           </div>
