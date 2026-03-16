@@ -53,25 +53,25 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20112-SC1qR1vAL0OwGnVH2yeeOMf8RDUmOf.png",
+    src: "/images/banners/banner-api-gateway.png",
     fallback: "",
     alt: "中创API网关软件",
   },
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20161-2VLUlMRLz8orxkx43ijVBm4XLxa4jb.png",
+    src: "/images/banners/banner-ai-middleware.png",
     fallback: "",
     alt: "中创智能体中间件",
   },
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20164-Nnh9FiEWdDzrH9KRjWVjsSNjKd0Kvm.png",
+    src: "/images/banners/banner-global-ai.png",
     fallback: "",
     alt: "全球AI布局",
   },
   {
     type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-cmhCV96BtK4rU3j6jmokxHxyokstHP.png",
+    src: "/images/banners/banner-data-security.png",
     fallback: "",
     alt: "数据安全云服务",
   },
