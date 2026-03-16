@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
-"""完整的离线部署URL处理工具 - 修复版本"""
+"""批量替换所有源代码中的外部URL为本地路径"""
 
 import os
 import re
-import sys
 from pathlib import Path
-from urllib.parse import unquote
-import requests
-from typing import Dict, List
 
-# 所有需要替换的URL映射 (客户LOGO + 其他资源)
+# 完整的URL映射表
 URL_MAPPING = {
-    # 客户LOGO (33个)
+    # 客户LOGO (33个) - 已添加
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%91%E9%93%B6%E8%A1%8C-QJdfdGZNIsnDisTWkbWsVwA0twOW0N.png": "/images/customers/ndb.png",
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%B9%B3%E5%AE%89%E7%A7%91%E6%8A%80-xP9pkTi2BHHS4KVnGmteqwog1u0Lf8.webp": "/images/customers/pingan-tech.webp",
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9B%BD%E5%AE%B6%E5%BC%80%E5%8F%91%E6%8A%95%E8%B5%84%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-iWXxncUuKsQMZ5r5NtBexjmXCGu4xM.png": "/images/customers/cidg.png",
@@ -47,151 +43,67 @@ URL_MAPPING = {
     "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%B8%AD%E5%9B%BD%E4%BA%94%E7%9F%BF%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-c1G5f23dAM32GNcuWsEjGJpfeuMSwv.png": "/images/customers/minmetals.png",
 }
 
-def download_image(url: str, local_path: str) -> bool:
-    """下载单个图片"""
-    try:
-        Path(local_path).parent.mkdir(parents=True, exist_ok=True)
-        print(f"  下载: {Path(local_path).name}...", end=" ")
-        response = requests.get(url, timeout=10)
-        if response.status_code == 200:
-            with open(local_path, 'wb') as f:
-                f.write(response.content)
-            print(f"✓")
-            return True
-        else:
-            print(f"✗ (HTTP {response.status_code})")
-            return False
-    except Exception as e:
-        print(f"✗ ({str(e)[:30]})")
-        return False
-
-def download_all_customers_logos():
-    """下载所有客户logo"""
-    print("\n第1步: 下载所有缺失的客户LOGO")
+def main():
+    print("=" * 80)
+    print("快速URL替换工具 - 替换所有源代码中的外部URL")
     print("=" * 80)
     
     project_root = Path.cwd()
-    downloaded = 0
+    print(f"\n项目目录: {project_root}")
     
-    for url, local_path in URL_MAPPING.items():
-        full_path = project_root / local_path.lstrip("/")
-        if not full_path.exists():
-            if download_image(url, str(full_path)):
-                downloaded += 1
-        else:
-            print(f"  跳过: {Path(local_path).name} (已存在)")
+    # 查找所有源代码文件
+    source_exts = ['*.tsx', '*.ts', '*.jsx', '*.js']
+    source_files = []
+    for ext in source_exts:
+        source_files.extend(project_root.rglob(ext))
     
-    print(f"\n下载完成: {downloaded} 个新文件")
-    return downloaded
-
-def replace_urls_in_files():
-    """在所有源代码文件中替换URL"""
-    print("\n第2步: 替换所有源代码中的URL")
-    print("=" * 80)
+    # 排除特定目录
+    exclude_dirs = {'.git', 'node_modules', '.next', 'dist', 'build'}
+    source_files = [f for f in source_files if not any(ex in f.parts for ex in exclude_dirs)]
     
-    project_root = Path.cwd()
-    replaced_count = 0
+    print(f"扫描到 {len(source_files)} 个源代码文件\n")
     
-    # 要扫描的文件类型
-    source_files = list(project_root.glob("**/*.tsx")) + \
-                   list(project_root.glob("**/*.ts")) + \
-                   list(project_root.glob("**/*.jsx")) + \
-                   list(project_root.glob("**/*.js"))
-    
-    # 排除node_modules、.git、scripts目录
-    exclude_patterns = ["node_modules", ".git", "scripts"]
-    source_files = [f for f in source_files if not any(ex in str(f) for ex in exclude_patterns)]
-    
-    print(f"扫描文件数: {len(source_files)}")
+    total_replaced = 0
+    files_changed = 0
     
     for filepath in source_files:
         try:
             content = filepath.read_text(encoding='utf-8')
-            original_content = content
+            original = content
             
-            # 替换所有URL
             for old_url, new_path in URL_MAPPING.items():
                 if old_url in content:
                     content = content.replace(old_url, new_path)
-                    replaced_count += 1
-                    print(f"  ✓ {filepath.name}: 替换了 {new_path}")
+                    total_replaced += 1
             
-            # 如果内容改变，写回文件
-            if content != original_content:
+            if content != original:
                 filepath.write_text(content, encoding='utf-8')
+                files_changed += 1
+                print(f"  ✓ {filepath.relative_to(project_root)}")
         except Exception as e:
-            print(f"  ✗ {filepath.name}: {str(e)[:50]}")
+            pass
     
-    return replaced_count
-
-def scan_remaining_urls():
-    """扫描是否还有未替换的外部URL"""
-    print("\n第3步: 扫描是否还有未替换的外部URL")
-    print("=" * 80)
+    # 验证是否还有未替换的URL
+    print(f"\n替换完成:")
+    print(f"  - 修改文件数: {files_changed} 个")
+    print(f"  - 替换URL数: {total_replaced} 个")
     
-    project_root = Path.cwd()
-    remaining = []
-    
-    source_files = list(project_root.glob("**/*.tsx")) + \
-                   list(project_root.glob("**/*.ts")) + \
-                   list(project_root.glob("**/*.jsx")) + \
-                   list(project_root.glob("**/*.js"))
-    
-    exclude_patterns = ["node_modules", ".git", "scripts"]
-    source_files = [f for f in source_files if not any(ex in str(f) for ex in exclude_patterns)]
-    
+    # 最后检查是否还有残留URL
+    print(f"\n验证是否还有外部URL...")
+    remaining = 0
     for filepath in source_files:
         try:
             content = filepath.read_text(encoding='utf-8')
             if "hebbkx1anhila5yf.public.blob.vercel-storage.com" in content:
-                # 找出所有匹配的URL
-                urls = re.findall(r'https://hebbkx1anhila5yf\.public\.blob\.vercel-storage\.com/[^"\s]+', content)
-                for url in urls:
-                    remaining.append((filepath.name, url))
-                    print(f"  ✗ {filepath.name}: {url[:60]}...")
-        except Exception as e:
+                remaining += 1
+                print(f"  ✗ {filepath.relative_to(project_root)} 仍然包含外部URL")
+        except:
             pass
     
-    return remaining
-
-def main():
-    print("=" * 80)
-    print("完整的离线部署URL处理工具")
-    print("=" * 80)
-    
-    try:
-        # 第1步：下载图片
-        downloaded = download_all_customers_logos()
-        
-        # 第2步：替换URL
-        replaced = replace_urls_in_files()
-        
-        # 第3步：扫描剩余URL
-        remaining = scan_remaining_urls()
-        
-        # 总结
-        print("\n" + "=" * 80)
-        print("处理完成 - 总结")
-        print("=" * 80)
-        print(f"✓ 下载的图片: {downloaded} 张")
-        print(f"✓ 替换的URL: {replaced} 个")
-        print(f"✓ 剩余未替换的URL: {len(remaining)} 个")
-        
-        if remaining:
-            print("\n未替换的URL列表:")
-            for filename, url in remaining[:10]:
-                print(f"  - {filename}: {url[:70]}...")
-            if len(remaining) > 10:
-                print(f"  ... 还有 {len(remaining) - 10} 个")
-        else:
-            print("\n✅ 所有外部URL已成功替换!")
-        
-        return 0
-    except Exception as e:
-        print(f"\n✗ 错误: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return 1
+    if remaining == 0:
+        print(f"✅ 完美! 没有发现任何外部URL链接")
+    else:
+        print(f"⚠️  还有 {remaining} 个文件包含外部URL")
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
