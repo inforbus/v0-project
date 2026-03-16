@@ -3,15 +3,15 @@ import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const row1 = [
-  { img: "/images/honors/honor-01.jpeg", title: "信息技术应用创新工作委员会技术活动单位", num: "01" },
-  { img: "/images/honors/honor-02.jpeg", title: "2025年度未来产业之星上市公司", num: "02" },
-  { img: "/images/honors/honor-03.jpeg", title: "2025年度卓越贡献成员单位", num: "03" },
-  { img: "/images/honors/honor-04.jpeg", title: "2024-2025年度考核等级优秀", num: "04" },
-  { img: "/images/honors/honor-05.jpeg", title: "信创数智技术服务能力一级-数据服务能力", num: "05" },
-  { img: "/images/honors/honor-06.jpeg", title: "新型智慧城市优秀解决方案", num: "06" },
+  { img: "/images/honors/honor-01.jpg", title: "信息技术应用创新工作委员会技术活动单位", num: "01" },
+  { img: "/images/honors/honor-02.jpg", title: "2025年度未来产业之星上市公司", num: "02" },
+  { img: "/images/honors/honor-03.jpg", title: "2025年度卓越贡献成员单位", num: "03" },
+  { img: "/images/honors/honor-04.jpg", title: "2024-2025年度考核等级优秀", num: "04" },
+  { img: "/images/honors/honor-05.jpg", title: "信创数智技术服务能力一级-数据服务能力", num: "05" },
+  { img: "/images/honors/honor-06.jpg", title: "新型智慧城市优秀解决方案", num: "06" },
   { img: "/images/honors/honor-07.jpg", title: "山东省数据治理优秀产品", num: "07" },
-  { img: "/images/honors/honor-08.jpeg", title: "第六届济南市网络安全技术支撑单位", num: "08" },
-  { img: "/images/honors/honor-09.jpeg", title: "2025年度名牌企业", num: "09" },
+  { img: "/images/honors/honor-08.jpg", title: "第六届济南市网络安全技术支撑单位", num: "08" },
+  { img: "/images/honors/honor-09.jpg", title: "2025年度名牌企业", num: "09" },
   { img: "/images/honors/honor-10.jpg", title: "2024年创新软件产品", num: "10" },
   { img: "/images/honors/honor-11.jpg", title: "2024年创新典型解决方案", num: "11" },
   { img: "/images/honors/honor-12.jpg", title: "2024数字生态中间件领军企业", num: "12" },
@@ -19,19 +19,12 @@ const row1 = [
 ]
 
 const row2 = [
-  { img: "/images/honors/honor-14.jpeg", title: "金鼎筑基奖", num: "14" },
-  { img: "/images/honors/honor-15.jpeg", title: "2025年度竞争力百强企业", num: "15" },
-  { img: "/images/honors/honor-16.jpeg", title: "信创工程实施能力一级证书", num: "16" },
-  { img: "/images/honors/honor-17.jpeg", title: "2025年AI Cloud创新应用实践", num: "17" },
-  { img: "/images/honors/honor-18.jpeg", title: "2024网络产品安全能力提升计划", num: "18" },
-  { img: "/images/honors/honor-19.jpeg", title: "信创数智工程实施能力", num: "19" },
-  { img: "/images/honors/honor-20.jpg", title: "中创高速公路智慧管控解决方案", num: "20" },
-  { img: "/images/honors/honor-21.jpg", title: "山东省数据治理优秀产品证书", num: "21" },
-  { img: "/images/honors/honor-22.jpeg", title: "信创数据服务能力一级", num: "22" },
-  { img: "/images/honors/honor-23.jpeg", title: "中创智能体中间件", num: "23" },
-  { img: "/images/honors/honor-24.jpeg", title: "新型智慧城市优秀解决方案", num: "24" },
-  { img: "/images/honors/honor-25.jpg", title: "ITSS服务分会会员单位", num: "25" },
-  { img: "/images/honors/honor-26.jpg", title: "数字生态中间件领军企业", num: "26" },
+  { img: "/images/honors/honor-14.jpg", title: "金鼎筑基奖", num: "14" },
+  { img: "/images/honors/honor-15.jpg", title: "2025年度竞争力百强企业", num: "15" },
+  { img: "/images/honors/honor-16.jpg", title: "信创工程实施能力一级证书", num: "16" },
+  { img: "/images/honors/honor-17.jpg", title: "2025年AI Cloud创新应用实践", num: "17" },
+  { img: "/images/honors/honor-18.jpg", title: "2024网络产品安全能力提升计划", num: "18" },
+  { img: "/images/honors/honor-23.jpg", title: "中创智能体中间件", num: "23" },
 ]
 
 function HonorCard({ honor, prefix, hideNum = false }: { honor: (typeof row1)[0]; prefix: string; hideNum?: boolean }) {

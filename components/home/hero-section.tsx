@@ -53,25 +53,25 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "/images/banners/banner-api-gateway.png",
+    src: "/images/banner/banner-1.png",
     fallback: "",
     alt: "中创API网关软件",
   },
   {
     type: "image" as const,
-    src: "/images/banners/banner-ai-middleware.png",
+    src: "/images/banner/banner-2.png",
     fallback: "",
     alt: "中创智能体中间件",
   },
   {
     type: "image" as const,
-    src: "/images/banners/banner-global-ai.png",
+    src: "/images/banner/banner-3.png",
     fallback: "",
     alt: "全球AI布局",
   },
   {
     type: "image" as const,
-    src: "/images/banners/banner-data-security.png",
+    src: "/images/banner/banner-4.png",
     fallback: "",
     alt: "数据安全云服务",
   },
