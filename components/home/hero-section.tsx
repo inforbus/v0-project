@@ -179,12 +179,14 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[708px]">
               <h1
+                suppressHydrationWarning
                 className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创API网关软件
               </h1>
               <p
+                suppressHydrationWarning
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
@@ -206,18 +208,21 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
               <h1
+                suppressHydrationWarning
                 className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创智能体中间件
               </h1>
               <p
+                suppressHydrationWarning
                 className="mt-[20px] text-[12px] text-black sm:mt-[28px] sm:text-[14px] md:mt-[32px] md:text-[16px] lg:mt-[40px] lg:text-[18px] xl:mt-[48px] xl:text-[20px] 2xl:mt-[54px] 2xl:text-[24px] 3xl:mt-[60px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
                 面向企业流程智能体管理平台
               </p>
               <p
+                suppressHydrationWarning
                 className="mt-[8px] text-[10px] text-black/70 sm:mt-[10px] sm:text-[12px] md:mt-[12px] md:text-[14px] lg:mt-[14px] lg:text-[16px] xl:mt-[16px] xl:text-[18px] 2xl:mt-[18px] 2xl:text-[20px] 3xl:mt-[20px] 3xl:text-[22px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
               >
@@ -248,6 +253,7 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
               <h1
+                suppressHydrationWarning
                 className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
                 style={{
                   fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
@@ -259,6 +265,7 @@ export function HeroSection() {
                 中创股份
               </h1>
               <p
+                suppressHydrationWarning
                 className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
                 style={{
                   fontFamily: "'Noto Sans SC', sans-serif",
@@ -286,6 +293,7 @@ export function HeroSection() {
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
               <p
+                suppressHydrationWarning
                 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] xl:text-[24px] 3xl:text-[26px]"
                 style={{
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
@@ -297,6 +305,7 @@ export function HeroSection() {
                 高可靠·高性能·高可用·高安全
               </p>
               <p
+                suppressHydrationWarning
                 className="mt-4 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] xl:text-[24px] 3xl:text-[26px]"
                 style={{
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
@@ -308,6 +317,7 @@ export function HeroSection() {
                 中间件产品体系支撑
               </p>
               <h1
+                suppressHydrationWarning
                 className="mt-8 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] xl:text-[44px] 3xl:text-[50px]"
                 style={{
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
