@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="bg-muted pb-4 pt-8 3xl:pb-6 3xl:pt-10">
       <div className="mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-1 flex-shrink-0">
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-6">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 flex-shrink-0">
             <FooterColumn title="产品中心" links={[
               { label: "基础中间件", href: "/middleware" },
               { label: "数智化平台", href: "/digital-platform" },
@@ -41,7 +41,7 @@ export function Footer() {
             ]} />
           </div>
 
-          <div className="flex-1 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+          <div className="border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0 flex-shrink-0">
             <p className="text-sm text-foreground 3xl:text-base">扫描关注中创中间件微信公众号或视频号</p>
             <div className="mt-3 flex gap-3 3xl:mt-4 3xl:gap-4">
               {/* WeChat QR Code */}
