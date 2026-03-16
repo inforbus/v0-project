@@ -90,9 +90,14 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Overview */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>方案概述</SectionTitle>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
+          <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
             {solution.overview}
           </p>
+          {solution.overviewHighlight && (
+            <div className="mt-4 flex items-center gap-3 rounded-lg border-l-4 border-[#BF1920] bg-[#BF1920]/5 px-4 py-3 3xl:mt-6">
+              <span className="text-sm font-semibold text-[#BF1920] md:text-base 3xl:text-lg">{solution.overviewHighlight}</span>
+            </div>
+          )}
         </section>
 
         {/* Highlights */}
@@ -105,11 +110,13 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                 className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-6 transition-all duration-300 hover:border-[#BF1920]/20 hover:shadow-lg lg:p-7 3xl:p-8"
               >
                 <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#BF1920] transition-all duration-500 group-hover:w-full" />
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-14 3xl:w-14">
-                  {iconMap[h.icon] || iconMap.deploy}
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-14 3xl:w-14">
+                    {iconMap[h.icon] || iconMap.deploy}
+                  </div>
+                  <h4 className="text-base font-bold text-foreground 3xl:text-lg">{h.title}</h4>
                 </div>
-                <h4 className="text-base font-bold text-foreground 3xl:text-lg">{h.title}</h4>
-                <p className="mt-2 text-sm text-muted-foreground 3xl:text-base">{h.desc}</p>
+                <p className="text-sm text-muted-foreground 3xl:text-base">{h.desc}</p>
               </div>
             ))}
           </div>
@@ -118,15 +125,36 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Architecture */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>{solution.architecture.title}</SectionTitle>
-          <div className="relative mt-6 w-full overflow-hidden rounded-2xl 3xl:mt-8">
-            <Image
-              src={solution.architecture.image}
-              alt={solution.architecture.title}
-              width={1200}
-              height={600}
-              className="h-auto w-full object-contain"
-            />
-          </div>
+          {solution.architecture.images && solution.architecture.images.length > 0 ? (
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2 3xl:mt-8 3xl:gap-8">
+              {solution.architecture.images.map((arch, idx) => (
+                <div key={idx} className="overflow-hidden rounded-2xl border border-border/40 bg-white">
+                  <div className="border-b border-border/40 bg-muted/30 px-4 py-3">
+                    <h4 className="text-sm font-semibold text-foreground md:text-base">{arch.title}</h4>
+                  </div>
+                  <div className="flex h-[280px] items-center justify-center p-4 md:h-[320px] lg:h-[300px] 3xl:h-[380px]">
+                    <Image
+                      src={arch.image}
+                      alt={arch.title}
+                      width={600}
+                      height={400}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="relative mt-6 w-full overflow-hidden rounded-2xl 3xl:mt-8">
+              <Image
+                src={solution.architecture.image}
+                alt={solution.architecture.title}
+                width={1200}
+                height={600}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          )}
         </section>
 
         {/* Features */}
@@ -173,16 +201,27 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>应用场景</SectionTitle>
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 3xl:mt-8 3xl:gap-4">
-            {solution.useCases.map((uc, idx) => (
-              <div key={idx} className="flex flex-col gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
-                    {idx + 1}
-                  </span>
+            {solution.useCases.map((uc, idx) => {
+              // Parse the useCase string: "场景 X：标题\n内容" -> extract title and content
+              const lines = uc.split('\n')
+              const firstLine = lines[0]
+              // Remove "场景 X：" prefix and get the title
+              const titleMatch = firstLine.match(/^场景\s*\d+[：:]\s*(.+)$/)
+              const title = titleMatch ? titleMatch[1] : firstLine
+              const content = lines.slice(1).join('\n')
+              
+              return (
+                <div key={idx} className="flex flex-col gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
+                      {idx + 1}
+                    </span>
+                    <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{title}</h4>
+                  </div>
+                  <p className="whitespace-pre-wrap pl-11 text-sm text-muted-foreground 3xl:text-base">{content}</p>
                 </div>
-                <p className="whitespace-pre-wrap text-sm text-foreground md:text-base 3xl:text-lg">{uc}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </section>
 

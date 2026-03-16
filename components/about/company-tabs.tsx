@@ -189,7 +189,7 @@ export function CompanyTabs() {
                 {/* Additional Info */}
                 <div className="text-center bg-slate-50 rounded-lg p-8 border border-border">
                   <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    如有任何关于投资者关系的问题，欢���通过上述方式与我们联系，我们将竭诚为您服务。
+                    如有任何关于投资者关系的问题，欢迎通过上述方式与我们联系，我们将竭诚为您服务。
                   </p>
                 </div>
               </div>

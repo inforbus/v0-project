@@ -26,7 +26,7 @@ export function OnlineServiceWidget() {
         </p>
         <div className="h-[140px] w-[140px] rounded overflow-hidden">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E4%BA%8C%E7%BB%B4%E7%A0%81-3QQlOLHPwaOM6AnNMeoVLpZj7NcMnM.png"
+            src="/images/footer/qrcode-public.png"
             alt="中创股份公众号二维码"
             width={140}
             height={140}
@@ -55,7 +55,7 @@ export function OnlineServiceWidget() {
       >
         {/* Chat icon - replaced with new image */}
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E5%9C%A8%E7%BA%BF-9UdxG92GVQ7UZ44cfJw5DbpK3kU5VT.png"
+          src="/images/icons/online-service.png"
           alt="在线服务"
           width={36}
           height={32}

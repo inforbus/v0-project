@@ -4,11 +4,13 @@ export interface SolutionDetail {
   subtitle: string
   heroImage: string
   overview: string
+  overviewHighlight?: string
   highlights: { icon: string; title: string; desc: string }[]
   architecture: {
     title: string
     desc: string
     image: string
+    images?: { title: string; image: string }[]
   }
   features: { title: string; desc: string }[]
   benefits: { label: string; value: string }[]
@@ -33,7 +35,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "平台架构",
       desc: "平台采用分层架构设计，包含接入层、服务层、管控层和数据层，通过统一的API网关提供服务接入，实现中间件生命周期的全面管理。",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%B1%8F2026-02-26%2009.48.54-dINeUw8HwaEHihoN4MlRtqH4ruXSaP.png",
+      image: "/images/diagrams/middleware-arch.png",
     },
     features: [
       { title: "自动化部署", desc: "支持多种中间件的自动化安装、配置、升级和卸载，提供模板化部署能力" },
@@ -162,7 +164,7 @@ export const solutions: SolutionDetail[] = [
     architecture: {
       title: "平台架构",
       desc: "企业级全场景 AI 智能体管理平台架构，涵盖用户接入、Agent 平台、任务编排、系统连接和生产环保四大层次。",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9E%B6%E6%9E%84%E5%9B%BE-qte6VDj3U4iS74yOekcWo9DCTojP0r.png",
+      image: "/images/diagrams/ai-agent-arch.png",
     },
     features: [
       { title: "多端响应式交互", desc: "AgentWebSite 支持跨设备访问，提供流畅的对话式交互体验。" },
@@ -206,46 +208,52 @@ export const solutions: SolutionDetail[] = [
   },
   {
     slug: "disaster-recovery",
-    title: "信创全栈中间件解决方案",
-    subtitle: "基于自主可控技术体系，提供覆盖全场景的国产中间件产品矩阵",
+    title: "信创中间件双活容灾解决方案",
+    subtitle: "基于准实时数据同步技术，提供专业的国产中间件高可用容灾服务",
     heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80&auto=format",
-    overview: "基于自主可控技术体系，提供覆盖消息中间件、应用服务器、负载均衡、分布式缓存等全栈中间件产品，为关键行业核心系统提供安全、稳定、高效的基础设施支撑。",
+    overview: `在数字化转型与信创改造的双重驱动下，核心业务系统对中间件的高可用性提出了更高要求。传统主备容灾模式存在切换中断、数据丢失、RTO/RPO难以保障等痛点，已无法满足金融、电信、能源等关键行业的连续性要求。
+中创信创中间件双活容灾解决方案，基于自主研发的数据同步工具软件，提供准实时数据同步能力，实现消息中间件、缓存中间件的本地或异地集群间数据热备份。方案支持数据双向同步，两侧集群均处于活跃可用状态，任意一侧均可独立承载业务读写，真正实现"双活"架构。`,
+    overviewHighlight: "提供热备能力，服务随时可用，业务应用容灾切换的工作量小、操作少、耗时短。",
     highlights: [
-      { icon: "deploy", title: "全栈覆盖", desc: "应用服务器、消息中间件、负载均衡、缓存等全品类覆盖" },
-      { icon: "monitor", title: "高性能", desc: "核心组件性能达到国际同类产品水平" },
-      { icon: "govern", title: "高可靠", desc: "支持多活容灾、自动故障转移等企业级特性" },
-      { icon: "decouple", title: "易迁移", desc: "提供与国外中间件的API级兼容，实现无缝替换" },
+      { icon: "deploy", title: "双活保畅", desc: `区别于传统的"冷备"模式，本方案实现真正的双活架构。两侧集群均可同时提供读写服务，无需等待数据同步完成，无需临时启动服务。当故障发生时，业务流量可直接切换至健康集群，整个过程近乎无感知，RTO趋近于零，保障业务连续性。` },
+      { icon: "monitor", title: "高性能", desc: "采用增量数据捕获与高效传输协议，同步效率达到业界领先水平。数据同步延迟低至毫秒级，确保两侧集群数据高度一致，满足高频交易、实时发布等对时效性要求高的业务场景。" },
+      { icon: "govern", title: "高可用", desc: "中间件集群本身具备高可用能力，叠加数据同步工具的高可用设计，形成双重保障机制。工具自身也支持高可用集群部署，确保同步链路持续稳定运行，为业务连续性提供坚实支撑。" },
+      { icon: "decouple", title: "易部署", desc: `数据同步工具采用轻量化设计，无需繁杂的参数调优与脚本编写。同步规则简洁清晰，大幅降低运维门槛，实现"开箱即用"的方案体验。` },
     ],
     architecture: {
       title: "产品架构",
-      desc: "全栈中间件产品矩阵涵盖应用运行、消息通信、流量调度、数据缓存四大核心领域，各组件既可独立部署也可协同工作。",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%B1%8F2026-02-26%2009.48.54-dINeUw8HwaEHihoN4MlRtqH4ruXSaP.png",
+      desc: "信创中间件双活容灾架构，支持消息中间件（MQ）和缓存中间件（RDS）的双活部署与数据同步。",
+      image: "/images/diagrams/mq-disaster-recovery-arch.png",
+      images: [
+        { title: "MQ双活容灾架构", image: "/images/diagrams/mq-disaster-recovery-arch.png" },
+        { title: "RDS双活容灾架构", image: "/images/diagrams/rds-disaster-recovery-arch.png" },
+      ],
     },
     features: [
-      { title: "InforSuite AS", desc: "高性能应用服务器，支持Java EE全��范" },
-      { title: "InforSuite MQ", desc: "企业级消息中间件，支持多种消息协议" },
-      { title: "InforSuite LB", desc: "智能负载均衡软件，支持多种调度算法" },
-      { title: "InforSuite Cache", desc: "分布式数据缓存中间件，提供亿��数据访问能力" },
-      { title: "InforSuite WF", desc: "工作流中间件，支持复���业务流程编排" },
-      { title: "InforSuite ESB", desc: "企业服务总线，实现异构系统集成" },
+      { title: "双向同步", desc: "支持两个集群间的双向数据实时同步，两侧均可独立承载业务流量。通过全局唯一标识与环形检测算法，彻底解决双向同步场景下的数据循环问题，确保数据流向清晰可控。" },
+      { title: "并发处理", desc: "采用多线程并行处理与批量传输机制，充分利用网络带宽与计算资源。支持按实例规模进行并发调优，轻松应对高吞吐业务场景下的同步压力。" },
+      { title: "安全传输", desc: "全链路支持TLS/SSL加密传输，保障数据在跨域同步过程中的安全性，满足信创环境的安全合规要求。" },
+      { title: "进度监控", desc: "提供完善的同步状态监控能力，采集同步延迟、吞吐量、堆积量等关键指标，运维人员可全面掌握同步链路健康状态。" },
     ],
     benefits: [
-      { label: "产品覆盖类型", value: "6大类" },
-      { label: "服务客户", value: "1000+" },
-      { label: "API兼容率", value: "99%" },
-      { label: "平均性能提升", value: "15%" },
+      { label: "RTO", value: "趋近于零" },
+      { label: "同步延迟", value: "毫秒级" },
+      { label: "数据一致性", value: "99.99%" },
+      { label: "部署时间", value: "分钟级" },
     ],
     useCases: [
-      "金融核心系统中间件国产化替代",
-      "政务系统基础设施升级",
-      "电信业务支撑系统架构",
-      "大型企业数字化转型",
+      `关键业务系统保障升级
+适用于金融核心交易、能源调度控制、电信计费等对连续性要求极高的关键业务。通过构建双活架构，使系统可用性大幅提升，满足行业监管对业务连续性的严苛要求。`,
+      `中间件迁移上云
+数据同步工具同样可用于集群迁移，为企业云化转型提供平滑迁移路径。通过双活同步实现本地数据中心与云平台的数据实时对齐，大幅降低迁移风险，保障业务平稳上云。`,
+      `国产化改造数据迁移
+在信创替代过程中，实现国外中间件（如Kafka、Redis）向中创中间件的平滑过渡。支持异构数据源同步，保障改造期间业务不中断、数据零丢失。`,
     ],
     relatedProducts: [
-      { name: "InforSuite AS", href: "/middleware" },
-      { name: "InforSuite MQ", href: "/middleware/messaging" },
-      { name: "InforSuite LB", href: "/middleware/load-balancer" },
-      { name: "InforSuite Cache", href: "/middleware/data-cache" },
+      { name: "InforSuite HTMQ", href: "/middleware/messaging" },
+      { name: "InforSuite HCMQ", href: "/middleware/messaging" },
+      { name: "InforSuite Cloud MQ", href: "/middleware/messaging" },
+      { name: "InforSuite RDS", href: "/middleware/data-cache" },
     ],
   },
   {

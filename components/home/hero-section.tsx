@@ -175,6 +175,7 @@ export function HeroSection() {
             transform: currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 0 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[708px]">
@@ -187,8 +188,9 @@ export function HeroSection() {
               <p
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
+                suppressHydrationWarning
               >
-                一站式流量管控与AI赋能，让智能更简单
+                {`一站式流量管控与AI赋能，让智能更简单`}
               </p>
             </div>
           </div>
@@ -202,6 +204,7 @@ export function HeroSection() {
             transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 1 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
@@ -244,6 +247,7 @@ export function HeroSection() {
             transform: currentSlide === 2 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 2 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
