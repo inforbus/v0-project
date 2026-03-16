@@ -12,7 +12,7 @@ export function WSHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="/images/banners/ws-hero.png"
+        src="/images/banners/ws-banner.png"
         alt="中创应用服务器软件 InforSuite AS"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />

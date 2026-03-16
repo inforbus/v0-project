@@ -223,8 +223,9 @@ export function HeroSection() {
               <p
                 className="mt-[8px] text-[10px] text-black/70 sm:mt-[10px] sm:text-[12px] md:mt-[12px] md:text-[14px] lg:mt-[14px] lg:text-[16px] xl:mt-[16px] xl:text-[18px] 2xl:mt-[18px] 2xl:text-[20px] 3xl:mt-[20px] 3xl:text-[22px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                suppressHydrationWarning
               >
-                为企业提供快速、安全、敏捷的AI应用部署能力
+                {`为企业提供快速、安全、敏捷的AI应用部署能力`}
               </p>
               {/* 三色圆点 + 虚线 */}
               <div className="mt-[12px] flex items-center gap-[8px] sm:mt-[16px] sm:gap-[10px] md:mt-[20px] md:gap-[12px] lg:mt-[24px] lg:gap-[14px] xl:mt-[28px] xl:gap-[16px] 3xl:mt-[32px]">
@@ -286,6 +287,7 @@ export function HeroSection() {
             transform: currentSlide === 3 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 3 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">

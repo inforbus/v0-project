@@ -12,7 +12,7 @@ export function PaaSHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="/images/banners/paas-hero.png"
+        src="/images/banners/paas-banner.png"
         alt="中创PaaS平台——容器云平台"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
