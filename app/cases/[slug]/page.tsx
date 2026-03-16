@@ -45,12 +45,12 @@ const caseDetails: Record<
       {
         title: "项目架构",
         text: "整体采用分布式微服务架构，前端通过负载均衡接入，后端由应用服务器集群承载业务逻辑，消息中间件负责数据异步流转，分布式缓存层保障查询性能。各层组件均实现高可用冗余部署，确保单点故障不影响整体服务。",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format",
+        image: "/images/cases/architecture.jpg",
       },
       {
         title: "核心能力",
         text: "平台具备弹性伸缩、智能路由、熔断降级、灰度发布等核心能力。在流量洪峰期间，系统可自动扩展计算资源；当下游服务异常时，熔断机制自动切换至备用链路，保障核心查询服务不受影响。",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80&auto=format",
+        image: "/images/cases/core-capability.jpg",
       },
     ],
   },
@@ -80,12 +80,12 @@ const caseDetails: Record<
       {
         title: "平台架构",
         text: "平台采用「一平台、多中心」的架构设计，以数据集成平台为核心，构建数据采集中心、数据治理中心、数据共享中心和数据分析中心，形成完整的政务数据生命周期管理能力。",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format",
+        image: "/images/cases/platform-architecture.jpg",
       },
       {
         title: "安全保障",
         text: "平台全面采用国产密码算法，实现数据传输加密、存储加密和访问控制，满足等保三级安全要求。同时通过细粒度的权限管理和操作审计，确保政务数据的安全可控。",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80&auto=format",
+        image: "/images/cases/security.jpg",
       },
     ],
   },
@@ -115,12 +115,12 @@ const caseDetails: Record<
       {
         title: "迁移策略",
         text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性的依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最终迁移。",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80&auto=format",
+        image: "/images/cases/core-capability.jpg",
       },
       {
         title: "性能优化",
         text: "通过JVM调优、连接池优化、异步处理等技术手段，替换后的系统在相同硬件条件下，整体性能提升15%，TPS（每秒事务处理量）提升20%，充分证明了国产中间件的技术竞争力。",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format",
+        image: "/images/cases/architecture.jpg",
       },
     ],
   },
@@ -190,7 +190,7 @@ const caseDetails: Record<
       {
         title: "部署方案",
         text: "针对不同规模的金融机构，提供从单机版到集群版、从物理部署到容器化部署的多种选择。通过标准化的部署工具和自动化脚本，将中间件部署时间从天级缩短至小时级。",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80&auto=format",
+        image: "/images/cases/security.jpg",
       },
     ],
   },
