@@ -1,7 +1,6 @@
 import { CasesHeroSection } from '@/components/cases/cases-hero'
 import { CasesTabs } from '@/components/cases/cases-tabs'
 import { Footer } from '@/components/shared/footer'
-import { Newsletter } from '@/components/shared/newsletter'
 
 export const metadata = {
   title: '企业案例 | 中创中间件',
@@ -13,7 +12,6 @@ export default function EnterpriseCasesPage() {
     <div className="flex min-h-screen flex-col">
       <CasesHeroSection />
       <CasesTabs defaultCategory="enterprise" />
-      <Newsletter />
       <Footer />
     </div>
   )
