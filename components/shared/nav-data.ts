@@ -91,7 +91,7 @@ export function getNavItems(activePath?: string): NavItem[] {
       children: [
         { name: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
         { name: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
-        { name: "新创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
+        { name: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
       ],
       isMega: false,
     },

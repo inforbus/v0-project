@@ -7,25 +7,25 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const solutions = [
   {
-    tab: "全栈自主可控中间件解决方案",
-    title: "全栈自主可控中间件解决方案",
-    slug: "xinchuang-middleware",
+    tab: "AI 智能体管理平台",
+    title: "AI 智能体管理平台解决方案",
+    slug: "ai-agent",
+    icon: "/images/solution-ai-agent.png",
+    desc: "企业级全场景 AI 智能体管理平台，通过整合大模型能力、RAG 知识库及安全防护机制，实现智能体的全生命周期管理，帮助企业从"会说"到"会做"，打通业务最后一公里。",
+  },
+  {
+    tab: "信创中间件双活容灾",
+    title: "信创中间件双活容灾解决方案",
+    slug: "disaster-recovery",
     icon: "/images/solution-middleware.png",
-    desc: "基于自主可控技术体系，提供覆盖消息中间件、应用服务器、数据库中间件等全栈中间件产品，为关键行业核心系统提供安全、稳定、高效的基础设施支撑，全面助力国产化替代与数字化转型。",
+    desc: "基于自主可控技术体系，提供覆盖消息中间件、应用服务器、负载均衡等全栈中间件产品，支持多活容灾与自动故障转移，为关键行业核心系统提供安全、稳定的基础设施支撑。",
   },
   {
-    tab: "数据中台解决方案",
-    title: "数据中台解决方案",
-    slug: "smart-platform",
-    icon: "/images/solution-data.png",
-    desc: "以数据汇聚、治理、共享、分析为核心能力，打造统一的数据资产管理平台，帮助企业实现数据驱动决策，释放数据价值，赋能业务创新与精细化运营。",
-  },
-  {
-    tab: "信创一体化运维解决方案",
-    title: "信创一体化运维解决方案",
-    slug: "xinchuang-ops",
-    icon: "/images/solution-ops.png",
-    desc: "面向信创环境提供全链路一体化运维管理能力，涵盖监控告警、自动化部署、故障诊断与性能优化，保障信创基础设施平稳运行，大幅降低运维成本与复杂度。",
+    tab: "信创全栈自主可控",
+    title: "信创全栈自主可控中间件解决方案",
+    slug: "xinchuang-middleware",
+    icon: "/images/solution-xinchuang.png",
+    desc: "全栈中间件产品矩阵涵盖应用运行、消息通信、流量调度、数据缓存四大核心领域，各组件既可独立部署也可协同工作，全面助力国产化替代与数字化转型。",
   },
 ]
 
