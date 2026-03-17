@@ -8,7 +8,10 @@ const path = require('path');
  * 使用替换映射来处理可能的乱码和字符编码问题
  */
 
-const filePath = '/vercel/share/v0-project/lib/solutions-data.ts';
+// 使用 __dirname 定位文件
+const filePath = path.join(__dirname, '..', 'lib', 'solutions-data.ts');
+
+console.log('正在读取文件:', filePath);
 
 // 读取文件
 let content = fs.readFileSync(filePath, 'utf8');
@@ -33,12 +36,6 @@ const replacements = [
   [/RTO趋近于零···保障/g, 'RTO趋近于零，保障'],
   [/RTO趋近于零··保障/g, 'RTO趋近于零，保障'],
   [/RTO趋近于零·保障/g, 'RTO趋近于零，保障'],
-  
-  // 享层、管层等缩写的修复
-  [/享层（数据资源共享）/g, '享层（数据资源共享）'],
-  [/管层（数据治理）/g, '管层（数据治理）'],
-  [/存层（数据存储）/g, '存层（数据存储）'],
-  [/算层（数据计算）/g, '算层（数据计算）'],
 ];
 
 console.log('开始修复编码问题...');
@@ -47,7 +44,7 @@ let fixedCount = 0;
 replacements.forEach(([from, to]) => {
   const matches = content.match(from);
   if (matches) {
-    console.log(`找到 ${matches.length} 处 "${from}" 需要替换为 "${to}"`);
+    console.log(`找到 ${matches.length} 处需要替换`);
     content = content.replace(from, to);
     fixedCount += matches.length;
   }
