@@ -40,7 +40,7 @@ const caseDetails: Record<
       { label: "人工工作量降低", value: "80%" },
       { label: "灾备切换效率提升", value: "2倍+" },
     ],
-    techStack: ["InforSuite AS", "InforSuite MQ", "InforSuite Cache", "InforSuite UMP"],
+    techStack: ["InforSuite AS", "InforSuite LB"],
     contentSections: [
       {
         title: "项目架构",
@@ -154,7 +154,7 @@ const caseDetails: Record<
       },
       {
         title: "性能优化",
-        text: "通过JVM调优、连接池优化、异步处理等技术手段，替换后的系统在相同硬件条件下，整体性能提升15%，TPS（每秒事务处理量）提升20%，充分证明了国产中间件的技术竞争力。",
+        text: "通过JVM���优、连接池优化、异步处理等技术手段，替换后的系统在相同硬件条件下，整体性能提升15%，TPS（每秒事务处理量）提升20%，充分证明了国产中间件的技术竞争力。",
         image: "/images/cases/architecture.jpg",
       },
     ],
