@@ -49,8 +49,8 @@ const caseDetails: Record<
       },
       {
         title: "核心能力",
-        text: "平台采用业界先进的中间件技术，结合对标国际先进的企业级能力，在流畅度、稳定性、扩展性等方面处于业界领先水平。支持多活容灾、故障自动转移、跨云跨域通信等企业级功能，为关键应用保驾护航。提供完整的生命周期管理能力，从部署、配置、监控到故障诊断都实现了自动化。",
-        image: "/images/cases/central-capability.png",
+        text: "平台提供中间件全生命周期管理能力，包括产品统一管理、实例部署与启停、状态监控与巡检、配置基线管理、告警与策略执行，以及异地灾备保障，实现跨环境统一运维与业务连续性。",
+        image: "/images/cases/central-capabilities.png",
       },
       {
         title: "技术栈",
@@ -141,7 +141,7 @@ const caseDetails: Record<
     solution: [
       "制定分省分批的渐进式替换策略，降低整体风��",
       "中创InforSuite AS实现��原有中间件的API级兼容，无需修改业务代码",
-      "通过灰度发布机制，逐步切换流量至国产中间件",
+      "通过灰度发布机制，��步切换流量至国产中间件",
       "部署中创统一管理平台，实现替换过程的全程监控与性能对比",
     ],
     results: [
@@ -250,7 +250,7 @@ const caseDetails: Record<
     ],
     solution: [
       "部署中创统一管理平台实现全国范围的集中监控与管理",
-      "建立自动化巡检和健康检查机制，变被动为主动",
+      "建立自动化巡检和健康检查机制，变��动为主动",
       "引入���能告警策略，实现告警压缩与分级处理",
       "构建运维知识库，辅助运维人员快速定位和解决问题",
     ],
@@ -258,7 +258,7 @@ const caseDetails: Record<
       { label: "运维成��降低", value: "40%" },
       { label: "故障发现时间", value: "<3min" },
       { label: "管理系统数", value: "数百套" },
-      { label: "自动化巡检覆盖", value: "100%" },
+      { label: "��动化巡检覆盖", value: "100%" },
     ],
     techStack: ["InforSuite UMP", "InforSuite AS", "InforSuite MQ"],
     contentSections: [
