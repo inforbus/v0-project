@@ -35,10 +35,10 @@ const caseDetails: Record<
       "可控灾备切换：提供控制灾备切换界面与自动切换策略、高效的中间件高可用部署以及灾备切换功能，保障业务连续",
     ],
     results: [
-      { label: "日均数据处理", value: "6亿+" },
-      { label: "日均调度次数", value: "10亿+" },
-      { label: "平均响应时间", value: "<50ms" },
-      { label: "系统可用性", value: "99.99%" },
+      { label: "全局中间件实例", value: "2000+" },
+      { label: "管理效率提升", value: "30%+" },
+      { label: "人工工作量降低", value: "80%" },
+      { label: "灾备切换效率提升", value: "2倍+" },
     ],
     techStack: ["InforSuite AS", "InforSuite MQ", "InforSuite Cache", "InforSuite UMP"],
     contentSections: [
