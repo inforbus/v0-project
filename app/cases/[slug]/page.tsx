@@ -52,11 +52,6 @@ const caseDetails: Record<
         text: "平台提供中间件全生命周期管理能力，包括产品统一管理、实例部署与启停、状态监控与巡检、配置基线管理、告警与策略执行，以及异地灾备保障，实现跨环境统一运维与业务连续性。",
         image: "/images/cases/central-capabilities.png",
       },
-      {
-        title: "技术栈",
-        text: "采用中创股份自主研发的InforSuite系列中间件产品，包括应用服务器（AS）、消息队列（MQ）、缓存引擎（Cache）和负载均衡（UMP）等核心组件，构建了完整的企业级中间件体系。所有组件都采用国产化技术栈，满足信创战略要求。",
-        image: "/images/cases/central-techstack.png",
-      },
     ],
   },
   "telecom-big-data-platform": {
@@ -445,7 +440,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
 
         {/* Tech Stack */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
-          <SectionTitle>相关产品</SectionTitle>
+          <SectionTitle>技术栈</SectionTitle>
           <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
             {detail.techStack.map((tech, idx) => (
               <span
