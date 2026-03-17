@@ -25,7 +25,7 @@ export const solutions: SolutionDetail[] = [
     slug: "middleware-management",
     title: "中间件统一管理平台解决方案",
     subtitle: "打破烟囱式格局，实现中间件的快速部署、规模化管理、深度运维分析及治理",
-    heroImage: "/images/solutions/ai-agent.png",
+    heroImage: "/images/solutions/solutions-banner.png",
     overview: "数智效能底座旨在建设中间件服务及运管能力体系，打破原有烟囱式格局，规范中间件软件来源、种类以及版本，实现中间件的快速部署规模化管理、深度运维分析及中间件治理。推动上层业务与中间件解耦，解决中间件管理中的版本复杂不统一、自动化程度低、运维监控不完善、管理分散等问题，降低中间件管理成本，提升中间件运维效率。",
     highlights: [
       { icon: "deploy", title: "快速部署", desc: "支持中间件的一键式自动化部署，将部署时间从天级缩短至分钟级" },
@@ -67,7 +67,7 @@ export const solutions: SolutionDetail[] = [
     slug: "data-platform",
     title: "数据中台解决方案",
     subtitle: "构建企业统一的数据底座，实现数据资产化与智能决策",
-    heroImage: "/images/solutions/data-platform.png",
+    heroImage: "/images/solutions/solutions-banner.png",
     overview: `构建企业统一的数据底座，通过汇聚与治理多源数据形成高价值数据资产，依托一站式可视化分析平台洞悉业务全景，并深度融合人工智能服务，实现从数据洞察到智能决策与行动的闭环，赋能业务创新与降本增效。`,
     highlights: [
       { icon: "deploy", title: "全域数据集成", desc: "提供高性能数据集成与实时数据流计算能力，实现全域数据的采、算一体，让数据畅通无阻。" },
@@ -98,7 +98,7 @@ export const solutions: SolutionDetail[] = [
     ],
     useCases: [
       { title: "高速联网收费数字底座", desc: "构建高速联网收费的数字底座，实现收费数据的统一汇聚、治理和分析，支撑收费业务的智能化运营。" },
-      { title: "金融行业大数据业务化转型", desc: "帮助金融机构构建大数据平台，实现客户、产品、交易等数据的统一治理，���撑精准营销和风控决策。" },
+      { title: "金融行业大数据业务化转型", desc: "帮助金融机构构建大数据平台，实现客户、产品、交易等数据的统一治理，�����撑精准营销和风控决策。" },
       { title: "企业级数据仓库建设", desc: "打破数据孤岛，构建统一的企业级数据仓库，为全员数据应用奠定基础。" },
       { title: "电子政务数智化转型", desc: "支撑政务部门数字化转型，实现政务数据的安全汇聚和深度应用，提升政务服务能力。" },
     ],
@@ -116,7 +116,7 @@ export const solutions: SolutionDetail[] = [
     slug: "ai-agent",
     title: "企业级全场景 AI 智能体管理平台解决方案",
     subtitle: "以任务为导向、以领域为核心的智能体中央调度平台",
-    heroImage: "/images/solutions/ai-agent.png",
+    heroImage: "/images/solutions/solutions-banner.png",
     overview: `随着大语言模型（LLM）技术的爆发，企业对 AI 的需求已从简单的"对话问答"转向深度的"业务协同"。本解决方案旨在构建一套以任务为导向、以领域为核心的企业级智能体管理平台。
 
 本平台通过整合底层大模型能力、RAG（检索增强生成）知识库以及 AI 安全防护机制，向上对接互联网及内网用户，中台实现智能体的全生命周期管理（AgentMgt、UserMgt、RAGMgt），核心层通过"任务与领域（Task & Domain）"引擎实现业务逻辑的自动化编排，并通过强大的连接器（Connection）触达 ERP、数据库、WeChat 等各类生产系统。`,
@@ -174,7 +174,7 @@ export const solutions: SolutionDetail[] = [
     slug: "intelligent-ops",
     title: "智能运维解决方案",
     subtitle: "保障业务永续，让运维驱动增长",
-    heroImage: "/images/solutions/ai-agent.png",
+    heroImage: "/images/solutions/solutions-banner.png",
     overview: "在数字化转型与信创改造的关键期，企业IT系统日益复杂，传统的救火式运维不仅成本高昂，更时刻威胁着业务的稳定与收入。我们的智能运维解决方案，致力于彻底改变这一现状。通过构建全景感知、数据驱动、主动智能的新一代运维体系，为您提供从底层基础设施、云平台到上层核心业务应用的一体化监控、智能分析与自动化处置能力。它能提前预警故障、分钟级定位根因，将计划外业务中断降低80%以上，直接守护您的收入生命线。同时，方案深度兼容信创生态，帮助团队从重复性劳动中解放，聚焦于高价值创新，推动运维从成本中心真正转变为业务增长的驱动引擎。",
     highlights: [
       { icon: "deploy", title: "保障业务连续，驱动业务增长", desc: "通过7x24小时全景监控与智能预警，变被动响应为主动干预，极大缩短平均故障修复时间（MTTR），为核心业务流畅运行保驾护航。" },
@@ -218,7 +218,7 @@ export const solutions: SolutionDetail[] = [
     slug: "disaster-recovery",
     title: "信创中间件双活容灾解决方案",
     subtitle: "基于准实时数据同步技术，提供专业的国产中间件高可用容灾服务",
-    heroImage: "/images/solutions/disaster-recovery.png",
+    heroImage: "/images/solutions/solutions-banner.png",
     overview: `在数字化转型与信创改造的双重驱动下，核心业务系统对中间件的高可用性提出了更高要求。传统主备容灾模式存在切换中断、数据丢失、RTO/RPO难以保障等痛点，已无法满足金融、电信、能源等关键行业的连续性要求。
 
 中创信创中间件双活容灾解决方案，基于自主研发的数据同步工具软件，提供准实时数据同步能力，实现消息中间件、缓存中间件的本地或异地集群间数据热备份。方案支持数据双向同步，两侧集群均处于活跃可用状态，任意一侧均可独立承载业务读写，真正实现"双活"架构。`,
@@ -266,7 +266,7 @@ export const solutions: SolutionDetail[] = [
     slug: "xinchuang-middleware",
     title: "信创全栈自主可控中间件解决方案",
     subtitle: "构建完全自主可控的国产中间件技术体系",
-    heroImage: "/images/solutions/xinchuang-middleware.png",
+    heroImage: "/images/solutions/solutions-banner.png",
     overview: "信创全栈自主可控中间件解决方案提供从应用服务器、消息中间件、数据缓存到服务总线的完整中间件产品体系，基于自主研发的核心技术，完全替代国外产品，满足国家信创战略要求。",
     highlights: [
       { icon: "deploy", title: "完全自主", desc: "100%自主研发，无第三方代码依赖" },
