@@ -161,19 +161,9 @@ export function WSValueSection() {
         <div className="absolute" style={{ left: "-2%", top: "9.5%", width: "42%", maxWidth: "810px" }}>
           <Image src="/images/fixed-group.png" alt="" width={979} height={861} className="h-auto w-full object-contain" />
 
-          {/* Top circle label (previous item) */}
+          {/* Top circle label (previous item) - only icon */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "6.5%", width: "10.21%", height: "12%" }}>
-            <p
-              className="text-center leading-[150%] text-[#723636]"
-              style={{
-                fontSize: "clamp(12px,0.94vw,18px)",
-                transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? "translateY(0)" : "translateY(100%)",
-              }}
-            >
-              {currentValue.prevLine1}<br />{currentValue.prevLine2}
-            </p>
+            <Image src={valueItems[(displayIndex - 1 + valueItems.length) % valueItems.length].icon} alt="" width={50} height={50} className="object-contain" style={{ width: "clamp(35px,3vw,60px)", height: "clamp(35px,3vw,60px)", aspectRatio: "1", transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)", opacity: showContent ? 1 : 0 }} />
           </div>
 
           {/* Small icon inside large circle */}
@@ -205,20 +195,9 @@ export function WSValueSection() {
             </p>
           </div>
 
-          {/* Bottom circle label (next item) */}
+          {/* Bottom circle label (next item) - only icon */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "80.5%", width: "10.21%", height: "12%" }}>
-            <p
-              className="text-center leading-[150%] text-[#723636]"
-              style={{
-                fontSize: "clamp(12px,0.94vw,18px)",
-                transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
-                transitionDelay: "0.1s",
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? "translateY(0)" : "translateY(100%)",
-              }}
-            >
-              {currentValue.nextLine1}<br />{currentValue.nextLine2}
-            </p>
+            <Image src={valueItems[(displayIndex + 1) % valueItems.length].icon} alt="" width={50} height={50} className="object-contain" style={{ width: "clamp(35px,3vw,60px)", height: "clamp(35px,3vw,60px)", aspectRatio: "1", transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)", opacity: showContent ? 1 : 0 }} />
           </div>
         </div>
 
