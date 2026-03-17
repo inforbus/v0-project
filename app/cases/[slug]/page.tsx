@@ -4,6 +4,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
+import { OtherCases } from "@/components/cases/other-cases"
 import { getNavItems } from "@/components/shared/nav-data"
 import { cases } from "@/lib/cases-data"
 
@@ -258,7 +259,7 @@ const caseDetails: Record<
     techStack: ["InforSuite UMP", "InforSuite AS", "InforSuite MQ"],
     contentSections: [
       {
-        title: "��维架构",
+        title: "���维架构",
         text: "平台采用「总部-区域」两级架构，总部平台负责全局监控、策略管理和数据分析，区域节点负责本地数据采集和指令执行。两级之间通过消息中间件实现数据的可靠传输与同步。",
         image: "/images/diagrams/middleware-arch.png",
       },
@@ -454,74 +455,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         </section>
 
         {/* Other Cases */}
-        <section>
-          <SectionTitle>其他案例</SectionTitle>
-          <div className="relative mt-6 3xl:mt-8">
-            {/* Scroll container */}
-            <div 
-              className="flex gap-5 overflow-x-auto scroll-smooth pb-2 3xl:gap-6"
-              id="otherCasesScroll"
-            >
-              {cases
-                .filter((c) => c.slug !== slug)
-                .map((relatedCase) => (
-                  <Link
-                    key={relatedCase.slug}
-                    href={`/cases/${relatedCase.slug}`}
-                    className="group relative flex-shrink-0 overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg w-[300px] md:w-[350px] lg:w-[380px] 3xl:w-[420px]"
-                  >
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={relatedCase.photo}
-                        alt={relatedCase.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <span className="absolute left-3 top-3 inline-block rounded-full bg-white/90 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/70 backdrop-blur-sm 3xl:text-xs">
-                        {relatedCase.tag}
-                      </span>
-                    </div>
-                    <div className="p-4 3xl:p-5">
-                      <h4 className="text-sm font-bold text-foreground transition-colors duration-300 group-hover:text-[#BF1920] 3xl:text-base">
-                        {relatedCase.title}
-                      </h4>
-                      <p className="mt-2 text-xs text-muted-foreground line-clamp-2 3xl:text-sm">
-                        {relatedCase.desc}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-            </div>
-            
-            {/* Scroll buttons */}
-            <button
-              onClick={() => {
-                const container = document.getElementById("otherCasesScroll")
-                if (container) container.scrollBy({ left: -400, behavior: "smooth" })
-              }}
-              className="absolute left-0 top-1/3 -translate-y-1/2 -translate-x-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#BF1920] text-white shadow-lg transition-all hover:shadow-xl active:scale-95 3xl:h-12 3xl:w-12 3xl:-translate-x-6"
-              aria-label="向左滚动"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="3xl:h-6 3xl:w-6">
-                <path d="M12 4L6 10L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            
-            <button
-              onClick={() => {
-                const container = document.getElementById("otherCasesScroll")
-                if (container) container.scrollBy({ left: 400, behavior: "smooth" })
-              }}
-              className="absolute right-0 top-1/3 -translate-y-1/2 translate-x-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#BF1920] text-white shadow-lg transition-all hover:shadow-xl active:scale-95 3xl:h-12 3xl:w-12 3xl:translate-x-6"
-              aria-label="向右滚动"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="3xl:h-6 3xl:w-6">
-                <path d="M8 4L14 10L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-        </section>
+        <OtherCases cases={cases} currentSlug={slug} />
 
         {/* Back to Home CTA */}
         <div className="mt-12 flex justify-center lg:mt-16 3xl:mt-20">
