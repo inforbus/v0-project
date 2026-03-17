@@ -43,6 +43,10 @@ export function OtherCases({ cases, currentSlug }: OtherCasesProps) {
         <div 
           ref={scrollContainerRef}
           className="flex gap-5 overflow-x-auto hide-scrollbar 3xl:gap-6"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          } as React.CSSProperties}
         >
           {otherCases.map((relatedCase) => (
             <Link
