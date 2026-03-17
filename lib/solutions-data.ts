@@ -46,7 +46,6 @@ export const solutions: SolutionDetail[] = [
       { title: "可视化任务编排", desc: "支持对 Task 进行流转设计，定义 Agent 在遇到特定条件时的决策分支。" },
       { title: "异构系统桥接", desc: "WebSSH：允许 IT Support Agent 直接对服务器进行远程诊断。RDB Connection：实现 Agent 对数据库的自然语言查询 (Text-to-SQL)。" },
       { title: "安全防御体系", desc: "AI Security 模块对敏感词、隐私字段（如身份证、工资条）进行自动过滤。" },
-      { title: "企业级权限管理", desc: "支持用户、角色、资源的细粒度权限控制，满足企业信息安全需求。" },
     ],
     benefits: [
       { label: "开发效率提升", value: "5-10倍" },
