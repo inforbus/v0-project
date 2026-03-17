@@ -164,6 +164,48 @@ export const solutions: SolutionDetail[] = [
     platformNote: "本智能体平台架构不仅是一个简单的对话界面，更是一个集成企业全量数据与执行能力的\"中央调度器\"。通过 LLM + RAG + Connection 的有机结合，真正实现了 AI 赋能业务流程的全面转型。",
   },
   {
+    slug: "intelligent-ops",
+    title: "智能运维解决方案",
+    subtitle: "构建智能化的运维管理体系，实现故障自动诊断与智能优化",
+    heroImage: "/images/solutions/ai-agent.png",
+    overview: `智能运维解决方案是一套以AI技术为驱动的企业级运维管理平台。通过大语言模型、机器学习和知识图谱等前沿技术，实现运维工作的自动化、智能化和高效化，帮助企业降低运维成本、提升系统可用性、加快故障恢复速度。`,
+    highlights: [
+      { icon: "deploy", title: "故障自动诊断", desc: "利用AI技术实现故障的自动检测、根因分析和智能定位" },
+      { icon: "monitor", title: "智能告警", desc: "智能化告警系统，减少告警噪音，提升告警准确率" },
+      { icon: "govern", title: "自动化修复", desc: "支持故障的自动修复和自动化恢复，大幅缩短MTTR" },
+      { icon: "decouple", title: "容量规划", desc: "基于历史数据和AI预测，实现精准的容量规划和资源优化" },
+    ],
+    architecture: {
+      title: "智能运维平台架构",
+      desc: "采用分层设计，从数据采集层、AI分析层、决策执行层到可视化层，形成完整的智能运维体系，支持运维工作的全自动化闭环。",
+      image: "/images/diagrams/ai-agent-arch.png",
+    },
+    features: [
+      { title: "实时监控", desc: "全方位的系统监控，采集应用、中间件、操作系统等多层次指标" },
+      { title: "智能告警", desc: "基于机器学习的告警策略自动调优，减少告警疲劳" },
+      { title: "故障诊断", desc: "利用知识图谱和AI分析，快速定位故障根因" },
+      { title: "自动化修复", desc: "支持故障的自动化响应和修复流程编排" },
+      { title: "容量分析", desc: "基于时间序列预测，提前发现容量瓶颈" },
+      { title: "成本优化", desc: "分析资源利用率，提供成本优化建议和自动化优化能力" },
+    ],
+    benefits: [
+      { label: "故障发现时间", value: "<1min" },
+      { label: "故障恢复时间", value: "-80%" },
+      { label: "运维成本降低", value: "-60%" },
+      { label: "系统可用性", value: "99.99%" },
+    ],
+    useCases: [
+      { title: "大规模系统故障自动诊断与恢复", desc: "支持数千个应用和服务的统一监控，故障发生时实现秒级定位和自动修复，大幅降低人工运维负担。" },
+      { title: "金融系统7x24小时无人值守运维", desc: "通过AI支撑的自动化运维，实现关键金融系统的7x24小时无人值守，提升系统稳定性和响应效率。" },
+      { title: "云平台多租户资源优化管理", desc: "智能分析多租户的资源使用情况，提供自动化的容量规划和成本优化建议，最大化资源利用效率。" },
+    ],
+    relatedProducts: [
+      { name: "InforSuite UMP", href: "/middleware/management" },
+      { name: "InforSuite AS", href: "/middleware" },
+      { name: "InforSuite Monitor", href: "/products" },
+    ],
+  },
+  {
     slug: "disaster-recovery",
     title: "信创中间件双活容灾解决方案",
     subtitle: "基于准实时数据同步技术，提供专业的国产中间件高可用容灾服务",
