@@ -68,7 +68,7 @@ export function WSOverviewSection() {
                     alt="中创防篡改软件"
                     width={489}
                     height={339}
-                    className="h-auto w-[79%] object-contain"
+                    className="h-auto w-[90%] object-contain"
                   />
                 </div>
               </div>

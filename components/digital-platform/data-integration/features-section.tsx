@@ -179,19 +179,9 @@ export function DataIntegrationFeatures() {
         <div className="absolute" style={{ left: "-2%", top: "9.5%", width: "42%", maxWidth: "810px" }}>
           <img src="/images/fixed-group.png" alt="" className="h-auto w-full object-contain" style={{ display: 'block' }} onError={(e) => { try { (e.target as HTMLImageElement).style.display = "none" } catch (err) { console.log("[v0] Image error:", err) } }} />
 
-          {/* Top circle label (previous item) */}
+          {/* Top circle label (previous item) - only icon */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "6.5%", width: "10.21%", height: "12%" }}>
-            <p
-              className="text-center leading-[150%] text-[#723636]"
-              style={{
-                fontSize: "clamp(12px,0.94vw,18px)",
-                transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? "translateY(0)" : "translateY(100%)",
-              }}
-            >
-              {currentValue.prevLine1}<br />{currentValue.prevLine2}
-            </p>
+            <img src={featureItems[(displayIndex - 1 + featureItems.length) % featureItems.length].icon} alt="" style={{ width: "clamp(35px,3vw,60px)", height: "clamp(35px,3vw,60px)", aspectRatio: "1", transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)", opacity: showContent ? 1 : 0 }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
           </div>
 
           {/* Small icon inside large circle */}
@@ -223,20 +213,9 @@ export function DataIntegrationFeatures() {
             </p>
           </div>
 
-          {/* Bottom circle label (next item) */}
+          {/* Bottom circle label (next item) - only icon */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "80.5%", width: "10.21%", height: "12%" }}>
-            <p
-              className="text-center leading-[150%] text-[#723636]"
-              style={{
-                fontSize: "clamp(12px,0.94vw,18px)",
-                transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
-                transitionDelay: "0.1s",
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? "translateY(0)" : "translateY(100%)",
-              }}
-            >
-              {currentValue.nextLine1}<br />{currentValue.nextLine2}
-            </p>
+            <img src={featureItems[(displayIndex + 1) % featureItems.length].icon} alt="" style={{ width: "clamp(35px,3vw,60px)", height: "clamp(35px,3vw,60px)", aspectRatio: "1", transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)", opacity: showContent ? 1 : 0 }} onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
           </div>
         </div>
 
