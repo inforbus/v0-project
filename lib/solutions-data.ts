@@ -31,7 +31,7 @@ export const solutions: SolutionDetail[] = [
 本平台通过整合底层大模型能力、RAG（检索增强生成）知识库以及 AI 安全防护机制，向上对接互联网及内网用户，中台实现智能体的全生命周期管理（AgentMgt、UserMgt、RAGMgt），核心层通过"任务与领域（Task & Domain）"引擎实现业务逻辑的自动化编排，并通过强大的连接器（Connection）触达 ERP、数据库、WeChat 等各类生产系统。`,
     highlights: [
       { icon: "deploy", title: "打通业务最后一公里", desc: `传统 LLM 往往是孤岛，本方案通过 Connection 层实现与现有 ERP、RDB、Email 等系统的深度集成，让 Agent 具备"手"的能力，从"会说到会做"。` },
-      { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）转化为 Agent 的即时背景知识，解决大模型幻觉问题。" },
+      { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）封装为 Agent 的动态背景知识，解决大模型幻觉问题。" },
       { icon: "govern", title: "多领域敏捷支撑", desc: "通过 Domain A/B/C 的划分，实现不同业务部门（HR、销售、IT）的隔离与协同，确保任务处理的专业性。" },
       { icon: "decouple", title: "全链路安全可控", desc: "底座内置 AI Security 模块，针对数据脱敏、内容审查、访问授权进行全方位监控，满足企业合规性需求。" },
     ],
@@ -44,8 +44,9 @@ export const solutions: SolutionDetail[] = [
       { title: "多端响应式交互", desc: "AgentWebSite 支持跨设备访问，提供流畅的对话式交互体验。" },
       { title: "RAG 检索增强", desc: "支持多种格式文档上传与自动向量化，使 Agent 能够基于企业最新文档进行精准答复。" },
       { title: "可视化任务编排", desc: "支持对 Task 进行流转设计，定义 Agent 在遇到特定条件时的决策分支。" },
-      { title: "异构系统桥接", desc: "WebSSH：允许 IT Support Agent 直接对服务器进行远程诊断。RDB Connection：实现 Agent 对数据库的自然语言查询 (Text-to-SQL)。" },
+      { title: "异构系统桥接", desc: "支持 WebSSH（远程诊断）、RDB Connection（Text-to-SQL 自然语言查询）等多样化连接器。" },
       { title: "安全防御体系", desc: "AI Security 模块对敏感词、隐私字段（如身份证、工资条）进行自动过滤。" },
+      { title: "企业级权限管理", desc: "支持用户、角色、资源的细粒度权限控制，满足企业信息安全需求。" },
     ],
     benefits: [
       { label: "开发效率提升", value: "5-10倍" },
@@ -240,7 +241,7 @@ export const solutions: SolutionDetail[] = [
       { title: "自动化部署", desc: "支持多种中间件的自动化安装、配置、升级和卸载，提供模板化部署能力" },
       { title: "性能监控", desc: "实时采集中间件运行指标，提供多维度可视化展示与智能告警" },
       { title: "配置管理", desc: "集中管理中间件配置，支持配置版本对比、回滚和审计" },
-      { title: "故障诊断", desc: "提供智能化故障定位与根因分析，快速解决中间件运行��题" },
+      { title: "故障诊断", desc: "提供智能化故障定位与根因分析，快速解决中间件运行问题" },
       { title: "安全管控", desc: "提供中间件安全基线检查、漏洞扫描和安全加固能力" },
       { title: "报表分析", desc: "提供多维度运维报表，包括资源利用率、健康度、安全态势等" },
     ],
