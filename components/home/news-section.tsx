@@ -21,9 +21,9 @@ function RippleButton({ children, className = "", href = "#" }: { children: Reac
 }
 
 const newsImages = [
-  { src: "/images/news-main.png", alt: "Softcon 2025 软件技术大会" },
-  { src: "/images/news-2.jpg", alt: "中创软件CMMI五级认证评估" },
-  { src: "/images/news-3.jpg", alt: "2026第十五届双态IT用户大会" },
+  { src: "/images/news/1.jpg", alt: "万马奔腾启新程：中创股份交出高质量蛇年答卷" },
+  { src: "/images/news/2.jpg", alt: "中创股份喜开通过CMM1-DEV V3.0 ML5级整评" },
+  { src: "/images/news/3.jpg", alt: "融融全身数字化转型，中创股份出席2026第十五届双点IT用户大会" },
 ]
 
 const newsItems = [
