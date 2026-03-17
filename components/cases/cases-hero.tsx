@@ -22,7 +22,7 @@ export function CasesHeroSection() {
           className="font-sans font-bold text-[#332C2B]"
           style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
         >
-          成功案例
+          典型案例
         </h1>
 
         {/* Red accent line */}
