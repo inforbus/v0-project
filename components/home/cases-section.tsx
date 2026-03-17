@@ -140,7 +140,7 @@ export function CasesSection() {
         <ScrollReveal delay={500}>
           <div className="mt-10 flex justify-center lg:mt-14 3xl:mt-16">
             <RippleButton
-              href="#"
+              href="/cases"
               className="group inline-flex items-center justify-center rounded-full bg-[#BF1920] px-8 py-3 text-base font-medium text-white shadow-[0_4px_16px_rgba(191,25,32,0.25)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(191,25,32,0.35)] hover:scale-105 active:scale-95 3xl:px-10 3xl:py-3.5 3xl:text-lg"
             >
               <span className="relative z-10 flex items-center gap-2">
