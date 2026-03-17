@@ -3,7 +3,9 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
+    "predev": "node scripts/normalize-encoding.js",
     "dev": "next dev",
+    "prebuild": "node scripts/normalize-encoding.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."
