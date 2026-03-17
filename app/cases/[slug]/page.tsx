@@ -150,7 +150,7 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "迁移策略",
-        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性的依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最终迁移。",
+        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最终迁移。",
         image: "/images/cases/core-capability.jpg",
       },
       {
@@ -456,19 +456,6 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
 
         {/* Other Cases */}
         <OtherCases cases={cases} currentSlug={slug} />
-
-        {/* Back to Home CTA */}
-        <div className="mt-12 flex justify-center lg:mt-16 3xl:mt-20">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-[#BF1920]/30 hover:text-[#BF1920] 3xl:px-8 3xl:py-3 3xl:text-base"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="rotate-180">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            返回首页
-          </Link>
-        </div>
       </main>
 
       <Footer />

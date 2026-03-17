@@ -42,7 +42,7 @@ export function OtherCases({ cases, currentSlug }: OtherCasesProps) {
         {/* Scroll container */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-5 overflow-x-auto scroll-smooth pb-2 3xl:gap-6"
+          className="flex gap-5 overflow-x-auto 3xl:gap-6"
         >
           {otherCases.map((relatedCase) => (
             <Link
