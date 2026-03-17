@@ -65,7 +65,7 @@ export const solutions: SolutionDetail[] = [
   },
   {
     slug: "data-platform",
-    title: "企业级全场景 AI 智能体管理平台解决方案",
+    title: "数据中台解决方案",
     subtitle: "构建企业统一的数据底座，实现数据资产化与智能决策",
     heroImage: "/images/solutions/data-platform.png",
     overview: `构建企业统一的数据底座，通过汇聚与治理多源数据形成高价值数据资产，依托一站式可视化分析平台洞悉业务全景，并深度融合人工智能服务，实现从数据洞察到智能决策与行动的闭环，赋能业务创新与降本增效。`,
@@ -122,7 +122,7 @@ export const solutions: SolutionDetail[] = [
 本平台通过整合底层大模型能力、RAG（检索增强生成）知识库以及 AI 安全防护机制，向上对接互联网及内网用户，中台实现智能体的全生命周期管理（AgentMgt、UserMgt、RAGMgt），核心层通过"任务与领域（Task & Domain）"引擎实现业务逻辑的自动化编排，并通过强大的连接器（Connection）触达 ERP、数据库、WeChat 等各类生产系统。`,
     highlights: [
       { icon: "deploy", title: "打通业务最后一公里", desc: `传统 LLM 往往是孤岛，本方案通过 Connection 层实现与现有 ERP、RDB、Email 等系统的深度集成，让 Agent 具备"手"的能力，从"会说到会做"。` },
-      { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）转化为 Agent 的即时背景知识，解决大模型幻觉问题。" },
+      { icon: "monitor", title: "知识沉淀与共享", desc: "利用 RAG 机制将企业私有知识（如规章制度、技术文档）转化为 Agent 的���时背景知识，解决大模型幻觉问题。" },
       { icon: "govern", title: "多领域敏捷支撑", desc: "通过 Domain A/B/C 的划分，实现不同业务部门（HR、销售、IT）的隔离与协同，确保任务处理的专业性。" },
       { icon: "decouple", title: "全链路安全可控", desc: "底座内置 AI Security 模块，针对数据脱敏、内容审查、访问授权进行全方位监控，满足企业合规性需求。" },
     ],
