@@ -126,7 +126,7 @@ const caseDetails: Record<
   },
   "core-middleware-replacement": {
     background:
-      "某大型电信运营商在全国20多个省公司运营着CRM（客户关系管理）和BOSS（业务运营支撑）等核心业务系统，长期依赖国外中间件产品。为响应国家信创战略，需要在不影响业务连续性的前提下，完成核心系统中间件的全面国产化替换。",
+      "某大型电信运营商在全���20多个省公司运营着CRM（客户关系管理）和BOSS（业务运营支撑）等核心业务系统，长期依赖国外中间件产品。为响应国家信创战略，需要在不影响业务连续性的前提下，完成核心系统中间件的全面国产化替换。",
     challenge: [
       "涉及20多个省公司，替换规模大、协调难度高",
       "CRM/BOSS为核心系统，不允许出现业务中断",
@@ -420,12 +420,12 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
             <SectionTitle>{section.title}</SectionTitle>
             <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx === 0 ? "lg:flex-row" : idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
               {section.image && (
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl lg:w-1/2">
+                <div className="relative h-[300px] w-full overflow-hidden rounded-2xl bg-muted/50 lg:h-[280px] lg:w-[45%] 3xl:h-[320px]">
                   <Image
                     src={section.image}
                     alt={section.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               )}
