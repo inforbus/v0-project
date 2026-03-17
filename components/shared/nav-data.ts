@@ -90,6 +90,8 @@ export function getNavItems(activePath?: string): NavItem[] {
       active: activePath === "/solutions" || activePath.startsWith("/solutions"),
       children: [
         { name: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
+        { name: "数据中台解决方案", href: "/solutions/data-platform" },
+        { name: "智能运维解决方案", href: "/solutions/intelligent-ops" },
         { name: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
         { name: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
       ],
