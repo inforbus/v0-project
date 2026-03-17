@@ -97,13 +97,9 @@ export function getNavItems(activePath?: string): NavItem[] {
     },
     {
       name: "典型案例",
-      href: "",
+      href: "/cases",
       active: activePath === "/cases" || activePath.startsWith("/cases"),
-      children: [
-        { name: "金融案例", href: "/cases/financial" },
-        { name: "政府案例", href: "/cases/government" },
-        { name: "企业案例", href: "/cases/enterprise" },
-      ],
+      children: [],
       isMega: false,
     },
     {
