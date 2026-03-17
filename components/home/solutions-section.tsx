@@ -119,8 +119,8 @@ export function SolutionsSection() {
             </div>
 
             {/* Right: all images rendered, CSS controls visibility for instant switching */}
-            <div className="relative w-full lg:w-1/2 flex items-center justify-start lg:justify-start">
-              <div className="relative h-[300px] w-full md:h-[360px] lg:h-[380px] 3xl:h-[480px]">
+            <div className="relative w-full lg:w-1/2 flex items-center justify-center lg:justify-center">
+              <div className="relative h-[300px] w-full max-w-[500px] md:h-[360px] lg:h-[380px] 3xl:h-[480px]">
                 {solutions.map((sol, idx) => (
                   <div
                     key={idx}
