@@ -70,12 +70,12 @@ export function SolutionsSection() {
 
         {/* Horizontal tab bar */}
         <ScrollReveal delay={100}>
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-10 lg:mt-12 lg:gap-4 3xl:mt-14 3xl:gap-5">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 lg:mt-12 lg:gap-4 3xl:mt-14 3xl:gap-5">
             {solutions.map((sol, idx) => (
               <button
                 key={idx}
                 onClick={() => handleTabClick(idx)}
-                className={`relative overflow-hidden rounded-full px-5 py-2.5 text-center text-sm font-medium transition-all duration-500 md:px-6 md:py-3 md:text-base 3xl:px-8 3xl:py-3.5 3xl:text-lg ${
+                className={`relative overflow-hidden rounded-full px-3 py-2 text-center text-xs font-medium transition-all duration-500 sm:px-4 sm:py-2.5 md:px-5 md:py-3 md:text-sm lg:text-base 3xl:px-6 3xl:py-3.5 3xl:text-lg ${
                   activeIndex === idx
                     ? "bg-[#BF1920] text-white shadow-[0_4px_16px_rgba(191,25,32,0.3)] scale-[1.02]"
                     : "bg-white/70 text-foreground/70 hover:bg-white hover:text-foreground shadow-sm hover:scale-[1.01]"
