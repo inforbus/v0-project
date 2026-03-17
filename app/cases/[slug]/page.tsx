@@ -44,7 +44,8 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "项目架构",
-        text: "整体采用分布式微服务架构，系统分为数据接入层、中间件统一管理层、业务支撑层三层架构。数据接入层负责采集各类业务数据和系统指标；中间件统一管理层通过InforSuite系列产品实现消息中间件、应用服务器、缓存引擎的统一管理和协调；业务支撑层为应用系统提供高性能、高可用的基础服务。整体支持跨数据中心多活部署，确保业务的连续性。",
+        text: "平台采用微服务架构，通过虚拟机 Agent 与容器 Operator 分别实现虚拟机和容器环境下中间件的全生命周期管理；结合 Prometheus、Grafana 和 AlertManager 提供统一的监控与告警能力。",
+        image: "/images/cases/central-architecture.png",
       },
       {
         title: "核心能力",
@@ -139,7 +140,7 @@ const caseDetails: Record<
     ],
     solution: [
       "制定分省分批的渐进式替换策略，降低整体风��",
-      "中创InforSuite AS实现与原有中间件的API级兼容，无需修改业务代码",
+      "中创InforSuite AS实现��原有中间件的API级兼容，无需修改业务代码",
       "通过灰度发布机制，逐步切换流量至国产中间件",
       "部署中创统一管理平台，实现替换过程的全程监控与性能对比",
     ],
@@ -254,7 +255,7 @@ const caseDetails: Record<
       "构建运维知识库，辅助运维人员快速定位和解决问题",
     ],
     results: [
-      { label: "运维成本降低", value: "40%" },
+      { label: "运维成��降低", value: "40%" },
       { label: "故障发现时间", value: "<3min" },
       { label: "管理系统数", value: "数百套" },
       { label: "自动化巡检覆盖", value: "100%" },
@@ -422,7 +423,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         {detail.contentSections.map((section, idx) => (
           <section key={idx} className="mb-12 lg:mb-16 3xl:mb-20">
             <SectionTitle>{section.title}</SectionTitle>
-            <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+            <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx === 0 ? "lg:flex-row" : idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
               {section.image && (
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl lg:w-1/2">
                   <Image
