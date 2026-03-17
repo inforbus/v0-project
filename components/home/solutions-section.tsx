@@ -27,6 +27,13 @@ const solutions = [
     icon: "/images/solution-data-platform.png",
     desc: "构建统一的数据中台，实现数据的汇聚、治理、共享与应用，打破数据孤岛，为企业决策提供有力的数据支撑。",
   },
+  {
+    tab: "智能运维解决方案",
+    title: "智能运维解决方案",
+    slug: "intelligent-ops",
+    icon: "/images/solution-intelligent-ops.png",
+    desc: "基于 AI 和大数据技术，提供智能监控、故障诊断、性能优化等运维能力，实现从被动应急到主动预防的运维模式升级，降低运维成本，提高系统稳定性。",
+  },
 ]
 
 export function SolutionsSection() {
