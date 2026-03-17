@@ -17,6 +17,8 @@ export function Footer() {
             <FooterColumn title="解决方案" links={[
               { label: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
               { label: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
+              { label: "数据中台解决方案", href: "/solutions/data-platform" },
+              { label: "智能运维解决方案", href: "/solutions/intelligent-ops" },
               { label: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
             ]} />
             <FooterColumn title="典型案例" links={[
