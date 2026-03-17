@@ -7,13 +7,6 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const solutions = [
   {
-    tab: "AI 智能体管理平台",
-    title: "AI 智能体管理平台解决方案",
-    slug: "ai-agent",
-    icon: "/images/solution-ai-agent.png",
-    desc: "企业级全场景 AI 智能体管理平台，通过整合大模型能力、RAG 知识库及安全防护机制，实现智能体的全生命周期管理，帮助企业提升工作效率，打通业务最后一公里。",
-  },
-  {
     tab: "信创中间件双活容灾",
     title: "信创中间件双活容灾解决方案",
     slug: "disaster-recovery",
@@ -21,11 +14,18 @@ const solutions = [
     desc: "基于自主可控技术体系，提供覆盖消息中间件、应用服务器、负载均衡等全栈中间件产品，支持多活容灾与自动故障转移，为关键行业核心系统提供安全、稳定的基础设施支撑。",
   },
   {
-    tab: "数据中台解决方案",
-    title: "数据中台解决方案",
-    slug: "data-platform",
-    icon: "/images/solution-data-platform.png",
-    desc: "构建统一的数据中台，实现数据的汇聚、治理、共享与应用，打破数据孤岛，为企业决策提供有力的数据支撑。",
+    tab: "信创全栈自主可控",
+    title: "信创全栈自主可控中间件解决方案",
+    slug: "xinchuang-middleware",
+    icon: "/images/solution-xinchuang.png",
+    desc: "全栈中间件产品矩阵涵盖应用运行、消息通信、流量调度、数据缓存四大核心领域，各组件既可独立部署也可协同工作，全面助力国产化替代与数字化转型。",
+  },
+  {
+    tab: "AI 智能体管理平台",
+    title: "AI 智能体管理平台解决方案",
+    slug: "ai-agent",
+    icon: "/images/solution-ai-agent.png",
+    desc: "企业级全场景 AI 智能体管理平台，通过整合大模型能力、RAG 知识库及安全防护机制，实现智能体的全生命周期管理，帮助企业提升工作效率，打通业务最后一公里。",
   },
 ]
 
@@ -70,12 +70,12 @@ export function SolutionsSection() {
 
         {/* Horizontal tab bar */}
         <ScrollReveal delay={100}>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 lg:mt-12 lg:gap-4 3xl:mt-14 3xl:gap-5">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-10 lg:mt-12 lg:gap-4 3xl:mt-14 3xl:gap-5">
             {solutions.map((sol, idx) => (
               <button
                 key={idx}
                 onClick={() => handleTabClick(idx)}
-                className={`relative overflow-hidden rounded-full px-3 py-2 text-center text-xs font-medium transition-all duration-500 sm:px-4 sm:py-2.5 md:px-5 md:py-3 md:text-sm lg:text-base 3xl:px-6 3xl:py-3.5 3xl:text-lg ${
+                className={`relative overflow-hidden rounded-full px-5 py-2.5 text-center text-sm font-medium transition-all duration-500 md:px-6 md:py-3 md:text-base 3xl:px-8 3xl:py-3.5 3xl:text-lg ${
                   activeIndex === idx
                     ? "bg-[#BF1920] text-white shadow-[0_4px_16px_rgba(191,25,32,0.3)] scale-[1.02]"
                     : "bg-white/70 text-foreground/70 hover:bg-white hover:text-foreground shadow-sm hover:scale-[1.01]"
@@ -119,8 +119,8 @@ export function SolutionsSection() {
             </div>
 
             {/* Right: all images rendered, CSS controls visibility for instant switching */}
-            <div className="relative w-full lg:w-1/2 flex items-center justify-center lg:justify-center">
-              <div className="relative h-[300px] w-full max-w-[500px] md:h-[360px] lg:h-[380px] 3xl:h-[480px]">
+            <div className="relative w-full lg:w-1/2 flex items-center justify-start lg:justify-start">
+              <div className="relative h-[300px] w-full md:h-[360px] lg:h-[380px] 3xl:h-[480px]">
                 {solutions.map((sol, idx) => (
                   <div
                     key={idx}
