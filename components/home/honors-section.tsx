@@ -32,7 +32,7 @@ function HonorCard({ honor, prefix, hideNum = false }: { honor: (typeof row1)[0]
     <div className="group/honor relative flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-border/80 bg-background shadow-sm transition-all duration-500 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.06] md:w-[320px] 3xl:w-[380px]">
       {!hideNum && <div className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-primary/15 bg-background/90 text-[10px] font-bold text-primary/60 shadow-sm backdrop-blur-sm transition-all duration-300 group-hover/honor:border-primary/40 group-hover/honor:bg-primary group-hover/honor:text-primary-foreground group-hover/honor:shadow-md 3xl:h-9 3xl:w-9 3xl:text-xs">{honor.num}</div>}
       <div className="relative h-[160px] w-full overflow-hidden md:h-[175px] 3xl:h-[210px]">
-        <Image src={honor.img || "/placeholder.svg"} alt={honor.title} fill className="object-cover transition-transform duration-700 group-hover/honor:scale-110" />
+        <Image src={honor.img || "/placeholder.svg"} alt={honor.title} fill className="object-cover transition-transform duration-700 group-hover/honor:scale-110" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
       </div>
       <div className="flex items-center gap-3 px-4 py-3.5 3xl:px-5 3xl:py-4">
