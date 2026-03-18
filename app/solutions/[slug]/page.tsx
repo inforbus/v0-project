@@ -170,7 +170,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                   <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#BF1920]" />
                   <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{f.title}</h4>
                 </div>
-                <p className="pl-5 text-sm text-muted-foreground 3xl:text-base">{f.desc}</p>
+                <p className="whitespace-pre-line pl-5 text-sm text-muted-foreground 3xl:text-base">{f.desc}</p>
               </div>
             ))}
           </div>
