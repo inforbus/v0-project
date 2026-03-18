@@ -140,6 +140,7 @@ export function HeroSection() {
                 src={slide.src} 
                 alt={slide.alt} 
                 className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                fetchPriority={index === 0 ? "high" : "auto"}
                 onError={(e) => {
                   try {
                     e.currentTarget.style.display = "none"
