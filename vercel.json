@@ -1,6 +1,4 @@
 {
-  "buildCommand": "node scripts/normalize-encoding.js && pnpm run build",
-  "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": "nextjs",
   "env": {
     "LANG": "en_US.UTF-8",

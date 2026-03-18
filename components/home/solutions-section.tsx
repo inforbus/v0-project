@@ -135,6 +135,7 @@ export function SolutionsSection() {
                         src={sol.icon}
                         alt={sol.title}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
                         className="object-contain drop-shadow-lg"
                         priority
                         onError={(e) => {
