@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
@@ -123,21 +122,14 @@ export function ProductsSection() {
                           : "bg-foreground/[0.03] group-hover:bg-foreground/[0.05]"
                       }`}
                     >
-                      <Image
+                      <img
                         src={product.icon || "/placeholder.svg"}
                         alt={product.title}
-                        width={86}
-                        height={113}
                         className={`h-6 w-5 object-contain transition-all duration-400 md:h-7 md:w-6 3xl:h-8 3xl:w-7 ${
                           isActive ? "drop-shadow-[0_0_4px_rgba(191,25,32,0.2)]" : ""
                         }`}
-                        onError={(e) => {
-                          try {
-                            e.currentTarget.style.display = "none"
-                          } catch (error) {
-                            console.warn("Product icon error:", error)
-                          }
-                        }}
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 
@@ -180,19 +172,12 @@ export function ProductsSection() {
                     <div className="relative mb-4 3xl:mb-5">
                       {/* Icon - top right corner, large decorative */}
                       <div className="absolute -top-1 right-0">
-                        <Image
+                        <img
                           src={product.icon || "/placeholder.svg"}
                           alt={product.title}
-                          width={86}
-                          height={113}
                           className="h-[72px] w-[60px] object-contain 3xl:h-[84px] 3xl:w-[72px]"
-                          onError={(e) => {
-                            try {
-                              e.currentTarget.style.display = "none"
-                            } catch (error) {
-                              console.warn("Product icon error:", error)
-                            }
-                          }}
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       {/* Title text - left aligned */}

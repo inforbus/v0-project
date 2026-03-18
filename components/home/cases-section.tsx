@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import { cases } from "@/lib/cases-data"
@@ -12,12 +11,12 @@ function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: num
       <Link href={`/cases/${caseItem.slug}`} className="group relative block cursor-pointer overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-foreground/[0.06]">
         {/* Fixed-height photo area */}
         <div className="relative overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
-          <Image
+          <img
             src={caseItem.photo}
             alt={caseItem.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            loading="lazy"
+            decoding="async"
           />
           {/* Default gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-0" />

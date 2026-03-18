@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
@@ -49,7 +48,7 @@ export function NewsSection() {
             <div className="flex h-full w-full flex-shrink-0 flex-col lg:w-[480px] 3xl:w-[600px]">
               <div className="relative flex-1 overflow-hidden rounded-xl" style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)", aspectRatio: "652 / 414" }}>
                 {newsImages.map((img, index) => (
-                  <Image key={index} src={img.src || "/placeholder.svg"} alt={img.alt} fill sizes="(max-width: 1024px) 100vw, 480px" className={`object-cover transition-all duration-700 ease-out ${activeNewsIndex === index ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} />
+                  <img key={index} src={img.src || "/placeholder.svg"} alt={img.alt} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${activeNewsIndex === index ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} loading="lazy" decoding="async" />
                 ))}
               </div>
               <div className="mt-3 flex gap-2">

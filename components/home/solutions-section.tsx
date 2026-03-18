@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import React, { useState } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
@@ -131,20 +130,12 @@ export function SolutionsSection() {
                     }`}
                   >
                     <div className={activeIndex === idx ? "solution-img-float relative h-full w-full" : "relative h-full w-full"}>
-                      <Image
+                      <img
                         src={sol.icon}
                         alt={sol.title}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                        className="object-contain drop-shadow-lg"
-                        priority
-                        onError={(e) => {
-                          try {
-                            e.currentTarget.style.display = "none"
-                          } catch (error) {
-                            console.warn("Solution icon error:", error)
-                          }
-                        }}
+                        className="w-full h-full object-contain drop-shadow-lg"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   </div>
