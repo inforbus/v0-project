@@ -13,7 +13,7 @@ export function CasesHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
+      <Header navItems={navItems} variant="overlay" isDarkBg={true} />
 
       {/* Main title and subtitle text content */}
       <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
