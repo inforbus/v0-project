@@ -1,46 +1,67 @@
 "use client"
 
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
+import Image from "next/image"
 
 const customerRows = [
   [
-    { name: "华为", abbr: "HUAWEI", color: "#CF0A2C" },
-    { name: "中国移动", abbr: "中国移动", color: "#006DB7" },
-    { name: "中国电信", abbr: "中国电信", color: "#009DDC" },
-    { name: "中国联通", abbr: "中国联通", color: "#E60012" },
-    { name: "腾讯", abbr: "Tencent", color: "#1E8FE1" },
-    { name: "阿里巴巴", abbr: "Alibaba", color: "#FF6A00" },
-    { name: "百度", abbr: "Baidu", color: "#2932E1" },
-    { name: "京东", abbr: "JD.com", color: "#E2231A" },
-    { name: "字节跳动", abbr: "ByteDance", color: "#161823" },
-    { name: "网易", abbr: "NetEase", color: "#C41230" },
+    { name: "国家开发银行", logo: "/images/customers/guojia-kaifa-bank.png" },
+    { name: "平安科技", logo: "/images/customers/pingan-tech.webp" },
+    { name: "国家开发投资集团有限公司", logo: "/images/customers/guojia-touzi.png" },
+    { name: "东风汽车集团有限公司", logo: "/images/customers/dongfeng-auto.png" },
+    { name: "永诚保险", logo: "/images/customers/yongcheng-insurance.png" },
+    { name: "山东能源集团", logo: "/images/customers/shandong-energy.png" },
+    { name: "山东黄金集团", logo: "/images/customers/shandong-gold.jpg" },
+    { name: "工商银行", logo: "/images/customers/icbc.png" },
+    { name: "招商银行", logo: "/images/customers/merchants-group.png" },
+    { name: "招商局集团有限公司", logo: "/images/customers/merchants-group.png" },
   ],
   [
-    { name: "中国工商银行", abbr: "工商银行", color: "#B71C2C" },
-    { name: "中国银行", abbr: "中国银行", color: "#C01C2C" },
-    { name: "中国建设银行", abbr: "建设银行", color: "#005BAC" },
-    { name: "中国农业银行", abbr: "农业银行", color: "#008540" },
-    { name: "交通银行", abbr: "交通银行", color: "#003DA5" },
-    { name: "招商银行", abbr: "招商银行", color: "#C41022" },
-    { name: "中信银行", abbr: "中信银行", color: "#E60012" },
-    { name: "浦发银行", abbr: "浦发银行", color: "#00479D" },
-    { name: "兴业银行", abbr: "兴业银行", color: "#003B71" },
-    { name: "民生银行", abbr: "民生银行", color: "#008060" },
+    { name: "浪潮", logo: "/images/customers/langchao.png" },
+    { name: "湖南银行（华融湘江银行更名）", logo: "/images/customers/hunan-bank.png" },
+    { name: "国投财务有限公司", logo: "/images/customers/guotou-finance.png" },
+    { name: "广州农商行", logo: "/images/customers/guangzhou-rural-bank.png" },
+    { name: "广发银行", logo: "/images/customers/guangfa-bank.png" },
+    { name: "兴业银行", logo: "/images/customers/xingye-bank.png" },
+    { name: "中国兵器工业集团有限公司", logo: "/images/customers/china-ordnance.jpg" },
+    { name: "齐鲁银行", logo: "/images/customers/qilu-bank.png" },
+    { name: "国家电投", logo: "/images/customers/spic.png" },
+    { name: "中国信息通信科技集团有限公司", logo: "/images/customers/china-ict.png" },
+    { name: "中国电气装备集团有限公司", logo: "/images/customers/china-electric-equip.png" },
+    { name: "中国铝业集团有限公司", logo: "/images/customers/chinalco.png" },
+    { name: "中国葛洲坝集团有限公司", logo: "/images/customers/gezhouba.png" },
+    { name: "中国航空油料集团有限公司", logo: "/images/customers/cnaf.png" },
+    { name: "中泰证券", logo: "/images/customers/zhongtai-securities.png" },
+    { name: "中国人民银行", logo: "/images/customers/pboc.webp" },
+    { name: "中国农业银行", logo: "/images/customers/abc.png" },
+    { name: "中国民生银行", logo: "/images/customers/minsheng-bank.png" },
+    { name: "中国银行", logo: "/images/customers/boc.png" },
+    { name: "中国中车集团有限公司", logo: "/images/customers/crrc.png" },
+    { name: "中国电建", logo: "/images/customers/powercn.jpg" },
+    { name: "中国太平保险", logo: "/images/customers/china-taiping.png" },
+    { name: "中国五矿集团有限公司", logo: "/images/customers/minmetals.png" },
   ],
 ]
 
-function LogoCard({ customer }: { customer: { name: string; abbr: string; color: string } }) {
+function LogoCard({ customer }: { customer: { name: string; logo: string } }) {
   return (
     <div
       className="group/logo flex h-[80px] w-[200px] flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/40 bg-background px-6 transition-all duration-300 hover:border-border hover:shadow-md md:h-[100px] md:w-[240px] lg:h-[110px] lg:w-[260px] 3xl:h-[130px] 3xl:w-[300px]"
       title={customer.name}
     >
-      <span
-        className="select-none text-base font-bold transition-transform duration-300 group-hover/logo:scale-105 md:text-lg"
-        style={{ color: customer.color }}
-      >
-        {customer.abbr}
-      </span>
+      {customer.logo ? (
+        <Image
+          src={customer.logo}
+          alt={customer.name}
+          width={200}
+          height={80}
+          className="h-auto max-h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
+        />
+      ) : (
+        <span className="select-none text-sm font-medium text-muted-foreground">
+          {customer.name}
+        </span>
+      )}
     </div>
   )
 }

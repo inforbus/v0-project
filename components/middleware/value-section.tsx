@@ -13,7 +13,7 @@ const valueItems = [
     nextLine1: "应用平滑",
     nextLine2: "迁移",
     description: "通过Jakarta EE10/9.1/9/8及Java EE8/7/6完整兼容认证，支持应用场景最丰富。公司作为Jakarta EE企业级会员，参与Jakarta EE最新几十项规范制定，引领中间件技术发展。",
-    icon: "/images/as_icon1.png",
+    icon: "/images/middleware/value-1.png",
   },
   {
     title: "应用平滑迁移",
@@ -24,7 +24,7 @@ const valueItems = [
     nextLine1: "支撑云原生",
     nextLine2: "",
     description: "兼容主流国外和开源同类中间件的私有协议及配置，保障应用平滑迁移，降低信创改造成本。",
-    icon: "/images/as_icon2.png",
+    icon: "/images/middleware/value-2.png",
   },
   {
     title: "支撑云原生",
@@ -35,7 +35,7 @@ const valueItems = [
     nextLine1: "高性能",
     nextLine2: "",
     description: "支持容器镜像、Helm chart、Operator等部署模式，支持系统弹性伸缩、滚动升级及配置热更新，灵活接入状态、链路追踪、日志等第三方监控运维平台，可实现多云环境的统一纳管。",
-    icon: "/images/as_icon3.png",
+    icon: "/images/middleware/value-3.png",
   },
   {
     title: "高性能",
@@ -46,7 +46,7 @@ const valueItems = [
     nextLine1: "高安全",
     nextLine2: "",
     description: "采用高性能线程池、连接池及网络处理等核心技术，支持用户高并发、大吞吐访问，可规模化同等替代国外产品，性能优于Tomcat等开源中间件产品。",
-    icon: "/images/as_icon4.png",
+    icon: "/images/middleware/value-4.png",
   },
   {
     title: "高安全",
@@ -57,7 +57,7 @@ const valueItems = [
     nextLine1: "高可靠",
     nextLine2: "",
     description: "通过第三方权威机构源代码安全检测和系统漏洞扫描，支持SM2/SM3/SM4等国密算法，支持TLCP安全传输协议，满足等保2.0三级、四级要求。集成应用安全防护模块，加固应用安全。",
-    icon: "/images/as_icon5.png",
+    icon: "/images/middleware/value-5.png",
   },
   {
     title: "高可靠",
@@ -68,7 +68,7 @@ const valueItems = [
     nextLine1: "遵循国际",
     nextLine2: "标准",
     description: "支持大规模集群部署，提供故障转移和弹性伸缩能力。提供线程分组、流量控制及过载保护等功能，实现系统故障有效隔离，保障应用系统运行稳定可靠。",
-    icon: "/images/as_icon6.png",
+    icon: "/images/middleware/value-6.png",
   },
 ]
 
@@ -84,12 +84,9 @@ export function ValueSection() {
   const startTimeRef = useRef<number>(0)
   const isPausedRef = useRef(false)
 
-  // Preload all icons on mount
+  // Icons will be loaded lazily by img tags
   useEffect(() => {
-    valueItems.forEach((item) => {
-      const img = new window.Image()
-      img.src = item.icon
-    })
+    // No preloading needed - img tags handle loading safely
   }, [])
 
   const goToIndex = useCallback((index: number) => {
@@ -178,26 +175,16 @@ export function ValueSection() {
           className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-bold leading-[100%] text-[#242222]"
           style={{ top: "7.83%", fontSize: "clamp(26px,2.08vw,40px)" }}
         >
-          产品价值
+          产品特点
         </h2>
 
         {/* Left side: fixed-group.png with circle labels */}
         <div className="absolute" style={{ left: "-2%", top: "9.5%", width: "42%", maxWidth: "810px" }}>
           <Image src="/images/fixed-group.png" alt="" width={979} height={861} className="h-auto w-full object-contain" />
 
-          {/* Top circle label (previous item) */}
+          {/* Top circle label (previous item) - only icon */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "6.5%", width: "10.21%", height: "12%" }}>
-            <p
-              className="text-center leading-[150%] text-[#723636]"
-              style={{
-                fontSize: "clamp(12px,0.94vw,18px)",
-                transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? "translateY(0)" : "translateY(100%)",
-              }}
-            >
-              {currentValue.prevLine1}<br />{currentValue.prevLine2}
-            </p>
+            <Image src={valueItems[(displayIndex - 1 + valueItems.length) % valueItems.length].icon} alt="" width={50} height={50} className="object-contain" style={{ width: "clamp(35px,3vw,60px)", height: "clamp(35px,3vw,60px)", aspectRatio: "1", transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)", opacity: showContent ? 1 : 0 }} />
           </div>
 
           {/* Small icon inside large circle */}
@@ -210,7 +197,7 @@ export function ValueSection() {
               transform: showContent ? "translateY(0)" : "translateY(20px)",
             }}
           >
-            <Image src={currentValue.icon} alt={currentValue.title} width={115} height={105} className="object-contain" style={{ width: "clamp(45px,4.5vw,90px)", height: "auto" }} />
+            <Image src={currentValue.icon} alt={currentValue.title} width={115} height={105} className="object-contain" style={{ width: "clamp(45px,4.5vw,90px)", height: "clamp(45px,4.5vw,90px)", aspectRatio: "1" }} />
           </div>
 
           {/* Main circle label (current item) */}
@@ -229,26 +216,16 @@ export function ValueSection() {
             </p>
           </div>
 
-          {/* Bottom circle label (next item) */}
+          {/* Bottom circle label (next item) - only icon */}
           <div className="absolute flex items-center justify-center overflow-hidden" style={{ left: "51.58%", top: "80.5%", width: "10.21%", height: "12%" }}>
-            <p
-              className="text-center leading-[150%] text-[#723636]"
-              style={{
-                fontSize: "clamp(12px,0.94vw,18px)",
-                transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
-                transitionDelay: "0.1s",
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? "translateY(0)" : "translateY(100%)",
-              }}
-            >
-              {currentValue.nextLine1}<br />{currentValue.nextLine2}
-            </p>
+            <Image src={valueItems[(displayIndex + 1) % valueItems.length].icon} alt="" width={50} height={50} className="object-contain" style={{ width: "clamp(35px,3vw,60px)", height: "clamp(35px,3vw,60px)", aspectRatio: "1", transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1)", opacity: showContent ? 1 : 0 }} />
           </div>
         </div>
 
         {/* Large icon */}
         <div className="absolute" style={{ left: "50.73%", top: "25.93%" }}>
-          <Image src={currentValue.icon} alt={currentValue.title} width={169} height={155} className="object-contain" style={{ width: "clamp(90px,8.8vw,169px)", height: "auto",
+          <Image src={currentValue.icon} alt={currentValue.title} width={169} height={155} className="object-contain" style={{
+            width: "clamp(90px,8.8vw,169px)", height: "clamp(90px,8.8vw,169px)", aspectRatio: "1",
             transition: "opacity 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1)",
             opacity: showContent ? 1 : 0,
             transform: showContent ? "translateY(0)" : "translateY(10px)",
@@ -341,7 +318,7 @@ export function ValueSection() {
 
       {/* Mobile layout */}
       <div className="relative z-10 px-4 py-12 lg:hidden">
-        <h2 className="text-center text-3xl font-bold leading-[100%] text-[#242222]">产品价值</h2>
+        <h2 className="text-center text-3xl font-bold leading-[100%] text-[#242222]">产品特点</h2>
 
         {/* Circle indicators */}
         <div className="mt-8 flex items-center justify-center gap-3">

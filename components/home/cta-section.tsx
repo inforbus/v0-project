@@ -24,7 +24,7 @@ export function CTASection() {
   return (
     <section className="relative h-[220px] overflow-hidden md:h-[240px] 3xl:h-[280px]">
       <div className="absolute inset-0">
-        <Image src="/images/cta-bg.png" alt="" fill className="object-cover" />
+        <Image src="/images/cta-bg.png" alt="" fill sizes="100vw" className="object-cover" />
       </div>
 
       <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">

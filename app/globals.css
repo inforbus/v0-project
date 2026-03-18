@@ -1,14 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-body {
-  font-family: 'Noto Sans SC', 'Source Han Sans CN', Arial, Helvetica, sans-serif;
-}
-
-:root {
+/* Tailwind CSS v4 Theme Configuration */
+@theme inline {
+  --font-sans: 'Noto Sans SC', 'Source Han Sans CN', Arial, Helvetica, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
   --font-noto-sans-sc: 'Noto Sans SC', 'Source Han Sans CN', sans-serif;
   --font-alibaba: 'Alibaba PuHuiTi', 'Noto Sans SC', sans-serif;
+  
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(0 2% 13.3%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(0 2% 13.3%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(0 2% 13.3%);
+  --color-primary: hsl(355 80% 42%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(330 5% 96%);
+  --color-secondary-foreground: hsl(0 2% 13.3%);
+  --color-muted: hsl(240 5% 96.5%);
+  --color-muted-foreground: hsl(0 0% 46%);
+  --color-accent: hsl(330 5% 96%);
+  --color-accent-foreground: hsl(0 2% 13.3%);
+  --color-destructive: hsl(355 80% 42%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(0 3% 88%);
+  --color-input: hsl(0 3% 88%);
+  --color-ring: hsl(355 80% 42%);
+  --color-chart-1: hsl(355 80% 42%);
+  --color-chart-2: hsl(0 0% 46%);
+  --color-chart-3: hsl(0 2% 13.3%);
+  --color-chart-4: hsl(330 5% 96%);
+  --color-chart-5: hsl(355 60% 55%);
+  --radius: 0.5rem;
+  --color-sidebar-background: hsl(0 0% 98%);
+  --color-sidebar-foreground: hsl(0 2% 13.3%);
+  --color-sidebar-primary: hsl(355 80% 42%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(330 5% 96%);
+  --color-sidebar-accent-foreground: hsl(0 2% 13.3%);
+  --color-sidebar-border: hsl(0 3% 88%);
+  --color-sidebar-ring: hsl(355 80% 42%);
+}
+
+body {
+  font-family: 'Noto Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'SimHei', Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 确保所有文本都使用正确的中文字体 */
+p, span, div, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'SimHei', Arial, Helvetica, sans-serif;
+}
+
+* {
+  border-color: var(--color-border);
 }
 
 /* Alibaba PuHuiTi font classes - using separate font family names to ensure correct weight */
@@ -20,91 +68,39 @@ body {
   font-family: 'Alibaba PuHuiTi Bold', 'Noto Sans SC', sans-serif !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 2% 13.3%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 2% 13.3%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 2% 13.3%;
-    --primary: 355 80% 42%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 330 5% 96%;
-    --secondary-foreground: 0 2% 13.3%;
-    --muted: 240 5% 96.5%;
-    --muted-foreground: 0 0% 46%;
-    --accent: 330 5% 96%;
-    --accent-foreground: 0 2% 13.3%;
-    --destructive: 355 80% 42%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 3% 88%;
-    --input: 0 3% 88%;
-    --ring: 355 80% 42%;
-    --chart-1: 355 80% 42%;
-    --chart-2: 0 0% 46%;
-    --chart-3: 0 2% 13.3%;
-    --chart-4: 330 5% 96%;
-    --chart-5: 355 60% 55%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 2% 13.3%;
-    --sidebar-primary: 355 80% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 330 5% 96%;
-    --sidebar-accent-foreground: 0 2% 13.3%;
-    --sidebar-border: 0 3% 88%;
-    --sidebar-ring: 355 80% 42%;
-  }
-  .dark {
-    --background: 0 3% 7%;
-    --foreground: 0 0% 96%;
-    --card: 0 3% 10%;
-    --card-foreground: 0 0% 96%;
-    --popover: 0 3% 10%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 355 80% 48%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 3% 15%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 0 3% 15%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 0 3% 15%;
-    --accent-foreground: 0 0% 96%;
-    --destructive: 355 70% 35%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 3% 18%;
-    --input: 0 3% 18%;
-    --ring: 355 80% 48%;
-    --chart-1: 355 80% 48%;
-    --chart-2: 0 0% 55%;
-    --chart-3: 0 0% 80%;
-    --chart-4: 0 3% 25%;
-    --chart-5: 355 60% 60%;
-    --sidebar-background: 0 3% 8%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 355 80% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 3% 15%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 0 3% 18%;
-    --sidebar-ring: 355 80% 48%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.dark {
+  --color-background: hsl(0 3% 7%);
+  --color-foreground: hsl(0 0% 96%);
+  --color-card: hsl(0 3% 10%);
+  --color-card-foreground: hsl(0 0% 96%);
+  --color-popover: hsl(0 3% 10%);
+  --color-popover-foreground: hsl(0 0% 96%);
+  --color-primary: hsl(355 80% 48%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(0 3% 15%);
+  --color-secondary-foreground: hsl(0 0% 96%);
+  --color-muted: hsl(0 3% 15%);
+  --color-muted-foreground: hsl(0 0% 64%);
+  --color-accent: hsl(0 3% 15%);
+  --color-accent-foreground: hsl(0 0% 96%);
+  --color-destructive: hsl(355 70% 35%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-border: hsl(0 3% 18%);
+  --color-input: hsl(0 3% 18%);
+  --color-ring: hsl(355 80% 48%);
+  --color-chart-1: hsl(355 80% 48%);
+  --color-chart-2: hsl(0 0% 55%);
+  --color-chart-3: hsl(0 0% 80%);
+  --color-chart-4: hsl(0 3% 25%);
+  --color-chart-5: hsl(355 60% 60%);
+  --color-sidebar-background: hsl(0 3% 8%);
+  --color-sidebar-foreground: hsl(0 0% 96%);
+  --color-sidebar-primary: hsl(355 80% 48%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(0 3% 15%);
+  --color-sidebar-accent-foreground: hsl(0 0% 96%);
+  --color-sidebar-border: hsl(0 3% 18%);
+  --color-sidebar-ring: hsl(355 80% 48%);
 }
 
 /* Value text slide-in animation */
@@ -564,6 +560,15 @@ body {
 
 .customer-marquee-track-reverse:hover {
   animation-play-state: paused;
+}
+
+/* Hide scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
 

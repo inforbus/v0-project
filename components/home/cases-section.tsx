@@ -53,6 +53,7 @@ function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: num
             src={caseItem.photo}
             alt={caseItem.title}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           />
           {/* Default gradient */}
@@ -131,7 +132,7 @@ export function CasesSection() {
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 3xl:gap-6">
-          {cases.map((caseItem, index) => (
+          {cases.slice(0, 6).map((caseItem, index) => (
             <CaseCard key={caseItem.title} caseItem={caseItem} index={index} />
           ))}
         </div>
@@ -140,7 +141,7 @@ export function CasesSection() {
         <ScrollReveal delay={500}>
           <div className="mt-10 flex justify-center lg:mt-14 3xl:mt-16">
             <RippleButton
-              href="#"
+              href="/cases"
               className="group inline-flex items-center justify-center rounded-full bg-[#BF1920] px-8 py-3 text-base font-medium text-white shadow-[0_4px_16px_rgba(191,25,32,0.25)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(191,25,32,0.35)] hover:scale-105 active:scale-95 3xl:px-10 3xl:py-3.5 3xl:text-lg"
             >
               <span className="relative z-10 flex items-center gap-2">

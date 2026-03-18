@@ -54,15 +54,13 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         <div className="absolute inset-x-0 top-0 z-30">
           <Header navItems={navItems} variant="overlay" />
         </div>
-        <Image src={solution.heroImage} alt={solution.title} fill className="object-cover" priority />
-        <div className="absolute inset-x-0 top-0 z-20 h-[120px] bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <Image src={solution.heroImage} alt={solution.title} fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
-            <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
+            <h1 className="text-2xl font-bold text-black md:text-3xl lg:text-4xl 3xl:text-5xl">
               {solution.title}
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-white/70 md:text-base 3xl:mt-4 3xl:text-lg">
+            <p className="mt-3 max-w-2xl text-sm text-black/80 md:text-base 3xl:mt-4 3xl:text-lg">
               {solution.subtitle}
             </p>
           </div>
@@ -90,9 +88,14 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Overview */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>方案概述</SectionTitle>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
+          <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
             {solution.overview}
           </p>
+          {solution.overviewHighlight && (
+            <div className="mt-4 flex items-center gap-3 rounded-lg border-l-4 border-[#BF1920] bg-[#BF1920]/5 px-4 py-3 3xl:mt-6">
+              <span className="text-sm font-semibold text-[#BF1920] md:text-base 3xl:text-lg">{solution.overviewHighlight}</span>
+            </div>
+          )}
         </section>
 
         {/* Highlights */}
@@ -105,11 +108,13 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                 className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-6 transition-all duration-300 hover:border-[#BF1920]/20 hover:shadow-lg lg:p-7 3xl:p-8"
               >
                 <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#BF1920] transition-all duration-500 group-hover:w-full" />
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-14 3xl:w-14">
-                  {iconMap[h.icon] || iconMap.deploy}
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-14 3xl:w-14">
+                    {iconMap[h.icon] || iconMap.deploy}
+                  </div>
+                  <h4 className="text-base font-bold text-foreground 3xl:text-lg">{h.title}</h4>
                 </div>
-                <h4 className="text-base font-bold text-foreground 3xl:text-lg">{h.title}</h4>
-                <p className="mt-2 text-sm text-muted-foreground 3xl:text-base">{h.desc}</p>
+                <p className="text-sm text-muted-foreground 3xl:text-base">{h.desc}</p>
               </div>
             ))}
           </div>
@@ -118,15 +123,36 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Architecture */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>{solution.architecture.title}</SectionTitle>
-          <div className="relative mt-6 w-full overflow-hidden rounded-2xl 3xl:mt-8">
-            <Image
-              src={solution.architecture.image}
-              alt={solution.architecture.title}
-              width={1200}
-              height={600}
-              className="h-auto w-full object-contain"
-            />
-          </div>
+          {solution.architecture.images && solution.architecture.images.length > 0 ? (
+            <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2 3xl:mt-8 3xl:gap-8">
+              {solution.architecture.images.map((arch, idx) => (
+                <div key={idx} className="overflow-hidden rounded-2xl border border-border/40 bg-white">
+                  <div className="border-b border-border/40 bg-muted/30 px-4 py-3">
+                    <h4 className="text-sm font-semibold text-foreground md:text-base">{arch.title}</h4>
+                  </div>
+                  <div className="flex h-[280px] items-center justify-center p-4 md:h-[320px] lg:h-[300px] 3xl:h-[380px]">
+                    <Image
+                      src={arch.image}
+                      alt={arch.title}
+                      width={600}
+                      height={400}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="relative mt-6 w-full overflow-hidden rounded-2xl 3xl:mt-8">
+              <Image
+                src={solution.architecture.image}
+                alt={solution.architecture.title}
+                width={1200}
+                height={600}
+                className="h-auto w-full object-contain"
+              />
+            </div>
+          )}
         </section>
 
         {/* Features */}
@@ -142,22 +168,46 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                   <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#BF1920]" />
                   <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{f.title}</h4>
                 </div>
-                <p className="pl-5 text-sm text-muted-foreground 3xl:text-base">{f.desc}</p>
+                <p className="whitespace-pre-line pl-5 text-sm text-muted-foreground 3xl:text-base">{f.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* Use Cases */}
+        {solution.values && solution.values.length > 0 && (
+          <section className="mb-12 lg:mb-16 3xl:mb-20">
+            <SectionTitle>方案价值</SectionTitle>
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 3xl:mt-8 3xl:gap-5">
+              {solution.values.map((v, idx) => (
+                <div
+                  key={idx}
+                  className="group rounded-xl border border-border/60 bg-muted/20 p-5 transition-all duration-300 hover:border-[#BF1920]/15 hover:bg-muted/40 lg:p-6 3xl:p-7"
+                >
+                  <div className="mb-2 flex items-center gap-3">
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#BF1920]" />
+                    <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{v.title}</h4>
+                  </div>
+                  <p className="pl-5 text-sm text-muted-foreground 3xl:text-base">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Use Cases */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>应用场景</SectionTitle>
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 3xl:mt-8 3xl:gap-4">
             {solution.useCases.map((uc, idx) => (
-              <div key={idx} className="flex items-center gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
-                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
-                  {idx + 1}
-                </span>
-                <span className="text-sm text-foreground md:text-base 3xl:text-lg">{uc}</span>
+              <div key={idx} className="flex flex-col gap-3 rounded-xl border border-border/60 bg-muted/20 px-5 py-4 3xl:px-6 3xl:py-5">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#BF1920]/10 text-sm font-bold text-[#BF1920] 3xl:h-9 3xl:w-9 3xl:text-base">
+                    {idx + 1}
+                  </span>
+                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{uc.title}</h4>
+                </div>
+                <p className="whitespace-pre-wrap pl-11 text-sm text-muted-foreground 3xl:text-base">{uc.desc}</p>
               </div>
             ))}
           </div>
@@ -166,26 +216,44 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         {/* Related Products */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>相关产品</SectionTitle>
-          <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
-            {solution.relatedProducts.map((p, idx) => (
-              <Link
-                key={idx}
-                href={p.href}
-                className="inline-flex items-center gap-2 rounded-full border border-[#BF1920]/15 bg-[#BF1920]/5 px-5 py-2.5 text-sm font-medium text-[#BF1920] transition-all duration-300 hover:bg-[#BF1920]/10 hover:shadow-sm 3xl:px-6 3xl:py-3 3xl:text-base"
-              >
-                {p.name}
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-            ))}
-          </div>
+          {typeof solution.relatedProducts[0] === 'object' && 'desc' in solution.relatedProducts[0] ? (
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 3xl:mt-8 3xl:gap-5">
+              {solution.relatedProducts.map((p, idx) => (
+                <div key={idx} className="flex flex-col gap-2 rounded-xl border border-border/60 bg-muted/20 p-5 3xl:p-6">
+                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{p.name}</h4>
+                  {'desc' in p && <p className="text-sm text-muted-foreground 3xl:text-base">{p.desc}</p>}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
+              {solution.relatedProducts.map((p, idx) => (
+                <Link
+                  key={idx}
+                  href={p.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#BF1920]/15 bg-[#BF1920]/5 px-5 py-2.5 text-sm font-medium text-[#BF1920] transition-all duration-300 hover:bg-[#BF1920]/10 hover:shadow-sm 3xl:px-6 3xl:py-3 3xl:text-base"
+                >
+                  {p.name}
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
+
+        {/* Platform Note */}
+        {'platformNote' in solution && solution.platformNote && (
+          <section className="mb-12 rounded-2xl border border-border/40 bg-gradient-to-br from-[#BF1920]/5 to-transparent p-6 lg:mb-16 lg:p-8 3xl:mb-20 3xl:p-10">
+            <p className="text-base text-foreground leading-relaxed md:text-lg 3xl:text-xl">{solution.platformNote}</p>
+          </section>
+        )}
 
         {/* Other Solutions */}
         <section>
           <SectionTitle>其他解决方案</SectionTitle>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 3xl:mt-8 3xl:gap-5">
+          <div className="mt-6 grid gap-4 sm:grid-cols-3 3xl:mt-8 3xl:gap-5">
             {solutions
               .filter((s) => s.slug !== slug)
               .slice(0, 3)
@@ -196,7 +264,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                   className="group overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
-                    <Image src={s.heroImage} alt={s.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={s.heroImage} alt={s.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <h4 className="absolute bottom-3 left-4 right-4 text-sm font-bold text-white md:text-base 3xl:text-lg">
                       {s.title}
