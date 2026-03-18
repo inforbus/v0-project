@@ -1,13 +1,8 @@
-import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 export function CTASection() {
   return (
-    <section className="relative h-[220px] overflow-hidden md:h-[240px] 3xl:h-[280px]">
-      <div className="absolute inset-0">
-        <Image src="/images/cta-bg.png" alt="" fill sizes="100vw" className="object-cover" />
-      </div>
-
+    <section className="relative h-[220px] overflow-hidden md:h-[240px] 3xl:h-[280px]" style={{ backgroundImage: 'url(/images/cta-bg.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
         <ScrollReveal>
           <h2 className="text-xl font-bold text-foreground md:text-[28px] 3xl:text-[36px]">立即免费体验，解锁企业级中间件核心能力</h2>
