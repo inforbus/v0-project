@@ -44,7 +44,7 @@ export const solutions: SolutionDetail[] = [
       { title: "多端响应式交互", desc: "AgentWebSite 支持跨设备访问，提供流畅的对话式交互体验。" },
       { title: "RAG 检索增强", desc: "支持多种格式文档上传与自动向量化，使 Agent 能够基于企业最新文档进行精准答复。" },
       { title: "可视化任务编排", desc: "支持对 Task 进行流转设计，定义 Agent 在遇到特定条件时的决策分支。" },
-      { title: "异构系统桥接", desc: "1.WebSSH：允许 IT Support Agent 直接对服务器进行远程诊断。2.RDB Connection：实现 Agent 对数据库的自然语言查询 (Text-to-SQL)。" },
+      { title: "异构系统桥接", desc: "WebSSH：允许 IT Support Agent 直接对服务器进行远程诊断。\nRDB Connection：实现 Agent 对数据库的自然语言查询 (Text-to-SQL)。" },
       { title: "安全防御体系", desc: "AI Security 模块对敏感词、隐私字段（如身份证、工资条）进行自动过滤。" },
       { title: "企业级权限管理", desc: "支持用户、角色、资源的细粒度权限控制，满足企业信息安全需求。" },
     ],
@@ -56,6 +56,7 @@ export const solutions: SolutionDetail[] = [
     ],
     values: [
       { title: "降低开发门槛", desc: "业务人员可通过配置 AgentMgt 和 Task 模块快速上线智能体，无需深度编写 LLM 调用代码。" },
+      { title: "提升响应效率", desc: "通过 ASKHR 和 IT Support Agent，实现 7x24 小时自动响应，显著降低人力资源与运维成本。" },
       { title: "决策数据化", desc: "通过连接 ERP 和 RDB，Agent 能够实时调取最新数据生成分析报告，辅助管理层决策。" },
       { title: "架构可扩展性", desc: "支持 Domain 的横向扩展。当企业业务增加时，只需新增 Domain 模块和对应的 Connection 即可快速集成。" },
     ],
@@ -179,7 +180,7 @@ export const solutions: SolutionDetail[] = [
   {
     slug: "intelligent-ops",
     title: "智能运维解决方案",
-    subtitle: "保障业务永续，让运维驱动增长",
+    subtitle: "保障业务永续，让运维驱���增长",
     heroImage: "/images/solutions/solutions-banner.png",
     overview: "在数字化转型与信创改造的关键期，企业IT系统日益复杂，传统的救火式运维不仅成本高昂，更时刻威胁着业务的稳定与收入。我们的智能运维解决方案，致力于彻底改变这一现状。通过构建全景感知、数据驱动、主动智能的新一代运维体系，为您提供从底层基础设施、云平台到上层核心业务应用的一体化监控、智能分析与自动化处置能力。它能提前预警故障、分钟级定位根因，将计划外业务中断降低80%以上，直接守护您的收入生命线。同时，方案深度兼容信创生态，帮助团队从重复性劳动中解放，聚焦于高价值创新，推动运维从成本中心真正转变为业务增长的驱动引擎。",
     highlights: [

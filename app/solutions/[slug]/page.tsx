@@ -215,21 +215,6 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
           </div>
         </section>
 
-        {/* Solution Values */}
-        {solution.values && solution.values.length > 0 && (
-          <section className="mb-12 lg:mb-16 3xl:mb-20">
-            <SectionTitle>方案价值</SectionTitle>
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 3xl:mt-8 3xl:gap-5">
-              {solution.values.map((v, idx) => (
-                <div key={idx} className="flex flex-col gap-2 rounded-xl border border-border/60 bg-muted/20 p-5 3xl:p-6">
-                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{v.title}</h4>
-                  <p className="text-sm text-muted-foreground 3xl:text-base">{v.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
         {/* Related Products */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
           <SectionTitle>相关产品</SectionTitle>
