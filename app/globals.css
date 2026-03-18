@@ -428,24 +428,53 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
   animation: news-progress-fill 5s linear forwards;
 }
 
-/* Honor marquee scroll */
-@keyframes honor-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* Honor marquee scroll - 性能优化版本 */
+@keyframes honor-scroll-optimized {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
-@keyframes honor-scroll-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+@keyframes honor-scroll-reverse-optimized {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 .honor-marquee-wrapper {
   overflow: hidden;
+  contain: content;
 }
 
-.honor-marquee-track {
-  animation: honor-scroll 45s linear infinite;
+/* 优化后的滚动轨道 - 使用 GPU 加速 */
+.honor-marquee-track-optimized {
+  animation: honor-scroll-optimized 35s linear infinite;
   width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.honor-marquee-track-optimized:hover {
+  animation-play-state: paused;
+}
+
+.honor-marquee-track-reverse-optimized {
+  animation: honor-scroll-reverse-optimized 30s linear infinite;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.honor-marquee-track-reverse-optimized:hover {
+  animation-play-state: paused;
+}
+
+/* 保留旧类名以兼容其他地方使用 */
+.honor-marquee-track {
+  animation: honor-scroll-optimized 35s linear infinite;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .honor-marquee-track:hover {
@@ -453,12 +482,20 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .honor-marquee-track-reverse {
-  animation: honor-scroll-reverse 40s linear infinite;
+  animation: honor-scroll-reverse-optimized 30s linear infinite;
   width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .honor-marquee-track-reverse:hover {
   animation-play-state: paused;
+}
+
+/* 荣誉卡片优化 - 减少 hover 时的重绘 */
+.honor-card {
+  contain: layout style paint;
+  will-change: auto;
 }
 
 /* Solution subtle flowing lines */

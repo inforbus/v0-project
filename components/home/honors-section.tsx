@@ -1,4 +1,6 @@
-import React from "react"
+"use client"
+
+import React, { memo } from "react"
 import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
@@ -27,25 +29,33 @@ const row2 = [
   { img: "/images/honors/honor-23.jpg", title: "中创智能体中间件", num: "23" },
 ]
 
-function HonorCard({ honor, prefix, hideNum = false }: { honor: (typeof row1)[0]; prefix: string; hideNum?: boolean }) {
+// 使用 memo 优化卡片组件，避免不必要的重渲染
+const HonorCard = memo(function HonorCard({ honor }: { honor: (typeof row1)[0] }) {
   return (
-    <div className="group/honor relative flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-border/80 bg-background shadow-sm transition-all duration-500 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.06] md:w-[320px] 3xl:w-[380px]">
-      {!hideNum && <div className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-primary/15 bg-background/90 text-[10px] font-bold text-primary/60 shadow-sm backdrop-blur-sm transition-all duration-300 group-hover/honor:border-primary/40 group-hover/honor:bg-primary group-hover/honor:text-primary-foreground group-hover/honor:shadow-md 3xl:h-9 3xl:w-9 3xl:text-xs">{honor.num}</div>}
+    <div className="honor-card group/honor relative flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-border/80 bg-background shadow-sm md:w-[320px] 3xl:w-[380px]">
       <div className="relative h-[160px] w-full overflow-hidden md:h-[175px] 3xl:h-[210px]">
-        <Image src={honor.img || "/placeholder.svg"} alt={honor.title} fill sizes="(max-width: 768px) 280px, (max-width: 1200px) 320px, 380px" className="object-cover transition-transform duration-700 group-hover/honor:scale-110" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
+        <Image 
+          src={honor.img || "/placeholder.svg"} 
+          alt={honor.title} 
+          fill 
+          sizes="(max-width: 768px) 280px, (max-width: 1200px) 320px, 380px" 
+          className="object-cover"
+          loading="lazy"
+          quality={75}
+        />
       </div>
       <div className="flex items-center gap-3 px-4 py-3.5 3xl:px-5 3xl:py-4">
-        <div className="h-4 w-[3px] flex-shrink-0 rounded-full bg-primary transition-all duration-300 group-hover/honor:h-5 group-hover/honor:shadow-[0_0_8px_rgba(191,25,32,0.4)]" />
-        <h4 className="text-sm font-medium text-foreground/80 transition-colors duration-300 group-hover/honor:text-foreground 3xl:text-base">{honor.title}</h4>
+        <div className="h-4 w-[3px] flex-shrink-0 rounded-full bg-primary" />
+        <h4 className="text-sm font-medium text-foreground/80 3xl:text-base">{honor.title}</h4>
       </div>
     </div>
   )
-}
+})
 
 export function HonorsSection() {
   return (
     <section className="relative overflow-hidden bg-[#F7F8FA] py-16 md:py-20 lg:py-[90px] 3xl:py-[110px]">
+      {/* 简化背景装饰 - 移除多余的粒子动画 */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#BF1920]/[0.03] blur-[120px]" />
         <div className="absolute inset-0 opacity-[0.4]">
@@ -54,10 +64,6 @@ export function HonorsSection() {
             <rect width="100%" height="100%" fill="url(#honor-dots)" />
           </svg>
         </div>
-        <div className="absolute left-[8%] top-[20%] h-2 w-2 rounded-full bg-[#BF1920]/15" style={{ animation: "particle-float 6s ease-in-out infinite" }} />
-        <div className="absolute right-[12%] top-[30%] h-1.5 w-1.5 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 8s ease-in-out 1s infinite" }} />
-        <div className="absolute left-[15%] bottom-[25%] h-1 w-1 rounded-full bg-[#242222]/10" style={{ animation: "particle-float 7s ease-in-out 2s infinite" }} />
-        <div className="absolute right-[20%] bottom-[15%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 9s ease-in-out 0.5s infinite" }} />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
@@ -76,16 +82,16 @@ export function HonorsSection() {
 
         <ScrollReveal delay={100}>
           <div className="honor-marquee-wrapper relative overflow-x-hidden">
-            <div className="honor-marquee-track flex gap-5 3xl:gap-6">
-              {[...Array(2)].map((_, setIdx) => row1.map((honor, i) => <HonorCard key={`r1-${setIdx}-${i}`} honor={honor} prefix="row1" hideNum={true} />))}
+            <div className="honor-marquee-track-optimized flex gap-5 3xl:gap-6">
+              {[...Array(2)].map((_, setIdx) => row1.map((honor, i) => <HonorCard key={`r1-${setIdx}-${i}`} honor={honor} />))}
             </div>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={250}>
           <div className="honor-marquee-wrapper relative overflow-x-hidden">
-            <div className="honor-marquee-track-reverse flex gap-5 3xl:gap-6">
-              {[...Array(2)].map((_, setIdx) => row2.map((honor, i) => <HonorCard key={`r2-${setIdx}-${i}`} honor={honor} prefix="row2" hideNum={true} />))}
+            <div className="honor-marquee-track-reverse-optimized flex gap-5 3xl:gap-6">
+              {[...Array(2)].map((_, setIdx) => row2.map((honor, i) => <HonorCard key={`r2-${setIdx}-${i}`} honor={honor} />))}
             </div>
           </div>
         </ScrollReveal>
