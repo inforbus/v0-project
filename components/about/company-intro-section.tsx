@@ -1,7 +1,7 @@
 export function CompanyIntroSection() {
   return (
     <section className="py-12 lg:py-20">
-      <div className="mx-auto max-w-6xl px-4 lg:px-8">
+      <div className="mx-auto max-w-full px-4 lg:px-8" style={{ maxWidth: "1300px" }}>
         {/* Main Introduction */}
         <div className="mb-12 lg:mb-16">
           <h2 className="mb-6 text-3xl font-bold text-foreground lg:text-4xl">公司介绍</h2>

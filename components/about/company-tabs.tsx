@@ -80,6 +80,7 @@ export function CompanyTabs() {
                       src="/images/company-building.jpg"
                       alt="中创软件总部"
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                       className="object-cover rounded-lg shadow-lg"
                       priority
                     />
