@@ -7,8 +7,12 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   experimental: {
     optimizePackageImports: ["@radix-ui/react-icons"],
+    turbo: {
+      resolveAlias: {},
+    },
   },
 };
 
 export default nextConfig;
+
 
