@@ -53,9 +53,9 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "/images/banner/banner-1.png",
+    src: "/images/banner/banner-3.png",
     fallback: "",
-    alt: "中创API网关软件",
+    alt: "全球AI布局",
   },
   {
     type: "image" as const,
@@ -65,9 +65,9 @@ const bannerSlides = [
   },
   {
     type: "image" as const,
-    src: "/images/banner/banner-3.png",
+    src: "/images/banner/banner-1.png",
     fallback: "",
-    alt: "全球AI布局",
+    alt: "中创API网关软件",
   },
   {
     type: "image" as const,
