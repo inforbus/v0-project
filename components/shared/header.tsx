@@ -227,12 +227,12 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                   <Link
                     href={item.href}
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
-                      item.active
-                        ? isOverlay
-                          ? isDarkBg ? "text-white" : "text-primary"
-                          : "text-primary"
-                        : isOverlay
-                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
+                      isOverlay && isDarkBg
+                        ? item.active
+                          ? "text-white"
+                          : "text-white/70 hover:text-white"
+                        : item.active
+                          ? "text-primary"
                           : "text-foreground/70 hover:text-primary"
                     }`}
                   >
@@ -242,12 +242,12 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                   <button
                     type="button"
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
-                      item.active
-                        ? isOverlay
-                          ? isDarkBg ? "text-white" : "text-primary"
-                          : "text-primary"
-                        : isOverlay
-                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
+                      isOverlay && isDarkBg
+                        ? item.active
+                          ? "text-white"
+                          : "text-white/70 hover:text-white"
+                        : item.active
+                          ? "text-primary"
                           : "text-foreground/70 hover:text-primary"
                     }`}
                   >
