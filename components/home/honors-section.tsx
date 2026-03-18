@@ -57,9 +57,9 @@ const HonorMarqueeRow = memo(function HonorMarqueeRow({ honors, rowIdx }: { hono
         className={`flex gap-5 3xl:gap-6 ${isReverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
         style={{ width: 'max-content' }}
       >
-        {[...Array(2)].map((_, setIdx) => honors.map((honor, i) => (
-          <HonorCard key={`r${rowIdx}-${setIdx}-${i}`} honor={honor} />
-        )))}
+        {honors.map((honor, i) => (
+          <HonorCard key={`${i}`} honor={honor} />
+        ))}
       </div>
     </div>
   )

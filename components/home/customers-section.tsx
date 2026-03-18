@@ -76,11 +76,9 @@ const MarqueeRow = memo(function MarqueeRow({ row, rowIdx }: { row: typeof custo
         className={`flex gap-5 md:gap-6 3xl:gap-8 ${isReverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
         style={{ width: 'max-content' }}
       >
-        {[...Array(2)].map((_, setIdx) =>
-          row.map((customer, i) => (
-            <LogoCard key={`r${rowIdx}-s${setIdx}-${i}`} customer={customer} />
-          ))
-        )}
+        {row.map((customer, i) => (
+          <LogoCard key={`${i}`} customer={customer} />
+        ))}
       </div>
     </div>
   )
