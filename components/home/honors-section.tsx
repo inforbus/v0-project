@@ -1,6 +1,6 @@
 "use client"
 
-import React, { memo } from "react"
+import React, { memo, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
@@ -52,6 +52,65 @@ const HonorCard = memo(function HonorCard({ honor }: { honor: (typeof row1)[0] }
   )
 })
 
+// 使用 JS 动画替代 CSS 动画，支持页面不可见时暂停
+function HonorMarqueeRow({ honors, rowIdx }: { honors: typeof row1, rowIdx: number }) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const positionRef = useRef(rowIdx === 0 ? 0 : -50)
+  const direction = rowIdx === 0 ? -1 : 1
+  const speed = 0.015
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    )
+    observer.observe(track)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    let animationId: number
+    const animate = () => {
+      positionRef.current += speed * direction
+      
+      if (direction === -1 && positionRef.current <= -50) {
+        positionRef.current = 0
+      } else if (direction === 1 && positionRef.current >= 0) {
+        positionRef.current = -50
+      }
+
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translate3d(${positionRef.current}%, 0, 0)`
+      }
+      animationId = requestAnimationFrame(animate)
+    }
+
+    animationId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationId)
+  }, [isVisible, direction])
+
+  return (
+    <div className="honor-marquee-wrapper relative overflow-x-hidden">
+      <div 
+        ref={trackRef}
+        className="flex gap-5 3xl:gap-6"
+        style={{ width: 'max-content' }}
+      >
+        {[...Array(2)].map((_, setIdx) => honors.map((honor, i) => (
+          <HonorCard key={`r${rowIdx}-${setIdx}-${i}`} honor={honor} />
+        )))}
+      </div>
+    </div>
+  )
+}
+
 export function HonorsSection() {
   return (
     <section className="relative overflow-hidden bg-[#F7F8FA] py-16 md:py-20 lg:py-[90px] 3xl:py-[110px]">
@@ -81,19 +140,11 @@ export function HonorsSection() {
         <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-20 bg-gradient-to-l from-[#F7F8FA] to-transparent md:w-32 lg:w-44" />
 
         <ScrollReveal delay={100}>
-          <div className="honor-marquee-wrapper relative overflow-x-hidden">
-            <div className="honor-marquee-track-optimized flex gap-5 3xl:gap-6">
-              {[...Array(2)].map((_, setIdx) => row1.map((honor, i) => <HonorCard key={`r1-${setIdx}-${i}`} honor={honor} />))}
-            </div>
-          </div>
+          <HonorMarqueeRow honors={row1} rowIdx={0} />
         </ScrollReveal>
 
         <ScrollReveal delay={250}>
-          <div className="honor-marquee-wrapper relative overflow-x-hidden">
-            <div className="honor-marquee-track-reverse-optimized flex gap-5 3xl:gap-6">
-              {[...Array(2)].map((_, setIdx) => row2.map((honor, i) => <HonorCard key={`r2-${setIdx}-${i}`} honor={honor} />))}
-            </div>
-          </div>
+          <HonorMarqueeRow honors={row2} rowIdx={1} />
         </ScrollReveal>
       </div>
     </section>

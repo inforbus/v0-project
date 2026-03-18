@@ -1,10 +1,10 @@
 "use client"
 
-import { memo } from "react"
+import { memo, useEffect, useRef, useState } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Image from "next/image"
 
-// 减少客户数量，优化性能
+// 恢复完整客户数据
 const customerRows = [
   [
     { name: "国家开发银行", logo: "/images/customers/guojia-kaifa-bank.png" },
@@ -15,6 +15,8 @@ const customerRows = [
     { name: "山东能源集团", logo: "/images/customers/shandong-energy.png" },
     { name: "山东黄金集团", logo: "/images/customers/shandong-gold.jpg" },
     { name: "工商银行", logo: "/images/customers/icbc.png" },
+    { name: "招商银行", logo: "/images/customers/merchants-group.png" },
+    { name: "招商局集团有限公司", logo: "/images/customers/merchants-group.png" },
   ],
   [
     { name: "浪潮", logo: "/images/customers/langchao.png" },
@@ -23,8 +25,23 @@ const customerRows = [
     { name: "广州农商行", logo: "/images/customers/guangzhou-rural-bank.png" },
     { name: "广发银行", logo: "/images/customers/guangfa-bank.png" },
     { name: "兴业银行", logo: "/images/customers/xingye-bank.png" },
+    { name: "中国兵器工业集团有限公司", logo: "/images/customers/china-ordnance.jpg" },
     { name: "齐鲁银行", logo: "/images/customers/qilu-bank.png" },
     { name: "国家电投", logo: "/images/customers/spic.png" },
+    { name: "中国信息通信科技集团有限公司", logo: "/images/customers/china-ict.png" },
+    { name: "中国电气装备集团有限公司", logo: "/images/customers/china-electric-equip.png" },
+    { name: "中国铝业集团有限公司", logo: "/images/customers/chinalco.png" },
+    { name: "中国葛洲坝集团有限公司", logo: "/images/customers/gezhouba.png" },
+    { name: "中国航空油料集团有限公司", logo: "/images/customers/cnaf.png" },
+    { name: "中泰证券", logo: "/images/customers/zhongtai-securities.png" },
+    { name: "中国人民银行", logo: "/images/customers/pboc.webp" },
+    { name: "中国农业银行", logo: "/images/customers/abc.png" },
+    { name: "中国民生银行", logo: "/images/customers/minsheng-bank.png" },
+    { name: "中国银行", logo: "/images/customers/boc.png" },
+    { name: "中国中车集团有限公司", logo: "/images/customers/crrc.png" },
+    { name: "中国电建", logo: "/images/customers/powercn.jpg" },
+    { name: "中国太平保险", logo: "/images/customers/china-taiping.png" },
+    { name: "中国五矿集团有限公司", logo: "/images/customers/minmetals.png" },
   ],
 ]
 
@@ -42,7 +59,6 @@ const LogoCard = memo(function LogoCard({ customer }: { customer: { name: string
           width={200}
           height={80}
           loading="lazy"
-          quality={60}
           className="h-auto max-h-full w-auto max-w-full object-contain"
         />
       ) : (
@@ -53,6 +69,69 @@ const LogoCard = memo(function LogoCard({ customer }: { customer: { name: string
     </div>
   )
 })
+
+// 使用 JS 动画替代 CSS 动画，支持页面不可见时暂停
+function MarqueeRow({ row, rowIdx }: { row: typeof customerRows[0], rowIdx: number }) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const positionRef = useRef(rowIdx === 0 ? 0 : -50) // 反向从-50%开始
+  const direction = rowIdx === 0 ? -1 : 1 // 第一行向左，第二行向右
+  const speed = 0.02 // 每帧移动的百分比
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+
+    // 使用 IntersectionObserver 检测可见性
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    )
+    observer.observe(track)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    let animationId: number
+    const animate = () => {
+      positionRef.current += speed * direction
+      
+      // 循环重置
+      if (direction === -1 && positionRef.current <= -50) {
+        positionRef.current = 0
+      } else if (direction === 1 && positionRef.current >= 0) {
+        positionRef.current = -50
+      }
+
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translate3d(${positionRef.current}%, 0, 0)`
+      }
+      animationId = requestAnimationFrame(animate)
+    }
+
+    animationId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationId)
+  }, [isVisible, direction])
+
+  return (
+    <div className="customer-marquee-wrapper relative overflow-hidden">
+      <div 
+        ref={trackRef}
+        className="flex gap-5 md:gap-6 3xl:gap-8"
+        style={{ width: 'max-content' }}
+      >
+        {[...Array(2)].map((_, setIdx) =>
+          row.map((customer, i) => (
+            <LogoCard key={`r${rowIdx}-s${setIdx}-${i}`} customer={customer} />
+          ))
+        )}
+      </div>
+    </div>
+  )
+}
 
 export function CustomersSection() {
   return (
@@ -82,15 +161,7 @@ export function CustomersSection() {
 
         {customerRows.map((row, rowIdx) => (
           <ScrollReveal key={rowIdx} delay={100 + rowIdx * 80}>
-            <div className="customer-marquee-wrapper relative overflow-hidden">
-              <div className={`flex gap-5 md:gap-6 3xl:gap-8 ${rowIdx === 0 ? 'customer-marquee-track-optimized' : 'customer-marquee-track-reverse-optimized'}`}>
-                {[...Array(2)].map((_, setIdx) =>
-                  row.map((customer, i) => (
-                    <LogoCard key={`r${rowIdx}-s${setIdx}-${i}`} customer={customer} />
-                  ))
-                )}
-              </div>
-            </div>
+            <MarqueeRow row={row} rowIdx={rowIdx} />
           </ScrollReveal>
         ))}
       </div>
