@@ -1,6 +1,6 @@
 "use client"
 
-import { memo, useEffect, useRef, useState } from "react"
+import { memo } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Image from "next/image"
 
@@ -70,57 +70,14 @@ const LogoCard = memo(function LogoCard({ customer }: { customer: { name: string
   )
 })
 
-// 使用 JS 动画替代 CSS 动画，支持页面不可见时暂停
+// 使用纯 CSS 动画，更稳定且不会内存泄漏
 function MarqueeRow({ row, rowIdx }: { row: typeof customerRows[0], rowIdx: number }) {
-  const trackRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-  const positionRef = useRef(rowIdx === 0 ? 0 : -50) // 反向从-50%开始
-  const direction = rowIdx === 0 ? -1 : 1 // 第一行向左，第二行向右
-  const speed = 0.02 // 每帧移动的百分比
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    // 使用 IntersectionObserver 检测可见性
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.1 }
-    )
-    observer.observe(track)
-
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    if (!isVisible) return
-
-    let animationId: number
-    const animate = () => {
-      positionRef.current += speed * direction
-      
-      // 循环重置
-      if (direction === -1 && positionRef.current <= -50) {
-        positionRef.current = 0
-      } else if (direction === 1 && positionRef.current >= 0) {
-        positionRef.current = -50
-      }
-
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translate3d(${positionRef.current}%, 0, 0)`
-      }
-      animationId = requestAnimationFrame(animate)
-    }
-
-    animationId = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(animationId)
-  }, [isVisible, direction])
-
+  const isReverse = rowIdx === 1
+  
   return (
     <div className="customer-marquee-wrapper relative overflow-hidden">
       <div 
-        ref={trackRef}
-        className="flex gap-5 md:gap-6 3xl:gap-8"
+        className={`flex gap-5 md:gap-6 3xl:gap-8 ${isReverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
         style={{ width: 'max-content' }}
       >
         {[...Array(2)].map((_, setIdx) =>

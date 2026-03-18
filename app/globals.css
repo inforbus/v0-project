@@ -625,6 +625,35 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
   contain: layout style paint;
 }
 
+/* 统一的跑马灯动画类 - 使用 GPU 加速 */
+@keyframes marquee-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 35s linear infinite;
+  backface-visibility: hidden;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-scroll-reverse 30s linear infinite;
+  backface-visibility: hidden;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
 /* Hide scrollbar */
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
