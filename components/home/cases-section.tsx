@@ -1,46 +1,9 @@
 "use client"
 
-import { type ReactNode, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import { cases } from "@/lib/cases-data"
-
-function RippleButton({
-  children,
-  className = "",
-  href = "#",
-}: {
-  children: ReactNode
-  className?: string
-  href?: string
-}) {
-  const [ripples, setRipples] = useState<{ x: number; y: number; id: number }[]>([])
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const id = Date.now()
-    setRipples((prev) => [...prev, { x: e.clientX - rect.left, y: e.clientY - rect.top, id }])
-    setTimeout(() => setRipples((prev) => prev.filter((r) => r.id !== id)), 600)
-  }
-  return (
-    <a href={href} className={`relative overflow-hidden ${className}`} onClick={handleClick}>
-      {ripples.map((r) => (
-        <span
-          key={r.id}
-          className="absolute rounded-full bg-[#BF1920]/20"
-          style={{
-            left: r.x - 5,
-            top: r.y - 5,
-            width: 10,
-            height: 10,
-            animation: "ripple 0.6s ease-out forwards",
-          }}
-        />
-      ))}
-      {children}
-    </a>
-  )
-}
 
 /* ── Case Card Component ─────────────────────────────────────── */
 function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: number }) {
@@ -140,7 +103,7 @@ export function CasesSection() {
         {/* Bottom CTA */}
         <ScrollReveal delay={500}>
           <div className="mt-10 flex justify-center lg:mt-14 3xl:mt-16">
-            <RippleButton
+            <Link
               href="/cases"
               className="group inline-flex items-center justify-center rounded-full bg-[#BF1920] px-8 py-3 text-base font-medium text-white shadow-[0_4px_16px_rgba(191,25,32,0.25)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(191,25,32,0.35)] hover:scale-105 active:scale-95 3xl:px-10 3xl:py-3.5 3xl:text-lg"
             >
@@ -156,7 +119,7 @@ export function CasesSection() {
                   <path d="M0 3H17M17 3L14 0.5M17 3L14 5.5" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
               </span>
-            </RippleButton>
+            </Link>
           </div>
         </ScrollReveal>
       </div>
