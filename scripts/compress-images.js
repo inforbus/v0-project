@@ -1,88 +1,107 @@
+#!/usr/bin/env node
+
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const projectRoot = path.resolve(__dirname, '..');
-const customersDir = path.resolve(projectRoot, 'public/images/customers');
-const honorsDir = path.resolve(projectRoot, 'public/images/honors');
-
-async function compressImages(dirPath, dirName) {
-  console.log(`\n[v0] 开始压缩 ${dirName} 目录的图片...`);
-  console.log(`[v0] 目录路径: ${dirPath}`);
+async function compressImages() {
+  console.log('[v0] 开始压缩图片...');
   
-  if (!fs.existsSync(dirPath)) {
-    console.error(`[v0] ✗ 目录不存在: ${dirPath}`);
-    return;
-  }
+  // 使用 glob 来找文件 - 这更加可靠
+  const customerPatterns = [
+    'public/images/customers/*.png',
+    'public/images/customers/*.jpg',
+    'public/images/customers/*.jpeg',
+    'public/images/customers/*.webp',
+  ];
   
-  const files = fs.readdirSync(dirPath);
-  let totalOriginalSize = 0;
-  let totalCompressedSize = 0;
+  const honorPatterns = [
+    'public/images/honors/*.jpg',
+    'public/images/honors/*.jpeg',
+  ];
   
-  for (const file of files) {
-    const filePath = path.join(dirPath, file);
-    const stats = fs.statSync(filePath);
-    const originalSize = stats.size;
+  let totalStats = { original: 0, compressed: 0, files: 0 };
+  
+  async function processPattern(patterns, dirName) {
+    console.log(`\n[v0] 处理${dirName}...`);
     
-    try {
-      const ext = path.extname(file).toLowerCase();
-      
-      if (ext === '.png') {
-        // PNG 压缩
-        await sharp(filePath)
-          .png({ quality: 80, compressionLevel: 9 })
-          .toFile(`${filePath}.compressed`);
-      } else if (ext === '.jpg' || ext === '.jpeg') {
-        // JPG 压缩
-        await sharp(filePath)
-          .jpeg({ quality: 82, progressive: true })
-          .toFile(`${filePath}.compressed`);
-      } else if (ext === '.webp') {
-        // WEBP 保持高质量
-        await sharp(filePath)
-          .webp({ quality: 85 })
-          .toFile(`${filePath}.compressed`);
-      } else {
-        continue;
+    for (const pattern of patterns) {
+      try {
+        // 使用 find 命令来找文件
+        const cmd = `find . -path "${pattern.replace(/\*/g, '*')}" -type f 2>/dev/null || true`;
+        const result = execSync(`cd /vercel/share/v0-project && ${cmd}`, { encoding: 'utf-8' });
+        const files = result.trim().split('\n').filter(f => f);
+        
+        if (files.length === 0) continue;
+        
+        console.log(`[v0] 找到 ${files.length} 个文件 (${pattern})`);
+        
+        for (const file of files) {
+          const fullPath = `/vercel/share/v0-project/${file}`;
+          
+          if (!fs.existsSync(fullPath)) continue;
+          
+          try {
+            const ext = path.extname(file).toLowerCase();
+            const statsBefore = fs.statSync(fullPath);
+            const sizeBefore = statsBefore.size;
+            
+            const tempPath = fullPath + '.tmp';
+            
+            if (ext === '.png') {
+              await sharp(fullPath)
+                .png({ quality: 80, compressionLevel: 9 })
+                .toFile(tempPath);
+            } else if (['.jpg', '.jpeg'].includes(ext)) {
+              await sharp(fullPath)
+                .jpeg({ quality: 82, progressive: true })
+                .toFile(tempPath);
+            } else if (ext === '.webp') {
+              await sharp(fullPath)
+                .webp({ quality: 85 })
+                .toFile(tempPath);
+            } else {
+              continue;
+            }
+            
+            const statsAfter = fs.statSync(tempPath);
+            const sizeAfter = statsAfter.size;
+            const ratio = ((1 - sizeAfter / sizeBefore) * 100).toFixed(2);
+            
+            fs.renameSync(tempPath, fullPath);
+            
+            totalStats.original += sizeBefore;
+            totalStats.compressed += sizeAfter;
+            totalStats.files++;
+            
+            const fileName = path.basename(file);
+            console.log(`[v0] ✓ ${fileName}: ${(sizeBefore / 1024).toFixed(2)}KB → ${(sizeAfter / 1024).toFixed(2)}KB (节省 ${ratio}%)`);
+          } catch (error) {
+            console.error(`[v0] ✗ 压缩失败: ${file}`, error.message);
+          }
+        }
+      } catch (error) {
+        // ignore errors in find command
       }
-      
-      const compressedStats = fs.statSync(`${filePath}.compressed`);
-      const compressedSize = compressedStats.size;
-      const ratio = ((1 - compressedSize / originalSize) * 100).toFixed(2);
-      
-      // 替换原文件
-      fs.renameSync(`${filePath}.compressed`, filePath);
-      
-      totalOriginalSize += originalSize;
-      totalCompressedSize += compressedSize;
-      
-      console.log(`[v0] ✓ ${file}: ${(originalSize / 1024).toFixed(2)}KB → ${(compressedSize / 1024).toFixed(2)}KB (节省 ${ratio}%)`);
-    } catch (error) {
-      console.error(`[v0] ✗ 压缩 ${file} 失败:`, error.message);
     }
   }
   
-  const totalRatio = totalOriginalSize > 0 ? ((1 - totalCompressedSize / totalOriginalSize) * 100).toFixed(2) : 0;
-  console.log(`\n[v0] ${dirName} 目录压缩完成:`);
-  console.log(`[v0] 总大小: ${(totalOriginalSize / 1024).toFixed(2)}KB → ${(totalCompressedSize / 1024).toFixed(2)}KB (总节省 ${totalRatio}%)`);
-}
-
-async function main() {
-  console.log('[v0] 开始压缩图片...');
+  await processPattern(customerPatterns, '客户部分');
+  await processPattern(honorPatterns, '荣誉部分');
   
-  try {
-    await compressImages(customersDir, '客户部分');
-    await compressImages(honorsDir, '荣誉部分');
-    
-    console.log('\n[v0] ✓ 所有图片压缩完成！');
-  } catch (error) {
-    console.error('[v0] 图片压缩过程出错:', error);
-    process.exit(1);
+  if (totalStats.files > 0) {
+    const totalRatio = ((1 - totalStats.compressed / totalStats.original) * 100).toFixed(2);
+    console.log(`\n[v0] ✓ 压缩完成!`);
+    console.log(`[v0] 处理文件数: ${totalStats.files}`);
+    console.log(`[v0] 总大小: ${(totalStats.original / 1024 / 1024).toFixed(2)}MB → ${(totalStats.compressed / 1024 / 1024).toFixed(2)}MB`);
+    console.log(`[v0] 总节省: ${totalRatio}%`);
+  } else {
+    console.log('[v0] 没有找到任何图片');
   }
 }
 
-main();
+compressImages().catch(error => {
+  console.error('[v0] 出错:', error);
+  process.exit(1);
+});
