@@ -19,10 +19,11 @@ export function ScrollReveal({
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    let delayTimer: ReturnType<typeof setTimeout> | null = null
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay)
+          delayTimer = setTimeout(() => setIsVisible(true), delay)
           observer.unobserve(entry.target)
         }
       },
@@ -33,6 +34,7 @@ export function ScrollReveal({
     return () => {
       observer.disconnect()
       clearTimeout(fallbackTimer)
+      if (delayTimer) clearTimeout(delayTimer)
     }
   }, [delay])
 

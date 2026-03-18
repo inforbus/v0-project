@@ -4,46 +4,35 @@ import { useState, useEffect, useRef } from "react"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
-// 粒子数量从20减少到8，并简化动画
+// 完全移除 ParticleField 以排除它作为内存泄漏源
 function ParticleField() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-    const particles: HTMLDivElement[] = []
-    // 减少粒子数量以提升性能
-    for (let i = 0; i < 8; i++) {
-      const el = document.createElement("div")
-      el.className = "absolute rounded-full"
-      const w = 2 + ((i * 7 + 3) % 6) * 0.4
-      const h = 2 + ((i * 13 + 5) % 6) * 0.4
-      const l = (i * 37 + 11) % 100
-      const t = (i * 53 + 7) % 100
-      const dur = 5 + ((i * 17 + 3) % 8) * 0.5
-      const del = ((i * 23 + 1) % 5) * 0.4
-      const bg = i % 3 === 0 ? "rgba(191,25,32,0.25)" : "rgba(200,200,200,0.3)"
-      el.style.cssText = `width:${w}px;height:${h}px;left:${l}%;top:${t}%;background:${bg};animation:particle-float ${dur}s ease-in-out ${del}s infinite;`
-      container.appendChild(el)
-      particles.push(el)
-    }
-    return () => { for (const el of particles) el.remove() }
-  }, [])
-  return <div ref={containerRef} className="pointer-events-none absolute inset-0 z-[5] overflow-hidden" />
+  return null
 }
 
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
+    console.log("[v0] ScrollProgress mounted")
+    let frameId: number | null = null
     const handleScroll = () => {
-      try {
-        const total = document.documentElement.scrollHeight - window.innerHeight
-        if (total > 0) setProgress((window.scrollY / total) * 100)
-      } catch (error) {
-        // Silently ignore scroll calculation errors
-      }
+      // 使用 requestAnimationFrame 节流
+      if (frameId !== null) return
+      frameId = requestAnimationFrame(() => {
+        try {
+          const total = document.documentElement.scrollHeight - window.innerHeight
+          if (total > 0) setProgress((window.scrollY / total) * 100)
+        } catch (error) {
+          // Silently ignore scroll calculation errors
+        }
+        frameId = null
+      })
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      console.log("[v0] ScrollProgress unmounted")
+      window.removeEventListener("scroll", handleScroll)
+      if (frameId !== null) cancelAnimationFrame(frameId)
+    }
   }, [])
   return (
     <div className="fixed left-0 top-0 z-[100] h-[3px] w-full">
@@ -93,10 +82,14 @@ export function HeroSection() {
 
   useEffect(() => {
     if (!mounted || bannerSlides.length <= 1) return
+    console.log("[v0] HeroSection banner timer started")
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
     }, SLIDE_INTERVAL)
-    return () => clearInterval(timer)
+    return () => {
+      console.log("[v0] HeroSection banner timer cleared")
+      clearInterval(timer)
+    }
   }, [mounted])
 
   return (

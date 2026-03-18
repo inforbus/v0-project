@@ -23,10 +23,14 @@ export function NewsSection() {
   // 使用 setInterval 替代递归 setTimeout，更可控
   useEffect(() => {
     if (!newsAutoPlay) return
+    console.log("[v0] NewsSection timer started")
     const timer = setInterval(() => {
       setActiveNewsIndex((prev) => (prev + 1) % 3)
     }, 5000)
-    return () => clearInterval(timer)
+    return () => {
+      console.log("[v0] NewsSection timer cleared")
+      clearInterval(timer)
+    }
   }, [newsAutoPlay])
 
   return (
