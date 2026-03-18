@@ -53,15 +53,15 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "/images/banner/banner-2.png",
-    fallback: "",
-    alt: "中创智能体中间件",
-  },
-  {
-    type: "image" as const,
     src: "/images/banner/banner-3.png",
     fallback: "",
     alt: "全球AI布局",
+  },
+  {
+    type: "image" as const,
+    src: "/images/banner/banner-2.png",
+    fallback: "",
+    alt: "中创智能体中间件",
   },
   {
     type: "image" as const,
@@ -167,13 +167,54 @@ export function HeroSection() {
 
         <Header variant="overlay" navItems={navItems} isDarkBg={false} />
 
-        {/* Slide 1 text: 中创智能体中间件 */}
+        {/* Slide 1 text: 中创股份 */}
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 0 ? 1 : 0,
             transform: currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 0 ? "auto" : "none",
+          }}
+          suppressHydrationWarning
+        >
+          <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
+            <div className="max-w-3xl 3xl:max-w-[945px]">
+              <h1
+                suppressHydrationWarning
+                className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
+                style={{
+                  fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
+                  fontWeight: 400,
+                  lineHeight: 1,
+                  color: "#000000",
+                }}
+              >
+                中创股份
+              </h1>
+              <p
+                suppressHydrationWarning
+                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
+                style={{
+                  fontFamily: "'Noto Sans SC', sans-serif",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  letterSpacing: "0.18em",
+                  color: "#242222",
+                }}
+              >
+                践行国家战略·共创数智未来
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide 2 text: 中创智能体中间件 */}
+        <div
+          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          style={{
+            opacity: currentSlide === 1 ? 1 : 0,
+            transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
+            pointerEvents: currentSlide === 1 ? "auto" : "none",
           }}
           suppressHydrationWarning
         >
@@ -210,47 +251,6 @@ export function HeroSection() {
                 </div>
                 <div className="w-[200px] border-t border-dashed border-black/10 sm:w-[280px] md:w-[360px] lg:w-[440px] xl:w-[528px]" />
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 2 text: 中创股份 */}
-        <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
-          style={{
-            opacity: currentSlide === 1 ? 1 : 0,
-            transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
-            pointerEvents: currentSlide === 1 ? "auto" : "none",
-          }}
-          suppressHydrationWarning
-        >
-          <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-3xl 3xl:max-w-[945px]">
-              <h1
-                suppressHydrationWarning
-                className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
-                style={{
-                  fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
-                  fontWeight: 400,
-                  lineHeight: 1,
-                  color: "#000000",
-                }}
-              >
-                中创股份
-              </h1>
-              <p
-                suppressHydrationWarning
-                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
-                style={{
-                  fontFamily: "'Noto Sans SC', sans-serif",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  letterSpacing: "0.18em",
-                  color: "#242222",
-                }}
-              >
-                践行国家战略·共创数智未来
-              </p>
             </div>
           </div>
         </div>
