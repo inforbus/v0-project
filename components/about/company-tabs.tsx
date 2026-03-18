@@ -35,7 +35,7 @@ export function CompanyTabs() {
     <div className="w-full">
       {/* Tabs Navigation - Capsule Style */}
       <div className="w-full -mt-20 relative z-10">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="mx-auto px-4 lg:px-8" style={{ maxWidth: "1400px" }}>
           <div className="flex flex-wrap gap-4 justify-center items-center py-8">
             <div className="flex items-center gap-2 opacity-60 hidden md:flex">
               <div className="w-8 h-px bg-foreground/30"></div>
@@ -63,7 +63,7 @@ export function CompanyTabs() {
 
       {/* Tab Content */}
       <div className="bg-background">
-        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto px-4 py-16 lg:px-8 lg:py-20" style={{ maxWidth: "1400px" }}>
           {activeTab === 'profile' && (
             <div className="animate-fadeIn">
               <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
@@ -71,7 +71,7 @@ export function CompanyTabs() {
                 <div className="space-y-6">
                   {/* Title section */}
                   <div>
-                    <h2 className="font-sans text-4xl font-bold text-foreground mb-2">山东中创软件商用中间件股份有限公司</h2>
+                    <h2 className="font-sans text-3xl lg:text-4xl font-bold text-foreground mb-2 whitespace-nowrap">山东中创软件商用中间件股份有限公司</h2>
                   </div>
 
                   {/* Image */}
