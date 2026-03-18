@@ -40,21 +40,20 @@ export function CompanyTabs() {
             <div className="flex items-center gap-2 opacity-60 hidden md:flex">
               <div className="w-8 h-px bg-foreground/30"></div>
             </div>
-            
+
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`py-2 px-6 font-sans font-semibold text-sm transition-all duration-300 whitespace-nowrap rounded-full border-2 ${
-                  activeTab === tab.id
-                    ? 'bg-[#BF1920] border-[#BF1920] text-white'
-                    : 'border-gray-400 text-gray-500 hover:border-gray-300'
-                }`}
+                className={`py-2 px-6 font-sans font-semibold text-sm transition-all duration-300 whitespace-nowrap rounded-full border-2 ${activeTab === tab.id
+                  ? 'bg-[#BF1920] border-[#BF1920] text-white'
+                  : 'border-gray-400 text-gray-500 hover:border-gray-300'
+                  }`}
               >
                 {tab.label}
               </button>
             ))}
-            
+
             <div className="flex items-center gap-2 opacity-60 hidden md:flex">
               <div className="w-8 h-px bg-foreground/30"></div>
             </div>
@@ -72,8 +71,7 @@ export function CompanyTabs() {
                 <div className="space-y-6">
                   {/* Title section */}
                   <div>
-                    <h2 className="font-sans text-4xl font-bold text-foreground mb-2">中创软件商用中间件股份有限公司</h2>
-                    <p className="font-sans text-sm text-foreground/60">公司介绍</p>
+                    <h2 className="font-sans text-4xl font-bold text-foreground mb-2">山东中创软件商用中间件股份有限公司</h2>
                   </div>
 
                   {/* Image */}
@@ -92,7 +90,7 @@ export function CompanyTabs() {
                 <div className="space-y-6">
                   <div>
                     <p className="font-sans text-base text-foreground/80 leading-relaxed">
-                      中创软件商用中间件股份有限公司（以下简称"中创中间件"）成立于2002年，是国内领先的基础软件产品与服务提供商，是国家"核高基"科技重大专项支持单位，拥有CMMI DEV 5级资质和ISO9001质量体系认证书，为国际Jakarta EE工作组企业级会员单位。
+                      山东中创软件商用中间件股份有限公司（以下简称"中创中间件"）成立于2002年，是国内领先的基础软件产品与服务提供商，是国家"核高基"科技重大专项支持单位，是国家级专精特新“小巨人”企业，拥有CMMI DEV 5级资质和ISO9001质量体系认证书，为国际Jakarta EE工作组企业级会员单位。
                     </p>
                   </div>
 
