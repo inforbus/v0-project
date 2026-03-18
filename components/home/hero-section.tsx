@@ -4,22 +4,24 @@ import { useState, useEffect, useRef } from "react"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
+// 粒子数量从20减少到8，并简化动画
 function ParticleField() {
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
     const particles: HTMLDivElement[] = []
-    for (let i = 0; i < 20; i++) {
+    // 减少粒子数量以提升性能
+    for (let i = 0; i < 8; i++) {
       const el = document.createElement("div")
       el.className = "absolute rounded-full"
-      const w = 2 + ((i * 7 + 3) % 11) * 0.36
-      const h = 2 + ((i * 13 + 5) % 11) * 0.36
+      const w = 2 + ((i * 7 + 3) % 6) * 0.4
+      const h = 2 + ((i * 13 + 5) % 6) * 0.4
       const l = (i * 37 + 11) % 100
       const t = (i * 53 + 7) % 100
-      const dur = 4 + ((i * 17 + 3) % 13) * 0.46
-      const del = ((i * 23 + 1) % 10) * 0.3
-      const bg = i % 3 === 0 ? "rgba(191,25,32,0.3)" : "rgba(255,255,255,0.4)"
+      const dur = 5 + ((i * 17 + 3) % 8) * 0.5
+      const del = ((i * 23 + 1) % 5) * 0.4
+      const bg = i % 3 === 0 ? "rgba(191,25,32,0.25)" : "rgba(200,200,200,0.3)"
       el.style.cssText = `width:${w}px;height:${h}px;left:${l}%;top:${t}%;background:${bg};animation:particle-float ${dur}s ease-in-out ${del}s infinite;`
       container.appendChild(el)
       particles.push(el)

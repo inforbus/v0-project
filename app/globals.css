@@ -448,7 +448,6 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 .honor-marquee-track-optimized {
   animation: honor-scroll-optimized 35s linear infinite;
   width: max-content;
-  will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
 }
@@ -460,7 +459,6 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 .honor-marquee-track-reverse-optimized {
   animation: honor-scroll-reverse-optimized 30s linear infinite;
   width: max-content;
-  will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
 }
@@ -473,7 +471,6 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 .honor-marquee-track {
   animation: honor-scroll-optimized 35s linear infinite;
   width: max-content;
-  will-change: transform;
   backface-visibility: hidden;
 }
 
@@ -484,7 +481,6 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 .honor-marquee-track-reverse {
   animation: honor-scroll-reverse-optimized 30s linear infinite;
   width: max-content;
-  will-change: transform;
   backface-visibility: hidden;
 }
 
@@ -495,7 +491,6 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 /* 荣誉卡片优化 - 减少 hover 时的重绘 */
 .honor-card {
   contain: layout style paint;
-  will-change: auto;
 }
 
 /* Solution subtle flowing lines */
@@ -566,24 +561,49 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
   animation: fade-scale-in 0.6s ease-out forwards;
 }
 
-/* Customer logo marquee */
-@keyframes customer-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+/* Customer logo marquee - 性能优化版本 */
+@keyframes customer-scroll-optimized {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
-@keyframes customer-scroll-reverse {
-  0% { transform: translateX(-33.333%); }
-  100% { transform: translateX(0); }
+@keyframes customer-scroll-reverse-optimized {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 .customer-marquee-wrapper {
   overflow: hidden;
+  contain: content;
 }
 
-.customer-marquee-track {
-  animation: customer-scroll 40s linear infinite;
+.customer-marquee-track-optimized {
+  animation: customer-scroll-optimized 30s linear infinite;
   width: max-content;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.customer-marquee-track-optimized:hover {
+  animation-play-state: paused;
+}
+
+.customer-marquee-track-reverse-optimized {
+  animation: customer-scroll-reverse-optimized 28s linear infinite;
+  width: max-content;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.customer-marquee-track-reverse-optimized:hover {
+  animation-play-state: paused;
+}
+
+/* 保留旧类名兼容 */
+.customer-marquee-track {
+  animation: customer-scroll-optimized 30s linear infinite;
+  width: max-content;
+  backface-visibility: hidden;
 }
 
 .customer-marquee-track:hover {
@@ -591,12 +611,18 @@ p, span, div, h1, h2, h3, h4, h5, h6 {
 }
 
 .customer-marquee-track-reverse {
-  animation: customer-scroll-reverse 35s linear infinite;
+  animation: customer-scroll-reverse-optimized 28s linear infinite;
   width: max-content;
+  backface-visibility: hidden;
 }
 
 .customer-marquee-track-reverse:hover {
   animation-play-state: paused;
+}
+
+/* 客户Logo卡片优化 */
+.customer-logo-card {
+  contain: layout style paint;
 }
 
 /* Hide scrollbar */
