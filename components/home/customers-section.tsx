@@ -56,7 +56,6 @@ function LogoCard({ customer }: { customer: { name: string; logo: string } }) {
           width={200}
           height={80}
           className="h-auto max-h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover/logo:scale-105"
-          loading="lazy"
         />
       ) : (
         <span className="select-none text-sm font-medium text-muted-foreground">

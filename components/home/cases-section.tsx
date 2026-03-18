@@ -55,7 +55,6 @@ function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: num
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-            loading="lazy"
           />
           {/* Default gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
