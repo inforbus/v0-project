@@ -57,10 +57,10 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         <Image src={solution.heroImage} alt={solution.title} fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
-            <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
+            <h1 className="text-2xl font-bold text-black md:text-3xl lg:text-4xl 3xl:text-5xl">
               {solution.title}
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-white/70 md:text-base 3xl:mt-4 3xl:text-lg">
+            <p className="mt-3 max-w-2xl text-sm text-black/80 md:text-base 3xl:mt-4 3xl:text-lg">
               {solution.subtitle}
             </p>
           </div>
