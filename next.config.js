@@ -5,9 +5,9 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
-  experimental: {
-    optimizePackageImports: ["@radix-ui/react-icons"],
-  },
 };
 
 export default nextConfig;
+
+
+

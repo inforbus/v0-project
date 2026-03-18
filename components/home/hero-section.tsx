@@ -53,9 +53,9 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "image" as const,
-    src: "/images/banner/banner-1.png",
+    src: "/images/banner/banner-3.png",
     fallback: "",
-    alt: "中创API网关软件",
+    alt: "全球AI布局",
   },
   {
     type: "image" as const,
@@ -65,9 +65,9 @@ const bannerSlides = [
   },
   {
     type: "image" as const,
-    src: "/images/banner/banner-3.png",
+    src: "/images/banner/banner-1.png",
     fallback: "",
-    alt: "全球AI布局",
+    alt: "中创API网关软件",
   },
   {
     type: "image" as const,
@@ -167,7 +167,7 @@ export function HeroSection() {
 
         <Header variant="overlay" navItems={navItems} isDarkBg={false} />
 
-        {/* Slide 1 text: 中创API网关软件 */}
+        {/* Slide 1 text: 中创股份 */}
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
@@ -178,21 +178,31 @@ export function HeroSection() {
           suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-[708px]">
+            <div className="max-w-3xl 3xl:max-w-[945px]">
               <h1
                 suppressHydrationWarning
-                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
+                className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
+                style={{
+                  fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
+                  fontWeight: 400,
+                  lineHeight: 1,
+                  color: "#000000",
+                }}
               >
-                中创API网关软件
+                中创股份
               </h1>
               <p
                 suppressHydrationWarning
-                className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
-                suppressHydrationWarning
+                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
+                style={{
+                  fontFamily: "'Noto Sans SC', sans-serif",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  letterSpacing: "0.18em",
+                  color: "#242222",
+                }}
               >
-                {`一站式流量管控与AI赋能，让智能更简单`}
+                践行国家战略·共创数智未来
               </p>
             </div>
           </div>
@@ -245,7 +255,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Slide 3 text: 中创股份 */}
+        {/* Slide 3 text: 中创API网关软件 */}
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
@@ -256,31 +266,21 @@ export function HeroSection() {
           suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-3xl 3xl:max-w-[945px]">
+            <div className="max-w-[708px]">
               <h1
                 suppressHydrationWarning
-                className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
-                style={{
-                  fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
-                  fontWeight: 400,
-                  lineHeight: 1,
-                  color: "#000000",
-                }}
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
-                中创股份
+                中创API网关软件
               </h1>
               <p
                 suppressHydrationWarning
-                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
-                style={{
-                  fontFamily: "'Noto Sans SC', sans-serif",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  letterSpacing: "0.18em",
-                  color: "#242222",
-                }}
+                className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
+                suppressHydrationWarning
               >
-                践行国家战略·共创数智未来
+                {`一站式流量管控与AI赋能，让智能更简单`}
               </p>
             </div>
           </div>

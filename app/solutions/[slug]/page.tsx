@@ -55,14 +55,12 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
           <Header navItems={navItems} variant="overlay" />
         </div>
         <Image src={solution.heroImage} alt={solution.title} fill sizes="100vw" className="object-cover" priority />
-        <div className="absolute inset-x-0 top-0 z-20 h-[120px] bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
-            <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
+            <h1 className="text-2xl font-bold text-black md:text-3xl lg:text-4xl 3xl:text-5xl">
               {solution.title}
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-white/70 md:text-base 3xl:mt-4 3xl:text-lg">
+            <p className="mt-3 max-w-2xl text-sm text-black/80 md:text-base 3xl:mt-4 3xl:text-lg">
               {solution.subtitle}
             </p>
           </div>

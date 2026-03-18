@@ -1,7 +1,7 @@
 export function CompanyIntroSection() {
   return (
     <section className="py-12 lg:py-20">
-      <div className="mx-auto max-w-6xl px-4 lg:px-8">
+      <div className="mx-auto max-w-full px-4 lg:px-8" style={{ maxWidth: "1300px" }}>
         {/* Main Introduction */}
         <div className="mb-12 lg:mb-16">
           <h2 className="mb-6 text-3xl font-bold text-foreground lg:text-4xl">公司介绍</h2>
@@ -40,13 +40,13 @@ export function CompanyIntroSection() {
             },
             {
               title: "智能制造领域",
-              description: "公司与中国某制造业百强，探索智能制造转型，使其从"少品种、大批量"转型到"个性化、少批量"，支撑"在途库存"，为企业带来了直接的竞争优势，是工业互联网的典型应用案例"
+              description: "公司与中国某制造业百强，探索智能制造转型，使其从'少品种、大批量'转型到'个性化、少批量'，支撑'在途库存'，为企业带来了直接的竞争优势，是工业互联网的典型应用案例"
             }
           ].map((area, index) => (
-          <div key={index} className="rounded-lg bg-muted p-6 lg:p-8">
-            <h3 className="mb-3 text-lg font-semibold text-foreground">{area.title}</h3>
-            <p className="text-sm leading-relaxed text-foreground/70 lg:text-base">{area.description}</p>
-          </div>
+            <div key={index} className="rounded-lg bg-muted p-6 lg:p-8">
+              <h3 className="mb-3 text-lg font-semibold text-foreground">{area.title}</h3>
+              <p className="text-sm leading-relaxed text-foreground/70 lg:text-base">{area.description}</p>
+            </div>
           ))}
         </div>
 
