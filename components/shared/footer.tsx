@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 
 export function Footer() {
   return (
@@ -42,19 +41,23 @@ export function Footer() {
             <p className="text-sm text-foreground 3xl:text-base">扫描关注中创中间件微信公众号或视频号</p>
             <div className="mt-3 flex gap-3 3xl:mt-4 3xl:gap-4">
               {/* WeChat QR Code */}
-              <Image
+              <img
                 src="/images/footer/qrcode-wechat.png"
                 alt="中创股份微信公众号二维码"
                 width={72}
                 height={72}
+                loading="lazy"
+                decoding="async"
                 className="rounded 3xl:h-[92px] 3xl:w-[92px]"
               />
               {/* Video Account QR Code */}
-              <Image
+              <img
                 src="/images/footer/qrcode-video.png"
                 alt="中创股份视频号二维码"
                 width={72}
                 height={72}
+                loading="lazy"
+                decoding="async"
                 className="rounded 3xl:h-[92px] 3xl:w-[92px]"
               />
             </div>
