@@ -194,7 +194,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
               alt="中创软件"
               width={120}
               height={40}
-              className="h-8 w-auto"
+              className={`h-8 w-auto ${isOverlay && isDarkBg ? "brightness-0 invert" : ""}`}
               priority
             />
           </Link>
@@ -261,7 +261,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
 
       {/* Mobile Menu */}
       {mobileMenuOpen && mounted && (
-        <div className="max-h-[70vh] overflow-y-auto border-t border-white/20 lg:hidden">
+        <div className={`max-h-[70vh] overflow-y-auto border-t lg:hidden ${isOverlay && isDarkBg ? "border-white/20 bg-black/30 backdrop-blur-sm" : "border-white/20"}`}>
           <div className="px-4 py-4">
             {items.map((item, index) => (
               <MobileNavItem key={index} item={item} />
