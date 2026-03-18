@@ -1,5 +1,3 @@
-"use client"
-
 import React, { memo } from "react"
 import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
@@ -52,8 +50,8 @@ const HonorCard = memo(function HonorCard({ honor }: { honor: (typeof row1)[0] }
   )
 })
 
-// 使用纯 CSS 动画，更稳定且不会内存泄漏
-function HonorMarqueeRow({ honors, rowIdx }: { honors: typeof row1, rowIdx: number }) {
+// 使用 memo 包装，避免父组件重渲染导致子组件重新挂载
+const HonorMarqueeRow = memo(function HonorMarqueeRow({ honors, rowIdx }: { honors: typeof row1, rowIdx: number }) {
   const isReverse = rowIdx === 1
   
   return (
@@ -68,7 +66,7 @@ function HonorMarqueeRow({ honors, rowIdx }: { honors: typeof row1, rowIdx: numb
       </div>
     </div>
   )
-}
+})
 
 export function HonorsSection() {
   return (

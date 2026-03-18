@@ -1,5 +1,3 @@
-"use client"
-
 import { memo } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Image from "next/image"
@@ -70,8 +68,8 @@ const LogoCard = memo(function LogoCard({ customer }: { customer: { name: string
   )
 })
 
-// 使用纯 CSS 动画，更稳定且不会内存泄漏
-function MarqueeRow({ row, rowIdx }: { row: typeof customerRows[0], rowIdx: number }) {
+// 使用 memo 包装，避免父组件重渲染导致子组件重新挂载
+const MarqueeRow = memo(function MarqueeRow({ row, rowIdx }: { row: typeof customerRows[0], rowIdx: number }) {
   const isReverse = rowIdx === 1
   
   return (
@@ -88,7 +86,7 @@ function MarqueeRow({ row, rowIdx }: { row: typeof customerRows[0], rowIdx: numb
       </div>
     </div>
   )
-}
+})
 
 export function CustomersSection() {
   return (

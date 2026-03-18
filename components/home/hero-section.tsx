@@ -12,10 +12,8 @@ function ParticleField() {
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
-    console.log("[v0] ScrollProgress mounted")
     let frameId: number | null = null
     const handleScroll = () => {
-      // 使用 requestAnimationFrame 节流
       if (frameId !== null) return
       frameId = requestAnimationFrame(() => {
         try {
@@ -29,7 +27,6 @@ function ScrollProgress() {
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => {
-      console.log("[v0] ScrollProgress unmounted")
       window.removeEventListener("scroll", handleScroll)
       if (frameId !== null) cancelAnimationFrame(frameId)
     }
@@ -82,14 +79,10 @@ export function HeroSection() {
 
   useEffect(() => {
     if (!mounted || bannerSlides.length <= 1) return
-    console.log("[v0] HeroSection banner timer started")
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
     }, SLIDE_INTERVAL)
-    return () => {
-      console.log("[v0] HeroSection banner timer cleared")
-      clearInterval(timer)
-    }
+    return () => clearInterval(timer)
   }, [mounted])
 
   return (
