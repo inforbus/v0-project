@@ -1,5 +1,4 @@
 import React, { memo } from "react"
-import Image from "next/image"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const row1 = [
@@ -27,19 +26,17 @@ const row2 = [
   { img: "/images/honors/honor-23.jpg", title: "中创智能体中间件", num: "23" },
 ]
 
-// 使用 memo 优化卡片组件，避免不必要的重渲染
+// 使用 memo 优化卡片组件，使用原生 img 避免 Next.js Image 的多尺寸请求
 const HonorCard = memo(function HonorCard({ honor }: { honor: (typeof row1)[0] }) {
   return (
     <div className="honor-card group/honor relative flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-border/80 bg-background shadow-sm md:w-[320px] 3xl:w-[380px]">
       <div className="relative h-[160px] w-full overflow-hidden md:h-[175px] 3xl:h-[210px]">
-        <Image 
+        <img 
           src={honor.img || "/placeholder.svg"} 
           alt={honor.title} 
-          fill 
-          sizes="(max-width: 768px) 280px, (max-width: 1200px) 320px, 380px" 
-          className="object-cover"
+          className="h-full w-full object-cover"
           loading="lazy"
-          quality={75}
+          decoding="async"
         />
       </div>
       <div className="flex items-center gap-3 px-4 py-3.5 3xl:px-5 3xl:py-4">

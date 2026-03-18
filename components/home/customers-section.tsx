@@ -1,6 +1,5 @@
 import { memo } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
-import Image from "next/image"
 
 // 恢复完整客户数据
 const customerRows = [
@@ -43,7 +42,7 @@ const customerRows = [
   ],
 ]
 
-// 使用 memo 避免不必要的重渲染
+// 使用 memo 避免不必要的重渲染，使用原生 img 避免 Next.js Image 的多尺寸请求
 const LogoCard = memo(function LogoCard({ customer }: { customer: { name: string; logo: string } }) {
   return (
     <div
@@ -51,12 +50,11 @@ const LogoCard = memo(function LogoCard({ customer }: { customer: { name: string
       title={customer.name}
     >
       {customer.logo ? (
-        <Image
+        <img
           src={customer.logo}
           alt={customer.name}
-          width={200}
-          height={80}
           loading="lazy"
+          decoding="async"
           className="h-auto max-h-full w-auto max-w-full object-contain"
         />
       ) : (
