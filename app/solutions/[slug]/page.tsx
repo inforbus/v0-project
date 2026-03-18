@@ -54,7 +54,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
         <div className="absolute inset-x-0 top-0 z-30">
           <Header navItems={navItems} variant="overlay" />
         </div>
-        <Image src={solution.heroImage} alt={solution.title} fill className="object-cover" priority />
+        <Image src={solution.heroImage} alt={solution.title} fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-x-0 top-0 z-20 h-[120px] bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex items-end">
@@ -170,7 +170,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                   <span className="h-2 w-2 flex-shrink-0 rounded-full bg-[#BF1920]" />
                   <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{f.title}</h4>
                 </div>
-                <p className="pl-5 text-sm text-muted-foreground 3xl:text-base">{f.desc}</p>
+                <p className="whitespace-pre-line pl-5 text-sm text-muted-foreground 3xl:text-base">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -214,21 +214,6 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
             ))}
           </div>
         </section>
-
-        {/* Solution Values */}
-        {solution.values && solution.values.length > 0 && (
-          <section className="mb-12 lg:mb-16 3xl:mb-20">
-            <SectionTitle>方案价值</SectionTitle>
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 3xl:mt-8 3xl:gap-5">
-              {solution.values.map((v, idx) => (
-                <div key={idx} className="flex flex-col gap-2 rounded-xl border border-border/60 bg-muted/20 p-5 3xl:p-6">
-                  <h4 className="text-sm font-bold text-foreground md:text-base 3xl:text-lg">{v.title}</h4>
-                  <p className="text-sm text-muted-foreground 3xl:text-base">{v.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* Related Products */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
@@ -281,7 +266,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
                   className="group overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
-                    <Image src={s.heroImage} alt={s.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={s.heroImage} alt={s.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <h4 className="absolute bottom-3 left-4 right-4 text-sm font-bold text-white md:text-base 3xl:text-lg">
                       {s.title}
