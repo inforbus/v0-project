@@ -77,24 +77,32 @@ function DropdownMenu({ item }: { item: NavItem }) {
   )
 }
 
-function MobileNavItem({ item }: { item: NavItem }) {
+function MobileNavItem({ item, isDarkBg = false }: { item: NavItem; isDarkBg?: boolean }) {
   const [expanded, setExpanded] = useState(false)
   const hasChildren = item.children && item.children.length > 0
 
   return (
-    <div className="border-b border-border/40 last:border-b-0">
+    <div className={`border-b last:border-b-0 ${isDarkBg ? "border-white/20" : "border-border/40"}`}>
       <div className="flex items-center justify-between">
         {item.href ? (
           <Link
             href={item.href}
-            className={`flex-1 py-3 text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
+            className={`flex-1 py-3 text-base font-medium transition-colors ${
+              item.active
+                ? isDarkBg ? "text-white" : "text-primary"
+                : isDarkBg ? "text-white/70" : "text-foreground"
+            }`}
           >
             {item.name}
           </Link>
         ) : (
           <button
             type="button"
-            className={`flex-1 py-3 text-left text-base font-medium transition-colors ${item.active ? "text-primary" : "text-foreground"}`}
+            className={`flex-1 py-3 text-left text-base font-medium transition-colors ${
+              item.active
+                ? isDarkBg ? "text-white" : "text-primary"
+                : isDarkBg ? "text-white/70" : "text-foreground"
+            }`}
           >
             {item.name}
           </button>
@@ -103,7 +111,7 @@ function MobileNavItem({ item }: { item: NavItem }) {
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className="p-2 text-muted-foreground"
+            className={`p-2 ${isDarkBg ? "text-white/60" : "text-muted-foreground"}`}
             aria-label={expanded ? "收起" : "展开"}
           >
             <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} />
@@ -113,7 +121,7 @@ function MobileNavItem({ item }: { item: NavItem }) {
       {hasChildren && expanded && (
         <div className="pb-2 pl-4">
           {item.children.map((child, cIdx) => (
-            <MobileSubNavItem key={cIdx} item={child} />
+            <MobileSubNavItem key={cIdx} item={child} isDarkBg={isDarkBg} />
           ))}
         </div>
       )}
@@ -121,24 +129,32 @@ function MobileNavItem({ item }: { item: NavItem }) {
   )
 }
 
-function MobileSubNavItem({ item }: { item: NavItem }) {
+function MobileSubNavItem({ item, isDarkBg = false }: { item: NavItem; isDarkBg?: boolean }) {
   const [expanded, setExpanded] = useState(false)
   const hasChildren = item.children && item.children.length > 0
 
   return (
-    <div className="border-b border-border/20 last:border-b-0">
+    <div className={`border-b last:border-b-0 ${isDarkBg ? "border-white/10" : "border-border/20"}`}>
       <div className="flex items-center justify-between">
         {item.href ? (
           <Link
             href={item.href}
-            className="flex-1 py-2.5 pl-2 text-sm text-foreground/70 transition-all duration-150 hover:text-primary"
+            className={`flex-1 py-2.5 pl-2 text-sm transition-all duration-150 ${
+              isDarkBg
+                ? "text-white/60 hover:text-white hover:pl-3"
+                : "text-foreground/70 hover:text-primary hover:pl-3"
+            }`}
           >
             {item.name}
           </Link>
         ) : (
           <button
             type="button"
-            className="flex-1 py-2.5 pl-2 text-left text-sm text-foreground/70 transition-all duration-150 hover:text-primary"
+            className={`flex-1 py-2.5 pl-2 text-left text-sm transition-all duration-150 ${
+              isDarkBg
+                ? "text-white/60 hover:text-white hover:pl-3"
+                : "text-foreground/70 hover:text-primary hover:pl-3"
+            }`}
           >
             {item.name}
           </button>
@@ -147,7 +163,7 @@ function MobileSubNavItem({ item }: { item: NavItem }) {
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className="p-1 text-muted-foreground"
+            className={`p-1 ${isDarkBg ? "text-white/60" : "text-muted-foreground"}`}
             aria-label={expanded ? "收起" : "展开"}
           >
             <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} />
@@ -160,7 +176,11 @@ function MobileSubNavItem({ item }: { item: NavItem }) {
             <Link
               key={gcIdx}
               href={grandchild.href}
-              className="block cursor-pointer rounded-md py-2 pl-2 text-xs text-foreground/50 transition-all duration-150 hover:bg-primary/5 hover:pl-3 hover:text-primary"
+              className={`block cursor-pointer rounded-md py-2 pl-2 text-xs transition-all duration-150 ${
+                isDarkBg
+                  ? "text-white/40 hover:text-white hover:pl-3"
+                  : "text-foreground/50 hover:text-primary hover:pl-3"
+              }`}
             >
               {grandchild.name}
             </Link>
@@ -264,7 +284,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
         <div className={`max-h-[70vh] overflow-y-auto border-t lg:hidden ${isOverlay && isDarkBg ? "border-white/20 bg-black/30 backdrop-blur-sm" : "border-white/20"}`}>
           <div className="px-4 py-4">
             {items.map((item, index) => (
-              <MobileNavItem key={index} item={item} />
+              <MobileNavItem key={index} item={item} isDarkBg={isOverlay && isDarkBg} />
             ))}
           </div>
         </div>
