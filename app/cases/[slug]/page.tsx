@@ -286,7 +286,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
   return (
     <div className="min-h-screen w-full bg-background">
       {/* Hero Banner with Header overlay */}
-      <section className="relative h-[320px] overflow-hidden md:h-[400px] lg:h-[440px] 3xl:h-[520px]">
+      <section className="relative h-[240px] overflow-hidden md:h-[280px] lg:h-[320px] 3xl:h-[380px]">
         <div className="absolute inset-x-0 top-0 z-30">
           <Header navItems={navItems} variant="overlay" />
         </div>
