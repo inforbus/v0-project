@@ -5,7 +5,7 @@ export const cases = [
     title: "央企中间件统一管理平台",
     tag: "企业",
     desc: "为央企构建全栈式自主可控的中间件统一管理平台，实现中间件产品和服务的标准化管理",
-    photo: "/images/case-central-enterprise.jpg",
+    photo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20116-54FFMbPlh0jVVawATFxMxVyKJ9TQwG.png",
     metrics: "企业级",
   },
   {

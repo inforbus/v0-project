@@ -12,8 +12,8 @@ export function MiddlewareHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Banner image */}
       <img
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20116-54FFMbPlh0jVVawATFxMxVyKJ9TQwG.png"
-        alt="央企中间件统一管理平台"
+        src="/images/banners/middleware-banner.png"
+        alt="中创应用服务器软件 InforSuite AS"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
