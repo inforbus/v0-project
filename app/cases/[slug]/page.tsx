@@ -1,5 +1,4 @@
 import type React from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/shared/header"
@@ -150,7 +149,7 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "迁移策略",
-        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最���迁移。",
+        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成������迁移。",
         image: "/images/cases/core-capability.jpg",
       },
       {
@@ -422,12 +421,10 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
             <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx === 0 ? "lg:flex-row" : idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
               {section.image && (
                 <div className="relative h-[300px] w-full overflow-hidden rounded-2xl bg-muted/50 lg:h-[280px] lg:w-[45%] 3xl:h-[320px]">
-                  <Image
+                  <img
                     src={section.image}
                     alt={section.title}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    className="h-full w-full object-contain"
                   />
                 </div>
               )}

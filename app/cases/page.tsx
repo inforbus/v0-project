@@ -1,5 +1,4 @@
 import { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { cases } from "@/lib/cases-data"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
@@ -28,11 +27,10 @@ export default function CasesPage() {
                   >
                     {/* Fixed-height photo area */}
                     <div className="relative overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
-                      <Image
+                      <img
                         src={caseItem.photo}
                         alt={caseItem.title}
-                        fill
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
                       {/* Default gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
