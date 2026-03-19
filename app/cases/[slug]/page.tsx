@@ -299,27 +299,36 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           priority
         />
 
-        <div className="absolute inset-0 flex items-end">
-          <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="inline-block rounded-full bg-[#BF1920] px-4 py-1 text-xs font-medium text-white 3xl:px-5 3xl:py-1.5 3xl:text-sm">
-                {caseItem.tag}
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs text-white/80 backdrop-blur-sm 3xl:px-4 3xl:py-1.5 3xl:text-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#BF1920]" />
-                {caseItem.metrics}
-              </span>
-            </div>
-            <div className="flex items-center gap-3 mb-2 3xl:mb-3">
-              <div className="h-6 w-1 rounded-full bg-[#BF1920] 3xl:h-7" />
-              <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
-                {caseItem.title}
-              </h1>
-            </div>
-            <p className="mt-3 max-w-2xl text-sm text-white/70 md:text-base 3xl:mt-4 3xl:text-lg">
-              {caseItem.desc}
-            </p>
-          </div>
+        <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+          {/* Title */}
+          <h1
+            className="font-sans font-bold text-white"
+            style={{ fontSize: 'clamp(18px, 2.5vw, 36px)', lineHeight: '1.3' }}
+          >
+            {caseItem.title}
+          </h1>
+
+          {/* Red accent line */}
+          <div
+            className="bg-[#BF1920]"
+            style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+          />
+
+          {/* Subtitle 1 - Tag */}
+          <p
+            className="font-sans font-normal text-white"
+            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.9, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
+          >
+            {caseItem.tag}
+          </p>
+
+          {/* Subtitle 2 - Metrics */}
+          <p
+            className="font-sans font-normal text-white"
+            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.9, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
+          >
+            {caseItem.metrics}
+          </p>
         </div>
       </section>
 
