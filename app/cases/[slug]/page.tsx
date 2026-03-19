@@ -310,9 +310,12 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
                 {caseItem.metrics}
               </span>
             </div>
-            <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
-              {caseItem.title}
-            </h1>
+            <div className="flex items-center gap-3 mb-2 3xl:mb-3">
+              <div className="h-6 w-1 rounded-full bg-[#BF1920] 3xl:h-7" />
+              <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
+                {caseItem.title}
+              </h1>
+            </div>
             <p className="mt-3 max-w-2xl text-sm text-white/70 md:text-base 3xl:mt-4 3xl:text-lg">
               {caseItem.desc}
             </p>

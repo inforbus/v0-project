@@ -59,6 +59,7 @@ export function OtherCases({ cases, currentSlug }: OtherCasesProps) {
                   src={relatedCase.photo}
                   alt={relatedCase.title}
                   fill
+                  sizes="(max-width: 768px) 300px, (max-width: 1024px) 350px, 380px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
