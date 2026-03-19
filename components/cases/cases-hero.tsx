@@ -8,7 +8,7 @@ export function CasesHeroSection() {
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
       {/* Background image */}
       <img
-        src="/images/banners/cases-hero.png"
+        src="/images/cases-hero-banner.png"
         alt="案例中心"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
