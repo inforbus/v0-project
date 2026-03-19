@@ -303,7 +303,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           {/* Title */}
           <h1
             className="font-sans font-bold text-[#332C2B]"
-            style={{ fontSize: 'clamp(24px, 3.5vw, 48px)', lineHeight: '1.3', maxWidth: '60%' }}
+            style={{ fontSize: 'clamp(14px, 3.5vw, 38px)', lineHeight: '1.3', maxWidth: '60%' }}
           >
             {caseItem.title}
           </h1>
