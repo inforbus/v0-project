@@ -90,7 +90,7 @@ export function CasesTabs({ defaultCategory = 'all' }: CasesTabsProps) {
               {filteredCases.map((caseItem) => (
                 <Link
                   key={caseItem.slug}
-                  href={`/cases/${caseItem.slug}`}
+                  href={`/cases/${caseItem.slug}/`}
                   className="group overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">

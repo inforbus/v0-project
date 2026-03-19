@@ -7,33 +7,33 @@ export function Footer() {
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-4">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-1 flex-shrink-0">
             <FooterColumn title="产品中心" links={[
-              { label: "基础中间件", href: "/middleware" },
-              { label: "数智化平台", href: "/digital-platform" },
-              { label: "PaaS云平台", href: "/paas" },
-              { label: "物联网平台", href: "/iot" },
-              { label: "应用安全产品", href: "/security" },
+              { label: "基础中间件", href: "/middleware/" },
+              { label: "数智化平台", href: "/digital-platform/" },
+              { label: "PaaS云平台", href: "/paas/" },
+              { label: "物联网平台", href: "/iot/" },
+              { label: "应用安全产品", href: "/security/" },
             ]} />
             <FooterColumn title="解决方案" links={[
-              { label: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
-              { label: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
-              { label: "数据中台解决方案", href: "/solutions/data-platform" },
-              { label: "智能运维解决方案", href: "/solutions/intelligent-ops" },
-              { label: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware" },
+              { label: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent/" },
+              { label: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery/" },
+              { label: "数据中台解决方案", href: "/solutions/data-platform/" },
+              { label: "智能运维解决方案", href: "/solutions/intelligent-ops/" },
+              { label: "信创全栈自主可控中间件解决方案", href: "/solutions/xinchuang-middleware/" },
             ]} />
             <FooterColumn title="服务与支持" links={[
-              { label: "在线服务", href: "/support/online" },
-              { label: "认证证书", href: "/support/certification" },
-              { label: "产品升级", href: "/support/upgrade" },
-              { label: "FAQ", href: "/support/faq" },
-              { label: "Kubernetes服务", href: "/support/kubernetes" },
+              { label: "在线服务", href: "/support/online/" },
+              { label: "认证证书", href: "/support/certification/" },
+              { label: "产品升级", href: "/support/upgrade/" },
+              { label: "FAQ", href: "/support/faq/" },
+              { label: "Kubernetes服务", href: "/support/kubernetes/" },
             ]} />
             <FooterColumn title="关于我们" links={[
-              { label: "公司介绍", href: "/about/introduction" },
-              { label: "公司荣誉", href: "/about/honors" },
-              { label: "发展历程", href: "/about/history" },
-              { label: "投资者关系", href: "/about/investor" },
-              { label: "新闻资讯", href: "/news/company" },
-              { label: "加入我们", href: "/about/careers" },
+              { label: "公司介绍", href: "/about/introduction/" },
+              { label: "公司荣誉", href: "/about/honors/" },
+              { label: "发展历程", href: "/about/history/" },
+              { label: "投资者关系", href: "/about/investor/" },
+              { label: "新闻资讯", href: "/news/company/" },
+              { label: "加入我们", href: "/about/careers/" },
             ]} />
           </div>
 

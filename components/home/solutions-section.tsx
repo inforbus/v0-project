@@ -101,7 +101,7 @@ export function SolutionsSection() {
                 {solutions[activeIndex].desc}
               </p>
               <Link
-                href={`/solutions/${solutions[activeIndex].slug}`}
+                href={`/solutions/${solutions[activeIndex].slug}/`}
                 className="group mt-6 inline-flex items-center gap-2 rounded-full bg-[#BF1920] px-6 py-2.5 text-sm font-medium text-white shadow-[0_4px_16px_rgba(191,25,32,0.25)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(191,25,32,0.35)] hover:scale-105 md:mt-8 lg:mt-10 lg:px-7 lg:py-3 lg:text-base 3xl:mt-12 3xl:px-8 3xl:py-3.5 3xl:text-lg"
               >
                 了解详情
