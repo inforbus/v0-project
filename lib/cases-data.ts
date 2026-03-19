@@ -15,6 +15,7 @@ export const cases = [
     tag: "政府",
     desc: "建设公安部门数据治理平台，实现海量公安数据的统一管理、质量控制和智能应用",
     photo: "/images/case-government-data.jpg",
+    bannerPhoto: "/images/case-government-data.jpg",
     metrics: "数据治理",
   },
   {
@@ -23,6 +24,7 @@ export const cases = [
     tag: "交通",
     desc: "建设全国高速公路标准化收费站系统，实现跨地域统一管理和实时交易处理",
     photo: "/images/case-highway-toll.jpg",
+    bannerPhoto: "/images/case-highway-toll.jpg",
     metrics: "全国覆盖",
   },
   {
@@ -31,6 +33,7 @@ export const cases = [
     tag: "能源",
     desc: "完成南方电网全栈式自主可控的超大型数字化系统建设，支撑电网业务高效运营",
     photo: "/images/case-energy-grid.jpg",
+    bannerPhoto: "/images/case-energy-grid.jpg",
     metrics: "超大规模",
   },
   {
@@ -39,6 +42,7 @@ export const cases = [
     tag: "金融",
     desc: "完成国投集团财务核心业务系统的全栈国产化建设，实现金融系统的安全可控",
     photo: "/images/case-finance-core.jpg",
+    bannerPhoto: "/images/case-finance-core.jpg",
     metrics: "核心系统",
   },
   {
@@ -47,6 +51,7 @@ export const cases = [
     tag: "企业",
     desc: "自主研发的大数据智能分析平台，为企业提供全链路数据处理和智能决策支持",
     photo: "/images/case-bigdata-platform.jpg",
+    bannerPhoto: "/images/case-bigdata-platform.jpg",
     metrics: "自研产品",
   },
   {
