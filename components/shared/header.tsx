@@ -194,7 +194,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
               alt="中创软件"
               width={120}
               height={40}
-              className="h-8 w-auto"
+              className="h-8 w-auto brightness-0 invert"
               priority
             />
           </Link>
@@ -206,30 +206,14 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                 {item.href && item.children.length === 0 ? (
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
-                      item.active
-                        ? isOverlay
-                          ? isDarkBg ? "text-white" : "text-primary"
-                          : "text-primary"
-                        : isOverlay
-                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
-                          : "text-foreground/70 hover:text-primary"
-                    }`}
+                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 text-white hover:text-white/70`}
                   >
                     {item.name}
                   </Link>
                 ) : (
                   <button
                     type="button"
-                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
-                      item.active
-                        ? isOverlay
-                          ? isDarkBg ? "text-white" : "text-primary"
-                          : "text-primary"
-                        : isOverlay
-                          ? isDarkBg ? "text-white/70 hover:text-white" : "text-foreground/70 hover:text-primary"
-                          : "text-foreground/70 hover:text-primary"
-                    }`}
+                    className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 text-white hover:text-white/70`}
                   >
                     {item.name}
                     {item.children.length > 0 && <ChevronDown size={14} />}
@@ -251,7 +235,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`flex-shrink-0 lg:hidden ${isOverlay ? (isDarkBg ? "text-white" : "text-foreground") : "text-foreground"}`}
+            className={`flex-shrink-0 lg:hidden text-white`}
             aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
