@@ -304,10 +304,6 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           className="object-cover"
           priority
         />
-        {/* Top gradient for header readability */}
-        <div className="absolute inset-x-0 top-0 z-20 h-[120px] bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
-        {/* Bottom gradient for title readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
             <div className="flex items-center gap-3 mb-4">
