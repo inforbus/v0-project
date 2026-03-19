@@ -298,7 +298,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           <Header navItems={navItems} variant="overlay" />
         </div>
         <Image
-          src={caseItem.photo.replace("w=800", "w=1920")}
+          src="/images/case-detail-banner.png"
           alt={caseItem.title}
           fill
           className="object-cover"
