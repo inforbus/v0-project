@@ -51,7 +51,7 @@ export function OtherCases({ cases, currentSlug }: OtherCasesProps) {
           {otherCases.map((relatedCase) => (
             <Link
               key={relatedCase.slug}
-              href={`/cases/${relatedCase.slug}/`}
+              href={`/cases/${relatedCase.slug}`}
               className="group relative flex-shrink-0 overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg w-[300px] md:w-[350px] lg:w-[380px] 3xl:w-[420px]"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
