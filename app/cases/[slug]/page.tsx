@@ -150,7 +150,7 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "迁移策略",
-        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最���迁移。",
+        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最终迁移。",
         image: "/images/cases/core-capability.jpg",
       },
       {
@@ -286,12 +286,12 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
   return (
     <div className="min-h-screen w-full bg-background">
       {/* Hero Banner with Header overlay */}
-      <section className="relative h-[300px] overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">
+      <section className="relative h-[240px] overflow-hidden md:h-[280px] lg:h-[320px] 3xl:h-[380px]">
         <div className="absolute inset-x-0 top-0 z-30">
           <Header navItems={navItems} variant="overlay" />
         </div>
         <Image
-          src={(caseItem.bannerPhoto || caseItem.photo).replace("w=800", "w=1920")}
+          src={caseItem.photo.replace("w=800", "w=1920")}
           alt={caseItem.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
