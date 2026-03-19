@@ -436,6 +436,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
                     src={section.image}
                     alt={section.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 45vw"
                     className="object-contain"
                   />
                 </div>
