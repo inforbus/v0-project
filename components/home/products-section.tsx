@@ -9,7 +9,7 @@ const products = [
     title: "基础中间件",
     desc: "企业级基础设施的核心支撑平台",
     icon: "/images/icon-25.png",
-    href: "/middleware",
+    href: "/middleware/",
     items: [
       { name: "应用服务器", href: "/middleware" },
       { name: "负载均衡软件", href: "/middleware/load-balancer" },
