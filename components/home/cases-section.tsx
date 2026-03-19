@@ -8,7 +8,7 @@ import { cases } from "@/lib/cases-data"
 function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: number }) {
   return (
     <ScrollReveal delay={index * 80}>
-      <Link href={`/cases/${caseItem.slug}/`} className="group relative block cursor-pointer overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-foreground/[0.06]">
+      <Link href={`/cases/${caseItem.slug}`} className="group relative block cursor-pointer overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-foreground/[0.06]">
         {/* Fixed-height photo area */}
         <div className="relative overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
           <img
