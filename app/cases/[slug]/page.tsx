@@ -302,8 +302,8 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
           {/* Title */}
           <h1
-            className="font-sans font-bold text-white"
-            style={{ fontSize: 'clamp(18px, 2.5vw, 36px)', lineHeight: '1.3' }}
+            className="font-sans font-bold text-[#332C2B]"
+            style={{ fontSize: 'clamp(24px, 3.5vw, 48px)', lineHeight: '1.3', maxWidth: '60%' }}
           >
             {caseItem.title}
           </h1>
@@ -311,23 +311,23 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           {/* Red accent line */}
           <div
             className="bg-[#BF1920]"
-            style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+            style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(12px, 1.5vw, 24px)' }}
           />
 
           {/* Subtitle 1 - Tag */}
           <p
-            className="font-sans font-normal text-white"
-            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.9, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
+            className="font-sans font-normal text-[#332C2B]"
+            style={{ fontSize: 'clamp(12px, 1.1vw, 16px)', lineHeight: '1.6', opacity: 0.85, marginTop: 'clamp(10px, 1vw, 16px)' }}
           >
             {caseItem.tag}
           </p>
 
-          {/* Subtitle 2 - Metrics */}
+          {/* Subtitle 2 - Description */}
           <p
-            className="font-sans font-normal text-white"
-            style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.9, marginTop: 'clamp(4px, 0.6vw, 8px)' }}
+            className="font-sans font-normal text-[#332C2B]"
+            style={{ fontSize: 'clamp(12px, 1.1vw, 16px)', lineHeight: '1.6', opacity: 0.85, marginTop: 'clamp(4px, 0.5vw, 8px)', maxWidth: '70%' }}
           >
-            {caseItem.metrics}
+            {caseItem.desc}
           </p>
         </div>
       </section>
