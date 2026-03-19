@@ -59,7 +59,6 @@ export function OnlineServiceWidget() {
           alt="在线服务"
           width={36}
           height={32}
-          loading="eager"
           className="object-contain"
         />
         {/* Vertical text "在线服务" - centered horizontally via flexbox */}

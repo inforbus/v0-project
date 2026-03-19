@@ -101,6 +101,7 @@ export function CasesTabs({ defaultCategory = 'all' }: CasesTabsProps) {
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                     <span className="absolute left-3 top-3 inline-block rounded-full bg-white/90 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/70 backdrop-blur-sm 3xl:text-xs">
                       {caseItem.tag}
                     </span>

@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal"
 export function ProductIntro() {
   return (
     <section className="relative overflow-hidden bg-white px-4 py-12 md:py-16 lg:px-0 lg:py-[80px] lg:pt-[80px] 3xl:py-[120px] 3xl:pt-[121px]">
-      <div className="pointer-events-none hidden absolute inset-0 h-full w-full">
+      <div className="pointer-events-none absolute inset-0 h-full w-full opacity-50">
         <Image src="/images/section-bg-wave.png" alt="" fill sizes="100vw" className="object-cover" style={{ mixBlendMode: "soft-light" }} loading="eager" />
       </div>
       <div className="pointer-events-none absolute left-[3%] top-[12%] h-3 w-3 rounded-full bg-[#BF1920]/10 blur-[1px]" style={{ animation: "particle-float 7s ease-in-out infinite" }} />
