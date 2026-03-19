@@ -6,6 +6,7 @@ export const cases = [
     tag: "企业",
     desc: "为央企构建全栈式自主可控的中间件统一管理平台，实现中间件产品和服务的标准化管理",
     photo: "/images/case-central-enterprise-thumbnail.jpg",
+    bannerPhoto: "/images/case-central-enterprise.jpg",
     metrics: "企业级",
   },
   {
