@@ -8,6 +8,13 @@ import { OtherCases } from "@/components/cases/other-cases"
 import { getNavItems } from "@/components/shared/nav-data"
 import { cases } from "@/lib/cases-data"
 
+// 静态导出时生成所有案例页面
+export function generateStaticParams() {
+  return cases.map((c) => ({
+    slug: c.slug,
+  }))
+}
+
 /* ── Extended case detail data ─────────────────────────────── */
 const caseDetails: Record<
   string,
@@ -150,7 +157,7 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "迁移策略",
-        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最终迁移。",
+        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最���迁移。",
         image: "/images/cases/core-capability.jpg",
       },
       {

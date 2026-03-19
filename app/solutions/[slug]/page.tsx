@@ -7,6 +7,13 @@ import { Footer } from "@/components/shared/footer"
 import { getNavItems } from "@/components/shared/nav-data"
 import { solutions } from "@/lib/solutions-data"
 
+// 静态导出时生成所有解决方案页面
+export function generateStaticParams() {
+  return solutions.map((s) => ({
+    slug: s.slug,
+  }))
+}
+
 export default async function SolutionDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const solution = solutions.find((s) => s.slug === slug)
