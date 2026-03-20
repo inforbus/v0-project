@@ -16,7 +16,7 @@ function MegaMenu({ item }: { item: NavItem }) {
         <div className="flex">
           {/* Left sidebar - Category list */}
           <div className="w-[180px] border-r border-border bg-slate-50 py-2">
-            {item.children.map((category, idx) => (
+            {item.children?.map((category, idx) => (
               <button
                 key={idx}
                 type="button"
@@ -36,10 +36,10 @@ function MegaMenu({ item }: { item: NavItem }) {
           {/* Right content - Subcategories */}
           <div className="flex-1 p-6">
             <h3 className="text-base font-semibold text-foreground mb-4 pb-2 border-b border-border">
-              {item.children[activeCategory]?.name}
+              {item.children?.[activeCategory]?.name}
             </h3>
             <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-              {item.children[activeCategory]?.children?.map((subItem, subIdx) => (
+              {item.children?.[activeCategory]?.children?.map((subItem, subIdx) => (
                 <Link
                   key={subIdx}
                   href={subItem.href}
@@ -62,7 +62,7 @@ function DropdownMenu({ item }: { item: NavItem }) {
     <div className="pointer-events-none absolute left-0 top-full z-50 pt-2 opacity-0 transition-all duration-200 group-hover/nav:pointer-events-auto group-hover/nav:opacity-100">
       <div className="overflow-hidden rounded-lg border border-border bg-background shadow-xl">
         <div className="flex flex-col py-1">
-          {item.children.map((child, cIdx) => (
+          {item.children?.map((child, cIdx) => (
             <Link
               key={cIdx}
               href={child.href}
@@ -112,7 +112,7 @@ function MobileNavItem({ item }: { item: NavItem }) {
       </div>
       {hasChildren && expanded && (
         <div className="pb-2 pl-4">
-          {item.children.map((child, cIdx) => (
+          {item.children?.map((child, cIdx) => (
             <MobileSubNavItem key={cIdx} item={child} />
           ))}
         </div>
@@ -156,7 +156,7 @@ function MobileSubNavItem({ item }: { item: NavItem }) {
       </div>
       {hasChildren && expanded && (
         <div className="pb-2 pl-4">
-          {item.children.map((grandchild, gcIdx) => (
+          {item.children?.map((grandchild, gcIdx) => (
             <Link
               key={gcIdx}
               href={grandchild.href}
@@ -203,7 +203,7 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
           <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12">
             {items.map((item, index) => (
               <div key={index} className="group/nav relative">
-                {item.href && item.children.length === 0 ? (
+                {item.href && item.children?.length === 0 ? (
                   <Link
                     href={item.href}
                     className={`flex items-center gap-1.5 whitespace-nowrap py-2.5 text-sm font-medium transition-colors duration-200 ${
@@ -232,11 +232,11 @@ export function Header({ variant = "default", isDarkBg = false, activePath = "/"
                     }`}
                   >
                     {item.name}
-                    {item.children.length > 0 && <ChevronDown size={14} />}
+                    {item.children && item.children.length > 0 && <ChevronDown size={14} />}
                   </button>
                 )}
 
-                {item.children.length > 0 && (
+                {item.children && item.children.length > 0 && (
                   item.isMega ? (
                     <MegaMenu item={item} />
                   ) : (

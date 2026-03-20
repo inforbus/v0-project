@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 export function getNavItems(activePath?: string): NavItem[] {
-  const items: NavItem[] = [
+  return [
     {
       name: "首页",
       href: "/",
@@ -18,7 +18,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     {
       name: "产品中心",
       href: "",
-      active: activePath === "/products" || activePath.startsWith("/middleware") || activePath.startsWith("/digital-platform") || activePath.startsWith("/paas") || activePath.startsWith("/iot") || activePath.startsWith("/security"),
+      active: activePath === "/products" || activePath?.startsWith("/middleware") || activePath?.startsWith("/digital-platform") || activePath?.startsWith("/paas") || activePath?.startsWith("/iot") || activePath?.startsWith("/security"),
       children: [
         {
           name: "基础中间件",
@@ -87,7 +87,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     {
       name: "解决方案",
       href: "",
-      active: activePath === "/solutions" || activePath.startsWith("/solutions"),
+      active: activePath === "/solutions" || activePath?.startsWith("/solutions"),
       children: [
         { name: "AI 智能体管理平台解决方案", href: "/solutions/ai-agent" },
         { name: "信创中间件双活容灾解决方案", href: "/solutions/disaster-recovery" },
@@ -100,14 +100,14 @@ export function getNavItems(activePath?: string): NavItem[] {
     {
       name: "典型案例",
       href: "/cases",
-      active: activePath === "/cases" || activePath.startsWith("/cases"),
+      active: activePath === "/cases" || activePath?.startsWith("/cases"),
       children: [],
       isMega: false,
     },
     {
       name: "服务与支持",
       href: "",
-      active: activePath === "/support" || activePath.startsWith("/support"),
+      active: activePath === "/support" || activePath?.startsWith("/support"),
       children: [
         { name: "在线服务", href: "/support/online" },
         { name: "认证证书", href: "/support/certification" },
@@ -120,7 +120,7 @@ export function getNavItems(activePath?: string): NavItem[] {
     {
       name: "关于我们",
       href: "",
-      active: activePath === "/about" || activePath === "/news/company" || activePath.startsWith("/about"),
+      active: activePath === "/about" || activePath === "/news/company" || activePath?.startsWith("/about"),
       children: [
         { name: "公司介绍", href: "/about/introduction" },
         { name: "公司荣誉", href: "/about/honors" },
@@ -132,5 +132,4 @@ export function getNavItems(activePath?: string): NavItem[] {
       isMega: false,
     },
   ]
-  return items
 }

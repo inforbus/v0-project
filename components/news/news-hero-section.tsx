@@ -3,10 +3,9 @@
 import { useMemo } from "react"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
-import type { NavItem } from "@/components/shared/nav-data"
 
 export function NewsHeroSection() {
-  const navItems: NavItem[] = useMemo(() => getNavItems("/news/company"), [])
+  const navItems = useMemo(() => getNavItems("/news/company"), [])
   
   return (
     <div className="relative h-[300px] w-full overflow-hidden md:h-[380px] lg:h-[420px] 3xl:h-[554px]">

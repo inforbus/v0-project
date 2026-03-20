@@ -9,15 +9,6 @@ function ParticleField() {
   return null
 }
 
-interface BannerSlide {
-  type: "video" | "image"
-  src: string
-  fallback: string
-  alt: string
-  hideVideo?: boolean
-  imageStyle?: string
-}
-
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
@@ -47,27 +38,36 @@ function ScrollProgress() {
   )
 }
 
+interface BannerSlide {
+  type: "video" | "image"
+  src: string
+  fallback?: string
+  alt: string
+  hideVideo?: boolean
+  imageStyle?: string
+}
+
 const bannerSlides: BannerSlide[] = [
   {
-    type: "video" as const,
+    type: "video",
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4",
     fallback: "/images/banner/banner-3.png",
     alt: "全球AI布局",
   },
   {
-    type: "image" as const,
+    type: "image",
     src: "/images/banner/banner-2.png",
     fallback: "",
     alt: "中创智能体中间件",
   },
   {
-    type: "image" as const,
+    type: "image",
     src: "/images/banner/banner-1.png",
     fallback: "",
     alt: "中创API网关软件",
   },
   {
-    type: "image" as const,
+    type: "image",
     src: "/images/banner/banner-4.png",
     fallback: "",
     alt: "数据安全云服务",
@@ -240,7 +240,6 @@ export function HeroSection() {
                 suppressHydrationWarning
                 className="mt-[8px] text-[10px] text-black/70 sm:mt-[10px] sm:text-[12px] md:mt-[12px] md:text-[14px] lg:mt-[14px] lg:text-[16px] xl:mt-[16px] xl:text-[18px] 2xl:mt-[18px] 2xl:text-[20px] 3xl:mt-[20px] 3xl:text-[22px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
-                suppressHydrationWarning
               >
                 {`为企业提供快速、安全、敏捷的AI应用部署能力`}
               </p>
@@ -280,7 +279,6 @@ export function HeroSection() {
                 suppressHydrationWarning
                 className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
-                suppressHydrationWarning
               >
                 {`一站式流量管控与AI赋能，让智能更简单`}
               </p>

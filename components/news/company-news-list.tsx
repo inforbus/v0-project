@@ -3,17 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-interface NewsItem {
-  id: number
-  title: string
-  date: string
-  month: string
-  year: string
-  description: string
-  image: string
-}
-
-const allNews: NewsItem[] = [
+const allNews = [
   {
     id: 1,
     title: '万马奔腾启新程：中创股份交出高质量蛇年答卷',
