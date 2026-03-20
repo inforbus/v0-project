@@ -51,7 +51,7 @@ export function CasesCarousel() {
                   <div className="group relative h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)] transition-all duration-500 hover:-translate-y-3 hover:scale-105 hover:shadow-[0px_12px_40px_rgba(191,25,32,0.3)] 3xl:h-[500px]">
                     <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
                     <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60 transition-opacity duration-500 group-hover:opacity-100">
-                      <Image src={card.image || "/placeholder.svg"} alt="" fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <Image src={card.image || "/placeholder.svg"} alt="" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                     </div>
                     <div className="absolute inset-0 h-full w-full rounded-xl bg-white/90 transition-all duration-500 group-hover:bg-[rgba(191,25,32,0.82)] group-hover:backdrop-blur-[10px]" />
                     <div className="absolute bottom-6 right-6 opacity-60 transition-all duration-500 group-hover:opacity-80 group-hover:scale-105">
@@ -76,7 +76,7 @@ export function CasesCarousel() {
               <div key={idx} className="w-[280px] flex-shrink-0 snap-start">
                 <div className="group relative h-[380px] w-full cursor-pointer overflow-hidden rounded-xl shadow-[0px_0px_20px_rgba(40,38,38,0.09)]">
                   <div className="absolute inset-0 h-full w-full rounded-xl bg-white" />
-                  <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60"><Image src={card.image || "/placeholder.svg"} alt="" fill className="object-cover" /></div>
+                  <div className="pointer-events-none absolute inset-0 h-full w-full opacity-60"><Image src={card.image || "/placeholder.svg"} alt="" fill sizes="(max-width: 768px) 100vw, 280px" className="object-cover" /></div>
                   <div className="absolute inset-0 h-full w-full rounded-xl bg-white/90" />
                   <div className="absolute bottom-6 right-6 opacity-60"><Image src="/images/subtract-icon.png" alt="" width={217} height={200} className="h-[180px] w-[195px] object-contain" /></div>
                   <div className="relative z-10 p-5">

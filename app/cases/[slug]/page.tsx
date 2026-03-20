@@ -4,8 +4,16 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
+import { OtherCases } from "@/components/cases/other-cases"
 import { getNavItems } from "@/components/shared/nav-data"
 import { cases } from "@/lib/cases-data"
+
+// 静态导出时生成所有案例页面
+export function generateStaticParams() {
+  return cases.map((c) => ({
+    slug: c.slug,
+  }))
+}
 
 /* ── Extended case detail data ─────────────────────────────── */
 const caseDetails: Record<
@@ -19,6 +27,41 @@ const caseDetails: Record<
     contentSections: { title: string; text: string; image?: string }[]
   }
 > = {
+  "central-enterprise-middleware-platform": {
+    background:
+      "某电力企业中间件数量和版本日益增多，授权管理分散，异地灾备可控性差，传统人工运维效率低、风险高，因此亟需建设统一中间件管理平台，实现版本、授权、实例和灾备统一管控，提高运维效率和业务可靠性。",
+    challenge: [
+      "中间件版本众多且缺乏全局可视化，难以统一掌控与分析使用情况",
+      "中间件授权信息分布分散，使用统计依赖人工，准确性难以保障",
+      "中间件实例数量庞大，缺乏统一管控和配置基线管理手段",
+      "中间件灾备切换可控性不足，效率低，缺乏集中管控机制",
+    ],
+    solution: [
+      "统一版本管理：建立统一版本库，实时统计产品使用情况",
+      "集中授权统计：集中管理授权信息，实现自动汇总与使用监控",
+      "实例统一管控：实现中间件实例集中监控、配置基线与生命周期管理",
+      "可控灾备切换：提供控制灾备切换界面与自动切换策略、高效的中间件高可用部署以及灾备切换功能，保障业务连续",
+    ],
+    results: [
+      { label: "全局中间件实例", value: "2000+" },
+      { label: "管理效率提升", value: "30%+" },
+      { label: "人工工作量降低", value: "80%" },
+      { label: "灾备切换效率提升", value: "2倍+" },
+    ],
+    techStack: ["InforSuite AS", "InforSuite LB"],
+    contentSections: [
+      {
+        title: "项目架构",
+        text: "平台采用微服务架构，通过虚拟机 Agent 与容器 Operator 分别实现虚拟机和容器环境下中间件的全生命周期管理；结合 Prometheus、Grafana 和 AlertManager 提供统一的监控与告警能力。",
+        image: "/images/cases/central-architecture.png",
+      },
+      {
+        title: "核心能力",
+        text: "平台提供中间件全生命周期管理能力，包括产品统一管理、实例部署与启停、状态监控与巡检、配置基线管理、告警与策略执行，以及异地灾备保障，实现跨环境统一运维与业务连续性。",
+        image: "/images/cases/central-capabilities.png",
+      },
+    ],
+  },
   "telecom-big-data-platform": {
     background:
       "通信大数据行程卡是由工信部指导、三大运营商联合开发的公益性出行服务平台。在疫情防控期间，该平台需要承载全国超6亿用户的实时行程查询需求，日均查询量峰值超过10亿次。面对如此大规模的高并发请求，传统的中间件架构已无法满足业务需求，亟需一套高性能、高可靠的国产中间件技术体系来支撑平台的稳定运行。",
@@ -45,12 +88,12 @@ const caseDetails: Record<
       {
         title: "项目架构",
         text: "整体采用分布式微服务架构，前端通过负载均衡接入，后端由应用服务器集群承载业务逻辑，消息中间件负责数据异步流转，分布式缓存层保障查询性能。各层组件均实现高可用冗余部署，确保单点故障不影响整体服务。",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format",
+        image: "/images/cases/architecture.jpg",
       },
       {
         title: "核心能力",
         text: "平台具备弹性伸缩、智能路由、熔断降级、灰度发布等核心能力。在流量洪峰期间，系统可自动扩展计算资源；当下游服务异常时，熔断机制自动切换至备用链路，保障核心查询服务不受影响。",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80&auto=format",
+        image: "/images/cases/core-capability.jpg",
       },
     ],
   },
@@ -79,19 +122,19 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "平台架构",
-        text: "平台采用「一平台、多中心」的架构设计，以数据集成平台为核心，构建数据采集中心、数据治理中心、数据共享中心和数据分析中心，形成完整的政务数据生命周期管理能力。",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format",
+        text: "平台采用「一平台、多中心」的架构��计，以数据集成平台为核心，构建数据采集中心、数据治理中心、数据共享中心和数据分析中心，形成完整的政务数据生命周期管理能力。",
+        image: "/images/cases/platform-architecture.jpg",
       },
       {
         title: "安全保障",
         text: "平台全面采用国产密码算法，实现数据传输加密、存储加密和访问控制，满足等保三级安全要求。同时通过细粒度的权限管理和操作审计，确保政务数据的安全可控。",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80&auto=format",
+        image: "/images/cases/security.jpg",
       },
     ],
   },
   "core-middleware-replacement": {
     background:
-      "某大型电信运营商在全国20多个省公司运营着CRM（客户关系管理）和BOSS（业务运营支撑）等核心业务系统，长期依赖国外中间件产品。为响应国家信创战略，需要在不影响业务连续性的前提下，完成核心系统中间件的全面国产化替换。",
+      "某大型电信运营商在全���20多个省公司运营着CRM（客户关系管理）和BOSS（业务运营支撑）等核心业务系统，长期依赖国外中间件产品。为响应国家信创战略，需要在不影响业务连续性的前提下，完成核心系统中间件的全面国产化替换。",
     challenge: [
       "涉及20多个省公司，替换规模大、协调难度高",
       "CRM/BOSS为核心系统，不允许出现业务中断",
@@ -99,9 +142,9 @@ const caseDetails: Record<
       "替换后性能不能低于原有系统指标",
     ],
     solution: [
-      "制定分省分批的渐进式替换策略，降低整体风险",
-      "中创InforSuite AS实现与原有中间件的API级兼容，无需修改业务代码",
-      "通过灰度发布机制，逐步切换流量至国产中间件",
+      "制定分省分批的渐进式替换策略，降低整体风��",
+      "中创InforSuite AS实现��原有中间件的API级兼容，无需修改业务代码",
+      "通过灰度发布机制，��步切换流量至国产中间件",
       "部署中创统一管理平台，实现替换过程的全程监控与性能对比",
     ],
     results: [
@@ -114,19 +157,19 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "迁移策略",
-        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性的依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最终迁移。",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80&auto=format",
+        text: "采用「评估-适配-验证-切换」四步迁移法，先通过自动化工具评估现有应用对中间件特性���依赖情况，再进行针对性适配，经过全量压力测试验证后，通过流量灰度切换完成最���迁移。",
+        image: "/images/cases/core-capability.jpg",
       },
       {
         title: "性能优化",
-        text: "通过JVM调优、连接池优化、异步处理等技术手段，替换后的系统在相同硬件条件下，整体性能提升15%，TPS（每秒事务处理量）提升20%，充分证明了国产中间件的技术竞争力。",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format",
+        text: "通过JVM���优、连接池优化、异步处理等技术手段，替换后的系统在相同硬件条件下，整体性能提升15%，TPS（每秒事务处理量）提升20%，充分证明了国产中间件的技术竞争力。",
+        image: "/images/cases/architecture.jpg",
       },
     ],
   },
   "intelligent-monitoring-platform": {
     background:
-      "某大型国有银行的核心交易系统日均处理千万级交易，传统的监控手段已无法满足实时性和智能化的要求。为保障金融交易的安全与稳定，需要建设一套全链路智能监控分析平台，实现从应用层到基础设施层的全方位监控预警与智能诊断。",
+      "某大型国有银行的核心交易系统日均处理千万级交易，传统的监控手段已无法满足实时性和智能化的要求。为保障金融交易的安全与稳定，需要建设一套全链路智能监控分析平台，��现从应用层到基础设施层的全方位监控预警与智能诊断。",
     challenge: [
       "千万级交易的实时监控，数据采集与处理压力巨大",
       "监控维度多、告警规则复杂，人工分析效率低",
@@ -149,8 +192,13 @@ const caseDetails: Record<
     contentSections: [
       {
         title: "监控架构",
-        text: "平台采用「采集-传输-存储-分析-展示」五层架构，通过无侵�����探针实现应用性能数据的自动采集，经消息中间件实时传输至分析引擎，结合时序数据库和知识图谱技术实现智能诊断与可视化展示。",
-        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80&auto=format",
+        text: "平台采用「采集-传输-存储-分析-展示」五层架构，通过无侵入探针实现应用性能数据的自动采集，经消息中间件实时传输至分析引擎，结合时序数据库和知识图谱技术实现智能诊断与可视化展示。",
+        image: "/images/diagrams/middleware-arch.png",
+      },
+      {
+        title: "智能分析",
+        text: "引入���器学习算法，对历史告警数据进行建模训练，实现异常模式的自动识别和根因的快速定位。系统可自动关联上下游调用链，将故障排查时间从小时级缩短至分钟级。",
+        image: "/images/diagrams/ai-agent-arch.png",
       },
       {
         title: "智能分析",
@@ -185,18 +233,18 @@ const caseDetails: Record<
       {
         title: "适配体系",
         text: "构建了覆盖鲲鹏、飞腾、龙芯、海光、兆芯、申威等六大国产芯片平台的全面适配体系。与麒麟、统信等国产操作系统，以及达梦、人大金仓等国产数据库完成深度适配，确保全栈国产化环境下的稳定运行。",
-        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&q=80&auto=format",
+        image: "/images/cases/security.jpg",
       },
       {
         title: "部署方案",
         text: "针对不同规模的金融机构，提供从单机版到集群版、从物理部署到容器化部署的多种选择。通过标准化的部署工具和自动化脚本，将中间件部署时间从天级缩短至小时级。",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?w=1200&q=80&auto=format",
+        image: "/images/cases/security.jpg",
       },
     ],
   },
   "intelligent-ops-platform": {
     background:
-      "某大型能源集团在全国运营着数百套业务系统，中间件运维主要依赖人工巡检和被动响应，运维效率低、成本高。为实现降本增效，需要建设一套智能化的中间件运维管理平台，实现从被动运维到主动运维的转变。",
+      "某大型能源集团在全国运营着数百套业务系统，中间件运维主要依赖人工巡检和被动响应，运维效率低、成本高。为实现降���增效，需要建设一套智能化的中间件运维管理平台，实现从被动运维到主动运维��转变。",
     challenge: [
       "系统分布广泛，跨多个数据中心和地域",
       "中间件类型多样，版本众多，管理复杂",
@@ -205,27 +253,27 @@ const caseDetails: Record<
     ],
     solution: [
       "部署中创统一管理平台实现全国范围的集中监控与管理",
-      "建立自动化巡检和健康检查机制，变被动为主动",
-      "引入智能告警策略，实现告警压缩与分级处理",
+      "建立自动化巡检和健康检查机制，变��动为主动",
+      "引入���能告警策略，实现告警压缩与分级处理",
       "构建运维知识库，辅助运维人员快速定位和解决问题",
     ],
     results: [
-      { label: "运维成本降低", value: "40%" },
+      { label: "运维成��降低", value: "40%" },
       { label: "故障发现时间", value: "<3min" },
       { label: "管理系统数", value: "数百套" },
-      { label: "自动化巡检覆盖", value: "100%" },
+      { label: "��动化巡检覆盖", value: "100%" },
     ],
     techStack: ["InforSuite UMP", "InforSuite AS", "InforSuite MQ"],
     contentSections: [
       {
-        title: "运维架构",
+        title: "���维架构",
         text: "平台采用「总部-区域」两级架构，总部平台负责全局监控、策略管理和数据分析，区域节点负责本地数据采集和指令执行。两级之间通过消息中间件实现数据的可靠传输与同步。",
-        image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80&auto=format",
+        image: "/images/diagrams/middleware-arch.png",
       },
       {
         title: "智能运维",
         text: "通过历史运维数据的深度挖掘，建立故障预测模型和容量规划模型。系统可自动识别潜在风险并提前告警，同时根据资源使用趋势给出扩容建议，实现真正的预测性运维。",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format",
+        image: "/images/diagrams/ai-agent-arch.png",
       },
     ],
   },
@@ -250,31 +298,27 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           <Header navItems={navItems} variant="overlay" />
         </div>
         <Image
-          src={caseItem.photo.replace("w=800", "w=1920")}
+          src="/images/case-detail-banner.png"
           alt={caseItem.title}
           fill
           className="object-cover"
           priority
         />
-        {/* Top gradient for header readability */}
-        <div className="absolute inset-x-0 top-0 z-20 h-[120px] bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
-        {/* Bottom gradient for title readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex items-end">
           <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-block rounded-full bg-[#BF1920] px-4 py-1 text-xs font-medium text-white 3xl:px-5 3xl:py-1.5 3xl:text-sm">
                 {caseItem.tag}
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs text-white/80 backdrop-blur-sm 3xl:px-4 3xl:py-1.5 3xl:text-sm">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs text-black/80 backdrop-blur-sm 3xl:px-4 3xl:py-1.5 3xl:text-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#BF1920]" />
                 {caseItem.metrics}
               </span>
             </div>
-            <h1 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl 3xl:text-5xl">
+            <h1 className="text-2xl font-bold text-black md:text-3xl lg:text-4xl 3xl:text-5xl">
               {caseItem.title}
             </h1>
-            <p className="mt-3 max-w-2xl text-sm text-white/70 md:text-base 3xl:mt-4 3xl:text-lg">
+            <p className="mt-3 max-w-2xl text-sm text-black/70 md:text-base 3xl:mt-4 3xl:text-lg">
               {caseItem.desc}
             </p>
           </div>
@@ -378,14 +422,15 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         {detail.contentSections.map((section, idx) => (
           <section key={idx} className="mb-12 lg:mb-16 3xl:mb-20">
             <SectionTitle>{section.title}</SectionTitle>
-            <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+            <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx === 0 ? "lg:flex-row" : idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
               {section.image && (
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl lg:w-1/2">
+                <div className="relative h-[300px] w-full overflow-hidden rounded-2xl bg-muted/50 lg:h-[280px] lg:w-[45%] 3xl:h-[320px]">
                   <Image
                     src={section.image}
                     alt={section.title}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    className="object-contain"
                   />
                 </div>
               )}
@@ -400,7 +445,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
 
         {/* Tech Stack */}
         <section className="mb-12 lg:mb-16 3xl:mb-20">
-          <SectionTitle>相关产品</SectionTitle>
+          <SectionTitle>技术栈</SectionTitle>
           <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
             {detail.techStack.map((tech, idx) => (
               <span
@@ -413,53 +458,8 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           </div>
         </section>
 
-        {/* Related Cases */}
-        <section>
-          <SectionTitle>相关案例</SectionTitle>
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 3xl:mt-8 3xl:gap-6">
-            {cases
-              .filter((c) => c.slug !== slug)
-              .slice(0, 3)
-              .map((relatedCase) => (
-                <Link
-                  key={relatedCase.slug}
-                  href={`/cases/${relatedCase.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={relatedCase.photo}
-                      alt={relatedCase.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                    <span className="absolute left-3 top-3 inline-block rounded-full bg-white/90 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/70 backdrop-blur-sm 3xl:text-xs">
-                      {relatedCase.tag}
-                    </span>
-                  </div>
-                  <div className="p-4 3xl:p-5">
-                    <h4 className="text-sm font-bold text-foreground transition-colors duration-300 group-hover:text-[#BF1920] md:text-base 3xl:text-lg">
-                      {relatedCase.title}
-                    </h4>
-                  </div>
-                </Link>
-              ))}
-          </div>
-        </section>
-
-        {/* Back to Home CTA */}
-        <div className="mt-12 flex justify-center lg:mt-16 3xl:mt-20">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-2.5 text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-[#BF1920]/30 hover:text-[#BF1920] 3xl:px-8 3xl:py-3 3xl:text-base"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="rotate-180">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            返回首页
-          </Link>
-        </div>
+        {/* Other Cases */}
+        <OtherCases cases={cases} currentSlug={slug} />
       </main>
 
       <Footer />

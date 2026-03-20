@@ -1,41 +1,74 @@
-import React from "react"
-import Image from "next/image"
+import React, { memo } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
 const row1 = [
-  { img: "/images/honor-excellence.jpg", title: "中国电子信息行业卓越企业", num: "01" },
-  { img: "/images/honor-cmmi.jpg", title: "CMMI DEV 5级认证", num: "02" },
-  { img: "/images/honor-xinchuang.jpg", title: "信创工委会卓越贡献成员单位", num: "03" },
-  { img: "/images/honor-innovation.jpg", title: "中国十大创新软件企业", num: "04" },
-  { img: "/images/honor-middleware.jpg", title: "推动中间件软件杰出贡献奖", num: "05" },
+  { img: "/images/honors/honor-01.jpg", title: "信息技术应用创新工作委员会技术活动单位", num: "01" },
+  { img: "/images/honors/honor-02.jpg", title: "2025年度未来产业之星上市公司", num: "02" },
+  { img: "/images/honors/honor-03.jpg", title: "2025年度卓越贡献成员单位", num: "03" },
+  { img: "/images/honors/honor-04.jpg", title: "2024-2025年度考核等级优秀", num: "04" },
+  { img: "/images/honors/honor-05.jpg", title: "信创数智技术服务能力一级-数据服务能力", num: "05" },
+  { img: "/images/honors/honor-06.jpg", title: "新型智慧城市优秀解决方案", num: "06" },
+  { img: "/images/honors/honor-07.jpg", title: "山东省数据治理优秀产品", num: "07" },
+  { img: "/images/honors/honor-08.jpg", title: "第六届济南市网络安全技术支撑单位", num: "08" },
+  { img: "/images/honors/honor-09.jpg", title: "2025年度名牌企业", num: "09" },
+  { img: "/images/honors/honor-10.jpg", title: "2024年创新软件产品", num: "10" },
+  { img: "/images/honors/honor-11.jpg", title: "2024年创新典型解决方案", num: "11" },
+  { img: "/images/honors/honor-12.jpg", title: "2024数字生态中间件领军企业", num: "12" },
+  { img: "/images/honors/honor-13.jpg", title: "ITSS信息技术服务分会会员单位", num: "13" },
 ]
 
 const row2 = [
-  { img: "/images/honor-science.jpg", title: "山东省科学技术进步二等奖", num: "06" },
-  { img: "/images/honor-iso.jpg", title: "ISO9001质量体系认证", num: "07" },
-  { img: "/images/honor-brand.jpg", title: "信创可靠企业核心软件品牌", num: "08" },
-  { img: "/images/honor-jakarta.jpg", title: "Jakarta EE工作组企业级会员单位", num: "09" },
+  { img: "/images/honors/honor-14.jpg", title: "金鼎筑基奖", num: "14" },
+  { img: "/images/honors/honor-15.jpg", title: "2025年度竞争力百强企业", num: "15" },
+  { img: "/images/honors/honor-16.jpg", title: "信创工程实施能力一级证书", num: "16" },
+  { img: "/images/honors/honor-17.jpg", title: "2025年AI Cloud创新应用实践", num: "17" },
+  { img: "/images/honors/honor-18.jpg", title: "2024网络产品安全能力提升计划", num: "18" },
+  { img: "/images/honors/honor-23.jpg", title: "中创智能体中间件", num: "23" },
 ]
 
-function HonorCard({ honor, prefix, hideNum = false }: { honor: (typeof row1)[0]; prefix: string; hideNum?: boolean }) {
+// 使用 memo 优化卡片组件，使用原生 img 避免 Next.js Image 的多尺寸请求
+const HonorCard = memo(function HonorCard({ honor }: { honor: (typeof row1)[0] }) {
   return (
-    <div className="group/honor relative flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-border/80 bg-background shadow-sm transition-all duration-500 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.06] md:w-[320px] 3xl:w-[380px]">
-      {!hideNum && <div className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-primary/15 bg-background/90 text-[10px] font-bold text-primary/60 shadow-sm backdrop-blur-sm transition-all duration-300 group-hover/honor:border-primary/40 group-hover/honor:bg-primary group-hover/honor:text-primary-foreground group-hover/honor:shadow-md 3xl:h-9 3xl:w-9 3xl:text-xs">{honor.num}</div>}
+    <div className="honor-card group/honor relative flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl border border-border/80 bg-background shadow-sm md:w-[320px] 3xl:w-[380px]">
       <div className="relative h-[160px] w-full overflow-hidden md:h-[175px] 3xl:h-[210px]">
-        <Image src={honor.img || "/placeholder.svg"} alt={honor.title} fill className="object-cover transition-transform duration-700 group-hover/honor:scale-110" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent" />
+        <img 
+          src={honor.img || "/placeholder.svg"} 
+          alt={honor.title} 
+          className="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div className="flex items-center gap-3 px-4 py-3.5 3xl:px-5 3xl:py-4">
-        <div className="h-4 w-[3px] flex-shrink-0 rounded-full bg-primary transition-all duration-300 group-hover/honor:h-5 group-hover/honor:shadow-[0_0_8px_rgba(191,25,32,0.4)]" />
-        <h4 className="text-sm font-medium text-foreground/80 transition-colors duration-300 group-hover/honor:text-foreground 3xl:text-base">{honor.title}</h4>
+        <div className="h-4 w-[3px] flex-shrink-0 rounded-full bg-primary" />
+        <h4 className="text-sm font-medium text-foreground/80 3xl:text-base">{honor.title}</h4>
       </div>
     </div>
   )
-}
+})
+
+// 使用 memo 包装，避免父组件重渲染导致子组件重新挂载
+const HonorMarqueeRow = memo(function HonorMarqueeRow({ honors, rowIdx }: { honors: typeof row1, rowIdx: number }) {
+  const isReverse = rowIdx === 1
+  
+  return (
+    <div className="honor-marquee-wrapper relative overflow-x-hidden">
+      <div 
+        className={`flex gap-5 3xl:gap-6 ${isReverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
+        style={{ width: 'max-content' }}
+      >
+        {honors.map((honor, i) => (
+          <HonorCard key={`${i}`} honor={honor} />
+        ))}
+      </div>
+    </div>
+  )
+})
 
 export function HonorsSection() {
   return (
     <section className="relative overflow-hidden bg-[#F7F8FA] py-16 md:py-20 lg:py-[90px] 3xl:py-[110px]">
+      {/* 简化背景装饰 - 移除多余的粒子动画 */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#BF1920]/[0.03] blur-[120px]" />
         <div className="absolute inset-0 opacity-[0.4]">
@@ -44,10 +77,6 @@ export function HonorsSection() {
             <rect width="100%" height="100%" fill="url(#honor-dots)" />
           </svg>
         </div>
-        <div className="absolute left-[8%] top-[20%] h-2 w-2 rounded-full bg-[#BF1920]/15" style={{ animation: "particle-float 6s ease-in-out infinite" }} />
-        <div className="absolute right-[12%] top-[30%] h-1.5 w-1.5 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 8s ease-in-out 1s infinite" }} />
-        <div className="absolute left-[15%] bottom-[25%] h-1 w-1 rounded-full bg-[#242222]/10" style={{ animation: "particle-float 7s ease-in-out 2s infinite" }} />
-        <div className="absolute right-[20%] bottom-[15%] h-2.5 w-2.5 rounded-full bg-[#BF1920]/10" style={{ animation: "particle-float 9s ease-in-out 0.5s infinite" }} />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
@@ -65,35 +94,13 @@ export function HonorsSection() {
         <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-20 bg-gradient-to-l from-[#F7F8FA] to-transparent md:w-32 lg:w-44" />
 
         <ScrollReveal delay={100}>
-          <div className="honor-marquee-wrapper relative">
-            <div className="honor-marquee-track flex gap-5 3xl:gap-6">
-              {[...Array(2)].map((_, setIdx) => row1.map((honor, i) => <HonorCard key={`r1-${setIdx}-${i}`} honor={honor} prefix="row1" hideNum={true} />))}
-            </div>
-          </div>
+          <HonorMarqueeRow honors={row1} rowIdx={0} />
         </ScrollReveal>
 
         <ScrollReveal delay={250}>
-          <div className="honor-marquee-wrapper relative">
-            <div className="honor-marquee-track-reverse flex gap-5 3xl:gap-6">
-              {[...Array(2)].map((_, setIdx) => row2.map((honor, i) => <HonorCard key={`r2-${setIdx}-${i}`} honor={honor} prefix="row2" hideNum={true} />))}
-            </div>
-          </div>
+          <HonorMarqueeRow honors={row2} rowIdx={1} />
         </ScrollReveal>
       </div>
-
-      <ScrollReveal delay={400}>
-        <div className="relative z-10 mx-auto mt-12 flex max-w-3xl items-center justify-center gap-8 px-4 md:gap-16 lg:mt-16 3xl:mt-20 3xl:max-w-4xl">
-          {[{ num: "30+", label: "年行业深耕" }, { num: "xxx+", label: "项荣誉奖项" }, { num: "xxx", label: "项核心认证" }].map((stat, i) => (
-            <React.Fragment key={i}>
-              {i > 0 && <div className="h-8 w-px bg-border" />}
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary md:text-3xl 3xl:text-4xl">{stat.num}</div>
-                <div className="mt-1 text-xs text-muted-foreground md:text-sm 3xl:text-base">{stat.label}</div>
-              </div>
-            </React.Fragment>
-          ))}
-        </div>
-      </ScrollReveal>
     </section>
   )
 }
