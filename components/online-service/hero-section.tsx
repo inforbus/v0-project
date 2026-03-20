@@ -14,7 +14,32 @@ export function OnlineServiceHeroSection() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      <Header navItems={navItems} variant="overlay" isDarkBg={true} />
+      <Header navItems={navItems} variant="overlay" isDarkBg={false} />
+
+      {/* Main title and subtitle text content */}
+      <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+        {/* Title */}
+        <h1
+          className="font-sans font-bold text-[#332C2B]"
+          style={{ fontSize: 'clamp(14px, 2vw, 28px)', lineHeight: '1.3' }}
+        >
+          在线服务
+        </h1>
+
+        {/* Red accent line */}
+        <div
+          className="bg-[#BF1920]"
+          style={{ width: 'clamp(40px, 4vw, 60px)', height: '3px', marginTop: 'clamp(8px, 1.2vw, 18px)' }}
+        />
+
+        {/* Subtitle */}
+        <p
+          className="font-sans font-normal text-[#332C2B]"
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', lineHeight: '1.5', opacity: 0.8, marginTop: 'clamp(6px, 0.8vw, 12px)' }}
+        >
+          您可将遇到的问题填写之后，我们会尽快安排专业人员进行回复
+        </p>
+      </div>
 
       {/* Buttons only */}
       <div className="absolute bottom-10 z-20 flex flex-row items-center gap-3 lg:bottom-14 3xl:bottom-20 3xl:gap-4" style={{ left: '21.7%' }}>
