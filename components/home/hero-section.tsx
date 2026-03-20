@@ -101,28 +101,30 @@ export function HeroSection() {
           >
             {slide.type === "video" ? (
               <>
-                <video
-                  src={slide.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
-                  onError={(e) => {
-                    try {
-                      e.currentTarget.style.display = "none"
-                      const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
-                      if (fallbackEl) fallbackEl.style.display = "block"
-                    } catch (error) {
-                      // Silently fail on error handler failure
-                    }
-                  }}
-                />
+                {!slide.hideVideo && (
+                  <video
+                    src={slide.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                    onError={(e) => {
+                      try {
+                        e.currentTarget.style.display = "none"
+                        const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
+                        if (fallbackEl) fallbackEl.style.display = "block"
+                      } catch (error) {
+                        // Silently fail on error handler failure
+                      }
+                    }}
+                  />
+                )}
                 {slide.fallback && (
                   <img
                     src={slide.fallback}
                     alt={slide.alt}
-                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} hidden`}
+                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} ${slide.hideVideo ? "block" : "hidden"}`}
                     onError={(e) => {
                       try {
                         e.currentTarget.style.display = "none"
