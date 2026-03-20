@@ -1,8 +1,9 @@
+import type { Metadata } from 'next'
 import { CasesHeroSection } from '@/components/cases/cases-hero'
 import { CasesTabs } from '@/components/cases/cases-tabs'
 import { Footer } from '@/components/shared/footer'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '政府案例 | 中创中间件',
   description: '中创中间件在政务领域的成功案例，支撑政府部门实现数据共享和公文流转。',
 }

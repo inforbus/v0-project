@@ -41,7 +41,7 @@ export function HonorsCarousel() {
   const visibleHonors = getVisibleHonors()
 
   // Card styles based on position
-  const getCardStyle = (position: number) => {
+  const getCardStyle = (position: number): { className: string; style: React.CSSProperties } => {
     const baseStyle = "absolute transition-all duration-500 ease-out cursor-pointer"
     
     switch (position) {

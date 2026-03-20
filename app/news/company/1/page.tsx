@@ -1,8 +1,9 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
 import Link from "next/link"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "万马奔腾启新程：中创股份交出高质量蛇年答卷 - 中创股份",
   description: "2026年开篇，中创股份满怀感恩和壮志，以技术突破、生态构建、市场拓展、荣誉认可等方面展现了过去一年的成果。",
 }

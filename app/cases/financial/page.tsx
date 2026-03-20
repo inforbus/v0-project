@@ -1,8 +1,9 @@
+import type { Metadata } from 'next'
 import { CasesHeroSection } from '@/components/cases/cases-hero'
 import { CasesTabs } from '@/components/cases/cases-tabs'
 import { Footer } from '@/components/shared/footer'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '金融案例 | 中创中间件',
   description: '中创中间件在金融领域的成功案例，助力多家银行实现核心系统国产化建设。',
 }
