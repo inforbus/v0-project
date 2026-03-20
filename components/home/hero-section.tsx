@@ -41,7 +41,7 @@ function ScrollProgress() {
 const bannerSlides = [
   {
     type: "video" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4",
+    src: "/images/banner/banner-1.mp4",
     fallback: "/images/banner/banner-3.png",
     alt: "全球AI布局",
   },
@@ -101,30 +101,28 @@ export function HeroSection() {
           >
             {slide.type === "video" ? (
               <>
-                {!slide.hideVideo && (
-                  <video
-                    src={slide.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
-                    onError={(e) => {
-                      try {
-                        e.currentTarget.style.display = "none"
-                        const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
-                        if (fallbackEl) fallbackEl.style.display = "block"
-                      } catch (error) {
-                        // Silently fail on error handler failure
-                      }
-                    }}
-                  />
-                )}
+                <video
+                  src={slide.src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover"
+                  onError={(e) => {
+                    try {
+                      e.currentTarget.style.display = "none"
+                      const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
+                      if (fallbackEl) fallbackEl.style.display = "block"
+                    } catch (error) {
+                      // Silently fail on error handler failure
+                    }
+                  }}
+                />
                 {slide.fallback && (
                   <img
                     src={slide.fallback}
                     alt={slide.alt}
-                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} ${slide.hideVideo ? "block" : "hidden"}`}
+                    className="absolute inset-0 h-full w-full object-contain hidden"
                     onError={(e) => {
                       try {
                         e.currentTarget.style.display = "none"
@@ -139,7 +137,7 @@ export function HeroSection() {
               <img 
                 src={slide.src} 
                 alt={slide.alt} 
-                className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                className="absolute inset-0 h-full w-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
                 onError={(e) => {
