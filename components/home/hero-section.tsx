@@ -183,7 +183,7 @@ export function HeroSection() {
               </h1>
               <p
                 suppressHydrationWarning
-                className="mt-6 text-[21px] sm:mt-7 sm:text-[23px] md:mt-8 md:text-[25px] lg:text-[27px] xl:text-[29px] 2xl:text-[31px] 3xl:text-[33px]"
+                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
                 style={{
                   fontFamily: "'Noto Sans SC', sans-serif",
                   fontWeight: 700,
