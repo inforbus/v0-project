@@ -7,8 +7,8 @@ from pathlib import Path
 VIDEO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4"
 
 # 本地保存路径
-SCRIPT_DIR = Path(__file__).parent.parent
-PUBLIC_DIR = SCRIPT_DIR / "public" / "images" / "banner"
+PROJECT_DIR = Path("/vercel/share/v0-project")
+PUBLIC_DIR = PROJECT_DIR / "public" / "images" / "banner"
 OUTPUT_FILE = PUBLIC_DIR / "banner-video.mp4"
 
 # 创建目录（如果不存在）

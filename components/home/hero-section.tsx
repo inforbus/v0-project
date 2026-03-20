@@ -50,7 +50,7 @@ interface BannerSlide {
 const bannerSlides: BannerSlide[] = [
   {
     type: "video",
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4",
+    src: "/images/banner/banner-video.mp4",
     fallback: "/images/banner/banner-3.png",
     alt: "全球AI布局",
   },
