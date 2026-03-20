@@ -177,6 +177,7 @@ export function HeroSection() {
                   fontWeight: 400,
                   lineHeight: 1,
                   color: "#000000",
+                  letterSpacing: "0.1em",
                 }}
               >
                 中创股份
