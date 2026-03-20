@@ -1,18 +1,22 @@
 import fs from 'fs';
 import path from 'path';
 import https from 'https';
-import { fileURLToPath } from 'url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const videoUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4';
-const outputDir = path.join(__dirname, '../public/videos/banner');
+const outputDir = '/vercel/share/v0-project/public/videos/banner';
 const outputPath = path.join(outputDir, 'banner-1.mp4');
+
+console.log('[v0] 输出目录:', outputDir);
+console.log('[v0] 输出路径:', outputPath);
 
 // 创建目录
 if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
-  console.log(`✓ 创建目录: ${outputDir}`);
+  try {
+    fs.mkdirSync(outputDir, { recursive: true });
+    console.log(`✓ 创建目录: ${outputDir}`);
+  } catch (err) {
+    console.log(`✓ 目录已存在或已创建: ${outputDir}`);
+  }
 }
 
 // 下载视频
