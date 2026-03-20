@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 export function getNavItems(activePath?: string): NavItem[] {
-  const items: NavItem[] = [
+  return [
     {
       name: "首页",
       href: "/",
@@ -132,5 +132,4 @@ export function getNavItems(activePath?: string): NavItem[] {
       isMega: false,
     },
   ]
-  return items
 }
