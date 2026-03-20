@@ -9,6 +9,15 @@ function ParticleField() {
   return null
 }
 
+interface BannerSlide {
+  type: "video" | "image"
+  src: string
+  fallback: string
+  alt: string
+  hideVideo?: boolean
+  imageStyle?: string
+}
+
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
@@ -38,7 +47,7 @@ function ScrollProgress() {
   )
 }
 
-const bannerSlides = [
+const bannerSlides: BannerSlide[] = [
   {
     type: "video" as const,
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4",

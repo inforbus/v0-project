@@ -2,8 +2,9 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import Link from "next/link"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
+import type { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "新闻资讯 - 中创股份",
   description: "了解中创股份的最新新闻、公司动态和行业资讯",
 }
