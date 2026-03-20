@@ -1,44 +1,35 @@
 "use client"
 
-import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { Header } from "@/components/shared/header"
 import { getNavItems } from "@/components/shared/nav-data"
 
+// 完全移除 ParticleField 以排除它作为内存泄漏源
 function ParticleField() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-    const particles: HTMLDivElement[] = []
-    for (let i = 0; i < 20; i++) {
-      const el = document.createElement("div")
-      el.className = "absolute rounded-full"
-      const w = 2 + ((i * 7 + 3) % 11) * 0.36
-      const h = 2 + ((i * 13 + 5) % 11) * 0.36
-      const l = (i * 37 + 11) % 100
-      const t = (i * 53 + 7) % 100
-      const dur = 4 + ((i * 17 + 3) % 13) * 0.46
-      const del = ((i * 23 + 1) % 10) * 0.3
-      const bg = i % 3 === 0 ? "rgba(191,25,32,0.3)" : "rgba(255,255,255,0.4)"
-      el.style.cssText = `width:${w}px;height:${h}px;left:${l}%;top:${t}%;background:${bg};animation:particle-float ${dur}s ease-in-out ${del}s infinite;`
-      container.appendChild(el)
-      particles.push(el)
-    }
-    return () => { for (const el of particles) el.remove() }
-  }, [])
-  return <div ref={containerRef} className="pointer-events-none absolute inset-0 z-[5] overflow-hidden" />
+  return null
 }
 
 function ScrollProgress() {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
+    let frameId: number | null = null
     const handleScroll = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight
-      if (total > 0) setProgress((window.scrollY / total) * 100)
+      if (frameId !== null) return
+      frameId = requestAnimationFrame(() => {
+        try {
+          const total = document.documentElement.scrollHeight - window.innerHeight
+          if (total > 0) setProgress((window.scrollY / total) * 100)
+        } catch (error) {
+          // Silently ignore scroll calculation errors
+        }
+        frameId = null
+      })
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (frameId !== null) cancelAnimationFrame(frameId)
+    }
   }, [])
   return (
     <div className="fixed left-0 top-0 z-[100] h-[3px] w-full">
@@ -47,31 +38,39 @@ function ScrollProgress() {
   )
 }
 
-const bannerSlides = [
+interface BannerSlide {
+  type: "video" | "image"
+  src: string
+  fallback?: string
+  alt: string
+  hideVideo?: boolean
+  imageStyle?: string
+}
+
+const bannerSlides: BannerSlide[] = [
   {
-    type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20112-5HbxeOF3Ph0r9IqIfxlmamTD0K1jaF.png",
-    fallback: "",
-    alt: "中创API网关软件",
+    type: "video",
+    src: "/images/banner/banner-video.mp4",
+    fallback: "/images/banner/banner-3.png",
+    alt: "全球AI布局",
   },
   {
-    type: "image" as const,
-    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20161-vC5Hm4iLWhs8yOI8AJeyVdICP0biMP.png",
+    type: "image",
+    src: "/images/banner/banner-2.png",
     fallback: "",
     alt: "中创智能体中间件",
   },
   {
-    type: "image" as const,
-    src: "/images/banner/banner3-new.png",
+    type: "image",
+    src: "/images/banner/banner-1.png",
     fallback: "",
-    alt: "全球AI布局",
+    alt: "中创API网关软件",
   },
   {
-    type: "video" as const,
-    src: "/videos/banner-2.mov",
-    fallback: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20111-UexuKUpyh0nXJUjwqlUoFl54VOFoWU.png",
-    alt: "安全云服务",
-    hideVideo: true,
+    type: "image",
+    src: "/images/banner/banner-4.png",
+    fallback: "",
+    alt: "数据安全云服务",
   },
 ]
 
@@ -81,27 +80,33 @@ const navItems = getNavItems("/")
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (bannerSlides.length <= 1) return
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted || bannerSlides.length <= 1) return
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
     }, SLIDE_INTERVAL)
     return () => clearInterval(timer)
-  }, [])
+  }, [mounted])
 
   return (
     <>
       <ScrollProgress />
-        <div className="relative flex h-[650px] w-full flex-col overflow-hidden">
+      <div className="relative flex h-[700px] w-full flex-col overflow-hidden">
         {bannerSlides.map((slide, index) => (
           <div
             key={index}
-            className="pointer-events-none absolute left-0 top-0 h-full w-full transition-all duration-[1500ms] ease-in-out"
+            className="pointer-events-none absolute inset-0 transition-all duration-[1500ms] ease-in-out"
             style={{
-              opacity: currentSlide === index ? 1 : 0,
-              transform: currentSlide === index ? "scale(1)" : "scale(1.03)",
+              opacity: mounted && currentSlide === index ? 1 : 0,
+              transform: mounted && currentSlide === index ? "scale(1)" : "scale(1.03)",
             }}
+            suppressHydrationWarning
           >
             {slide.type === "video" ? (
               <>
@@ -112,11 +117,15 @@ export function HeroSection() {
                     loop
                     muted
                     playsInline
-                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""}`}
+                    className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
                     onError={(e) => {
-                      e.currentTarget.style.display = "none"
-                      const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
-                      if (fallbackEl) fallbackEl.style.display = "block"
+                      try {
+                        e.currentTarget.style.display = "none"
+                        const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
+                        if (fallbackEl) fallbackEl.style.display = "block"
+                      } catch (error) {
+                        // Silently fail on error handler failure
+                      }
                     }}
                   />
                 )}
@@ -125,19 +134,39 @@ export function HeroSection() {
                     src={slide.fallback}
                     alt={slide.alt}
                     className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} ${slide.hideVideo ? "block" : "hidden"}`}
+                    onError={(e) => {
+                      try {
+                        e.currentTarget.style.display = "none"
+                      } catch (error) {
+                        // Silently fail on error handler failure
+                      }
+                    }}
                   />
                 )}
               </>
             ) : (
-              <img src={slide.src} alt={slide.alt} className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""}`} />
+              <img 
+                src={slide.src} 
+                alt={slide.alt} 
+                className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+                onError={(e) => {
+                  try {
+                    e.currentTarget.style.display = "none"
+                  } catch (error) {
+                    // Silently fail on error handler failure
+                  }
+                }}
+              />
             )}
           </div>
         ))}
         <ParticleField />
 
-        <Header navItems={navItems} />
+        <Header variant="overlay" navItems={navItems} isDarkBg={false} />
 
-        {/* Slide 1 text: 中创API网关软件 */}
+        {/* Slide 1 text: 中创股份 */}
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
@@ -145,20 +174,35 @@ export function HeroSection() {
             transform: currentSlide === 0 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 0 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-[708px]">
+            <div className="max-w-3xl 3xl:max-w-[945px]">
               <h1
-                className="text-[13px] text-black sm:text-[21px] md:text-[29px] lg:text-[37px] xl:text-[45px] 2xl:text-[55px] 3xl:text-[65px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
+                suppressHydrationWarning
+                className="text-[59px] sm:text-[71px] md:text-[83px] lg:text-[95px] xl:text-[107px] 2xl:text-[119px] 3xl:text-[131px]"
+                style={{
+                  fontFamily: "'YouSheBiaoTiHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
+                  fontWeight: 400,
+                  lineHeight: 1,
+                  color: "#000000",
+                  letterSpacing: "0.1em",
+                }}
               >
-                中创API网关软件
+                中创股份
               </h1>
               <p
-                className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                suppressHydrationWarning
+                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
+                style={{
+                  fontFamily: "'Noto Sans SC', sans-serif",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  letterSpacing: "0.18em",
+                  color: "#242222",
+                }}
               >
-                一站式流量管控与AI赋能，让智能更简单
+                践行国家战略·共创数智未来
               </p>
             </div>
           </div>
@@ -166,32 +210,38 @@ export function HeroSection() {
 
         {/* Slide 2 text: 中创智能体中间件 */}
         <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          className="absolute inset-0 z-10 flex transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 1 ? 1 : 0,
             transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 1 ? "auto" : "none",
+            alignItems: "center",
+            paddingTop: "16px",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-[630px]">
               <h1
-                className="text-[13px] text-black sm:text-[21px] md:text-[29px] lg:text-[37px] xl:text-[45px] 2xl:text-[55px] 3xl:text-[65px]"
+                suppressHydrationWarning
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
                 中创智能体中间件
               </h1>
               <p
-                className="mt-[14px] text-[12px] text-black sm:mt-[18px] sm:text-[14px] md:mt-[22px] md:text-[16px] lg:mt-[28px] lg:text-[18px] xl:mt-[32px] xl:text-[20px] 2xl:mt-[36px] 2xl:text-[24px] 3xl:mt-[40px] 3xl:text-[28px]"
-                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
+                suppressHydrationWarning
+                className="mt-[20px] text-[12px] text-black sm:mt-[28px] sm:text-[14px] md:mt-[32px] md:text-[16px] lg:mt-[40px] lg:text-[18px] xl:mt-[48px] xl:text-[20px] 2xl:mt-[54px] 2xl:text-[24px] 3xl:mt-[60px] 3xl:text-[28px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
                 面向企业流程智能体管理平台
               </p>
               <p
+                suppressHydrationWarning
                 className="mt-[8px] text-[10px] text-black/70 sm:mt-[10px] sm:text-[12px] md:mt-[12px] md:text-[14px] lg:mt-[14px] lg:text-[16px] xl:mt-[16px] xl:text-[18px] 2xl:mt-[18px] 2xl:text-[20px] 3xl:mt-[20px] 3xl:text-[22px]"
                 style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 400, lineHeight: 1 }}
               >
-                为企业提供快速、安全、敏捷的AI应用部署能力
+                {`为企业提供快速、安全、敏捷的AI应用部署能力`}
               </p>
               {/* 三色圆点 + 虚线 */}
               <div className="mt-[12px] flex items-center gap-[8px] sm:mt-[16px] sm:gap-[10px] md:mt-[20px] md:gap-[12px] lg:mt-[24px] lg:gap-[14px] xl:mt-[28px] xl:gap-[16px] 3xl:mt-[32px]">
@@ -206,7 +256,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Slide 3 text: 中创股份 */}
+        {/* Slide 3 text: 中创API网关软件 */}
         <div
           className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
           style={{
@@ -214,32 +264,23 @@ export function HeroSection() {
             transform: currentSlide === 2 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 2 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
-            <div className="max-w-3xl 3xl:max-w-[945px]">
+            <div className="max-w-[708px]">
               <h1
-                className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
-                style={{
-                  fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
-                  fontWeight: 400,
-                  lineHeight: 1,
-                  color: "#BF1920",
-                  textShadow: "0px 3px 5px rgba(31, 3, 8, 0.28)",
-                }}
+                suppressHydrationWarning
+                className="text-[29px] text-black sm:text-[37px] md:text-[45px] lg:text-[53px] xl:text-[61px] 2xl:text-[71px] 3xl:text-[81px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 700, lineHeight: 1 }}
               >
-                中创股份
+                中创API网关软件
               </h1>
               <p
-                className="mt-6 text-[29px] sm:mt-7 sm:text-[31px] md:mt-8 md:text-[33px] lg:text-[35px] xl:text-[37px] 2xl:text-[39px] 3xl:text-[41px]"
-                style={{
-                  fontFamily: "'Noto Sans SC', sans-serif",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  letterSpacing: "0.18em",
-                  color: "#242222",
-                }}
+                suppressHydrationWarning
+                className="mt-[20px] text-[12px] text-black/80 sm:mt-[28px] sm:text-[14px] md:mt-[36px] md:text-[16px] lg:mt-[44px] lg:text-[18px] xl:mt-[52px] xl:text-[20px] 2xl:mt-[58px] 2xl:text-[24px] 3xl:mt-[65px] 3xl:text-[28px]"
+                style={{ fontFamily: "'Noto Sans SC', sans-serif", fontWeight: 600, lineHeight: 1 }}
               >
-                {"践行国家战略\u00B7共创数智未来"}
+                {`一站式流量管控与AI赋能，让智能更简单`}
               </p>
             </div>
           </div>
@@ -253,10 +294,12 @@ export function HeroSection() {
             transform: currentSlide === 3 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 3 ? "auto" : "none",
           }}
+          suppressHydrationWarning
         >
           <div className="mx-auto w-full max-w-6xl px-4 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px]">
             <div className="max-w-3xl 3xl:max-w-[945px]">
               <p
+                suppressHydrationWarning
                 className="text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] xl:text-[24px] 3xl:text-[26px]"
                 style={{
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
@@ -265,9 +308,10 @@ export function HeroSection() {
                   color: "#242222",
                 }}
               >
-                {"高可靠\u00B7高性能\u00B7高可用\u00B7高安全"}
+                高可靠·高性能·高可用·高安全
               </p>
               <p
+                suppressHydrationWarning
                 className="mt-4 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px] xl:text-[24px] 3xl:text-[26px]"
                 style={{
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
@@ -279,13 +323,13 @@ export function HeroSection() {
                 中间件产品体系支撑
               </p>
               <h1
+                suppressHydrationWarning
                 className="mt-8 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[38px] xl:text-[44px] 3xl:text-[50px]"
                 style={{
                   fontFamily: "var(--font-noto-sans-sc), 'Noto Sans SC', sans-serif",
                   fontWeight: 700,
                   lineHeight: "100%",
-                  color: "#BF1920",
-                  textShadow: "0px 3px 5px rgba(31, 3, 8, 0.28)",
+                  color: "#000000",
                 }}
               >
                 打造新一代信息技术的关键基础设施
@@ -306,8 +350,6 @@ export function HeroSection() {
             ))}
           </div>
         )}
-
-
       </div>
     </>
   )

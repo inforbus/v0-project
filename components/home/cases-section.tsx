@@ -1,46 +1,8 @@
 "use client"
 
-import { type ReactNode, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 import { cases } from "@/lib/cases-data"
-
-function RippleButton({
-  children,
-  className = "",
-  href = "#",
-}: {
-  children: ReactNode
-  className?: string
-  href?: string
-}) {
-  const [ripples, setRipples] = useState<{ x: number; y: number; id: number }[]>([])
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const id = Date.now()
-    setRipples((prev) => [...prev, { x: e.clientX - rect.left, y: e.clientY - rect.top, id }])
-    setTimeout(() => setRipples((prev) => prev.filter((r) => r.id !== id)), 600)
-  }
-  return (
-    <a href={href} className={`relative overflow-hidden ${className}`} onClick={handleClick}>
-      {ripples.map((r) => (
-        <span
-          key={r.id}
-          className="absolute rounded-full bg-[#BF1920]/20"
-          style={{
-            left: r.x - 5,
-            top: r.y - 5,
-            width: 10,
-            height: 10,
-            animation: "ripple 0.6s ease-out forwards",
-          }}
-        />
-      ))}
-      {children}
-    </a>
-  )
-}
 
 /* ── Case Card Component ─────────────────────────────────────── */
 function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: number }) {
@@ -49,11 +11,12 @@ function CaseCard({ caseItem, index }: { caseItem: (typeof cases)[0]; index: num
       <Link href={`/cases/${caseItem.slug}`} className="group relative block cursor-pointer overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-foreground/[0.06]">
         {/* Fixed-height photo area */}
         <div className="relative overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
-          <Image
+          <img
             src={caseItem.photo}
             alt={caseItem.title}
-            fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            loading="lazy"
+            decoding="async"
           />
           {/* Default gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
@@ -131,7 +94,7 @@ export function CasesSection() {
 
         {/* Card Grid */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 3xl:gap-6">
-          {cases.map((caseItem, index) => (
+          {cases.slice(0, 6).map((caseItem, index) => (
             <CaseCard key={caseItem.title} caseItem={caseItem} index={index} />
           ))}
         </div>
@@ -139,8 +102,8 @@ export function CasesSection() {
         {/* Bottom CTA */}
         <ScrollReveal delay={500}>
           <div className="mt-10 flex justify-center lg:mt-14 3xl:mt-16">
-            <RippleButton
-              href="#"
+            <Link
+              href="/cases"
               className="group inline-flex items-center justify-center rounded-full bg-[#BF1920] px-8 py-3 text-base font-medium text-white shadow-[0_4px_16px_rgba(191,25,32,0.25)] transition-all duration-300 hover:shadow-[0_6px_24px_rgba(191,25,32,0.35)] hover:scale-105 active:scale-95 3xl:px-10 3xl:py-3.5 3xl:text-lg"
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -155,7 +118,7 @@ export function CasesSection() {
                   <path d="M0 3H17M17 3L14 0.5M17 3L14 5.5" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
               </span>
-            </RippleButton>
+            </Link>
           </div>
         </ScrollReveal>
       </div>

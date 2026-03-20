@@ -1,29 +1,12 @@
 "use client"
 
-import Image from "next/image"
-import { useState, useEffect, useRef, type ReactNode } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ScrollReveal } from "@/components/shared/scroll-reveal"
 
-function RippleButton({ children, className = "", href = "#" }: { children: ReactNode; className?: string; href?: string }) {
-  const [ripples, setRipples] = useState<{ x: number; y: number; id: number }[]>([])
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const id = Date.now()
-    setRipples((prev) => [...prev, { x: e.clientX - rect.left, y: e.clientY - rect.top, id }])
-    setTimeout(() => setRipples((prev) => prev.filter((r) => r.id !== id)), 600)
-  }
-  return (
-    <a href={href} className={`relative overflow-hidden ${className}`} onClick={handleClick}>
-      {ripples.map((r) => (<span key={r.id} className="absolute rounded-full bg-white/30" style={{ left: r.x - 5, top: r.y - 5, width: 10, height: 10, animation: "ripple 0.6s ease-out forwards" }} />))}
-      {children}
-    </a>
-  )
-}
-
 const newsImages = [
-  { src: "/images/news-main.png", alt: "Softcon 2025 软件技术大会" },
-  { src: "/images/news-2.jpg", alt: "中创软件CMMI五级认证评估" },
-  { src: "/images/news-3.jpg", alt: "2026第十五届双态IT用户大会" },
+  { src: "/images/news/1.jpg", alt: "万马奔腾启新程：中创股份交出高质量蛇年答卷" },
+  { src: "/images/news/2.jpg", alt: "中创股份喜开通过CMM1-DEV V3.0 ML5级整评" },
+  { src: "/images/news/3.jpg", alt: "融融全身数字化转型，中创股份出席2026第十五届双点IT用户大会" },
 ]
 
 const newsItems = [
@@ -35,16 +18,14 @@ const newsItems = [
 export function NewsSection() {
   const [activeNewsIndex, setActiveNewsIndex] = useState(0)
   const [newsAutoPlay, setNewsAutoPlay] = useState(true)
-  const newsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (!newsAutoPlay) return
-    if (newsTimerRef.current) clearTimeout(newsTimerRef.current)
-    newsTimerRef.current = setTimeout(() => {
+    const timer = setInterval(() => {
       setActiveNewsIndex((prev) => (prev + 1) % 3)
     }, 5000)
-    return () => { if (newsTimerRef.current) clearTimeout(newsTimerRef.current) }
-  }, [activeNewsIndex, newsAutoPlay])
+    return () => clearInterval(timer)
+  }, [newsAutoPlay])
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#F9F8FA] to-[#F0EEF2] py-14 md:py-20 lg:py-[80px] 3xl:py-[100px]">
@@ -67,7 +48,7 @@ export function NewsSection() {
             <div className="flex h-full w-full flex-shrink-0 flex-col lg:w-[480px] 3xl:w-[600px]">
               <div className="relative flex-1 overflow-hidden rounded-xl" style={{ boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)", aspectRatio: "652 / 414" }}>
                 {newsImages.map((img, index) => (
-                  <Image key={index} src={img.src || "/placeholder.svg"} alt={img.alt} fill sizes="(max-width: 1024px) 100vw, 480px" className={`object-cover transition-all duration-700 ease-out ${activeNewsIndex === index ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} />
+                  <img key={index} src={img.src || "/placeholder.svg"} alt={img.alt} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${activeNewsIndex === index ? "scale-100 opacity-100" : "scale-105 opacity-0"}`} loading="lazy" decoding="async" />
                 ))}
               </div>
               <div className="mt-3 flex gap-2">
@@ -93,12 +74,12 @@ export function NewsSection() {
         </div>
 
         <div className="mt-8 flex justify-center lg:mt-10 3xl:mt-12">
-          <RippleButton href="#" className="group inline-flex items-center justify-center rounded bg-primary px-5 py-2 text-base font-normal text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 active:scale-95 3xl:px-6 3xl:py-2.5 3xl:text-lg">
+          <a href="#" className="group inline-flex items-center justify-center rounded bg-primary px-5 py-2 text-base font-normal text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 active:scale-95 3xl:px-6 3xl:py-2.5 3xl:text-lg">
             <span className="relative z-10 flex items-center">
               查看更多
               <svg width="10" height="18" viewBox="0 0 10 18" fill="none" className="ml-3 transition-transform duration-300 group-hover:translate-x-1"><path d="M1 1L9 9L1 17" stroke="white" strokeWidth="2" /></svg>
             </span>
-          </RippleButton>
+          </a>
         </div>
       </div>
     </section>

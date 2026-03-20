@@ -1,8 +1,13 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 
 export function OnlineServiceWidget() {
+  const [showWidget, setShowWidget] = useState(true)
+
+  if (!showWidget) return null
+
   return (
     <div
       className="group/service fixed z-50"
@@ -19,14 +24,15 @@ export function OnlineServiceWidget() {
         <p className="mb-2.5 text-xs font-medium text-foreground">
           扫码关注公众号
         </p>
-        <Image
-          src="/images/qrcode-1.png"
-          alt="微信公众号二维码"
-          width={140}
-          height={140}
-          className="h-[140px] w-[140px] rounded"
-          style={{ width: 'auto', height: 'auto' }}
-        />
+        <div className="h-[140px] w-[140px] rounded overflow-hidden">
+          <Image
+            src="/images/footer/qrcode-public.png"
+            alt="中创股份公众号二维码"
+            width={140}
+            height={140}
+            className="h-full w-full object-cover"
+          />
+        </div>
         <div className="mt-3 text-[11px] text-foreground/70" style={{ lineHeight: "20px" }}>
           <p className="font-medium text-foreground">联系方式</p>
           <p className="mt-0.5">电话：400-618-6180</p>
@@ -47,17 +53,13 @@ export function OnlineServiceWidget() {
           gap: "6px",
         }}
       >
-        {/* Chat icon - centered horizontally via flexbox */}
+        {/* Chat icon - replaced with new image */}
         <Image
-          src="/images/service-chat-icon-new.png"
-          alt=""
-          width={50}
-          height={45}
-          className="flex-shrink-0 object-contain"
-          style={{
-            width: "36px",
-            height: "32px",
-          }}
+          src="/images/icons/online-service.png"
+          alt="在线服务"
+          width={36}
+          height={32}
+          className="object-contain"
         />
         {/* Vertical text "在线服务" - centered horizontally via flexbox */}
         <span
