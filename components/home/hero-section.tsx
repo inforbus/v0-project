@@ -201,11 +201,13 @@ export function HeroSection() {
 
         {/* Slide 2 text: 中创智能体中间件 */}
         <div
-          className="absolute inset-0 z-10 flex items-center transition-all duration-[1500ms] ease-in-out"
+          className="absolute inset-0 z-10 flex transition-all duration-[1500ms] ease-in-out"
           style={{
             opacity: currentSlide === 1 ? 1 : 0,
             transform: currentSlide === 1 ? "translateY(0)" : "translateY(20px)",
             pointerEvents: currentSlide === 1 ? "auto" : "none",
+            alignItems: "center",
+            paddingTop: "16px",
           }}
           suppressHydrationWarning
         >
