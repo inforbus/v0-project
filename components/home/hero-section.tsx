@@ -101,30 +101,28 @@ export function HeroSection() {
           >
             {slide.type === "video" ? (
               <>
-                {!slide.hideVideo && (
-                  <video
-                    src={slide.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
-                    onError={(e) => {
-                      try {
-                        e.currentTarget.style.display = "none"
-                        const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
-                        if (fallbackEl) fallbackEl.style.display = "block"
-                      } catch (error) {
-                        // Silently fail on error handler failure
-                      }
-                    }}
-                  />
-                )}
+                <video
+                  src={slide.src}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                  onError={(e) => {
+                    try {
+                      e.currentTarget.style.display = "none"
+                      const fallbackEl = e.currentTarget.nextElementSibling as HTMLElement | null
+                      if (fallbackEl) fallbackEl.style.display = "block"
+                    } catch (error) {
+                      // Silently fail on error handler failure
+                    }
+                  }}
+                />
                 {slide.fallback && (
                   <img
                     src={slide.fallback}
                     alt={slide.alt}
-                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} ${slide.hideVideo ? "block" : "hidden"}`}
+                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} hidden`}
                     onError={(e) => {
                       try {
                         e.currentTarget.style.display = "none"
