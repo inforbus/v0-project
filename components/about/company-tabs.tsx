@@ -137,60 +137,8 @@ export function CompanyTabs() {
 
           {activeTab === 'investors' && (
             <div className="animate-fadeIn">
-              <div className="space-y-16">
-                {/* Title */}
-                <div className="text-center space-y-4">
-                  <h2 className="font-sans text-4xl font-bold text-foreground">投资者关系</h2>
-                </div>
-
-                {/* Contact Information Cards */}
-                <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
-                  {/* Phone */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] hover:shadow-md transition-all duration-300 text-center">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-14 h-14 bg-[#BF1920]/10 rounded-lg flex items-center justify-center">
-                        <svg className="w-7 h-7 text-[#BF1920]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/60 mb-2">联系电话</p>
-                    <p className="font-sans text-2xl font-bold text-foreground">0531-81753702</p>
-                  </div>
-
-                  {/* Fax */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] hover:shadow-md transition-all duration-300 text-center">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-14 h-14 bg-[#BF1920]/10 rounded-lg flex items-center justify-center">
-                        <svg className="w-7 h-7 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/60 mb-2">公司传真</p>
-                    <p className="font-sans text-2xl font-bold text-foreground">0531-81753668</p>
-                  </div>
-
-                  {/* Email */}
-                  <div className="border border-border rounded-lg p-8 hover:border-[#BF1920] hover:shadow-md transition-all duration-300 text-center">
-                    <div className="flex justify-center mb-4">
-                      <div className="w-14 h-14 bg-[#BF1920]/10 rounded-lg flex items-center justify-center">
-                        <svg className="w-7 h-7 text-[#BF1920]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="font-sans text-sm text-foreground/60 mb-2">投资者关系邮箱</p>
-                    <p className="font-sans text-lg font-bold text-foreground break-all">infors_ir@cvicse.com</p>
-                  </div>
-                </div>
-
-                {/* Additional Info */}
-                <div className="text-center bg-slate-50 rounded-lg p-8 border border-border">
-                  <p className="font-sans text-sm text-foreground/70 leading-relaxed">
-                    如有任何关于投资者关系的问题，欢迎通过上述方式与我们联系，我们将竭诚为您服务。
-                  </p>
-                </div>
+              <div className="text-center space-y-4">
+                <h2 className="font-sans text-4xl font-bold text-foreground">投资者关系</h2>
               </div>
             </div>
           )}
