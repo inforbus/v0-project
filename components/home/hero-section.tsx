@@ -107,7 +107,7 @@ export function HeroSection() {
                   loop
                   muted
                   playsInline
-                  className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                  className="absolute inset-0 h-full w-full object-cover"
                   onError={(e) => {
                     try {
                       e.currentTarget.style.display = "none"
@@ -122,7 +122,7 @@ export function HeroSection() {
                   <img
                     src={slide.fallback}
                     alt={slide.alt}
-                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""} hidden`}
+                    className="absolute inset-0 h-full w-full object-contain hidden"
                     onError={(e) => {
                       try {
                         e.currentTarget.style.display = "none"
@@ -137,7 +137,7 @@ export function HeroSection() {
               <img 
                 src={slide.src} 
                 alt={slide.alt} 
-                className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
+                className="absolute inset-0 h-full w-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
                 onError={(e) => {
