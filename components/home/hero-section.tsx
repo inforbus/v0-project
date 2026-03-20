@@ -108,7 +108,7 @@ export function HeroSection() {
                     loop
                     muted
                     playsInline
-                    className={`absolute inset-0 h-full w-full object-contain ${slide.imageStyle || ""}`}
+                    className={`absolute inset-0 h-full w-full object-cover ${slide.imageStyle || ""}`}
                     onError={(e) => {
                       try {
                         e.currentTarget.style.display = "none"
