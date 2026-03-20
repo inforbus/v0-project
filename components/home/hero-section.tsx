@@ -173,8 +173,8 @@ export function HeroSection() {
                 suppressHydrationWarning
                 className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
                 style={{
-                  fontFamily: "'YouSheBiaoTiHei', 'Noto Sans SC', sans-serif",
-                  fontWeight: 400,
+                  fontFamily: "'Noto Sans SC', sans-serif",
+                  fontWeight: 700,
                   lineHeight: 1,
                   color: "#000000",
                 }}
