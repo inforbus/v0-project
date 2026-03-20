@@ -40,9 +40,9 @@ function ScrollProgress() {
 
 const bannerSlides = [
   {
-    type: "image" as const,
-    src: "/images/banner/banner-3.png",
-    fallback: "",
+    type: "video" as const,
+    src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2%E6%9C%8814%E6%97%A5%20%281%29-UNFfSjj1SKya5DDcw8S7Mo5wkWahjb.mp4",
+    fallback: "/images/banner/banner-3.png",
     alt: "全球AI布局",
   },
   {
