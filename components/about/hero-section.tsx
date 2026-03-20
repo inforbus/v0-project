@@ -10,13 +10,13 @@ export function AboutHeroSection() {
       <img
         src="/images/banners/about-banner.png"
         alt="关于中创"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-center"
       />
 
       <Header navItems={navItems} variant="overlay" isDarkBg={false} />
 
       {/* Main title and subtitle text content */}
-      <div className="absolute inset-0 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
+      <div className="absolute inset-0 z-10 flex flex-col justify-center" style={{ paddingLeft: '21.7%' }}>
         {/* Title */}
         <h1
           className="font-sans font-bold text-[#332C2B]"
