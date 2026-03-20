@@ -171,7 +171,7 @@ export function HeroSection() {
             <div className="max-w-3xl 3xl:max-w-[945px]">
               <h1
                 suppressHydrationWarning
-                className="text-[51px] sm:text-[63px] md:text-[75px] lg:text-[87px] xl:text-[99px] 2xl:text-[111px] 3xl:text-[123px]"
+                className="text-[59px] sm:text-[71px] md:text-[83px] lg:text-[95px] xl:text-[107px] 2xl:text-[119px] 3xl:text-[131px]"
                 style={{
                   fontFamily: "'YouSheBiaoTiHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif",
                   fontWeight: 400,
