@@ -1,0 +1,397 @@
+/* ──────────────────────────────────────────────────────────────────
+   央企中间件统一管理平台 - 完整代码包
+   
+   这是提取的所有核心源代码，可直接用于参考或复制到新项目中
+   ────────────────────────────────────────────────────────────────── */
+
+// ═══════════════════════════════════════════════════════════════════
+// 1. 数据定义文件：lib/cases-data.ts
+// ═══════════════════════════════════════════════════════════════════
+
+export const cases = [
+  {
+    slug: "central-enterprise-middleware-platform",
+    title: "央企中间件统一管理平台",
+    tag: "企业",
+    desc: "为央企构建全栈式自主可控的中间件统一管理平台，实现中间件产品和服务的标准化管理",
+    photo: "/images/case-central-enterprise.jpg",
+    metrics: "企业级",
+  },
+  // ... 其他案例
+]
+
+export type CaseItem = (typeof cases)[number]
+
+// ═══════════════════════════════════════════════════════════════════
+// 2. 详情页面：app/cases/[slug]/page.tsx (核心文件)
+// ═══════════════════════════════════════════════════════════════════
+
+import type React from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { notFound } from "next/navigation"
+import { Header } from "@/components/shared/header"
+import { Footer } from "@/components/shared/footer"
+import { OtherCases } from "@/components/cases/other-cases"
+import { getNavItems } from "@/components/shared/nav-data"
+import { cases } from "@/lib/cases-data"
+
+// 静态导出时生成所有案例页面
+export function generateStaticParams() {
+  return cases.map((c) => ({
+    slug: c.slug,
+  }))
+}
+
+// 央企中间件统一管理平台 - 详情数据
+const caseDetails: Record<string, {
+  background: string
+  challenge: string[]
+  solution: string[]
+  results: { label: string; value: string }[]
+  techStack: string[]
+  contentSections: { title: string; text: string; image?: string }[]
+}> = {
+  "central-enterprise-middleware-platform": {
+    background: "某电力企业中间件数量和版本日益增多，授权管理分散，异地灾备可控性差，传统人工运维效率低、风险高，因此亟需建设统一中间件管理平台，实现版本、授权、实例和灾备统一管控，提高运维效率和业务可靠性。",
+    challenge: [
+      "中间件版本众多且缺乏全局可视化，难以统一掌控与分析使用情况",
+      "中间件授权信息分布分散，使用统计依赖人工，准确性难以保障",
+      "中间件实例数量庞大，缺乏统一管控和配置基线管理手段",
+      "中间件灾备切换可控性不足，效率低，缺乏集中管控机制",
+    ],
+    solution: [
+      "统一版本管理：建立统一版本库，实时统计产品使用情况",
+      "集中授权统计：集中管理授权信息，实现自动汇总与使用监控",
+      "实例统一管控：实现中间件实例集中监控、配置基线与生命周期管理",
+      "可控灾备切换：提供控制灾备切换界面与自动切换策略、高效的中间件高可用部署以及灾备切换功能，保障业务连续",
+    ],
+    results: [
+      { label: "全局中间件实例", value: "2000+" },
+      { label: "管理效率提升", value: "30%+" },
+      { label: "人工工作量降低", value: "80%" },
+      { label: "灾备切换效率提升", value: "2倍+" },
+    ],
+    techStack: ["InforSuite AS", "InforSuite LB"],
+    contentSections: [
+      {
+        title: "项目架构",
+        text: "平台采用微服务架构，通过虚拟机 Agent 与容器 Operator 分别实现虚拟机和容器环境下中间件的全生命周期管理；结合 Prometheus、Grafana 和 AlertManager 提供统一的监控与告警能力。",
+        image: "/images/cases/central-architecture.png",
+      },
+      {
+        title: "核心能力",
+        text: "平台提供中间件全生命周期管理能力，包括产品统一管理、实例部署与启停、状态监控与巡检、配置基线管理、告警与策略执行，以及异地灾备保障，实现跨环境统一运维与业务连续性。",
+        image: "/images/cases/central-capabilities.png",
+      },
+    ],
+  },
+}
+
+export default async function CaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const caseItem = cases.find((c) => c.slug === slug)
+  const detail = caseDetails[slug]
+
+  if (!caseItem || !detail) {
+    notFound()
+  }
+
+  const navItems = getNavItems("")
+
+  return (
+    <div className="min-h-screen w-full bg-background">
+      {/* Hero Banner with Header overlay */}
+      <section className="relative h-[320px] overflow-hidden md:h-[400px] lg:h-[440px] 3xl:h-[520px]">
+        <div className="absolute inset-x-0 top-0 z-30">
+          <Header navItems={navItems} variant="overlay" />
+        </div>
+        <Image
+          src="/images/case-detail-banner.png"
+          alt={caseItem.title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 flex items-end">
+          <div className="mx-auto w-full max-w-6xl px-4 pb-10 lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:pb-14">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-block rounded-full bg-[#BF1920] px-4 py-1 text-xs font-medium text-white 3xl:px-5 3xl:py-1.5 3xl:text-sm">
+                {caseItem.tag}
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs text-black/80 backdrop-blur-sm 3xl:px-4 3xl:py-1.5 3xl:text-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#BF1920]" />
+                {caseItem.metrics}
+              </span>
+            </div>
+            <h1 className="text-2xl font-bold text-black md:text-3xl lg:text-4xl 3xl:text-5xl">
+              {caseItem.title}
+            </h1>
+            <p className="mt-3 max-w-2xl text-sm text-black/70 md:text-base 3xl:mt-4 3xl:text-lg">
+              {caseItem.desc}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumb */}
+      <div className="border-b border-border/40 bg-muted/30">
+        <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 text-sm text-muted-foreground lg:px-8 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:py-4 3xl:text-base">
+          <Link href="/" className="transition-colors hover:text-primary">
+            首页
+          </Link>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-muted-foreground/40">
+            <path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <Link href="/#cases" className="transition-colors hover:text-primary">
+            成功案例
+          </Link>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-muted-foreground/40">
+            <path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <span className="text-foreground">{caseItem.title}</span>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <main className="mx-auto max-w-6xl px-4 py-10 lg:px-8 lg:py-14 2xl:max-w-[1100px] 3xl:max-w-[1400px] 3xl:py-20">
+        {/* Project Background */}
+        <section className="mb-12 lg:mb-16 3xl:mb-20">
+          <SectionTitle>项目背景</SectionTitle>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:mt-6 3xl:text-lg 3xl:leading-[1.85]">
+            {detail.background}
+          </p>
+        </section>
+
+        {/* Challenge & Solution - two columns */}
+        <section className="mb-12 grid grid-cols-1 gap-6 lg:mb-16 lg:grid-cols-2 lg:gap-8 3xl:mb-20 3xl:gap-10">
+          {/* Challenge */}
+          <div className="rounded-2xl border border-border/60 bg-muted/20 p-6 lg:p-8 3xl:p-10">
+            <div className="mb-5 flex items-center gap-3 3xl:mb-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-12 3xl:w-12">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-[#BF1920] 3xl:h-6 3xl:w-6">
+                  <path d="M10 6V10M10 14H10.01M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-foreground 3xl:text-xl">项目挑战</h3>
+            </div>
+            <ul className="flex flex-col gap-3 3xl:gap-4">
+              {detail.challenge.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground lg:text-[15px] 3xl:text-base">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#BF1920]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Solution */}
+          <div className="rounded-2xl border border-border/60 bg-muted/20 p-6 lg:p-8 3xl:p-10">
+            <div className="mb-5 flex items-center gap-3 3xl:mb-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#BF1920]/10 3xl:h-12 3xl:w-12">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-[#BF1920] 3xl:h-6 3xl:w-6">
+                  <path d="M7 10L9 12L13 8M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-foreground 3xl:text-xl">解决方案</h3>
+            </div>
+            <ul className="flex flex-col gap-3 3xl:gap-4">
+              {detail.solution.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground lg:text-[15px] 3xl:text-base">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#BF1920]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Results metrics */}
+        <section className="mb-12 lg:mb-16 3xl:mb-20">
+          <SectionTitle>项目成果</SectionTitle>
+          <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6 3xl:mt-8 3xl:gap-8">
+            {detail.results.map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background p-5 text-center transition-all duration-300 hover:border-[#BF1920]/20 hover:shadow-lg lg:p-6 3xl:p-8"
+              >
+                <div className="absolute left-0 top-0 h-[3px] w-0 bg-[#BF1920] transition-all duration-500 group-hover:w-full" />
+                <p className="text-2xl font-bold text-[#BF1920] md:text-3xl 3xl:text-4xl">
+                  {item.value}
+                </p>
+                <p className="mt-2 text-xs text-muted-foreground md:text-sm 3xl:text-base">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Content sections with images */}
+        {detail.contentSections.map((section, idx) => (
+          <section key={idx} className="mb-12 lg:mb-16 3xl:mb-20">
+            <SectionTitle>{section.title}</SectionTitle>
+            <div className={`mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10 3xl:mt-8 3xl:gap-12 ${idx === 0 ? "lg:flex-row" : idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+              {section.image && (
+                <div className="relative h-[300px] w-full overflow-hidden rounded-2xl bg-muted/50 lg:h-[280px] lg:w-[45%] 3xl:h-[320px]">
+                  <Image
+                    src={section.image}
+                    alt={section.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    className="object-contain"
+                  />
+                </div>
+              )}
+              <div className="flex-1">
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base lg:text-[15px] lg:leading-[1.8] 3xl:text-lg 3xl:leading-[1.85]">
+                  {section.text}
+                </p>
+              </div>
+            </div>
+          </section>
+        ))}
+
+        {/* Tech Stack */}
+        <section className="mb-12 lg:mb-16 3xl:mb-20">
+          <SectionTitle>技术栈</SectionTitle>
+          <div className="mt-5 flex flex-wrap gap-3 3xl:mt-6 3xl:gap-4">
+            {detail.techStack.map((tech, idx) => (
+              <span
+                key={idx}
+                className="inline-flex items-center rounded-full border border-[#BF1920]/15 bg-[#BF1920]/5 px-4 py-2 text-sm font-medium text-[#BF1920] 3xl:px-5 3xl:py-2.5 3xl:text-base"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Other Cases */}
+        <OtherCases cases={cases} currentSlug={slug} />
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="h-6 w-1 rounded-full bg-[#BF1920] 3xl:h-7" />
+      <h2 className="text-xl font-bold text-foreground md:text-2xl 3xl:text-[28px]">
+        {children}
+      </h2>
+    </div>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// 3. 其他案例组件：components/cases/other-cases.tsx
+// ═══════════════════════════════════════════════════════════════════
+
+'use client'
+
+import Image from "next/image"
+import Link from "next/link"
+import { useRef } from "react"
+import type { CaseItem } from "@/lib/cases-data"
+
+interface OtherCasesProps {
+  cases: CaseItem[]
+  currentSlug: string
+}
+
+export function OtherCases({ cases, currentSlug }: OtherCasesProps) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  const otherCases = cases.filter((c) => c.slug !== currentSlug)
+
+  if (otherCases.length === 0) {
+    return null
+  }
+
+  return (
+    <section>
+      <div className="mb-4 flex items-center gap-2 3xl:mb-6">
+        <div className="h-1 w-1.5 rounded-full bg-[#BF1920]" />
+        <h2 className="text-xl font-bold text-foreground md:text-2xl lg:text-3xl 3xl:text-4xl">
+          其他案例
+        </h2>
+      </div>
+
+      <div className="relative mt-6 3xl:mt-8">
+        {/* Scroll container */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-5 overflow-x-auto hide-scrollbar 3xl:gap-6"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          } as React.CSSProperties}
+        >
+          {otherCases.map((relatedCase) => (
+            <Link
+              key={relatedCase.slug}
+              href={`/cases/${relatedCase.slug}`}
+              className="group relative flex-shrink-0 overflow-hidden rounded-2xl border border-border/60 bg-background transition-all duration-300 hover:shadow-lg w-[300px] md:w-[350px] lg:w-[380px] 3xl:w-[420px]"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={relatedCase.photo}
+                  alt={relatedCase.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <span className="absolute left-3 top-3 inline-block rounded-full bg-white/90 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-foreground/70 backdrop-blur-sm 3xl:text-xs">
+                  {relatedCase.tag}
+                </span>
+              </div>
+              <div className="p-4 3xl:p-5">
+                <h4 className="text-sm font-bold text-foreground transition-colors duration-300 group-hover:text-[#BF1920] 3xl:text-base">
+                  {relatedCase.title}
+                </h4>
+                <p className="mt-2 text-xs text-muted-foreground line-clamp-2 3xl:text-sm">
+                  {relatedCase.desc}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Scroll buttons */}
+        <button
+          onClick={() => handleScroll('left')}
+          className="absolute left-0 top-1/3 -translate-y-1/2 -translate-x-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#BF1920] text-white shadow-lg transition-all hover:shadow-xl active:scale-95 3xl:h-12 3xl:w-12 3xl:-translate-x-6"
+          aria-label="向左滚动"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="3xl:h-6 3xl:w-6">
+            <path d="M12 4L6 10L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        <button
+          onClick={() => handleScroll('right')}
+          className="absolute right-0 top-1/3 -translate-y-1/2 translate-x-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#BF1920] text-white shadow-lg transition-all hover:shadow-xl active:scale-95 3xl:h-12 3xl:w-12 3xl:translate-x-6"
+          aria-label="向右滚动"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="3xl:h-6 3xl:w-6">
+            <path d="M8 4L14 10L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </section>
+  )
+}
